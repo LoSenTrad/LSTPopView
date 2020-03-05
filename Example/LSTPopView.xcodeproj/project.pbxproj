@@ -23,6 +23,8 @@
 		31438A22241169AE00387B4E /* LSTAlertViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A21241169AE00387B4E /* LSTAlertViewVC.m */; };
 		31438A25241169BA00387B4E /* LSTSheetAlertViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A23241169BA00387B4E /* LSTSheetAlertViewVC.m */; };
 		31438A2824116A5000387B4E /* LSTPopViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A2624116A5000387B4E /* LSTPopViewVC.m */; };
+		31438A2A2411773E00387B4E /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 31438A292411773E00387B4E /* demo.gif */; };
+		31438A2C2411774B00387B4E /* lst_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 31438A2B2411774B00387B4E /* lst_logo.png */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -81,6 +83,8 @@
 		31438A24241169BA00387B4E /* LSTSheetAlertViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTSheetAlertViewVC.h; sourceTree = "<group>"; };
 		31438A2624116A5000387B4E /* LSTPopViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewVC.m; sourceTree = "<group>"; };
 		31438A2724116A5000387B4E /* LSTPopViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopViewVC.h; sourceTree = "<group>"; };
+		31438A292411773E00387B4E /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
+		31438A2B2411774B00387B4E /* lst_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lst_logo.png; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* LSTPopView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSTPopView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -271,6 +275,8 @@
 		6003F593195388D20070C39A /* Example for LSTPopView */ = {
 			isa = PBXGroup;
 			children = (
+				31438A2B2411774B00387B4E /* lst_logo.png */,
+				31438A292411773E00387B4E /* demo.gif */,
 				314389F6241168B700387B4E /* Main */,
 				314389F7241168CD00387B4E /* LSTPopView */,
 				314389FC2411691300387B4E /* LSTAlertView */,
@@ -418,9 +424,11 @@
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				31438A0A2411697000387B4E /* LSTPopViewTestVC.xib in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				31438A2C2411774B00387B4E /* lst_logo.png in Resources */,
 				31438A1F241169A000387B4E /* actionViewImage.jpg in Resources */,
 				31438A0B2411697000387B4E /* LSTPopViewTestView.xib in Resources */,
 				31438A1E241169A000387B4E /* LSTActionViewImage.xib in Resources */,
+				31438A2A2411773E00387B4E /* demo.gif in Resources */,
 				31438A1C241169A000387B4E /* LSTActionViewEmoji.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

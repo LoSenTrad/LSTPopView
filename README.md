@@ -1,9 +1,7 @@
 # LSTPopView
 
 [![CI Status](https://img.shields.io/travis/490790096@qq.com/LSTPopView.svg?style=flat)](https://travis-ci.org/490790096@qq.com/LSTPopView)
-[![Version](https://img.shields.io/cocoapods/v/LSTPopView.svg?style=flat)](https://cocoapods.org/pods/LSTPopView)
-[![License](https://img.shields.io/cocoapods/l/LSTPopView.svg?style=flat)](https://cocoapods.org/pods/LSTPopView)
-[![Platform](https://img.shields.io/cocoapods/p/LSTPopView.svg?style=flat)](https://cocoapods.org/pods/LSTPopView)
+
 
 ## Example
 
