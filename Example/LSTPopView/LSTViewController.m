@@ -7,6 +7,10 @@
 //
 
 #import "LSTViewController.h"
+#import "LSTPopViewVC.h"
+#import "LSTAlertViewVC.h"
+#import "LSTSheetAlertViewVC.h"
+
 
 @interface LSTViewController ()
 
@@ -17,13 +21,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.title = @"LSTPopView -- 万能弹窗";
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)popViewBtn:(UIButton *)sender {
+    
+    LSTPopViewVC *vc = [[LSTPopViewVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
+- (IBAction)alertViewBtn:(UIButton *)sender {
+    
+    LSTAlertViewVC *vc = [[LSTAlertViewVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)sheetAlertViewBtn:(UIButton *)sender {
+    
+    LSTSheetAlertViewVC *vc = [[LSTSheetAlertViewVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

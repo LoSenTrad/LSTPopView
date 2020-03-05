@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31438A012411694800387B4E /* LSTBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 314389FF2411694800387B4E /* LSTBaseVC.m */; };
+		31438A082411697000387B4E /* LSTPopViewTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A022411697000387B4E /* LSTPopViewTestView.m */; };
+		31438A092411697000387B4E /* LSTPopViewTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A032411697000387B4E /* LSTPopViewTestVC.m */; };
+		31438A0A2411697000387B4E /* LSTPopViewTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31438A052411697000387B4E /* LSTPopViewTestVC.xib */; };
+		31438A0B2411697000387B4E /* LSTPopViewTestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31438A072411697000387B4E /* LSTPopViewTestView.xib */; };
+		31438A0F2411697C00387B4E /* LSTPopViewXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A0C2411697C00387B4E /* LSTPopViewXibView.m */; };
+		31438A102411697C00387B4E /* LSTPopViewXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31438A0E2411697C00387B4E /* LSTPopViewXibView.xib */; };
+		31438A132411698B00387B4E /* LSTPopViewCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A112411698B00387B4E /* LSTPopViewCodeView.m */; };
+		31438A1B241169A000387B4E /* LSTActionViewEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A142411699F00387B4E /* LSTActionViewEmoji.m */; };
+		31438A1C241169A000387B4E /* LSTActionViewEmoji.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31438A152411699F00387B4E /* LSTActionViewEmoji.xib */; };
+		31438A1D241169A000387B4E /* LSTActionViewImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A16241169A000387B4E /* LSTActionViewImage.m */; };
+		31438A1E241169A000387B4E /* LSTActionViewImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31438A17241169A000387B4E /* LSTActionViewImage.xib */; };
+		31438A1F241169A000387B4E /* actionViewImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31438A18241169A000387B4E /* actionViewImage.jpg */; };
+		31438A22241169AE00387B4E /* LSTAlertViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A21241169AE00387B4E /* LSTAlertViewVC.m */; };
+		31438A25241169BA00387B4E /* LSTSheetAlertViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A23241169BA00387B4E /* LSTSheetAlertViewVC.m */; };
+		31438A2824116A5000387B4E /* LSTPopViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A2624116A5000387B4E /* LSTPopViewVC.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -37,9 +53,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		038CEC63B34760C327FDAD98 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		038CEC63B34760C327FDAD98 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		0BDD3070AE4FDB6F9CD60EEB /* Pods-LSTPopView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LSTPopView_Tests.release.xcconfig"; path = "Target Support Files/Pods-LSTPopView_Tests/Pods-LSTPopView_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		6003F58A195388D20070C39A /* LSTPopView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSTPopView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		314389FF2411694800387B4E /* LSTBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTBaseVC.m; sourceTree = "<group>"; };
+		31438A002411694800387B4E /* LSTBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTBaseVC.h; sourceTree = "<group>"; };
+		31438A022411697000387B4E /* LSTPopViewTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewTestView.m; sourceTree = "<group>"; };
+		31438A032411697000387B4E /* LSTPopViewTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewTestVC.m; sourceTree = "<group>"; };
+		31438A042411697000387B4E /* LSTPopViewTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopViewTestVC.h; sourceTree = "<group>"; };
+		31438A052411697000387B4E /* LSTPopViewTestVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSTPopViewTestVC.xib; sourceTree = "<group>"; };
+		31438A062411697000387B4E /* LSTPopViewTestView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopViewTestView.h; sourceTree = "<group>"; };
+		31438A072411697000387B4E /* LSTPopViewTestView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSTPopViewTestView.xib; sourceTree = "<group>"; };
+		31438A0C2411697C00387B4E /* LSTPopViewXibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewXibView.m; sourceTree = "<group>"; };
+		31438A0D2411697C00387B4E /* LSTPopViewXibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopViewXibView.h; sourceTree = "<group>"; };
+		31438A0E2411697C00387B4E /* LSTPopViewXibView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSTPopViewXibView.xib; sourceTree = "<group>"; };
+		31438A112411698B00387B4E /* LSTPopViewCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewCodeView.m; sourceTree = "<group>"; };
+		31438A122411698B00387B4E /* LSTPopViewCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopViewCodeView.h; sourceTree = "<group>"; };
+		31438A142411699F00387B4E /* LSTActionViewEmoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTActionViewEmoji.m; sourceTree = "<group>"; };
+		31438A152411699F00387B4E /* LSTActionViewEmoji.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSTActionViewEmoji.xib; sourceTree = "<group>"; };
+		31438A16241169A000387B4E /* LSTActionViewImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTActionViewImage.m; sourceTree = "<group>"; };
+		31438A17241169A000387B4E /* LSTActionViewImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSTActionViewImage.xib; sourceTree = "<group>"; };
+		31438A18241169A000387B4E /* actionViewImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = actionViewImage.jpg; sourceTree = "<group>"; };
+		31438A19241169A000387B4E /* LSTActionViewEmoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTActionViewEmoji.h; sourceTree = "<group>"; };
+		31438A1A241169A000387B4E /* LSTActionViewImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTActionViewImage.h; sourceTree = "<group>"; };
+		31438A20241169AE00387B4E /* LSTAlertViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTAlertViewVC.h; sourceTree = "<group>"; };
+		31438A21241169AE00387B4E /* LSTAlertViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTAlertViewVC.m; sourceTree = "<group>"; };
+		31438A23241169BA00387B4E /* LSTSheetAlertViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTSheetAlertViewVC.m; sourceTree = "<group>"; };
+		31438A24241169BA00387B4E /* LSTSheetAlertViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTSheetAlertViewVC.h; sourceTree = "<group>"; };
+		31438A2624116A5000387B4E /* LSTPopViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewVC.m; sourceTree = "<group>"; };
+		31438A2724116A5000387B4E /* LSTPopViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopViewVC.h; sourceTree = "<group>"; };
+		6003F58A195388D20070C39A /* LSTPopView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSTPopView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -62,8 +104,8 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8908AE8987A44AB48C33175D /* Pods_LSTPopView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LSTPopView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9187EEEF2ED2937C7B19795A /* Pods-LSTPopView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LSTPopView_Example.release.xcconfig"; path = "Target Support Files/Pods-LSTPopView_Example/Pods-LSTPopView_Example.release.xcconfig"; sourceTree = "<group>"; };
-		A1A3B8DC8F645A2E3A4D3F55 /* LSTPopView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = LSTPopView.podspec; path = ../LSTPopView.podspec; sourceTree = "<group>"; };
-		B2FC140E090D63A96953DBD3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		A1A3B8DC8F645A2E3A4D3F55 /* LSTPopView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LSTPopView.podspec; path = ../LSTPopView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B2FC140E090D63A96953DBD3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B7B3337937D496BD4055D2A3 /* Pods_LSTPopView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LSTPopView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7DF4F9C390975AA25E2745C /* Pods-LSTPopView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LSTPopView_Example.debug.xcconfig"; path = "Target Support Files/Pods-LSTPopView_Example/Pods-LSTPopView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F50E16F14DD91026EA18B325 /* Pods-LSTPopView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LSTPopView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-LSTPopView_Tests/Pods-LSTPopView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,8 +145,93 @@
 				F50E16F14DD91026EA18B325 /* Pods-LSTPopView_Tests.debug.xcconfig */,
 				0BDD3070AE4FDB6F9CD60EEB /* Pods-LSTPopView_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		314389F6241168B700387B4E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				31438A002411694800387B4E /* LSTBaseVC.h */,
+				314389FF2411694800387B4E /* LSTBaseVC.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		314389F7241168CD00387B4E /* LSTPopView */ = {
+			isa = PBXGroup;
+			children = (
+				31438A2724116A5000387B4E /* LSTPopViewVC.h */,
+				31438A2624116A5000387B4E /* LSTPopViewVC.m */,
+				314389FA241168FF00387B4E /* 纯代码自定义view */,
+				314389F9241168EF00387B4E /* XIB自定义View */,
+				314389F8241168DD00387B4E /* LSTPopView属性调试 */,
+			);
+			path = LSTPopView;
+			sourceTree = "<group>";
+		};
+		314389F8241168DD00387B4E /* LSTPopView属性调试 */ = {
+			isa = PBXGroup;
+			children = (
+				31438A042411697000387B4E /* LSTPopViewTestVC.h */,
+				31438A032411697000387B4E /* LSTPopViewTestVC.m */,
+				31438A052411697000387B4E /* LSTPopViewTestVC.xib */,
+				31438A062411697000387B4E /* LSTPopViewTestView.h */,
+				31438A022411697000387B4E /* LSTPopViewTestView.m */,
+				31438A072411697000387B4E /* LSTPopViewTestView.xib */,
+			);
+			path = "LSTPopView属性调试";
+			sourceTree = "<group>";
+		};
+		314389F9241168EF00387B4E /* XIB自定义View */ = {
+			isa = PBXGroup;
+			children = (
+				31438A0D2411697C00387B4E /* LSTPopViewXibView.h */,
+				31438A0C2411697C00387B4E /* LSTPopViewXibView.m */,
+				31438A0E2411697C00387B4E /* LSTPopViewXibView.xib */,
+			);
+			path = "XIB自定义View";
+			sourceTree = "<group>";
+		};
+		314389FA241168FF00387B4E /* 纯代码自定义view */ = {
+			isa = PBXGroup;
+			children = (
+				31438A122411698B00387B4E /* LSTPopViewCodeView.h */,
+				31438A112411698B00387B4E /* LSTPopViewCodeView.m */,
+			);
+			path = "纯代码自定义view";
+			sourceTree = "<group>";
+		};
+		314389FC2411691300387B4E /* LSTAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				31438A20241169AE00387B4E /* LSTAlertViewVC.h */,
+				31438A21241169AE00387B4E /* LSTAlertViewVC.m */,
+				314389FE2411692B00387B4E /* 自定义actionView */,
+			);
+			path = LSTAlertView;
+			sourceTree = "<group>";
+		};
+		314389FD2411691B00387B4E /* LSTSheetAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				31438A24241169BA00387B4E /* LSTSheetAlertViewVC.h */,
+				31438A23241169BA00387B4E /* LSTSheetAlertViewVC.m */,
+			);
+			path = LSTSheetAlertView;
+			sourceTree = "<group>";
+		};
+		314389FE2411692B00387B4E /* 自定义actionView */ = {
+			isa = PBXGroup;
+			children = (
+				31438A18241169A000387B4E /* actionViewImage.jpg */,
+				31438A19241169A000387B4E /* LSTActionViewEmoji.h */,
+				31438A142411699F00387B4E /* LSTActionViewEmoji.m */,
+				31438A152411699F00387B4E /* LSTActionViewEmoji.xib */,
+				31438A1A241169A000387B4E /* LSTActionViewImage.h */,
+				31438A16241169A000387B4E /* LSTActionViewImage.m */,
+				31438A17241169A000387B4E /* LSTActionViewImage.xib */,
+			);
+			path = "自定义actionView";
 			sourceTree = "<group>";
 		};
 		6003F581195388D10070C39A = {
@@ -122,7 +249,7 @@
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6003F58A195388D20070C39A /* LSTPopView_Example.app */,
+				6003F58A195388D20070C39A /* LSTPopView.app */,
 				6003F5AE195388D20070C39A /* LSTPopView_Tests.xctest */,
 			);
 			name = Products;
@@ -144,6 +271,10 @@
 		6003F593195388D20070C39A /* Example for LSTPopView */ = {
 			isa = PBXGroup;
 			children = (
+				314389F6241168B700387B4E /* Main */,
+				314389F7241168CD00387B4E /* LSTPopView */,
+				314389FC2411691300387B4E /* LSTAlertView */,
+				314389FD2411691B00387B4E /* LSTSheetAlertView */,
 				6003F59C195388D20070C39A /* LSTAppDelegate.h */,
 				6003F59D195388D20070C39A /* LSTAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -216,7 +347,7 @@
 			);
 			name = LSTPopView_Example;
 			productName = LSTPopView;
-			productReference = 6003F58A195388D20070C39A /* LSTPopView_Example.app */;
+			productReference = 6003F58A195388D20070C39A /* LSTPopView.app */;
 			productType = "com.apple.product-type.application";
 		};
 		6003F5AD195388D20070C39A /* LSTPopView_Tests */ = {
@@ -248,6 +379,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "490790096@qq.com";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = F8DZH6Y62F;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -258,6 +392,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -279,8 +414,14 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				31438A102411697C00387B4E /* LSTPopViewXibView.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				31438A0A2411697000387B4E /* LSTPopViewTestVC.xib in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				31438A1F241169A000387B4E /* actionViewImage.jpg in Resources */,
+				31438A0B2411697000387B4E /* LSTPopViewTestView.xib in Resources */,
+				31438A1E241169A000387B4E /* LSTActionViewImage.xib in Resources */,
+				31438A1C241169A000387B4E /* LSTActionViewEmoji.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,11 +465,19 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LSTPopView_Example/Pods-LSTPopView_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/LSTButton/LSTButton.framework",
+				"${BUILT_PRODUCTS_DIR}/LSTCategory/LSTCategory.framework",
 				"${BUILT_PRODUCTS_DIR}/LSTPopView/LSTPopView.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LSTButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LSTCategory.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LSTPopView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -364,9 +513,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31438A25241169BA00387B4E /* LSTSheetAlertViewVC.m in Sources */,
 				6003F59E195388D20070C39A /* LSTAppDelegate.m in Sources */,
+				31438A22241169AE00387B4E /* LSTAlertViewVC.m in Sources */,
+				31438A092411697000387B4E /* LSTPopViewTestVC.m in Sources */,
+				31438A1D241169A000387B4E /* LSTActionViewImage.m in Sources */,
+				31438A132411698B00387B4E /* LSTPopViewCodeView.m in Sources */,
+				31438A082411697000387B4E /* LSTPopViewTestView.m in Sources */,
+				31438A012411694800387B4E /* LSTBaseVC.m in Sources */,
 				6003F5A7195388D20070C39A /* LSTViewController.m in Sources */,
+				31438A2824116A5000387B4E /* LSTPopViewVC.m in Sources */,
+				31438A1B241169A000387B4E /* LSTActionViewEmoji.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				31438A0F2411697C00387B4E /* LSTPopViewXibView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,12 +653,13 @@
 			baseConfigurationReference = B7DF4F9C390975AA25E2745C /* Pods-LSTPopView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = F8DZH6Y62F;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LSTPopView/LSTPopView-Prefix.pch";
 				INFOPLIST_FILE = "LSTPopView/LSTPopView-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.LSTPopView.www;
+				PRODUCT_NAME = LSTPopView;
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};
@@ -510,12 +670,13 @@
 			baseConfigurationReference = 9187EEEF2ED2937C7B19795A /* Pods-LSTPopView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = F8DZH6Y62F;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LSTPopView/LSTPopView-Prefix.pch";
 				INFOPLIST_FILE = "LSTPopView/LSTPopView-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.LSTPopView.www;
+				PRODUCT_NAME = LSTPopView;
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
 			};

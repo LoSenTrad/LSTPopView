@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JKq-j3-Qzo">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,12 +18,161 @@
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ag0-vy-Jtm">
+                                <rect key="frame" x="10" y="337" width="355" height="50"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jBd-Av-AIw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="LSTSheetAlertView(完善中)">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="sheetAlertViewBtn:" destination="whP-gf-Uak" eventType="touchUpInside" id="pUf-dl-4Wm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYD-gl-vjC">
+                                <rect key="frame" x="10" y="243" width="355" height="50"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lqV-cm-1V4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="LSTAlertView">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="alertViewBtn:" destination="whP-gf-Uak" eventType="touchUpInside" id="XXw-un-7zz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waS-ez-IfO">
+                                <rect key="frame" x="10" y="149" width="355" height="50"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XWY-D7-6um"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="LSTPopView">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="popViewBtn:" destination="whP-gf-Uak" eventType="touchUpInside" id="YUR-f2-hdL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEr-oy-cxd">
+                                <rect key="frame" x="10" y="431" width="355" height="50"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8zB-oV-fK2"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="HUX-Qc-F0i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="LSTSysAlertView(待开发)">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vki-58-cDb">
+                                <rect key="frame" x="10" y="525" width="355" height="50"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="PLu-35-Pxn"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="zlB-An-7DH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="LSTSysSheetAlertView(待开发)">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LSTAlertView: 基于LSTPopView自定义view封装,高度自定义选项卡弹框" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1y-IZ-ERa">
+                                <rect key="frame" x="10" y="298" width="355" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LSTSheetAlertView: 基于LSTPopView自定义view封装,高度自定义底部弹框,类似微信底部选项卡弹窗" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crz-Sm-T8m">
+                                <rect key="frame" x="26" y="392" width="323" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LSTSysSheetAlertView: 系统底部弹框的封装,快速简洁调用" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gP1-l4-dZc">
+                                <rect key="frame" x="26" y="580" width="323" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LSTSysAlertView: 系统弹框的封装,快速简洁调用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3t-5e-PCU">
+                                <rect key="frame" x="26" y="486" width="323" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LSTPopView: 万能弹窗,快速使用,满足大部分需求" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMO-UY-0en">
+                                <rect key="frame" x="10" y="204" width="355" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Z1y-IZ-ERa" secondAttribute="trailing" constant="10" id="14e-fN-tkI"/>
+                            <constraint firstItem="k3t-5e-PCU" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" constant="10" id="6WF-Ss-Vb8"/>
+                            <constraint firstAttribute="trailing" secondItem="ag0-vy-Jtm" secondAttribute="trailing" constant="10" id="94r-mF-zB4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k3t-5e-PCU" secondAttribute="trailing" constant="10" id="CxL-jj-9xP"/>
+                            <constraint firstItem="waS-ez-IfO" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="105" id="DvY-3I-EdF"/>
+                            <constraint firstAttribute="trailing" secondItem="vEr-oy-cxd" secondAttribute="trailing" constant="10" id="Ha4-sw-Jvr"/>
+                            <constraint firstItem="pYD-gl-vjC" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="10" id="Hcy-gq-Xxn"/>
+                            <constraint firstItem="Z1y-IZ-ERa" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="10" id="KOQ-WI-P9m"/>
+                            <constraint firstAttribute="trailing" secondItem="pYD-gl-vjC" secondAttribute="trailing" constant="10" id="LKQ-19-pF2"/>
+                            <constraint firstAttribute="trailing" secondItem="cMO-UY-0en" secondAttribute="trailing" constant="10" id="Lu6-9B-hnf"/>
+                            <constraint firstItem="gP1-l4-dZc" firstAttribute="top" secondItem="Vki-58-cDb" secondAttribute="bottom" constant="5" id="NZd-2j-IcM"/>
+                            <constraint firstAttribute="trailing" secondItem="Vki-58-cDb" secondAttribute="trailing" constant="10" id="S9g-tb-S30"/>
+                            <constraint firstItem="ag0-vy-Jtm" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="10" id="TCD-I1-J7J"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gP1-l4-dZc" secondAttribute="trailing" constant="10" id="Vyg-z0-vkV"/>
+                            <constraint firstItem="k3t-5e-PCU" firstAttribute="top" secondItem="vEr-oy-cxd" secondAttribute="bottom" constant="5" id="X3z-jv-LYw"/>
+                            <constraint firstItem="Vki-58-cDb" firstAttribute="top" secondItem="vEr-oy-cxd" secondAttribute="bottom" constant="44" id="Y2O-1f-ks4"/>
+                            <constraint firstItem="cMO-UY-0en" firstAttribute="top" secondItem="waS-ez-IfO" secondAttribute="bottom" constant="5" id="ZRF-Md-gv7"/>
+                            <constraint firstItem="crz-Sm-T8m" firstAttribute="top" secondItem="ag0-vy-Jtm" secondAttribute="bottom" constant="5" id="ajM-g9-QNW"/>
+                            <constraint firstItem="ag0-vy-Jtm" firstAttribute="top" secondItem="pYD-gl-vjC" secondAttribute="bottom" constant="44" id="dl3-vj-GHz"/>
+                            <constraint firstItem="Z1y-IZ-ERa" firstAttribute="top" secondItem="pYD-gl-vjC" secondAttribute="bottom" constant="5" id="f8D-We-tR1"/>
+                            <constraint firstItem="crz-Sm-T8m" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" constant="10" id="fFK-Lv-y3n"/>
+                            <constraint firstItem="pYD-gl-vjC" firstAttribute="top" secondItem="waS-ez-IfO" secondAttribute="bottom" constant="44" id="fbM-gk-sID"/>
+                            <constraint firstItem="waS-ez-IfO" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="10" id="g1U-Cg-auo"/>
+                            <constraint firstItem="gP1-l4-dZc" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" constant="10" id="i8n-w6-bX0"/>
+                            <constraint firstItem="vEr-oy-cxd" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="10" id="kiW-4w-ZFg"/>
+                            <constraint firstItem="cMO-UY-0en" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="10" id="lhP-TH-G5k"/>
+                            <constraint firstItem="vEr-oy-cxd" firstAttribute="top" secondItem="ag0-vy-Jtm" secondAttribute="bottom" constant="44" id="qmY-xE-zqh"/>
+                            <constraint firstAttribute="trailing" secondItem="waS-ez-IfO" secondAttribute="trailing" constant="10" id="qs6-gU-qCy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="crz-Sm-T8m" secondAttribute="trailing" constant="10" id="tuZ-dD-lnm"/>
+                            <constraint firstItem="Vki-58-cDb" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="10" id="uJz-EK-tPN"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="RJT-M2-36w"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="433"/>
+            <point key="canvasLocation" x="22" y="66"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QoN-qO-rxT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JKq-j3-Qzo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2xY-qs-I8v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="whP-gf-Uak" kind="relationship" relationship="rootViewController" id="aH3-8A-txy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KC4-4Y-1LI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-807" y="67"/>
         </scene>
     </scenes>
 </document>
