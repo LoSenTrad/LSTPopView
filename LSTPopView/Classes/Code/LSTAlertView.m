@@ -787,7 +787,7 @@
     
     if (actionTitles.count>0 && actionSubTitles.count<=0) {
         for (int i = 0; i<actionTitles.count; i++) {
-            LSTAlertViewAction *action = [[LSTAlertViewAction init] init];
+            LSTAlertViewAction *action = [[LSTAlertViewAction alloc] init];
             action.clickBlock = clickBlock;
             action.title = actionTitles[i];
             [alertView addAction:action];
@@ -795,7 +795,7 @@
         }
     }else if (actionSubTitles.count>0 && actionTitles.count<=0) {
         for (int i = 0; i<actionSubTitles.count; i++) {
-            LSTAlertViewAction *action = [[LSTAlertViewAction init] init];
+            LSTAlertViewAction *action = [[LSTAlertViewAction alloc] init];
             action.clickBlock = clickBlock;
             action.subTitle = actionSubTitles[i];
             [alertView addAction:action];

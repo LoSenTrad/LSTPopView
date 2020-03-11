@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LSTPopView'
-  s.version          = '0.1.03060225'
+  s.version          = '0.1.03111443'
   s.summary          = 'A short description of LSTPopView.'
 
 # This description is used to generate tags and improve search results.

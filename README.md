@@ -1,6 +1,6 @@
 #  LSTPopView 万能弹框
 ---
-#####如果你觉得组件好用给你,请给我一个右上角'Star'! 
+##如果你觉得组件好用给你,请给我一个右上角'Star'! 
 ---
 
 ![](https://github.com/LoSenTrad/LSTPopView/blob/master/Example/LSTPopView/lst_logo.png?raw=true=50x50)
@@ -25,7 +25,7 @@ it, simply add the following line to your Podfile:
 pod 'LSTPopView'
 ```
 
-## Author
+## 作者
 
 490790096@qq.com, LoSenTrad@163.com
 
