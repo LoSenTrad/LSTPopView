@@ -91,27 +91,27 @@
     switch (self.popStyleSC.selectedSegmentIndex) {
         case 1:
         {
-            popView.animationPopStyle = LSTPopStyleShakeFromTop;
+            popView.popStyle = LSTPopStyleSpringFromTop;
         }
             break;
         case 2:
         {
-            popView.animationPopStyle = LSTPopStyleShakeFromLeft;
+            popView.popStyle = LSTPopStyleSpringFromLeft;
         }
             break;
         case 3:
         {
-            popView.animationPopStyle = LSTPopStyleShakeFromBottom;
+            popView.popStyle = LSTPopStyleSpringFromBottom;
         }
             break;
         case 4:
         {
-            popView.animationPopStyle = LSTPopStyleShakeFromRight;
+            popView.popStyle = LSTPopStyleSpringFromRight;
         }
             break;
         default:
         {
-            popView.animationPopStyle = LSTPopStyleNO;
+            popView.popStyle = LSTPopStyleNO;
         }
             break;
     }
@@ -119,35 +119,35 @@
     switch (self.dismissStyleSC.selectedSegmentIndex) {
            case 1:
            {
-               popView.animationDismissStyle = LSTDismissStyleDropToTop;
+               popView.dismissStyle = LSTDismissStyleDropToTop;
            }
                break;
            case 2:
            {
-               popView.animationDismissStyle = LSTDismissStyleDropToLeft;
+               popView.dismissStyle = LSTDismissStyleDropToLeft;
            }
                break;
            case 3:
            {
-               popView.animationDismissStyle = LSTDismissStyleDropToBottom;
+               popView.dismissStyle = LSTDismissStyleDropToBottom;
            }
                break;
            case 4:
            {
-               popView.animationDismissStyle = LSTDismissStyleDropToRight;
+               popView.dismissStyle = LSTDismissStyleDropToRight;
            }
                break;
            default:
            {
-               popView.animationDismissStyle = LSTPopStyleNO;
+               popView.dismissStyle = LSTPopStyleNO;
            }
                break;
        }
     
     
     popView.popBGAlpha = [self.popBGAlpha.text floatValue];
-    popView.popAnimationDuration  = [self.popTime.text floatValue];
-    popView.dismissAnimationDuration = [self.dismissTime.text floatValue];
+    popView.popDuration  = [self.popTime.text floatValue];
+    popView.dismissDuration = [self.dismissTime.text floatValue];
     
     popView.bgClickBlock = ^{
         

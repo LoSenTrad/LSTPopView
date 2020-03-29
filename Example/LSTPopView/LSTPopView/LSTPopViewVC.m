@@ -125,19 +125,21 @@ UITableViewDelegate
         
     view.frame = CGRectMake(0, 0, 300, 300);
     
-    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleShakeFromTop dismissStyle:1];
+    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleDropToLeft];
     popView.hemStyle = LSTHemStyleCenter;
     popView.adjustY = 10;
-
+//    __weak typeof(popView) weakPopview = popView;
+    LSTPopViewWK(popView)
     popView.bgClickBlock = ^{
         NSLog(@"点击了背景");
+        [wk_popView dismiss];
     };
     
     view.closeBlock = ^{
-        [popView dismiss];
+        [wk_popView dismissWithDismissStyle:LSTDismissStyleDropToTop duration:1.0];
     };
     
-    [popView pop];
+    [popView popWithPopStyle:LSTPopStyleSmoothFromTop duration:0.5];
 }
 
 - (void)xibView {
@@ -147,12 +149,11 @@ UITableViewDelegate
     view.layer.cornerRadius = 10;
     view.layer.masksToBounds = YES;
     
-//    view.frame = CGRectMake(0, 0, 300, 300);
     
     LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:1 dismissStyle:1];
-    
+    LSTPopViewWK(popView);
     popView.bgClickBlock = ^{
-        
+        [wk_popView dismiss];
         NSLog(@"点击了背景");
     };
     

@@ -31,6 +31,9 @@
 }
 
 #pragma mark - ***** setter 设置器/数据处理 *****
+- (void)dealloc {
+    
+}
 
 
 #pragma mark - ***** setupUI 界面布局 *****

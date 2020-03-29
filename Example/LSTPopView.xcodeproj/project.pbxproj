@@ -25,6 +25,7 @@
 		31438A2824116A5000387B4E /* LSTPopViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A2624116A5000387B4E /* LSTPopViewVC.m */; };
 		31438A2A2411773E00387B4E /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 31438A292411773E00387B4E /* demo.gif */; };
 		31438A2C2411774B00387B4E /* lst_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 31438A2B2411774B00387B4E /* lst_logo.png */; };
+		31EBBDB6243110030059B4DE /* UPDATE_HISTORY.md in Resources */ = {isa = PBXBuildFile; fileRef = 31EBBDB5243110030059B4DE /* UPDATE_HISTORY.md */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -85,6 +86,7 @@
 		31438A2724116A5000387B4E /* LSTPopViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopViewVC.h; sourceTree = "<group>"; };
 		31438A292411773E00387B4E /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
 		31438A2B2411774B00387B4E /* lst_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lst_logo.png; sourceTree = "<group>"; };
+		31EBBDB5243110030059B4DE /* UPDATE_HISTORY.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = UPDATE_HISTORY.md; path = ../UPDATE_HISTORY.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* LSTPopView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSTPopView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -329,6 +331,7 @@
 			children = (
 				A1A3B8DC8F645A2E3A4D3F55 /* LSTPopView.podspec */,
 				B2FC140E090D63A96953DBD3 /* README.md */,
+				31EBBDB5243110030059B4DE /* UPDATE_HISTORY.md */,
 				038CEC63B34760C327FDAD98 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
@@ -419,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				31EBBDB6243110030059B4DE /* UPDATE_HISTORY.md in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				31438A102411697C00387B4E /* LSTPopViewXibView.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,

@@ -439,7 +439,7 @@ UITableViewDelegate
 - (void)show {
     
   
-    LSTPopView *alertView = [LSTPopView initWithCustomView:self popStyle:LSTPopStyleShakeFromBottom dismissStyle:0];
+    LSTPopView *alertView = [LSTPopView initWithCustomView:self popStyle:LSTPopStyleSmoothFromBottom dismissStyle:0];
     self.popView = alertView;
     alertView.hemStyle = LSTHemStyleBottom;
 //    alertView.adjustY = 0;
