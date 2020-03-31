@@ -4,16 +4,20 @@
 ---
 ![](https://github.com/LoSenTrad/LSTPopView/blob/master/Example/LSTPopView/lst_logo.png?raw=true=50x50)
 
+
 ## 版本更新历史 [@戳我](https://github.com/LoSenTrad/LSTPopView/blob/master/UPDATE_HISTORY.md)
 2020.03.30 v0.1.03300123
+---
 
---
+- 点击回馈动画默认关闭
+- 优化dismiss动画时间
+- other
 
-- 增加并优化popStyle动画
-- pop和dissmiss支持单独设置,详情请看demo
-- 增加点击反馈动画
-- 调整优化相关api和属性
-- 修复dismiss偶尔闪退
+新版本开发img:
+- 新增 多个弹框 栈队管理机制
+- 新增 键盘弹出收起 弹框自适应(避免遮挡)
+- 新增 拖动/甩动移除 弹框
+
 
 ## 前言
 - 由于时间比较有限,组件处于初步完善阶段,难免存在问题,后续逐步完善

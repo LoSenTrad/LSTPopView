@@ -125,9 +125,10 @@ UITableViewDelegate
         
     view.frame = CGRectMake(0, 0, 300, 300);
     
-    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleDropToLeft];
+    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleDropToBottom];
     popView.hemStyle = LSTHemStyleCenter;
     popView.adjustY = 10;
+    popView.isClickFeedback = YES;
 //    __weak typeof(popView) weakPopview = popView;
     LSTPopViewWK(popView)
     popView.bgClickBlock = ^{

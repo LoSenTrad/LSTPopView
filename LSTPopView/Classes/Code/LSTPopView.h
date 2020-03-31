@@ -109,6 +109,8 @@ typedef NS_ENUM(NSInteger, LSTHemStyle) {
 //@property (nonatomic, assign) LSTActivityStyle clickStyle;
 /** 是否开启长按反馈动画 默认YES */
 //@property (nonatomic, assign) BOOL isLongPressAnimation;
+/** 是否支持点击回馈 默认NO */
+@property (nonatomic, assign) BOOL isClickFeedback;
 
 /** 点击背景 */
 @property (nullable, nonatomic, copy) void(^bgClickBlock)(void);

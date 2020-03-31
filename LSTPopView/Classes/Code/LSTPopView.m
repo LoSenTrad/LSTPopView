@@ -10,6 +10,7 @@
 #import "UIColor+LSTColor.h"
 
 
+
 // 角度转弧度
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 
@@ -50,6 +51,7 @@
     _hemStyle = LSTHemStyleCenter;
     self.adjustX = 0;
     self.adjustY = 0;
+    self.isClickFeedback = NO;
 }
 
 + (nullable instancetype)initWithCustomView:(UIView *_Nonnull)customView {
@@ -90,8 +92,8 @@
 //    UILongPressGestureRecognizer *customViewLP = [[UILongPressGestureRecognizer alloc] initWithTarget:popView action:@selector(pressedEvent:)];
 //    [popView.customView addGestureRecognizer:customViewLP];
 
-    UITapGestureRecognizer *customViewTap = [[UITapGestureRecognizer alloc] initWithTarget:popView action:@selector(clickEvent:)];
-    [popView.customView addGestureRecognizer:customViewTap];
+//    UITapGestureRecognizer *customViewTap = [[UITapGestureRecognizer alloc] initWithTarget:popView action:@selector(clickEvent:)];
+//    [popView.customView addGestureRecognizer:customViewTap];
     
 //
 //    [popView.customView addTarget:self action:@selector(pressedEvent:) forControlEvents:UIControlEventTouchDown];
@@ -241,9 +243,13 @@
     
 }
 
+- (void)setIsClickFeedback:(BOOL)isClickFeedback {
+    _isClickFeedback = isClickFeedback;
+    UITapGestureRecognizer *customViewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickEvent:)];
+    [self.customView addGestureRecognizer:customViewTap];
+}
+
 #pragma mark - ***** 公有api *****
-
-
 
 - (void)pop {
     [self popWithPopStyle:self.popStyle duration:[self getPopDefaultDuration:self.popStyle]];
@@ -615,9 +621,9 @@
 {
     NSTimeInterval defaultDuration = 0.0f;
     if (dismissStyle == LSTDismissStyleNO) {
-        defaultDuration = 0.2f;
+        defaultDuration = 0.25f;
     } else if (dismissStyle == LSTDismissStyleScale) {
-        defaultDuration = 0.2f;
+        defaultDuration = 0.25f;
     } else if (dismissStyle == LSTDismissStyleDropToTop ||
                dismissStyle == LSTDismissStyleDropToBottom ||
                dismissStyle == LSTDismissStyleDropToLeft ||
@@ -625,7 +631,7 @@
                dismissStyle == LSTDismissStyleCardDropToLeft ||
                dismissStyle == LSTDismissStyleCardDropToRight ||
                dismissStyle == LSTDismissStyleCardDropToTop) {
-        defaultDuration = 0.8f;
+        defaultDuration = 1.0f;
     }
     return defaultDuration;
 }
