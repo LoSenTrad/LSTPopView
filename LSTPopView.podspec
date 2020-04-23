@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LSTPopView'
-  s.version          = '0.1.03311130'
+  s.version          = '0.1.04231001'
   s.summary          = 'A short description of LSTPopView.'
 
 # This description is used to generate tags and improve search results.
@@ -42,6 +42,6 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
    s.dependency 'LSTCategory'
-   s.dependency 'LSTButton'
+   #s.dependency 'LSTButton'
 
 end

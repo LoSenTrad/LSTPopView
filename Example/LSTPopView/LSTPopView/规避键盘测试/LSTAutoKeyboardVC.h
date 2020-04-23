@@ -1,16 +1,16 @@
 //
-//  LSTPopViewVC.h
-//  LSTAlertView_Example
+//  LSTAutoKeyboardVC.h
+//  LSTPopView_Example
 //
-//  Created by LoSenTrad on 2020/1/17.
+//  Created by LoSenTrad on 2020/4/15.
 //  Copyright © 2020 490790096@qq.com. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "LSTBaseVC.h" 
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LSTPopViewVC : LSTBaseVC
+@interface LSTAutoKeyboardVC : UIViewController
 
 @end
 

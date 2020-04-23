@@ -49,5 +49,10 @@
     
 }
 
+- (IBAction)pushVCAction:(UIButton *)sender {
+    if (self.pushBlock) {
+        self.pushBlock(sender);
+    }
+}
 
 @end

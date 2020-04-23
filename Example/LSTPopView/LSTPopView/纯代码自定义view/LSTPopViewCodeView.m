@@ -55,7 +55,9 @@
     
     [_closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(30, 30));
-        make.top.right.equalTo(self.imgView);
+        make.top.equalTo(self.imgView).offset(8);
+        make.right.equalTo(self.imgView).offset(-8);
+
     }];
     
     

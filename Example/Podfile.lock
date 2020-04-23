@@ -1,32 +1,23 @@
 PODS:
-  - LSTButton (0.1.12311754):
-    - LSTButton/Code (= 0.1.12311754)
-    - LSTCategory
-    - Masonry
-  - LSTButton/Code (0.1.12311754):
-    - LSTCategory
-    - Masonry
   - LSTCategory (0.1.12311529):
     - LSTCategory/Code (= 0.1.12311529)
     - YYModel
   - LSTCategory/Code (0.1.12311529):
     - YYModel
-  - LSTPopView (0.1.03300123):
-    - LSTButton
+  - LSTPopView (0.1.03311130):
     - LSTCategory
-    - LSTPopView/Code (= 0.1.03300123)
-  - LSTPopView/Code (0.1.03300123):
-    - LSTButton
+    - LSTPopView/Code (= 0.1.03311130)
+  - LSTPopView/Code (0.1.03311130):
     - LSTCategory
   - Masonry (1.1.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - LSTPopView (from `../`)
+  - Masonry
 
 SPEC REPOS:
   trunk:
-    - LSTButton
     - LSTCategory
     - Masonry
     - YYModel
@@ -36,12 +27,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  LSTButton: 1886816af63bb1d90986e0fdf8b7dcab57c8fcf8
   LSTCategory: 8b843b0c998989b29386863db154553c8c713d7a
-  LSTPopView: 6d452916c52b83ab3b3e4db277ae65ea09f5de05
+  LSTPopView: 4cb292a78bb90cfd4c5c74744a8910467153523f
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 0f159513a5e317cc021739e6d165060b3c9b9ada
+PODFILE CHECKSUM: 1c7ef65a30638d20a9646ec708d59739442ae2ce
 
 COCOAPODS: 1.9.1

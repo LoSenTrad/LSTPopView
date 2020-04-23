@@ -25,6 +25,12 @@
 		31438A2824116A5000387B4E /* LSTPopViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A2624116A5000387B4E /* LSTPopViewVC.m */; };
 		31438A2A2411773E00387B4E /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 31438A292411773E00387B4E /* demo.gif */; };
 		31438A2C2411774B00387B4E /* lst_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 31438A2B2411774B00387B4E /* lst_logo.png */; };
+		3144E1E72447573C003C5D11 /* LSTAutoKeyboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144E1E62447573C003C5D11 /* LSTAutoKeyboardVC.m */; };
+		3144E1E92447585C003C5D11 /* LSTKeyboardXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3144E1E82447585C003C5D11 /* LSTKeyboardXibView.xib */; };
+		3144E1EC2447586A003C5D11 /* LSTKeyboardXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144E1EB2447586A003C5D11 /* LSTKeyboardXibView.m */; };
+		3150CEBE24339B9F00244B3A /* LSTMutiPopViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3150CEBD24339B9F00244B3A /* LSTMutiPopViewVC.m */; };
+		3150CEC124339EF100244B3A /* LSTMutiPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3150CEC024339EF100244B3A /* LSTMutiPopView.m */; };
+		31D8553A244E1A5B00BFC8E8 /* LSTPopViewRAMVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D85539244E1A5A00BFC8E8 /* LSTPopViewRAMVC.m */; };
 		31EBBDB6243110030059B4DE /* UPDATE_HISTORY.md in Resources */ = {isa = PBXBuildFile; fileRef = 31EBBDB5243110030059B4DE /* UPDATE_HISTORY.md */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -86,6 +92,17 @@
 		31438A2724116A5000387B4E /* LSTPopViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopViewVC.h; sourceTree = "<group>"; };
 		31438A292411773E00387B4E /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
 		31438A2B2411774B00387B4E /* lst_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lst_logo.png; sourceTree = "<group>"; };
+		3144E1E52447573C003C5D11 /* LSTAutoKeyboardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTAutoKeyboardVC.h; sourceTree = "<group>"; };
+		3144E1E62447573C003C5D11 /* LSTAutoKeyboardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTAutoKeyboardVC.m; sourceTree = "<group>"; };
+		3144E1E82447585C003C5D11 /* LSTKeyboardXibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTKeyboardXibView.xib; sourceTree = "<group>"; };
+		3144E1EA2447586A003C5D11 /* LSTKeyboardXibView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTKeyboardXibView.h; sourceTree = "<group>"; };
+		3144E1EB2447586A003C5D11 /* LSTKeyboardXibView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTKeyboardXibView.m; sourceTree = "<group>"; };
+		3150CEBC24339B9F00244B3A /* LSTMutiPopViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTMutiPopViewVC.h; sourceTree = "<group>"; };
+		3150CEBD24339B9F00244B3A /* LSTMutiPopViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTMutiPopViewVC.m; sourceTree = "<group>"; };
+		3150CEBF24339EF100244B3A /* LSTMutiPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTMutiPopView.h; sourceTree = "<group>"; };
+		3150CEC024339EF100244B3A /* LSTMutiPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTMutiPopView.m; sourceTree = "<group>"; };
+		31D85538244E1A5A00BFC8E8 /* LSTPopViewRAMVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewRAMVC.h; sourceTree = "<group>"; };
+		31D85539244E1A5A00BFC8E8 /* LSTPopViewRAMVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewRAMVC.m; sourceTree = "<group>"; };
 		31EBBDB5243110030059B4DE /* UPDATE_HISTORY.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = UPDATE_HISTORY.md; path = ../UPDATE_HISTORY.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* LSTPopView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LSTPopView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -168,6 +185,9 @@
 			children = (
 				31438A2724116A5000387B4E /* LSTPopViewVC.h */,
 				31438A2624116A5000387B4E /* LSTPopViewVC.m */,
+				31D85537244E19FE00BFC8E8 /* popView内存管理调试 */,
+				3144E1E4244756D4003C5D11 /* 规避键盘测试 */,
+				3150CEBB24339B7300244B3A /* 多窗口测试 */,
 				314389FA241168FF00387B4E /* 纯代码自定义view */,
 				314389F9241168EF00387B4E /* XIB自定义View */,
 				314389F8241168DD00387B4E /* LSTPopView属性调试 */,
@@ -238,6 +258,38 @@
 				31438A17241169A000387B4E /* LSTActionViewImage.xib */,
 			);
 			path = "自定义actionView";
+			sourceTree = "<group>";
+		};
+		3144E1E4244756D4003C5D11 /* 规避键盘测试 */ = {
+			isa = PBXGroup;
+			children = (
+				3144E1E52447573C003C5D11 /* LSTAutoKeyboardVC.h */,
+				3144E1E62447573C003C5D11 /* LSTAutoKeyboardVC.m */,
+				3144E1EA2447586A003C5D11 /* LSTKeyboardXibView.h */,
+				3144E1EB2447586A003C5D11 /* LSTKeyboardXibView.m */,
+				3144E1E82447585C003C5D11 /* LSTKeyboardXibView.xib */,
+			);
+			path = "规避键盘测试";
+			sourceTree = "<group>";
+		};
+		3150CEBB24339B7300244B3A /* 多窗口测试 */ = {
+			isa = PBXGroup;
+			children = (
+				3150CEBC24339B9F00244B3A /* LSTMutiPopViewVC.h */,
+				3150CEBD24339B9F00244B3A /* LSTMutiPopViewVC.m */,
+				3150CEBF24339EF100244B3A /* LSTMutiPopView.h */,
+				3150CEC024339EF100244B3A /* LSTMutiPopView.m */,
+			);
+			path = "多窗口测试";
+			sourceTree = "<group>";
+		};
+		31D85537244E19FE00BFC8E8 /* popView内存管理调试 */ = {
+			isa = PBXGroup;
+			children = (
+				31D85538244E1A5A00BFC8E8 /* LSTPopViewRAMVC.h */,
+				31D85539244E1A5A00BFC8E8 /* LSTPopViewRAMVC.m */,
+			);
+			path = "popView内存管理调试";
 			sourceTree = "<group>";
 		};
 		6003F581195388D10070C39A = {
@@ -424,6 +476,7 @@
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				31EBBDB6243110030059B4DE /* UPDATE_HISTORY.md in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				3144E1E92447585C003C5D11 /* LSTKeyboardXibView.xib in Resources */,
 				31438A102411697C00387B4E /* LSTPopViewXibView.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				31438A0A2411697000387B4E /* LSTPopViewTestVC.xib in Resources */,
@@ -477,7 +530,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LSTPopView_Example/Pods-LSTPopView_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/LSTButton/LSTButton.framework",
 				"${BUILT_PRODUCTS_DIR}/LSTCategory/LSTCategory.framework",
 				"${BUILT_PRODUCTS_DIR}/LSTPopView/LSTPopView.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
@@ -485,7 +537,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LSTButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LSTCategory.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LSTPopView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
@@ -527,16 +578,21 @@
 			files = (
 				31438A25241169BA00387B4E /* LSTSheetAlertViewVC.m in Sources */,
 				6003F59E195388D20070C39A /* LSTAppDelegate.m in Sources */,
+				31D8553A244E1A5B00BFC8E8 /* LSTPopViewRAMVC.m in Sources */,
 				31438A22241169AE00387B4E /* LSTAlertViewVC.m in Sources */,
 				31438A092411697000387B4E /* LSTPopViewTestVC.m in Sources */,
+				3144E1E72447573C003C5D11 /* LSTAutoKeyboardVC.m in Sources */,
+				3150CEBE24339B9F00244B3A /* LSTMutiPopViewVC.m in Sources */,
 				31438A1D241169A000387B4E /* LSTActionViewImage.m in Sources */,
 				31438A132411698B00387B4E /* LSTPopViewCodeView.m in Sources */,
+				3144E1EC2447586A003C5D11 /* LSTKeyboardXibView.m in Sources */,
 				31438A082411697000387B4E /* LSTPopViewTestView.m in Sources */,
 				31438A012411694800387B4E /* LSTBaseVC.m in Sources */,
 				6003F5A7195388D20070C39A /* LSTViewController.m in Sources */,
 				31438A2824116A5000387B4E /* LSTPopViewVC.m in Sources */,
 				31438A1B241169A000387B4E /* LSTActionViewEmoji.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				3150CEC124339EF100244B3A /* LSTMutiPopView.m in Sources */,
 				31438A0F2411697C00387B4E /* LSTPopViewXibView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

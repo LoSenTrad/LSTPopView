@@ -11,6 +11,9 @@
 #import <LSTPopView.h>
 #import "LSTPopViewXibView.h"
 #import "LSTPopViewCodeView.h"
+#import "LSTMutiPopViewVC.h"
+#import "LSTAutoKeyboardVC.h"
+#import "LSTPopViewRAMVC.h"
 
 @interface LSTPopViewVC ()
 <
@@ -95,7 +98,21 @@ UITableViewDelegate
             cell.textLabel.text = @"LSTPopView属性调试";
         }
             break;
-            
+        case 3:
+        {
+            cell.textLabel.text = @"多个popView窗口测试";
+        }
+            break;
+        case 4:
+        {
+            cell.textLabel.text = @"规避键盘遮挡调试";
+        }
+            break;
+        case 5:
+        {
+            cell.textLabel.text = @"popView内存释放调试";
+        }
+            break;
         default:
             break;
     }
@@ -113,6 +130,23 @@ UITableViewDelegate
     if (indexPath.row == 2) {
         [self LSTPopViewTest];
     }
+    
+    if (indexPath.row == 3) {
+        LSTMutiPopViewVC *vc = [[LSTMutiPopViewVC alloc] init];
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    if (indexPath.row == 4) {
+        LSTAutoKeyboardVC *vc = [[LSTAutoKeyboardVC alloc] init];
+        
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    if (indexPath.row == 5) {
+        LSTPopViewRAMVC *vc = [[LSTPopViewRAMVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 
@@ -122,25 +156,26 @@ UITableViewDelegate
     LSTPopViewCodeView *view = [[LSTPopViewCodeView alloc] init];
     view.layer.cornerRadius = 10;
     view.layer.masksToBounds = YES;
-        
-    view.frame = CGRectMake(0, 0, 300, 300);
     
-    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleDropToBottom];
+    view.frame = CGRectMake(0, 0, 300, 300);
+    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleSmoothToBottom];
+    LSTPopViewWK(popView)
     popView.hemStyle = LSTHemStyleCenter;
     popView.adjustY = 10;
+    popView.popDuration = 0.8;
+    popView.dismissDuration = 0.8;
     popView.isClickFeedback = YES;
-//    __weak typeof(popView) weakPopview = popView;
-    LSTPopViewWK(popView)
+    popView.bgColor = UIColor.blackColor;
+    popView.isHideBg = YES;
     popView.bgClickBlock = ^{
         NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
-    
     view.closeBlock = ^{
-        [wk_popView dismissWithDismissStyle:LSTDismissStyleDropToTop duration:1.0];
+        [wk_popView dismissWithDismissStyle:LSTDismissStyleSmoothToTop duration:1.0];
     };
     
-    [popView popWithPopStyle:LSTPopStyleSmoothFromTop duration:0.5];
+    [popView pop];
 }
 
 - (void)xibView {

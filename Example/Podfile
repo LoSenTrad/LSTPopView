@@ -4,7 +4,7 @@ platform :ios, '8.0'
 
 target 'LSTPopView_Example' do
   pod 'LSTPopView', :path => '../'
-
+  pod 'Masonry'
   target 'LSTPopView_Tests' do
     inherit! :search_paths
 

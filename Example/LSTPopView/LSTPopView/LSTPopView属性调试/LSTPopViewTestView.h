@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) stepperBlock yStepperBlock;
 /** <#...#> */
 @property (nonatomic, copy) LSTPopViewTestViewBlock closeBlock;
+/** <#...#> */
+@property (nonatomic, copy) LSTPopViewTestViewBlock pushBlock;
 
 
 @end
