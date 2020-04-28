@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="LSTPopViewdoyinView">
+            <rect key="frame" x="0.0" y="0.0" width="621" height="473"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="抖音个人信息" translatesAutoresizingMaskIntoConstraints="NO" id="DNH-N3-acF">
+                    <rect key="frame" x="0.0" y="0.0" width="621" height="473"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="DNH-N3-acF" secondAttribute="bottom" id="5F4-UR-OFS"/>
+                <constraint firstAttribute="trailing" secondItem="DNH-N3-acF" secondAttribute="trailing" id="BRl-UZ-qul"/>
+                <constraint firstItem="DNH-N3-acF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HZh-vg-BV8"/>
+                <constraint firstItem="DNH-N3-acF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="d64-oe-LY9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-438" y="-89"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="抖音个人信息" width="1242" height="947"/>
+    </resources>
+</document>

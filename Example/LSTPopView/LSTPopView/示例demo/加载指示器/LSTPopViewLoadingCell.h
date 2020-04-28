@@ -1,8 +1,8 @@
 //
-//  LSTPopViewRAMVC.h
+//  LSTPopViewLoadingCell.h
 //  LSTPopView_Example
 //
-//  Created by LoSenTrad on 2020/4/21.
+//  Created by LoSenTrad on 2020/4/24.
 //  Copyright © 2020 490790096@qq.com. All rights reserved.
 //
 
@@ -10,10 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LSTPopViewRAMVC : UIViewController
-
-
-
+@interface LSTPopViewLoadingCell : UITableViewCell
 
 @end
 

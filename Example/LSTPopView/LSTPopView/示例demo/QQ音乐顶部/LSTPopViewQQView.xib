@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="LSTPopViewQQView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sgc-ax-AoO">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😀 添加音乐成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BrG-hE-VLw">
+                            <rect key="frame" x="20" y="11.5" width="384" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="BrG-hE-VLw" firstAttribute="centerY" secondItem="Sgc-ax-AoO" secondAttribute="centerY" id="Ari-CT-eIk"/>
+                        <constraint firstAttribute="height" constant="44" id="Bsh-Ji-4S4"/>
+                        <constraint firstAttribute="trailing" secondItem="BrG-hE-VLw" secondAttribute="trailing" constant="10" id="Z7k-oO-WRn"/>
+                        <constraint firstItem="BrG-hE-VLw" firstAttribute="leading" secondItem="Sgc-ax-AoO" secondAttribute="leading" constant="20" id="cB7-tc-rio"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.16580539292187346" green="0.87044578790664673" blue="0.56847392882287018" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Sgc-ax-AoO" secondAttribute="bottom" id="93c-aN-Yj5"/>
+                <constraint firstItem="Sgc-ax-AoO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="98X-4v-RBN"/>
+                <constraint firstAttribute="trailing" secondItem="Sgc-ax-AoO" secondAttribute="trailing" id="UOH-uD-BO6"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="117" y="-40"/>
+        </view>
+    </objects>
+</document>

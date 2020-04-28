@@ -1,8 +1,8 @@
 //
-//  LSTPopViewRAMVC.h
+//  LSTPopViewloadingView.h
 //  LSTPopView_Example
 //
-//  Created by LoSenTrad on 2020/4/21.
+//  Created by LoSenTrad on 2020/4/24.
 //  Copyright © 2020 490790096@qq.com. All rights reserved.
 //
 
@@ -10,10 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LSTPopViewRAMVC : UIViewController
-
-
-
+@interface LSTPopViewloadingView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *titleLab;
 
 @end
 

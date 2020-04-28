@@ -116,6 +116,13 @@ typedef NS_ENUM(NSInteger, LSTHemStyle) {
 @property (nonatomic, assign) CGFloat avoidKeyboardSpace;
 /** 标识 */
 @property (nonatomic,copy) NSString *_Nullable identifier;
+/**
+  群组标识 统一给弹框编队 方便独立管理
+  默认为空,统一全局处理
+ */
+@property (nonatomic,strong) NSString * _Nullable groupId;
+/** 优先级 范围0~1000 (默认0,遵循先进先出) */
+@property (nonatomic, assign) CGFloat priority;
 
 /** 点击背景 */
 @property (nullable, nonatomic, copy) void(^bgClickBlock)(void);
@@ -170,5 +177,7 @@ typedef NS_ENUM(NSInteger, LSTHemStyle) {
 /// @param dismissStyle 优先级高于dismissStyle 局部起作用
 /// @param duration 优先级高于dismissDuration 局部起作用
 - (void)dismissWithDismissStyle:(LSTDismissStyle)dismissStyle duration:(NSTimeInterval)duration;
+
+
 
 @end

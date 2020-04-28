@@ -4,7 +4,13 @@ platform :ios, '8.0'
 
 target 'LSTPopView_Example' do
   pod 'LSTPopView', :path => '../'
+#  pod 'LSTCategory', :path => '/Users/losentrad/Desktop/KitNote/Modularization/LSTKit/LSTCategory/LSTCategory'
   pod 'Masonry'
+#  pod 'LSTCategory/UIView+LSTView', :path => '/Users/losentrad/Desktop/KitNote/Modularization/LSTKit/LSTCategory/LSTCategory'
+#  pod 'LSTCategory/NSString+LSTString', :path => '/Users/losentrad/Desktop/KitNote/Modularization/LSTKit/LSTCategory/LSTCategory'
+#  pod 'LSTCategory/UIColor+LSTColor', :path => '/Users/losentrad/Desktop/KitNote/Modularization/LSTKit/LSTCategory/LSTCategory'
+#  pod 'LSTCategory/UIView+LSTView', :path => '/Users/losentrad/Desktop/KitNote/Modularization/LSTKit/LSTCategory/LSTCategory'
+#
   target 'LSTPopView_Tests' do
     inherit! :search_paths
 

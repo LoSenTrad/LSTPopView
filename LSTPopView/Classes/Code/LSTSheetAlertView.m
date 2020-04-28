@@ -23,7 +23,6 @@
 @property (nonatomic,strong) UIView *cutView;
 /** 分割线高度 */
 @property (nonatomic, assign) CGFloat cutViewHeight;
-
 /** 是否是底部action */
 @property (nonatomic, assign) BOOL isBottomAction;
 

@@ -57,7 +57,6 @@
     LSTPopViewWK(popView);
     LSTPopViewWK(self);
     popView.avoidKeyboardSpace = 15;
-   
     popView.bgClickBlock = ^{
         [wk_popView dismiss];
         NSLog(@"点击了背景");

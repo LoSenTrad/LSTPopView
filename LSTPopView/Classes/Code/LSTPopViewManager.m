@@ -89,7 +89,6 @@ LSTPopViewManager *LSTPopViewM() {
     
     [LSTPopViewM().popViewMarr addObject:dic];
     
-    NSLog(@"%@",LSTPopViewM().popViewMarr);//0x2834c0ae0
 
 }
 

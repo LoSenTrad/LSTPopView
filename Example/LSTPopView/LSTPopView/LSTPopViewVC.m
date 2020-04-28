@@ -14,6 +14,7 @@
 #import "LSTMutiPopViewVC.h"
 #import "LSTAutoKeyboardVC.h"
 #import "LSTPopViewRAMVC.h"
+#import "LSTPopViewSceneVC.h"
 
 @interface LSTPopViewVC ()
 <
@@ -113,6 +114,11 @@ UITableViewDelegate
             cell.textLabel.text = @"popView内存释放调试";
         }
             break;
+        case 6:
+        {
+            cell.textLabel.text = @"LSTPopView示例场景";
+        }
+            break;
         default:
             break;
     }
@@ -145,6 +151,11 @@ UITableViewDelegate
     
     if (indexPath.row == 5) {
         LSTPopViewRAMVC *vc = [[LSTPopViewRAMVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    if (indexPath.row == 6) {
+        LSTPopViewSceneVC *vc = [[LSTPopViewSceneVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -192,11 +203,9 @@ UITableViewDelegate
         [wk_popView dismiss];
         NSLog(@"点击了背景");
     };
-    
     view.clickBlock = ^{
-        [popView dismiss];
+        [wk_popView dismiss];
     };
-    
     [popView pop];
     
 }
@@ -204,7 +213,6 @@ UITableViewDelegate
 - (void)LSTPopViewTest {
     
     LSTPopViewTestVC *xibVC = [[LSTPopViewTestVC alloc] initWithNibName:@"LSTPopViewTestVC" bundle:nil];
-    
     [self.navigationController pushViewController:xibVC animated:YES];
     
 }

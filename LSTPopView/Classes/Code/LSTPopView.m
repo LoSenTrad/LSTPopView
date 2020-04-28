@@ -145,13 +145,13 @@
     
 }
 
-//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
-//    UIView *hitView = [super hitTest:point withEvent:event];
-//    if(hitView == self){
-//        return nil;
-//    }
-//    return hitView;
-//}
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
+    UIView *hitView = [super hitTest:point withEvent:event];
+    if(hitView == self){
+        return nil;
+    }
+    return hitView;
+}
 
 #pragma mark - ***** UI布局 *****
 
@@ -539,6 +539,14 @@
 
 - (void)hanlePopAnimationWithDuration:(NSTimeInterval)duration
                              popStyle:(LSTPopStyle)popStyle {
+    
+    self.alpha = 0;
+    
+    [UIView animateWithDuration:duration*0.5 animations:^{
+        self.alpha = 1;
+    }];
+    
+    
     __weak typeof(self) ws = self;
     switch (popStyle) {
         case LSTPopStyleScale:// < 缩放动画，先放大，后恢复至原大小
@@ -567,9 +575,9 @@
             }
             CGFloat damping = 1.0;
             if (popStyle == LSTPopStyleSpringFromTop||
-                popStyle == LSTPopStyleSpringFromTop||
-                popStyle == LSTPopStyleSpringFromTop||
-                popStyle == LSTPopStyleSpringFromTop) {
+                popStyle == LSTPopStyleSpringFromLeft||
+                popStyle == LSTPopStyleSpringFromBottom||
+                popStyle == LSTPopStyleSpringFromRight) {
                 damping = 0.65;
             }
             
@@ -615,6 +623,11 @@
 
 - (void)hanleDismissAnimationWithDuration:(NSTimeInterval)duration
                          withDismissStyle:(LSTDismissStyle)dismissStyle {
+    
+    [UIView animateWithDuration:duration*0.8 animations:^{
+        self.alpha = 0;
+    }];
+    
     __weak typeof(self) ws = self;
     switch (dismissStyle) {
         case LSTDismissStyleScale:
@@ -639,7 +652,7 @@
                 endPosition = CGPointMake(CGRectGetMaxX(self.frame) + _customView.width*0.5, startPosition.y);
             }
             
-            [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:1.0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            [UIView animateWithDuration:duration delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:1.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 ws.customView.layer.position = endPosition;
             } completion:nil];
         }
