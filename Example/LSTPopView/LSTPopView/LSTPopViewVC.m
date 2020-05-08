@@ -15,6 +15,7 @@
 #import "LSTAutoKeyboardVC.h"
 #import "LSTPopViewRAMVC.h"
 #import "LSTPopViewSceneVC.h"
+#import "LSTPopViewGroupTestVC.h"
 
 @interface LSTPopViewVC ()
 <
@@ -119,6 +120,11 @@ UITableViewDelegate
             cell.textLabel.text = @"LSTPopView示例场景";
         }
             break;
+        case 7:
+        {
+            cell.textLabel.text = @"多窗口编队调试";
+        }
+            break;
         default:
             break;
     }
@@ -158,6 +164,11 @@ UITableViewDelegate
         LSTPopViewSceneVC *vc = [[LSTPopViewSceneVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
+    if (indexPath.row == 7) {
+        LSTPopViewGroupTestVC *xibVC = [[LSTPopViewGroupTestVC alloc] initWithNibName:@"LSTPopViewGroupTestVC" bundle:nil];
+        [self.navigationController pushViewController:xibVC animated:YES];
+    }
+    
 }
 
 
@@ -177,7 +188,7 @@ UITableViewDelegate
     popView.dismissDuration = 0.8;
     popView.isClickFeedback = YES;
     popView.bgColor = UIColor.blackColor;
-    popView.isHideBg = YES;
+    popView.isHideBg = NO;
     popView.bgClickBlock = ^{
         NSLog(@"点击了背景");
         [wk_popView dismiss];
@@ -198,7 +209,7 @@ UITableViewDelegate
     
     
     LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:1 dismissStyle:1];
-    LSTPopViewWK(popView);
+    LSTPopViewWK(popView)
     popView.bgClickBlock = ^{
         [wk_popView dismiss];
         NSLog(@"点击了背景");

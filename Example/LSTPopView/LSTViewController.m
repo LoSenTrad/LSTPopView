@@ -14,9 +14,13 @@
 #import <LSTGestureEvents.h>
 #import <LSTControlEvents.h>
 #import <LSTPopView.h>
+#import <LSTPopViewManager.h>
 
 
 @interface LSTViewController ()
+
+/** <#.....#> */
+@property (nonatomic,strong) NSTimer *timer;
 
 @end
 
@@ -27,10 +31,15 @@
     [super viewDidLoad];
     self.title = @"LSTPopView -- 万能弹窗";
     
+    
+    [LSTPopViewManager addTimerForIdentifier:@"123" handle:^(NSTimeInterval Interval) {
+        NSLog(@"%lf",Interval);
+    }];
 
-//
     
 }
+
+
 
 - (IBAction)popViewBtn:(UIButton *)sender {
     

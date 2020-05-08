@@ -9,7 +9,6 @@
 #import "UIView+LSTView.h"
 #import "UIColor+LSTColor.h"
 #import "LSTPopViewManager.h"
-
 #import <objc/runtime.h>
 
 
@@ -34,6 +33,8 @@
 
 /** 是否弹出键盘 */
 @property (nonatomic,assign,readonly) BOOL isShowKeyboard;
+
+
 
 
 @end
@@ -70,6 +71,8 @@
     _bgColor = [UIColor blackColor];
     _identifier = @"";
     _isShowKeyboard = NO;
+    _isStackSingleShow = NO;
+    _showTime = 0.0;
 }
 
 + (nullable instancetype)initWithCustomView:(UIView *_Nonnull)customView {
@@ -240,6 +243,11 @@
     }
 }
 
+- (void)setShowTime:(NSTimeInterval)showTime {
+    _showTime = showTime;
+    
+}
+
 #pragma mark - ***** 公有api *****
 
 - (void)pop {
@@ -256,20 +264,25 @@
 /// @param popStyle 优先级高于popStyle 局部起作用
 /// @param duration 优先级高于popDuration 局部起作用
 - (void)popWithPopStyle:(LSTPopStyle)popStyle duration:(NSTimeInterval)duration {
+
+    [self setCustomViewFrame];
+    [self.parentView addSubview:self];
     
-    NSArray *popViewArr = [LSTPopViewManager getAllPopViewForParentView:self.parentView];
-    if (popViewArr.count>=1) {
-//        LSTPopView *lastPopView = popViewArr[popViewArr.count-1];
-        NSDictionary *dic = popViewArr[popViewArr.count-1];
-        NSValue *v = dic[LSTPopView_PopView];
-        LSTPopView *lastPopView = v.nonretainedObjectValue;
-        if (lastPopView.isShowKeyboard) {
-            [lastPopView endEditing:YES];
+    //处理隐藏倒数第二个popView
+    if (self.isStackSingleShow) {
+        NSArray *popViewArr = [LSTPopViewManager getAllPopViewForPopView:self];
+        if (popViewArr.count>=1) {
+            NSValue *v = popViewArr[popViewArr.count-1];
+            LSTPopView *lastPopView = v.nonretainedObjectValue;
+            if (lastPopView.isShowKeyboard) {
+                [lastPopView endEditing:YES];
+            }
+            [UIView animateWithDuration:[self getPopDefaultDuration:popStyle]*0.5 animations:^{
+                lastPopView.alpha = 0.0;
+            }];
         }
-        [UIView animateWithDuration:[self getPopDefaultDuration:popStyle]*0.5 animations:^{
-            lastPopView.alpha = 0.0;
-        }];
     }
+   
     
     
     //将要显示
@@ -280,8 +293,7 @@
         self.popViewWillPop();
     }
     
-    [self setCustomViewFrame];
-    [self.parentView addSubview:self];
+
     
     if (self.isHideBg) {
         self.backgroundView.hidden = YES;
@@ -326,7 +338,7 @@
             ws.popViewDidPop();
         }
     });
-    [LSTPopViewManager savePopView:self forParentView:self.parentView forKey:self.identifier];
+    [LSTPopViewManager savePopView:self];
 }
 
 - (void)dismiss {
@@ -371,15 +383,12 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(resDuration*0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
      
-//        [LSTPopViewManager removePopView:ws];//在dealloc从内存中移除
         
       //  popView出栈
-        NSArray *popViewArr = [LSTPopViewManager getAllPopViewForParentView:self.parentView];
+        NSArray *popViewArr = [LSTPopViewManager getAllPopViewForPopView:self];
         if (popViewArr.count>=2) {
-            NSDictionary *dic = popViewArr[popViewArr.count-2];
-            NSValue *v = dic[LSTPopView_PopView];
+            NSValue *v = popViewArr[popViewArr.count-2];
             LSTPopView *lastPopView = v.nonretainedObjectValue;
-
             [UIView animateWithDuration:0.25 animations:^{
                 lastPopView.alpha = 1;
             }];
@@ -387,13 +396,13 @@
     });
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(resDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [ws removeFromSuperview];
         if ([ws.delegate respondsToSelector:@selector(lst_PopViewDidDismiss)]) {
             [ws.delegate lst_PopViewDidDismiss];
         }
         if (ws.popViewDidDismiss) {
             ws.popViewDidDismiss();
         }
-        [ws removeFromSuperview];
     });
     
     
@@ -738,7 +747,7 @@
     KFAnimation.duration = duration;
     KFAnimation.removedOnCompletion = NO;
     KFAnimation.fillMode = kCAFillModeForwards;
-    
+    KFAnimation.delegate = self;
     NSMutableArray *valueArr = [NSMutableArray arrayWithCapacity:values.count];
     for (NSUInteger i = 0; i<values.count; i++) {
         CGFloat scaleValue = [values[i] floatValue];
@@ -764,6 +773,16 @@
     [color getRed:&red green:&green blue:&blue alpha:&resAlpha];
     UIColor *newColor = [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
     return newColor;
+}
+
+- (void)startTimer {
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0 target:self selector:@selector(handleHideTimer:) userInfo:nil repeats:NO];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    
+}
+
+- (void)handleHideTimer:(NSTimer *)timer {
+    
 }
 
 #pragma mark - ***** 监听横竖屏方向改变 *****

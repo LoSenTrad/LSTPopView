@@ -1,25 +1,42 @@
 PODS:
-  - LSTCategory (0.2.04281546):
-    - LSTCategory/Code (= 0.2.04281546)
-  - LSTCategory/Code (0.2.04281546)
+  - LSTCategory/LSTControlEvents (0.2.04281546)
+  - LSTCategory/LSTGestureEvents (0.2.04281546)
+  - "LSTCategory/NSString+LSTString (0.2.04281546)"
+  - "LSTCategory/UIColor+LSTColor (0.2.04281546)"
+  - "LSTCategory/UIView+LSTView (0.2.04281546)"
+  - LSTPopView (0.1.04280428):
+    - LSTCategory/LSTControlEvents
+    - LSTCategory/LSTGestureEvents
+    - "LSTCategory/NSString+LSTString"
+    - "LSTCategory/UIColor+LSTColor"
+    - "LSTCategory/UIView+LSTView"
+    - LSTPopView/Code (= 0.1.04280428)
+  - LSTPopView/Code (0.1.04280428):
+    - LSTCategory/LSTControlEvents
+    - LSTCategory/LSTGestureEvents
+    - "LSTCategory/NSString+LSTString"
+    - "LSTCategory/UIColor+LSTColor"
+    - "LSTCategory/UIView+LSTView"
   - Masonry (1.1.0)
 
 DEPENDENCIES:
-  - LSTCategory (from `/Users/losentrad/Desktop/KitNote/Modularization/LSTKit/LSTCategory/LSTCategory`)
+  - LSTPopView (from `../`)
   - Masonry
 
 SPEC REPOS:
   trunk:
+    - LSTCategory
     - Masonry
 
 EXTERNAL SOURCES:
-  LSTCategory:
-    :path: "/Users/losentrad/Desktop/KitNote/Modularization/LSTKit/LSTCategory/LSTCategory"
+  LSTPopView:
+    :path: "../"
 
 SPEC CHECKSUMS:
   LSTCategory: f70d240021080d1c4ab555b6129e74f5b0aa4ccb
+  LSTPopView: 4e29f9c3047e74d73354f775298af6b8d11b2e4e
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
-PODFILE CHECKSUM: a01aa9ed5afe04090ab364b4c7800f1a0254c79d
+PODFILE CHECKSUM: 2968e4a2dac92497c5efacf53987ad34064391eb
 
 COCOAPODS: 1.9.1

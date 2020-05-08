@@ -13,6 +13,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSDictionary *dic = @{@"aaa":@"111"};
+    NSLog(@"%@",dic[@"bbb"]);
+    NSLog(@"%@",dic[@"aaa"]);
     return YES;
 }
 

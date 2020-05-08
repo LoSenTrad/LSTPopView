@@ -118,16 +118,24 @@ typedef NS_ENUM(NSInteger, LSTHemStyle) {
 @property (nonatomic,copy) NSString *_Nullable identifier;
 /**
   群组标识 统一给弹框编队 方便独立管理
-  默认为空,统一全局处理
+  默认为nil,统一全局处理
  */
 @property (nonatomic,strong) NSString * _Nullable groupId;
+/** 是否遵从多窗口管理 默认YES */
+@property (nonatomic, assign) BOOL isPopViewManage;
+/** 是否遵从多窗口堆叠单显 默认NO */
+@property (nonatomic, assign) BOOL isStackSingleShow;
 /** 优先级 范围0~1000 (默认0,遵循先进先出) */
 @property (nonatomic, assign) CGFloat priority;
+/** 显示多长时间 默认0 不会消失 */
+@property (nonatomic, assign) NSTimeInterval showTime;
 
 /** 点击背景 */
 @property (nullable, nonatomic, copy) void(^bgClickBlock)(void);
 /** 长按背景 */
 @property (nullable, nonatomic, copy) void(^bgLongPressBlock)(void);
+
+
 
 //************ 生命周期回调(Block) ************
 /** 将要显示 回调 */
