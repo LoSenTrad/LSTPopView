@@ -226,7 +226,7 @@ LSTPopViewManager *LSTPopViewM() {
         [LSTPopViewM().timerMdic setObject:model forKey:identifier];
         model.handleBlock = handle;
     }
-    [self initTimer];
+    [self initTimer:YES timeInterval:1];
 }
 
 
@@ -249,13 +249,14 @@ LSTPopViewManager *LSTPopViewM() {
     
 }
 
-+ (void)initTimer {
+/** increase YES: 递增 NO: 递减   */
++ (void)initTimer:(BOOL)increase timeInterval:(NSTimeInterval)timeInterval {
     
     if (LSTPopViewM().showTimer) {
         return;
     }
     
-    NSTimer *timer = [NSTimer timerWithTimeInterval:1.0 target:LSTPopViewM() selector:@selector(handleHideTimer:) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:timeInterval target:LSTPopViewM() selector:@selector(handleHideTimer:) userInfo:@{@"increase":@(increase),@"timeInterval":@(timeInterval)} repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     LSTPopViewM().showTimer = timer;
     

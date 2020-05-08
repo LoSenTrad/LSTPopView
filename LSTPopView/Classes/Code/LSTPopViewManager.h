@@ -86,11 +86,20 @@ LSTPopViewManager *LSTPopViewM(void);
 + (void)addTimerForIdentifier:(NSString *)identifier
                  forCountdown:(NSTimeInterval)countdown
                        handle:(LSTPopViewManagerTimerBlock)handle;
+/** 添加定时器并开启计时 完成任务会自动移除 计时器源*/
++ (void)addTimerForIdentifier:(NSString *)identifier
+                 forCountdown:(NSTimeInterval)countdown
+                  forIncrease:(NSTimeInterval)increase
+                       handle:(LSTPopViewManagerTimerBlock)handle;
 
 /** 添加定时器并开启计时 */
 + (void)addTimerForHandle:(LSTPopViewManagerTimerBlock)handle;
 /** 添加定时器并开启计时 */
 + (void)addTimerForIdentifier:(NSString *)identifier handle:(LSTPopViewManagerTimerBlock)handle;
+/** 添加定时器并开启计时 */
++ (void)addTimerForIdentifier:(NSString *)identifier
+                  forIncrease:(NSTimeInterval)increase
+                       handle:(LSTPopViewManagerTimerBlock)handle;
 
 
 + (NSTimeInterval)getTimeIntervalForIdentifier:(NSString *)identifier;

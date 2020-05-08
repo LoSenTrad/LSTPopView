@@ -145,7 +145,12 @@
     [self.customView removeObserver:self forKeyPath:@"frame"];
     
     [LSTPopViewManager removePopView:self];
-    
+    if ([self.delegate respondsToSelector:@selector(lst_PopViewDidDismiss)]) {
+        [self.delegate lst_PopViewDidDismiss];
+    }
+    if (self.popViewDidDismiss) {
+        self.popViewDidDismiss();
+    }
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event{
@@ -397,12 +402,7 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(resDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [ws removeFromSuperview];
-        if ([ws.delegate respondsToSelector:@selector(lst_PopViewDidDismiss)]) {
-            [ws.delegate lst_PopViewDidDismiss];
-        }
-        if (ws.popViewDidDismiss) {
-            ws.popViewDidDismiss();
-        }
+       
     });
     
     
