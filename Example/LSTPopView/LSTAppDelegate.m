@@ -7,15 +7,22 @@
 //
 
 #import "LSTAppDelegate.h"
+#import "LSTPopViewVC.h"
 
 @implementation LSTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    NSDictionary *dic = @{@"aaa":@"111"};
-    NSLog(@"%@",dic[@"bbb"]);
-    NSLog(@"%@",dic[@"aaa"]);
+    NSString *homePath = NSHomeDirectory();
+     NSLog(@"home根目录:%@", homePath);
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    LSTPopViewVC *vc = [[LSTPopViewVC alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

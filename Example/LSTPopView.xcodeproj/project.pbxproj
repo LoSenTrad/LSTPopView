@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31077A3C246CE8E500474085 /* LSTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 31077A3B246CE8E400474085 /* LSTModel.m */; };
 		3139027D2451FC66004648F2 /* LSTPopViewWeChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3139027C2451FC66004648F2 /* LSTPopViewWeChatView.m */; };
 		3139027F2451FC79004648F2 /* LSTPopViewWeChatView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3139027E2451FC79004648F2 /* LSTPopViewWeChatView.xib */; };
 		313902832452024C004648F2 /* LSTPopViewTranspondView.m in Sources */ = {isa = PBXBuildFile; fileRef = 313902822452024C004648F2 /* LSTPopViewTranspondView.m */; };
@@ -48,6 +49,9 @@
 		314CA8AD2455EDD800E56E7B /* LSTPopViewdoyinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 314CA8AC2455EDD800E56E7B /* LSTPopViewdoyinView.xib */; };
 		3150CEBE24339B9F00244B3A /* LSTMutiPopViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3150CEBD24339B9F00244B3A /* LSTMutiPopViewVC.m */; };
 		3150CEC124339EF100244B3A /* LSTMutiPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3150CEC024339EF100244B3A /* LSTMutiPopView.m */; };
+		319ECD592478258400F23A92 /* LSTPopViewPriorityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 319ECD572478258400F23A92 /* LSTPopViewPriorityVC.m */; };
+		319ECD5A2478258400F23A92 /* LSTPopViewPriorityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319ECD582478258400F23A92 /* LSTPopViewPriorityVC.xib */; };
+		319ECD5D2478289600F23A92 /* LSTPriorityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 319ECD5C2478289600F23A92 /* LSTPriorityView.m */; };
 		31CDCCF92451D8260037B813 /* LSTPopViewSceneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CDCCF82451D8260037B813 /* LSTPopViewSceneVC.m */; };
 		31CDCD022451F0460037B813 /* LSTPopViewQQView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CDCD012451F0460037B813 /* LSTPopViewQQView.m */; };
 		31CDCD042451F04D0037B813 /* LSTPopViewQQView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CDCD032451F04D0037B813 /* LSTPopViewQQView.xib */; };
@@ -91,6 +95,8 @@
 /* Begin PBXFileReference section */
 		038CEC63B34760C327FDAD98 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		0BDD3070AE4FDB6F9CD60EEB /* Pods-LSTPopView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LSTPopView_Tests.release.xcconfig"; path = "Target Support Files/Pods-LSTPopView_Tests/Pods-LSTPopView_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		31077A3A246CE8E400474085 /* LSTModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTModel.h; sourceTree = "<group>"; };
+		31077A3B246CE8E400474085 /* LSTModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTModel.m; sourceTree = "<group>"; };
 		3139027B2451FC66004648F2 /* LSTPopViewWeChatView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewWeChatView.h; sourceTree = "<group>"; };
 		3139027C2451FC66004648F2 /* LSTPopViewWeChatView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewWeChatView.m; sourceTree = "<group>"; };
 		3139027E2451FC79004648F2 /* LSTPopViewWeChatView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewWeChatView.xib; sourceTree = "<group>"; };
@@ -157,6 +163,11 @@
 		3150CEBD24339B9F00244B3A /* LSTMutiPopViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTMutiPopViewVC.m; sourceTree = "<group>"; };
 		3150CEBF24339EF100244B3A /* LSTMutiPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTMutiPopView.h; sourceTree = "<group>"; };
 		3150CEC024339EF100244B3A /* LSTMutiPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTMutiPopView.m; sourceTree = "<group>"; };
+		319ECD562478258400F23A92 /* LSTPopViewPriorityVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewPriorityVC.h; sourceTree = "<group>"; };
+		319ECD572478258400F23A92 /* LSTPopViewPriorityVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewPriorityVC.m; sourceTree = "<group>"; };
+		319ECD582478258400F23A92 /* LSTPopViewPriorityVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewPriorityVC.xib; sourceTree = "<group>"; };
+		319ECD5B2478289600F23A92 /* LSTPriorityView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPriorityView.h; sourceTree = "<group>"; };
+		319ECD5C2478289600F23A92 /* LSTPriorityView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPriorityView.m; sourceTree = "<group>"; };
 		31CDCCF72451D8260037B813 /* LSTPopViewSceneVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewSceneVC.h; sourceTree = "<group>"; };
 		31CDCCF82451D8260037B813 /* LSTPopViewSceneVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewSceneVC.m; sourceTree = "<group>"; };
 		31CDCD002451F0460037B813 /* LSTPopViewQQView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewQQView.h; sourceTree = "<group>"; };
@@ -342,9 +353,10 @@
 		314389F7241168CD00387B4E /* LSTPopView */ = {
 			isa = PBXGroup;
 			children = (
-				31EAD617245E95A4007620E7 /* 窗口编队测试 */,
+				319ECD522478242D00F23A92 /* 优先级 */,
 				31438A2724116A5000387B4E /* LSTPopViewVC.h */,
 				31438A2624116A5000387B4E /* LSTPopViewVC.m */,
+				31EAD617245E95A4007620E7 /* 窗口编队测试 */,
 				31CDCCF62451D7690037B813 /* 示例demo */,
 				31D85537244E19FE00BFC8E8 /* popView内存管理调试 */,
 				3144E1E4244756D4003C5D11 /* 规避键盘测试 */,
@@ -452,6 +464,18 @@
 				3150CEC024339EF100244B3A /* LSTMutiPopView.m */,
 			);
 			path = "多窗口测试";
+			sourceTree = "<group>";
+		};
+		319ECD522478242D00F23A92 /* 优先级 */ = {
+			isa = PBXGroup;
+			children = (
+				319ECD562478258400F23A92 /* LSTPopViewPriorityVC.h */,
+				319ECD572478258400F23A92 /* LSTPopViewPriorityVC.m */,
+				319ECD582478258400F23A92 /* LSTPopViewPriorityVC.xib */,
+				319ECD5B2478289600F23A92 /* LSTPriorityView.h */,
+				319ECD5C2478289600F23A92 /* LSTPriorityView.m */,
+			);
+			path = "优先级";
 			sourceTree = "<group>";
 		};
 		31CDCCF62451D7690037B813 /* 示例demo */ = {
@@ -568,6 +592,8 @@
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				31077A3A246CE8E400474085 /* LSTModel.h */,
+				31077A3B246CE8E400474085 /* LSTModel.m */,
 			);
 			name = "Example for LSTPopView";
 			path = LSTPopView;
@@ -665,7 +691,7 @@
 				ORGANIZATIONNAME = "490790096@qq.com";
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = F8DZH6Y62F;
+						DevelopmentTeam = 9TV887Q275;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -706,6 +732,7 @@
 				31438A102411697C00387B4E /* LSTPopViewXibView.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				31438A0A2411697000387B4E /* LSTPopViewTestVC.xib in Resources */,
+				319ECD5A2478258400F23A92 /* LSTPopViewPriorityVC.xib in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				31438A2C2411774B00387B4E /* lst_logo.png in Resources */,
 				313902A124528735004648F2 /* LSTPopViewCenterInputView.xib in Resources */,
@@ -788,11 +815,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				31438A25241169BA00387B4E /* LSTSheetAlertViewVC.m in Sources */,
+				319ECD592478258400F23A92 /* LSTPopViewPriorityVC.m in Sources */,
 				6003F59E195388D20070C39A /* LSTAppDelegate.m in Sources */,
 				313902902452750F004648F2 /* LSTPopViewrRSidebarView.m in Sources */,
 				31D8553A244E1A5B00BFC8E8 /* LSTPopViewRAMVC.m in Sources */,
 				31438A22241169AE00387B4E /* LSTAlertViewVC.m in Sources */,
 				31438A092411697000387B4E /* LSTPopViewTestVC.m in Sources */,
+				319ECD5D2478289600F23A92 /* LSTPriorityView.m in Sources */,
 				3144E1E72447573C003C5D11 /* LSTAutoKeyboardVC.m in Sources */,
 				3150CEBE24339B9F00244B3A /* LSTMutiPopViewVC.m in Sources */,
 				31438A1D241169A000387B4E /* LSTActionViewImage.m in Sources */,
@@ -802,6 +831,7 @@
 				313902A624528A3E004648F2 /* LSTPopViewLoadingCell.m in Sources */,
 				31438A132411698B00387B4E /* LSTPopViewCodeView.m in Sources */,
 				3139029A24528431004648F2 /* LSTPopViewCenterInputView.m in Sources */,
+				31077A3C246CE8E500474085 /* LSTModel.m in Sources */,
 				3144E1EC2447586A003C5D11 /* LSTKeyboardXibView.m in Sources */,
 				3139028B2452060D004648F2 /* LSTPopViewBaiDuView.m in Sources */,
 				31438A082411697000387B4E /* LSTPopViewTestView.m in Sources */,
@@ -948,7 +978,7 @@
 			baseConfigurationReference = B7DF4F9C390975AA25E2745C /* Pods-LSTPopView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = F8DZH6Y62F;
+				DEVELOPMENT_TEAM = 9TV887Q275;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LSTPopView/LSTPopView-Prefix.pch";
 				INFOPLIST_FILE = "LSTPopView/LSTPopView-Info.plist";
@@ -965,7 +995,7 @@
 			baseConfigurationReference = 9187EEEF2ED2937C7B19795A /* Pods-LSTPopView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = F8DZH6Y62F;
+				DEVELOPMENT_TEAM = 9TV887Q275;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LSTPopView/LSTPopView-Prefix.pch";
 				INFOPLIST_FILE = "LSTPopView/LSTPopView-Info.plist";

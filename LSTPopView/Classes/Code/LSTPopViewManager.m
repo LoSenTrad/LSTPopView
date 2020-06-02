@@ -9,12 +9,24 @@
 #import "LSTPopView.h"
 
 
+#define LSTPopViewTimerPath(name)  [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"LSTPopView_%@_Timer",name]]
 
 @interface LSTPopViewTimerModel : NSObject
 
 @property (nonatomic, assign) NSTimeInterval timeInterval;
 /** 定时器执行block */
 @property (nonatomic, copy) LSTPopViewManagerTimerBlock handleBlock;
+/** 每次计时单位增量 */
+@property (nonatomic, assign) NSTimeInterval unit;
+/** 是否递增 YES:递增 NO:递减 */
+@property (nonatomic, assign) BOOL increase;
+/** 是否本地持久化保存定时数据 */
+@property (nonatomic,assign) BOOL isDisk;
+/** 是否暂停 */
+@property (nonatomic,assign) BOOL isPause;
+/** 标识 */
+@property (nonatomic, copy) NSString *identifier;
+
 
 + (instancetype)timeInterval:(NSInteger)timeInterval;
 
@@ -26,6 +38,29 @@
     LSTPopViewTimerModel *object = [LSTPopViewTimerModel new];
     object.timeInterval = timeInterval;
     return object;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeDouble:self.timeInterval forKey:@"timeInterval"];
+    [aCoder encodeDouble:self.unit forKey:@"unit"];
+    [aCoder encodeBool:self.increase forKey:@"increase"];
+    [aCoder encodeBool:self.isDisk forKey:@"isDisk"];
+    [aCoder encodeBool:self.isPause forKey:@"isPause"];
+    [aCoder encodeObject:self.identifier forKey:@"identifier"];
+    
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        self.timeInterval = [aDecoder decodeDoubleForKey:@"timeInterval"];
+        self.unit = [aDecoder decodeDoubleForKey:@"unit"];
+        self.increase = [aDecoder decodeBoolForKey:@"increase"];
+        self.isDisk = [aDecoder decodeBoolForKey:@"isDisk"];
+        self.isPause = [aDecoder decodeBoolForKey:@"isPause"];
+        self.identifier = [aDecoder decodeObjectForKey:@"identifier"];
+    }
+    return self;
 }
 
 @end
@@ -75,14 +110,20 @@ LSTPopViewManager *LSTPopViewM() {
 + (NSArray *)getAllPopView {
     return LSTPopViewM().popViewMarr;
 }
-/** 获取对应popView */
+/** 获取当前页面所有popView */
 + (NSArray *)getAllPopViewForParentView:(UIView *)view {
     NSMutableArray *mArr = LSTPopViewM().popViewMarr;
     NSMutableArray *resMarr = [NSMutableArray array];
-    for (NSValue *v in mArr) {
-        LSTPopView *popView = v.nonretainedObjectValue;
-        if ([popView.superview isEqual:view]) {
-            [resMarr addObject:v];
+    for (id obj in mArr) {
+        LSTPopView *popView;
+        if ([obj isKindOfClass:[NSValue class]]) {
+            NSValue *resObj = (NSValue *)obj;
+            popView  = resObj.nonretainedObjectValue;
+        }else {
+            popView  = (LSTPopView *)obj;
+        }
+        if ([popView.parentView isEqual:view]) {
+            [resMarr addObject:obj];
         }
     }
     return [NSArray arrayWithArray:resMarr];
@@ -92,16 +133,23 @@ LSTPopViewManager *LSTPopViewM() {
 /** 获取当前页面指定编队的所有popView */
 + (NSArray *)getAllPopViewForPopView:(LSTPopView *)popView {
     
-    NSArray *mArr = [self getAllPopViewForParentView:popView.superview];
+    NSArray *mArr = [self getAllPopViewForParentView:popView.parentView];
     NSMutableArray *resMarr = [NSMutableArray array];
-    for (NSValue *v in mArr) {
-        LSTPopView *tPopView = v.nonretainedObjectValue;
+    for (id obj in mArr) {
+        LSTPopView *tPopView;
+        if ([obj isKindOfClass:[NSValue class]]) {
+            NSValue *resObj = (NSValue *)obj;
+            tPopView  = resObj.nonretainedObjectValue;
+        }else {
+            tPopView  = (LSTPopView *)obj;
+        }
+        
         if (popView.groupId == nil && tPopView.groupId == nil) {
-            [resMarr addObject:v];
+            [resMarr addObject:obj];
             continue;
         }
         if ([tPopView.groupId isEqual:popView.groupId]) {
-            [resMarr addObject:v];
+            [resMarr addObject:obj];
             continue;
         }
     }
@@ -117,28 +165,91 @@ LSTPopViewManager *LSTPopViewM() {
 + (void)savePopView:(LSTPopView *)popView {
 
     NSArray *arr = [self getAllPopView];
-    for (NSValue *v in arr) {
-        LSTPopView *tPopView  = v.nonretainedObjectValue;
-        
+    for (id obj in arr) {
+        LSTPopView *tPopView;
+        if ([obj isKindOfClass:[NSValue class]]) {
+            NSValue *resObj = (NSValue *)obj;
+            tPopView  = resObj.nonretainedObjectValue;
+        }else {
+            tPopView  = (LSTPopView *)obj;
+        }
         if ([tPopView isEqual:popView]) {
             break;
             return;
         }
     }
-    //
-    //    NSDictionary *dic = @{LSTPopView_Key:key.length>0?key:@"",
-    //                          LSTPopView_PopView:[NSValue valueWithNonretainedObject:popView],
-    //                          LSTPopView_ParentView:[NSValue valueWithNonretainedObject:parentView]};
-    
-    
-    [LSTPopViewM().popViewMarr addObject:[NSValue valueWithNonretainedObject:popView]];
 
+    if (popView.superview) {
+        [LSTPopViewM().popViewMarr addObject:[NSValue valueWithNonretainedObject:popView]];
+
+    }else {
+        [LSTPopViewM().popViewMarr addObject:popView];
+
+    }
+   
+
+    
+    
+     //优先级排序
+    [self sortingArr];
+    
+//    NSMutableArray *test  = LSTPopViewM().popViewMarr;
+//    for (NSValue *obj in test) {
+//        LSTPopView *p = obj.nonretainedObjectValue;
+//        NSLog(@"优先级--->%0.2f",p.priority);
+//    }
+//    NSLog(@"%@",test);
+}
+//冒泡排序
++ (void)sortingArr{
+
+    NSMutableArray *arr = LSTPopViewM().popViewMarr;
+    
+    for (int i = 0; i < arr.count; i++) {
+        for (int j = i+1; j < arr.count; j++) {
+            
+            LSTPopView *iPopView;
+            if ([arr[i] isKindOfClass:[NSValue class]]) {
+                NSValue *resObj = (NSValue *)arr[i];
+                iPopView  = resObj.nonretainedObjectValue;
+                
+            }else {
+                iPopView  = (LSTPopView *)arr[i];
+            }
+            LSTPopView *jPopView;
+            if ([arr[j] isKindOfClass:[NSValue class]]) {
+                NSValue *resObj = (NSValue *)arr[j];
+                jPopView  = resObj.nonretainedObjectValue;
+                
+            }else {
+                jPopView  = (LSTPopView *)arr[j];
+            }
+                     
+            if (iPopView.priority < jPopView.priority) {
+                [arr exchangeObjectAtIndex:i withObjectAtIndex:j];
+            }
+        }
+    }
+}
+
+/** 弱化popView 仅供内部调用 */
++ (void)weakWithPopView:(LSTPopView *)popView {
+    
+    if (![LSTPopViewM().popViewMarr containsObject:popView]) {
+        return;
+    }
+    
+    NSUInteger index =  [LSTPopViewM().popViewMarr indexOfObject:popView];
+    
+    [LSTPopViewM().popViewMarr replaceObjectAtIndex:index withObject:[NSValue valueWithNonretainedObject:popView]];
+    NSLog(@"%@",LSTPopViewM().popViewMarr);
 }
 
 /** 移除popView */
 + (void)removePopView:(LSTPopView *)popView {
     if (!popView) { return;}
     NSArray *arr = LSTPopViewM().popViewMarr;
+    
     
     for (NSValue *v in arr) {
         LSTPopView *tPopView = v.nonretainedObjectValue;
@@ -156,7 +267,7 @@ LSTPopViewManager *LSTPopViewM() {
 }
 /** 移除所有popView */
 + (void)removeAllPopView {
-    
+  
 }
 //
 //- (LSTPopView *)getPopViewWithValue:(NSValue *)value {
@@ -196,67 +307,265 @@ LSTPopViewManager *LSTPopViewM() {
 
 #pragma mark - ***** 定时器相关 *****
 
+#pragma mark - ***** 递减计时器 *****
+
 /** 添加定时器并开启计时 完成任务会自动移除 计时器源*/
 + (void)addTimerForCountdown:(NSTimeInterval)countdown
                       handle:(LSTPopViewManagerTimerBlock)handle {
-    
+    [self addTimerForIdentifier:nil
+                        forUnit:1
+                    forIncrease:NO
+                      ForIsDisk:NO
+                   forCountdown:countdown
+                         handle:handle];
 }
 /** 添加定时器并开启计时 完成任务会自动移除 计时器源*/
 + (void)addTimerForIdentifier:(NSString *)identifier
                  forCountdown:(NSTimeInterval)countdown
                        handle:(LSTPopViewManagerTimerBlock)handle {
-    
+    [self addTimerForIdentifier:identifier
+                        forUnit:1
+                    forIncrease:NO
+                      ForIsDisk:NO
+                   forCountdown:countdown
+                         handle:handle];
 }
+
++ (void)addTimerForIdentifier:(NSString *)identifier
+                 forCountdown:(NSTimeInterval)countdown
+                      forUnit:(NSTimeInterval)unit
+                       handle:(LSTPopViewManagerTimerBlock)handle {
+    [self addTimerForIdentifier:identifier
+                        forUnit:unit
+                    forIncrease:NO
+                      ForIsDisk:NO
+                   forCountdown:countdown
+                         handle:handle];
+}
+
++ (void)addDiskTimerForIdentifier:(NSString *)identifier
+                     forCountdown:(NSTimeInterval)countdown
+                          forUnit:(NSTimeInterval)unit
+                           handle:(LSTPopViewManagerTimerBlock)handle {
+    [self addTimerForIdentifier:identifier
+                        forUnit:unit
+                    forIncrease:NO
+                      ForIsDisk:YES
+                   forCountdown:countdown
+                         handle:handle];
+}
+
+
+#pragma mark - ***** 递增计时器 *****
 
 /** 添加定时器并开启计时 */
 + (void)addTimerForHandle:(LSTPopViewManagerTimerBlock)handle {
-    
+    [self addTimerForIdentifier:nil
+                        forUnit:1
+                    forIncrease:YES
+                      ForIsDisk:NO
+                   forCountdown:0
+                         handle:handle];
 }
 
 /** 添加定时器并开启计时 */
 + (void)addTimerForIdentifier:(NSString *)identifier handle:(LSTPopViewManagerTimerBlock)handle{
+    [self addTimerForIdentifier:identifier
+                        forUnit:1
+                    forIncrease:YES
+                      ForIsDisk:NO
+                   forCountdown:0
+                         handle:handle];
+  
+}
+
+/** 添加定时器并开启计时 */
++ (void)addTimerForIdentifier:(NSString *)identifier
+                      forUnit:(NSTimeInterval)unit
+                       handle:(LSTPopViewManagerTimerBlock)handle {
+    
+   
+    [self addTimerForIdentifier:identifier
+                        forUnit:unit
+                    forIncrease:YES
+                      ForIsDisk:NO
+                   forCountdown:0
+                         handle:handle];
+    
+}
+
++ (void)addDiskTimerForIdentifier:(NSString *)identifier
+                          forUnit:(NSTimeInterval)unit
+                           handle:(LSTPopViewManagerTimerBlock)handle {
+    [self addTimerForIdentifier:identifier
+                        forUnit:unit
+                    forIncrease:YES
+                      ForIsDisk:YES
+                   forCountdown:0
+                         handle:handle];
+}
+//总初始化入口
++ (void)addTimerForIdentifier:(NSString *)identifier
+                      forUnit:(NSTimeInterval)unit
+                  forIncrease:(BOOL)increase
+                    ForIsDisk:(BOOL)isDisk
+                 forCountdown:(NSTimeInterval)countdown
+                       handle:(LSTPopViewManagerTimerBlock)handle {
     
     if (identifier.length<=0) {
         identifier = [self getTimeStamp];
     }
     
-    LSTPopViewTimerModel *model = LSTPopViewM().timerMdic[identifier];
-    if (!model) {
-        model = [LSTPopViewTimerModel timeInterval:0];
-        [LSTPopViewM().timerMdic setObject:model forKey:identifier];
+    
+    BOOL isTempDisk = [LSTPopViewManager timerIsExistInDiskForIdentifier:identifier];//磁盘有任务
+    BOOL isRAM = LSTPopViewM().timerMdic[identifier]?YES:NO;//内存有任务
+    
+    
+     
+    if (!isRAM && !isTempDisk) {//新任务
+        LSTPopViewTimerModel *model = [LSTPopViewTimerModel timeInterval:countdown];
         model.handleBlock = handle;
+        model.unit = unit;
+        model.increase = increase;
+        model.isDisk = isDisk;
+        model.identifier = identifier;
+        [LSTPopViewM().timerMdic setObject:model forKey:identifier];
+        if (model.handleBlock) {
+            model.handleBlock(model.timeInterval);
+        }
+        [self initTimer];
     }
-    [self initTimer:YES timeInterval:1];
-}
+   
+    
+    if (isRAM && !isTempDisk) {//内存任务
+        LSTPopViewTimerModel *model = LSTPopViewM().timerMdic[identifier];
+        model.isPause = NO;
+    }
+    
+    if (!isRAM && isTempDisk) {//硬盘的任务
+        LSTPopViewTimerModel *model = [LSTPopViewTimerModel timeInterval:countdown];
+        model.handleBlock = handle;
+        model.unit = unit;
+        model.increase = increase;
+        model.isDisk = isDisk;
+        model.identifier = identifier;
+        model.timeInterval = [LSTPopViewManager getTimeIntervalForIdentifier:identifier];
+        [LSTPopViewM().timerMdic setObject:model forKey:identifier];
+        if (model.handleBlock) {
+            model.handleBlock(model.timeInterval);
+        }
+        [self initTimer];
+    }
+    
+    if (isRAM && isTempDisk) {//硬盘的任务
+        LSTPopViewTimerModel *model = LSTPopViewM().timerMdic[identifier];
+        model.timeInterval = [LSTPopViewManager getTimeIntervalForIdentifier:identifier];
+    }
 
+}
 
 + (NSTimeInterval)getTimeIntervalForIdentifier:(NSString *)identifier {
-    return 100;
-}
-
-
-+ (void)pauseTimerForIdentifier:(NSString *)identifier {
+    if (identifier.length<=0) {
+        return 0.0;
+    }
+    
+    BOOL isTempDisk = [LSTPopViewManager timerIsExistInDiskForIdentifier:identifier];//磁盘有任务
+    BOOL isRAM = LSTPopViewM().timerMdic[identifier]?YES:NO;//内存有任务
+    
+    
+    if (isTempDisk) {
+        LSTPopViewTimerModel *model = [LSTPopViewManager loadTimerForIdentifier:identifier];
+        
+        return model.timeInterval;
+    }else if (isRAM) {
+         LSTPopViewTimerModel *model = LSTPopViewM().timerMdic[identifier];
+        return model.timeInterval;
+    }else {
+        NSLog(@"找不到计时任务");
+        return 0.0;
+    }
     
 }
+
++ (BOOL)pauseTimerForIdentifier:(NSString *)identifier {
+    if (identifier.length<=0) {
+        NSLog(@"计时器标识不能为空");
+        return NO;
+    }
+    LSTPopViewTimerModel *model = LSTPopViewM().timerMdic[identifier];
+    if (model) {
+        model.isPause = YES;
+        return YES;
+    }else {
+        NSLog(@"找不到计时器任务");
+        return NO;
+    }
+}
+
 + (void)pauseAllTimer {
-    
+    [LSTPopViewM().timerMdic enumerateKeysAndObjectsUsingBlock:^(NSString *key, LSTPopViewTimerModel *obj, BOOL *stop) {
+        obj.isPause = YES;
+    }];
 }
 
-+ (void)removeTimerForIdentifier:(NSString *)identifier {
++ (BOOL)restartTimerForIdentifier:(NSString *)identifier {
+    if (identifier.length<=0) {
+        NSLog(@"计时器标识不能为空");
+        return NO;
+    }
+    
+    //只有内存任务才能重启, 硬盘任务只能调用addTimer系列方法重启
+    BOOL isRAM = LSTPopViewM().timerMdic[identifier]?YES:NO;//内存有任务
+    if (isRAM) {
+        LSTPopViewTimerModel *model = LSTPopViewM().timerMdic[identifier];
+        model.isPause = NO;
+        return YES;
+    }else {
+        NSLog(@"找不到计时器任务");
+        return NO;
+    }
+    
     
 }
-+ (void)removeAllTimer {
++ (void)restartAllTimer {
     
+    if (LSTPopViewM().timerMdic.count<=0) {
+        return;
+    }
+    
+    [LSTPopViewM().timerMdic enumerateKeysAndObjectsUsingBlock:^(NSString *key, LSTPopViewTimerModel *obj, BOOL *stop) {
+        obj.isPause = NO;
+    }];
+}
+
++ (BOOL)removeTimerForIdentifier:(NSString *)identifier {
+    if (identifier.length<=0) {
+        NSLog(@"计时器标识不能为空");
+        return NO;
+    }
+    
+    [LSTPopViewM().timerMdic removeObjectForKey:identifier];
+    if (LSTPopViewM().timerMdic.count<=0) {//如果没有计时任务了 就销毁计时器
+        [LSTPopViewM().showTimer invalidate];
+        LSTPopViewM().showTimer = nil;
+    }
+    return YES;
+}
+
++ (void)removeAllTimer {
+    [LSTPopViewM().timerMdic removeAllObjects];
+    [LSTPopViewM().showTimer invalidate];
+    LSTPopViewM().showTimer = nil;
 }
 
 /** increase YES: 递增 NO: 递减   */
-+ (void)initTimer:(BOOL)increase timeInterval:(NSTimeInterval)timeInterval {
++ (void)initTimer {
     
     if (LSTPopViewM().showTimer) {
         return;
     }
     
-    NSTimer *timer = [NSTimer timerWithTimeInterval:timeInterval target:LSTPopViewM() selector:@selector(handleHideTimer:) userInfo:@{@"increase":@(increase),@"timeInterval":@(timeInterval)} repeats:YES];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:LSTPopViewM() selector:@selector(handleHideTimer:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     LSTPopViewM().showTimer = timer;
     
@@ -264,16 +573,40 @@ LSTPopViewManager *LSTPopViewM() {
 
 - (void)handleHideTimer:(NSTimer *)timer {
     
-    [self timerChange:1];
+    [self timerChange];
     
 }
 
-- (void)timerChange:(NSTimeInterval)timeInterval {
+- (void)timerChange {
     // 时间差+
     [LSTPopViewM().timerMdic enumerateKeysAndObjectsUsingBlock:^(NSString *key, LSTPopViewTimerModel *obj, BOOL *stop) {
-        obj.timeInterval += timeInterval;
-        if (obj.handleBlock) {
-            obj.handleBlock(obj.timeInterval);
+        if (!obj.isPause) {
+            if (obj.increase) {//递增
+                obj.timeInterval = obj.timeInterval + obj.unit;
+            }else {//递减
+                obj.timeInterval = obj.timeInterval - obj.unit;
+                if (obj.timeInterval<0) {//计时结束
+                    obj.timeInterval = 0;
+                    obj.isPause = YES;
+                }
+            }
+            
+            if (obj.isDisk) {
+                [NSKeyedArchiver archiveRootObject:obj toFile:LSTPopViewTimerPath(obj.identifier)];
+            }
+            
+            if (obj.handleBlock&&obj.increase) {//递增
+                obj.handleBlock(obj.timeInterval);
+            }
+            if (obj.handleBlock&&!obj.increase&&obj>=0) {//递减
+                
+                obj.handleBlock(obj.timeInterval);
+                if (obj.timeInterval<=0) {//计时器计时完毕自动移除计时任务
+                    [LSTPopViewM().timerMdic removeObjectForKey:obj.identifier];
+                    
+                    NSLog(@"%@",LSTPopViewM().timerMdic);
+                }
+            }
         }
     }];
     // 发出通知
@@ -289,6 +622,32 @@ LSTPopViewManager *LSTPopViewM() {
     if(_timerMdic) return _timerMdic;
     _timerMdic = [NSMutableDictionary dictionary];
     return _timerMdic;
+}
+
++ (BOOL)savaForTimerModel:(LSTPopViewTimerModel *)model {
+    NSString *filePath = LSTPopViewTimerPath(model.identifier);
+    return [NSKeyedArchiver archiveRootObject:model toFile:filePath];
+}
+
++ (LSTPopViewTimerModel *)loadTimerForIdentifier:(NSString *)identifier{
+    NSString *filePath = LSTPopViewTimerPath(identifier);
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+}
+
++ (BOOL)deleteForIdentifier:(NSString *)identifier {
+    NSString *filePath = LSTPopViewTimerPath(identifier);
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    BOOL isExist = [fileManager fileExistsAtPath:filePath];
+    if (isExist) {
+        return [fileManager removeItemAtPath:filePath error:nil];
+    }
+    return NO;
+}
+
++ (BOOL)timerIsExistInDiskForIdentifier:(NSString *)identifier {
+    NSString *filePath = LSTPopViewTimerPath(identifier);
+    BOOL isExist = [[NSFileManager defaultManager] fileExistsAtPath:filePath];
+    return isExist;
 }
 
 

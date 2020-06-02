@@ -16,6 +16,7 @@
 #import "LSTPopViewRAMVC.h"
 #import "LSTPopViewSceneVC.h"
 #import "LSTPopViewGroupTestVC.h"
+#import "LSTPopViewPriorityVC.h"
 
 @interface LSTPopViewVC ()
 <
@@ -125,6 +126,11 @@ UITableViewDelegate
             cell.textLabel.text = @"多窗口编队调试";
         }
             break;
+        case 8:
+        {
+            cell.textLabel.text = @"窗口优先级调试";
+        }
+            break;
         default:
             break;
     }
@@ -169,6 +175,12 @@ UITableViewDelegate
         [self.navigationController pushViewController:xibVC animated:YES];
     }
     
+    if (indexPath.row == 8) {
+        LSTPopViewPriorityVC *xibVC = [[LSTPopViewPriorityVC alloc] initWithNibName:@"LSTPopViewPriorityVC" bundle:nil];
+        [self.navigationController pushViewController:xibVC animated:YES];
+     
+    }
+    
 }
 
 
@@ -189,8 +201,9 @@ UITableViewDelegate
     popView.isClickFeedback = YES;
     popView.bgColor = UIColor.blackColor;
     popView.isHideBg = NO;
+    popView.showTime = 2.0;
     popView.bgClickBlock = ^{
-        NSLog(@"点击了背景");
+//        NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
     view.closeBlock = ^{
@@ -202,23 +215,47 @@ UITableViewDelegate
 
 - (void)xibView {
     
+
+    
     UINib *nib = [UINib nibWithNibName:@"LSTPopViewXibView" bundle:nil];
     LSTPopViewXibView *view = [nib instantiateWithOwner:nil options:nil].firstObject;
     view.layer.cornerRadius = 10;
     view.layer.masksToBounds = YES;
     
     
-    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:1 dismissStyle:1];
+    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleSmoothToBottom];
     LSTPopViewWK(popView)
     popView.bgClickBlock = ^{
         [wk_popView dismiss];
-        NSLog(@"点击了背景");
+//        NSLog(@"点击了背景");
     };
     view.clickBlock = ^{
         [wk_popView dismiss];
     };
     [popView pop];
     
+    [self two];
+    
+    
+}
+
+- (void)two {
+    UINib *nib = [UINib nibWithNibName:@"LSTPopViewXibView" bundle:nil];
+    LSTPopViewXibView *view = [nib instantiateWithOwner:nil options:nil].firstObject;
+    view.layer.cornerRadius = 10;
+    view.layer.masksToBounds = YES;
+    
+    
+    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleSmoothToBottom];
+    LSTPopViewWK(popView)
+    popView.bgClickBlock = ^{
+        [wk_popView dismiss];
+        //        NSLog(@"点击了背景");
+    };
+    view.clickBlock = ^{
+        [wk_popView dismiss];
+    };
+    [popView pop];
 }
 
 - (void)LSTPopViewTest {

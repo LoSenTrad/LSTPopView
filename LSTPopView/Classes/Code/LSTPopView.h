@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LSTPopViewProtocol.h"
 
 #define LSTPopViewWK(object)  __weak typeof(object) wk_##object = object;
 #define LSTPopViewSS(object)  __strong typeof(object) object = weak##object;
@@ -52,33 +53,11 @@ typedef NS_ENUM(NSInteger, LSTHemStyle) {
     LSTHemStyleRight,  //贴右
 };
 
-@protocol LSTPopViewDelegate <NSObject>
-
-
-
-/** 点击弹框 回调 */
-- (void)lst_PopViewBgClick;
-/** 长按弹框 回调 */
-- (void)lst_PopViewBgLongPress;
-
-
-// ****** 生命周期 ******
-/** 将要显示 */
-- (void)lst_PopViewWillPop;
-/** 已经显示完毕 */
-- (void)lst_PopViewDidPop;
-/** 将要开始移除 */
-- (void)lst_PopViewWillDismiss;
-/** 已经移除完毕 */
-- (void)lst_PopViewDidDismiss;
-//***********************
-
-@end
 
 @interface LSTPopView : UIView
 
 /** 代理 */
-@property (nonatomic, weak) id<LSTPopViewDelegate> _Nullable delegate;
+@property (nonatomic, weak) id<LSTPopViewProtocol> _Nullable delegate;
 
 /** 显示时点击背景是否移除弹框，默认为NO。 */
 @property (nonatomic, assign) BOOL isClickBgDismiss;
@@ -104,6 +83,11 @@ typedef NS_ENUM(NSInteger, LSTHemStyle) {
 @property (nonatomic) LSTPopStyle popStyle;
 /** 移除时动画弹框样式 */
 @property (nonatomic) LSTDismissStyle dismissStyle;
+/**
+ 弹框容器
+ 默认是app UIWindow 可指定view作为容器
+ */
+@property (nonatomic,weak) UIView * _Nullable parentView;
 ///** 单击反馈动画 */
 //@property (nonatomic, assign) LSTActivityStyle clickStyle;
 /** 是否开启长按反馈动画 默认YES */
@@ -151,15 +135,15 @@ typedef NS_ENUM(NSInteger, LSTHemStyle) {
 
 + (nullable instancetype)initWithCustomView:(UIView *_Nonnull)customView;
 /**
-  通过自定义视图来构造弹框视图
-  @param customView 自定义视图
+ 通过自定义视图来构造弹框视图
+ @param customView 自定义视图
  */
 + (nullable instancetype)initWithCustomView:(UIView *_Nonnull)customView
                                    popStyle:(LSTPopStyle)popStyle
                                dismissStyle:(LSTDismissStyle)dismissStyle;
 /**
-  通过自定义视图来构造弹框视图
-  @param customView 自定义视图
+ 通过自定义视图来构造弹框视图
+ @param customView 自定义视图
  */
 + (nullable instancetype)initWithCustomView:(UIView *_Nonnull)customView
                                  parentView:(UIView *_Nullable)parentView

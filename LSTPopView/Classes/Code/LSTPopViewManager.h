@@ -71,6 +71,10 @@ LSTPopViewManager *LSTPopViewM(void);
 /** 入栈 仅供内部调用  */
 + (void)intoStackForPopView:(LSTPopView *)popView;
 
+/** 弱化popView 仅供内部调用 */
++ (void)weakWithPopView:(LSTPopView *)popView;
+
+
 
 
 
@@ -78,6 +82,8 @@ LSTPopViewManager *LSTPopViewM(void);
 
 @property (nonatomic, strong) NSTimer *showTimer;
 
+
+#pragma mark - ***** 递减计时器 *****
 
 /** 添加定时器并开启计时 完成任务会自动移除 计时器源*/
 + (void)addTimerForCountdown:(NSTimeInterval)countdown
@@ -89,26 +95,39 @@ LSTPopViewManager *LSTPopViewM(void);
 /** 添加定时器并开启计时 完成任务会自动移除 计时器源*/
 + (void)addTimerForIdentifier:(NSString *)identifier
                  forCountdown:(NSTimeInterval)countdown
-                  forIncrease:(NSTimeInterval)increase
+                      forUnit:(NSTimeInterval)unit
                        handle:(LSTPopViewManagerTimerBlock)handle;
+/** 添加定时器并开启计时 完成任务会自动移除 计时器源*/
++ (void)addDiskTimerForIdentifier:(NSString *)identifier
+                     forCountdown:(NSTimeInterval)countdown
+                          forUnit:(NSTimeInterval)unit
+                           handle:(LSTPopViewManagerTimerBlock)handle;
 
+
+#pragma mark - ***** 递增计时器 *****
 /** 添加定时器并开启计时 */
 + (void)addTimerForHandle:(LSTPopViewManagerTimerBlock)handle;
 /** 添加定时器并开启计时 */
 + (void)addTimerForIdentifier:(NSString *)identifier handle:(LSTPopViewManagerTimerBlock)handle;
 /** 添加定时器并开启计时 */
 + (void)addTimerForIdentifier:(NSString *)identifier
-                  forIncrease:(NSTimeInterval)increase
+                      forUnit:(NSTimeInterval)unit
                        handle:(LSTPopViewManagerTimerBlock)handle;
-
+/** 添加定时器并开启计时 */
++ (void)addDiskTimerForIdentifier:(NSString *)identifier
+                          forUnit:(NSTimeInterval)unit
+                           handle:(LSTPopViewManagerTimerBlock)handle;
 
 + (NSTimeInterval)getTimeIntervalForIdentifier:(NSString *)identifier;
 
 
-+ (void)pauseTimerForIdentifier:(NSString *)identifier;
++ (BOOL)pauseTimerForIdentifier:(NSString *)identifier;
 + (void)pauseAllTimer;
 
-+ (void)removeTimerForIdentifier:(NSString *)identifier;
++ (BOOL)restartTimerForIdentifier:(NSString *)identifier;
++ (void)restartAllTimer;
+
++ (BOOL)removeTimerForIdentifier:(NSString *)identifier;
 + (void)removeAllTimer;
 
 
