@@ -1,6 +1,7 @@
 # LSTPopView 简易的iOS万能弹框
 
 [![Platform](https://img.shields.io/badge/platform-iOS-red.svg)](https://developer.apple.com/iphone/index.action) [![Language](http://img.shields.io/badge/language-OC-yellow.svg?style=flat )](https://en.wikipedia.org/wiki/Objective-C) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://mit-license.org) [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/LSTPopView.svg)](https://img.shields.io/cocoapods/v/LSTPopView.svg)
+
 ##前言
 - 在每个项目中,弹框的需求都有,而且各种各样,花里胡哨, 很是烦恼. LSTPopView的出现,可以让我们更专注弹框页面的布局.省心省力! 提高开发效率!
 - 欢迎coder们发现问题或者提供更好的idea,一起努力完善
@@ -44,12 +45,12 @@
 - 丰富的动画选择
 
 |弹出动画,中间,自上,自左,自下,自左<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E5%BC%B9%E5%87%BA%E5%8A%A8%E7%94%BB.gif" width = "200" height = "424" alt="图片名称" align=center />|移除动画,中间,至上,至左,至下,至左<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E7%A7%BB%E9%99%A4%E5%8A%A8%E7%94%BB.gif" width = "200" height = "424" alt="图片名称" align=center /> |
-|---|---|---|
+|---|---|
 
 - 弹框位置
 
 |弹框位置,中间,贴顶,贴左,贴底,贴右<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E5%BC%B9%E6%A1%86%E4%BD%8D%E7%BD%AE.gif" width = "200" height = "424" alt="图片名称" align=center />|移除X轴Y轴校准<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/X_Y%E6%A0%A1%E5%87%86.gif" width = "200" height = "424" alt="图片名称" align=center /> |
-|---|---|---|
+|---|---|
 
 - 自动规避键盘遮挡,指定容器,定时器
 
@@ -58,13 +59,13 @@
      
 - 多窗口管理(优先级,编队)
 
- |多窗口优先级<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E7%AA%97%E5%8F%A3%E4%BC%98%E5%85%88%E7%BA%A7.gif" width = "200" height = "424" alt="图片名称" align=center />|多窗口编队使用<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E7%AA%97%E5%8F%A3%E7%BC%96%E9%98%9F%E7%9A%84%E4%BD%BF%E7%94%A8.gif" width = "200" height = "424" alt="图片名称" align=center />|
+|多窗口优先级<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E7%AA%97%E5%8F%A3%E4%BC%98%E5%85%88%E7%BA%A7.gif" width = "200" height = "424" alt="图片名称" align=center />|多窗口编队使用<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E7%AA%97%E5%8F%A3%E7%BC%96%E9%98%9F%E7%9A%84%E4%BD%BF%E7%94%A8.gif" width = "200" height = "424" alt="图片名称" align=center />|
 |---|---|
      
  - 支持横竖屏
  
- |屏幕旋转<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E5%B1%8F%E5%B9%95%E6%97%8B%E8%BD%AC.gif" width = "500" height = "500" alt="图片名称" align=center />|
- |---|
+|屏幕旋转<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E5%B1%8F%E5%B9%95%E6%97%8B%E8%BD%AC.gif" width = "500" height = "500" alt="图片名称" align=center />|
+|---|
 
        
 
