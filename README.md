@@ -2,17 +2,16 @@
 
 [![Platform](https://img.shields.io/badge/platform-iOS-red.svg)](https://developer.apple.com/iphone/index.action) [![Language](http://img.shields.io/badge/language-OC-yellow.svg?style=flat )](https://en.wikipedia.org/wiki/Objective-C) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://mit-license.org) [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/LSTPopView.svg)](https://img.shields.io/cocoapods/v/LSTPopView.svg)
 
-##前言
+## 前言
 - 在每个项目中,弹框的需求都有,而且各种各样,花里胡哨, 很是烦恼. LSTPopView的出现,可以让我们更专注弹框页面的布局.省心省力! 提高开发效率!
 - 欢迎coder们发现问题或者提供更好的idea,一起努力完善
 
-##博客地址
+## 博客地址
 - github: https://github.com/LoSenTrad/LSTPopView
 - 简书: https://www.jianshu.com/p/8023a85dc2a2
 - LSTPopView 属性接口介绍
 
-##介绍
-- 特性
+## 特性
     - 提供丰富的api,高度自定义弹框,简单入手使用
     - 支持弹出动画,消失动画,主动动画等多重动画搭配
     - 支持多弹框管理:编队,堆叠,优先级等
