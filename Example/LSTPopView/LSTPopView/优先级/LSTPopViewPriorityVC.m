@@ -111,7 +111,7 @@
             NSLog(@"点击了背景");
             [wk_popView dismiss];
         };
-        view.titleLab.text = [NSString stringWithFormat:@"窗口 - 1\n(优先级: %0.2f)",popView.priority];
+        view.titleLab.text = [NSString stringWithFormat:@"窗口 - 2\n(优先级: %0.2f)",popView.priority];
 
         [popView pop];
     });
@@ -131,7 +131,7 @@
             NSLog(@"点击了背景");
             [wk_popView dismiss];
         };
-        view.titleLab.text = [NSString stringWithFormat:@"窗口 - 1\n(优先级: %0.2f)",popView.priority];
+        view.titleLab.text = [NSString stringWithFormat:@"窗口 - 3\n(优先级: %0.2f)",popView.priority];
 
         [popView pop];
     });

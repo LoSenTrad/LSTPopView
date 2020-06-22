@@ -414,7 +414,7 @@ UITableViewDataSource
     popView.isClickFeedback = YES;
     popView.bgClickBlock = ^{
         NSLog(@"点击了背景");
-        [wk_popView dismiss];
+        [view.textTF resignFirstResponder];
     };
     [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
         [wk_popView dismiss];
@@ -427,6 +427,7 @@ UITableViewDataSource
     LSTPopViewBottomInputView *view = [LSTPopViewBottomInputView getNibView:@"LSTPopViewBottomInputView"];
     view.frame = CGRectMake(0, 0, LSTScreenWidth(),244);
     LSTPopView *popView = [LSTPopView initWithCustomView:view
+                                              parentView:self.view
                                                 popStyle:LSTPopStyleSmoothFromBottom
                                             dismissStyle:LSTDismissStyleSmoothToBottom];
     popView.hemStyle = LSTHemStyleBottom;
@@ -436,12 +437,17 @@ UITableViewDataSource
     popView.isClickFeedback = YES;
     popView.avoidKeyboardSpace = 0;
     popView.bgClickBlock = ^{
-        NSLog(@"点击了背景");
-        [wk_popView dismiss];
+//        NSLog(@"点击了背景");
+////        [wk_popView dismiss];
+//        [view endEditing:YES];
     };
     [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
         [wk_popView dismiss];
     }];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [view.textTF becomeFirstResponder];
+    });
     
     [popView pop];
 }

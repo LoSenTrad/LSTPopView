@@ -27,8 +27,7 @@
     
 }
 - (void)dealloc {
-    NSArray *arr = [LSTPopViewManager getAllPopView];
-    NSLog(@"");
+  
 }
 
 
@@ -60,10 +59,10 @@
     };
     
     view.closeBlock = ^{
-        [wk_popView dismissWithDismissStyle:LSTDismissStyleSmoothToTop duration:1.0];
+        [wk_popView dismissWithStyle:LSTDismissStyleSmoothToTop duration:1.0];
     };
     
-    [popView popWithPopStyle:LSTPopStyleCardDropFromLeft duration:0.5];
+    [popView popWithStyle:LSTPopStyleCardDropFromLeft duration:0.5];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *dismissTime;
 @property (weak, nonatomic) IBOutlet UITextField *adjustX;
 @property (weak, nonatomic) IBOutlet UITextField *adjustY;
+@property (weak, nonatomic) IBOutlet UITextField *showTimeTF;
 @property (weak, nonatomic) IBOutlet UISwitch *bgDismissSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *screenSwith;
 @property (weak, nonatomic) IBOutlet UISwitch *parentSwitch;
@@ -30,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIView *yellowView;
 @property (weak, nonatomic) IBOutlet UIView *yellowResView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *parentViewSC;
+@property (weak, nonatomic) IBOutlet UISwitch *isHideBgSW;
 
 
 @end
@@ -129,6 +131,7 @@
         case 1:
         {
             popView.hemStyle = LSTHemStyleTop;
+            popView.adjustY = lst_IsIphoneX_ALL()?LSTNavBarHeight()*0.5:0;
         }
             break;
         case 2:
@@ -214,8 +217,8 @@
     popView.bgAlpha = [self.popBGAlpha.text floatValue];
     popView.popDuration  = [self.popTime.text floatValue];
     popView.dismissDuration = [self.dismissTime.text floatValue];
-    popView.adjustY = lst_IsIphoneX_ALL()?LSTNavBarHeight()*0.5:0;
-    
+    popView.showTime = [self.showTimeTF.text floatValue];
+    popView.isHideBg = self.isHideBgSW.on;
     
     
     popView.isClickBgDismiss = self.bgDismissSwitch.on?YES:NO;
@@ -229,10 +232,10 @@
         //        [wk_popView dismiss];
     };
     
-    popView.popViewWillPop = ^{
+    popView.popViewWillPopBlock = ^{
         wk_self.yellowResView.hidden = NO;
     };
-    popView.popViewDidDismiss = ^{
+    popView.popViewDidDismissBlock = ^{
         wk_self.yellowResView.hidden = YES;
     };
     
@@ -247,6 +250,10 @@
     };
     view.pushBlock = ^(id value) {
         [wk_self.navigationController pushViewController:[LSTPopViewTestVC new] animated:YES];
+    };
+    popView.popViewCountDownBlock = ^(LSTPopView *popView, NSTimeInterval timeInterval) {
+        NSLog(@"%@",[NSString stringWithFormat:@"--%.0lf---",timeInterval]);
+        view.timeLab.text = [NSString stringWithFormat:@"%.0lf",timeInterval];
     };
     
     [popView pop];
@@ -286,7 +293,7 @@
         //        [wk_popView dismiss];
     };
     
-    popView.popViewDidDismiss = ^{
+    popView.popViewDidDismissBlock = ^{
 //        [wk_popView dismiss];
         self.yellowResView.hidden = YES;
     };
@@ -332,7 +339,7 @@
         //        [wk_popView dismiss];
     };
     
-    popView.popViewDidDismiss = ^{
+    popView.popViewDidDismissBlock = ^{
 //        [wk_popView dismiss];
     };
     
@@ -378,7 +385,7 @@
         //        [wk_popView dismiss];
     };
     
-    popView.popViewDidDismiss = ^{
+    popView.popViewDidDismissBlock = ^{
 //        [wk_popView dismiss];
     };
     
@@ -422,7 +429,7 @@
         //        [wk_popView dismiss];
     };
     
-    popView.popViewDidDismiss = ^{
+    popView.popViewDidDismissBlock = ^{
 //        [wk_popView dismiss];
     };
     

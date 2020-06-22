@@ -65,7 +65,10 @@
                 <constraint firstItem="rSd-Wh-3v8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="xKp-qs-Dh4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="12" y="42"/>
+            <connections>
+                <outlet property="textTF" destination="DkB-LB-taK" id="uuU-GU-mcW"/>
+            </connections>
+            <point key="canvasLocation" x="-98" y="86"/>
         </view>
     </objects>
 </document>

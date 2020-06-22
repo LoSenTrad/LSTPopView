@@ -158,12 +158,12 @@ LSTPopViewManager *LSTPopViewM() {
 
 /** 读取popView */
 + (LSTPopView *)getPopViewForKey:(NSString *)key {
-   
+    
     return nil;
 }
 
 + (void)savePopView:(LSTPopView *)popView {
-
+    
     NSArray *arr = [self getAllPopView];
     for (id obj in arr) {
         LSTPopView *tPopView;
@@ -178,31 +178,22 @@ LSTPopViewManager *LSTPopViewM() {
             return;
         }
     }
-
+    
     if (popView.superview) {
         [LSTPopViewM().popViewMarr addObject:[NSValue valueWithNonretainedObject:popView]];
-
+        
     }else {
         [LSTPopViewM().popViewMarr addObject:popView];
-
+        
     }
-   
-
     
-    
-     //优先级排序
+    //优先级排序
     [self sortingArr];
     
-//    NSMutableArray *test  = LSTPopViewM().popViewMarr;
-//    for (NSValue *obj in test) {
-//        LSTPopView *p = obj.nonretainedObjectValue;
-//        NSLog(@"优先级--->%0.2f",p.priority);
-//    }
-//    NSLog(@"%@",test);
 }
 //冒泡排序
 + (void)sortingArr{
-
+    
     NSMutableArray *arr = LSTPopViewM().popViewMarr;
     
     for (int i = 0; i < arr.count; i++) {
@@ -224,8 +215,8 @@ LSTPopViewManager *LSTPopViewM() {
             }else {
                 jPopView  = (LSTPopView *)arr[j];
             }
-                     
-            if (iPopView.priority < jPopView.priority) {
+            
+            if (iPopView.priority > jPopView.priority) {
                 [arr exchangeObjectAtIndex:i withObjectAtIndex:j];
             }
         }
@@ -258,7 +249,7 @@ LSTPopViewManager *LSTPopViewM() {
             break;
             return;
         }
-    }    
+    }
 }
 
 /** 移除popView */
@@ -267,36 +258,8 @@ LSTPopViewManager *LSTPopViewM() {
 }
 /** 移除所有popView */
 + (void)removeAllPopView {
-  
-}
-//
-//- (LSTPopView *)getPopViewWithValue:(NSValue *)value {
-//
-//    return value.nonretainedObjectValue;
-//}
-
-/** 出栈栈 仅供内部调用  */
-+ (void)popStackForPopView:(LSTPopView *)popView {
     
 }
-
-/** 入栈 仅供内部调用  */
-+ (void)intoStackForPopView:(LSTPopView *)popView {
-//    //入栈
-//    NSArray *popViewArr = [self getAllPopViewForPopView:popView];
-//    if (popViewArr.count>=1) {
-//        //        LSTPopView *lastPopView = popViewArr[popViewArr.count-1];
-//        NSValue *v = popViewArr[popViewArr.count-1];
-//        LSTPopView *lastPopView = v.nonretainedObjectValue;
-////        if (lastPopView.isShowKeyboard) {
-//        [lastPopView endEditing:YES];
-////        }
-//        [UIView animateWithDuration:[popView getPopDefaultDuration:popStyle]*0.5 animations:^{
-//            lastPopView.alpha = 0.0;
-//        }];
-//    }
-}
-
 
 - (NSMutableArray *)popViewMarr {
     if(_popViewMarr) return _popViewMarr;
@@ -376,7 +339,7 @@ LSTPopViewManager *LSTPopViewM() {
                       ForIsDisk:NO
                    forCountdown:0
                          handle:handle];
-  
+    
 }
 
 /** 添加定时器并开启计时 */
@@ -384,7 +347,7 @@ LSTPopViewManager *LSTPopViewM() {
                       forUnit:(NSTimeInterval)unit
                        handle:(LSTPopViewManagerTimerBlock)handle {
     
-   
+    
     [self addTimerForIdentifier:identifier
                         forUnit:unit
                     forIncrease:YES
@@ -421,7 +384,7 @@ LSTPopViewManager *LSTPopViewM() {
     BOOL isRAM = LSTPopViewM().timerMdic[identifier]?YES:NO;//内存有任务
     
     
-     
+    
     if (!isRAM && !isTempDisk) {//新任务
         LSTPopViewTimerModel *model = [LSTPopViewTimerModel timeInterval:countdown];
         model.handleBlock = handle;
@@ -435,7 +398,7 @@ LSTPopViewManager *LSTPopViewM() {
         }
         [self initTimer];
     }
-   
+    
     
     if (isRAM && !isTempDisk) {//内存任务
         LSTPopViewTimerModel *model = LSTPopViewM().timerMdic[identifier];
@@ -461,7 +424,7 @@ LSTPopViewManager *LSTPopViewM() {
         LSTPopViewTimerModel *model = LSTPopViewM().timerMdic[identifier];
         model.timeInterval = [LSTPopViewManager getTimeIntervalForIdentifier:identifier];
     }
-
+    
 }
 
 + (NSTimeInterval)getTimeIntervalForIdentifier:(NSString *)identifier {
@@ -478,7 +441,7 @@ LSTPopViewManager *LSTPopViewM() {
         
         return model.timeInterval;
     }else if (isRAM) {
-         LSTPopViewTimerModel *model = LSTPopViewM().timerMdic[identifier];
+        LSTPopViewTimerModel *model = LSTPopViewM().timerMdic[identifier];
         return model.timeInterval;
     }else {
         NSLog(@"找不到计时任务");
@@ -610,7 +573,7 @@ LSTPopViewManager *LSTPopViewM() {
         }
     }];
     // 发出通知
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"" object:nil userInfo:nil];
+    //    [[NSNotificationCenter defaultCenter] postNotificationName:@"" object:nil userInfo:nil];
 }
 
 + (NSString *)getTimeStamp {
