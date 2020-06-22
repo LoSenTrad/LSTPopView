@@ -13,6 +13,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    self.timeLab.layer.cornerRadius = 15;
+    self.timeLab.layer.masksToBounds = YES;
+    
     self.xStepper.minimumValue = -100;
     self.xStepper.maximumValue = 100;
     self.xStepper.stepValue = 5.0;

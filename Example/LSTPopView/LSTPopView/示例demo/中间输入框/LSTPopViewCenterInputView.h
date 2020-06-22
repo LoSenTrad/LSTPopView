@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LSTPopViewCenterInputView : UIView
+@property (weak, nonatomic) IBOutlet UITextField *textTF;
 
 @end
 

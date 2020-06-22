@@ -10,28 +10,23 @@
 @class LSTPopView;
 
 
-
-
-
-
-static NSString *const LSTPopView_ParentView = @"LSTPopView_ParentView";
-static NSString *const LSTPopView_Key = @"LSTPopView_Key";
-static NSString *const LSTPopView_PopView = @"LSTPopView_PopView";
-
-NS_ASSUME_NONNULL_BEGIN
+static NSString * _Nonnull const LSTPopView_ParentView = @"LSTPopView_ParentView";
+static NSString * _Nonnull const LSTPopView_Key = @"LSTPopView_Key";
+static NSString * _Nonnull const LSTPopView_PopView = @"LSTPopView_PopView";
 
 
 typedef void(^LSTPopViewManagerTimerBlock)(NSTimeInterval interval);
 
 
+
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface LSTPopViewManager : NSObject
 
 
-
+/** 单例 */
 LSTPopViewManager *LSTPopViewM(void);
-
-//+ (instancetype)sharedInstance;
-
 
 
 /** 保存popView */
@@ -48,8 +43,6 @@ LSTPopViewManager *LSTPopViewM(void);
     建议使用getPopViewForGroupId:forkey: 方法进行精确读取
  */
 + (LSTPopView *)getPopViewForKey:(NSString *)key;
-/** 读取popView */
-+ (LSTPopView *)getPopViewForGroupId:(NSString *)groupId forKey:(NSString *)key;
 
 
 
@@ -60,16 +53,9 @@ LSTPopViewManager *LSTPopViewM(void);
    建议使用removePopViewForGroupId:forkey: 方法进行精确删除
 */
 + (void)removePopViewForKey:(NSString *)key;
-/** 精确删除弹框 通过编队id和弹框标识 */
-+ (void)removePopViewForGroupId:(NSString *)groupId forKey:(NSString *)key;
 /** 移除所有popView */
 + (void)removeAllPopView;
 
-
-/** 出栈 仅供内部调用  */
-+ (void)popStackForPopView:(LSTPopView *)popView;
-/** 入栈 仅供内部调用  */
-+ (void)intoStackForPopView:(LSTPopView *)popView;
 
 /** 弱化popView 仅供内部调用 */
 + (void)weakWithPopView:(LSTPopView *)popView;
@@ -77,10 +63,9 @@ LSTPopViewManager *LSTPopViewM(void);
 
 
 
-
 #pragma mark - ***** 计时器相关 *****
 
-@property (nonatomic, strong) NSTimer *showTimer;
+@property (nonatomic, strong) NSTimer * _Nullable showTimer;
 
 
 #pragma mark - ***** 递减计时器 *****
@@ -118,16 +103,22 @@ LSTPopViewManager *LSTPopViewM(void);
                           forUnit:(NSTimeInterval)unit
                            handle:(LSTPopViewManagerTimerBlock)handle;
 
+/** 通过标识获取定时器的 计时间隔 */
 + (NSTimeInterval)getTimeIntervalForIdentifier:(NSString *)identifier;
 
-
+/** 暂停指定标识的计时器 */
 + (BOOL)pauseTimerForIdentifier:(NSString *)identifier;
+/** 暂定所有计时器 */
 + (void)pauseAllTimer;
 
+/** 重启指定标识的计时器 */
 + (BOOL)restartTimerForIdentifier:(NSString *)identifier;
+/** 重启所有计时器 */
 + (void)restartAllTimer;
 
+/** 移除指定标识的计时器 */
 + (BOOL)removeTimerForIdentifier:(NSString *)identifier;
+/** 移除所有计时器 */
 + (void)removeAllTimer;
 
 

@@ -9,7 +9,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LSTPopViewGroupTestVC">
             <connections>
+                <outlet property="blueSW" destination="kzc-um-EXh" id="wAM-5e-IPa"/>
                 <outlet property="contentView" destination="T1k-7u-Ons" id="VuA-PP-g7f"/>
+                <outlet property="orangeSW" destination="opT-lx-fVa" id="bKw-NU-MWt"/>
+                <outlet property="redSW" destination="SU1-rh-JgD" id="yGQ-Gt-glp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,11 +22,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1k-7u-Ons">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="796"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="776"/>
                     <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygS-qd-dXb">
-                    <rect key="frame" x="45" y="810" width="100" height="35"/>
+                    <rect key="frame" x="51" y="791" width="100" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.96862745100000003" green="0.23137254900000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="红色编队弹框">
@@ -34,7 +37,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="466-Ce-1Jp">
-                    <rect key="frame" x="164" y="810" width="100" height="35"/>
+                    <rect key="frame" x="170" y="791" width="100" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.91372549020000005" green="0.67450980390000004" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="橙色编队弹框">
@@ -45,7 +48,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTe-MK-ctX">
-                    <rect key="frame" x="284" y="810" width="100" height="35"/>
+                    <rect key="frame" x="290" y="791" width="100" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="蓝色编队弹框">
@@ -55,15 +58,36 @@
                         <action selector="blueBtnAction:" destination="-1" eventType="touchUpInside" id="Diy-mk-1hJ"/>
                     </connections>
                 </button>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SU1-rh-JgD">
+                    <rect key="frame" x="78" y="834" width="49" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </switch>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="opT-lx-fVa">
+                    <rect key="frame" x="197" y="834" width="49" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </switch>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kzc-um-EXh">
+                    <rect key="frame" x="317" y="834" width="49" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7N-nO-6Vk">
+                    <rect key="frame" x="13" y="832" width="50" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <string key="text">是否堆叠
+(isStack)</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="T1k-7u-Ons" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4o5-43-K4o"/>
                 <constraint firstAttribute="trailing" secondItem="T1k-7u-Ons" secondAttribute="trailing" id="Cdy-Pd-lEe"/>
                 <constraint firstItem="T1k-7u-Ons" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cpz-A0-grC"/>
-                <constraint firstAttribute="bottom" secondItem="T1k-7u-Ons" secondAttribute="bottom" constant="100" id="kOH-gy-gut"/>
+                <constraint firstAttribute="bottom" secondItem="T1k-7u-Ons" secondAttribute="bottom" constant="120" id="kOH-gy-gut"/>
             </constraints>
-            <point key="canvasLocation" x="-497" y="-31"/>
+            <point key="canvasLocation" x="-186" y="-141"/>
         </view>
     </objects>
 </document>

@@ -58,7 +58,7 @@
         [wk_self open];
     };
     
-    [popView popWithPopStyle:LSTPopStyleSmoothFromTop duration:0.5];
+    [popView popWithStyle:LSTPopStyleSmoothFromTop duration:0.5];
 }
 
 @end

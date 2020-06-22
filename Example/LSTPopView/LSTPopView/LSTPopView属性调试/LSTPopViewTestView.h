@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) LSTPopViewTestViewBlock closeBlock;
 /** <#...#> */
 @property (nonatomic, copy) LSTPopViewTestViewBlock pushBlock;
+@property (weak, nonatomic) IBOutlet UILabel *timeLab;
 
 
 @end

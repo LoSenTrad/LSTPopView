@@ -9,6 +9,7 @@
 #import "LSTPopViewVC.h"
 #import "LSTPopViewTestVC.h"
 #import <LSTPopView.h>
+#import <UIView+LSTView.h>
 #import "LSTPopViewXibView.h"
 #import "LSTPopViewCodeView.h"
 #import "LSTMutiPopViewVC.h"
@@ -17,6 +18,9 @@
 #import "LSTPopViewSceneVC.h"
 #import "LSTPopViewGroupTestVC.h"
 #import "LSTPopViewPriorityVC.h"
+#import "LSTPopViewLifeCycleTestVC.h"
+#import "LSTPopViewRotationTestVC.h"
+
 
 @interface LSTPopViewVC ()
 <
@@ -38,10 +42,43 @@ UITableViewDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    UIView *view = [[UIView alloc] init];
+//    printf("Retain Count = %ld\n",CFGetRetainCount((__bridge CFTypeRef)(view)));
+//    NSMutableArray *arr = [NSMutableArray array];
+//    [arr addObject:[NSValue valueWithNonretainedObject:view]];
+//    printf("Retain Count = %ld\n",CFGetRetainCount((__bridge CFTypeRef)(view)));
+//
+//    [self.view addSubview:view];
+//    printf("Retain Count = %ld\n",CFGetRetainCount((__bridge CFTypeRef)(view)));
+//    [view removeFromSuperview];
+//    printf("Retain Count = %ld\n",CFGetRetainCount((__bridge CFTypeRef)(view)));
+
     
     [self layoutSubViewUI];
-   
     
+
+//    UIView *view = [[UIView alloc] init];
+//       view.layer.cornerRadius = 10;
+//       view.layer.masksToBounds = YES;
+//       view.backgroundColor = UIColor.yellowColor;
+//       view.frame = CGRectMake(0, 0, 300, 300);
+//       LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleSmoothToBottom];
+//       LSTPopViewWK(popView)
+//       popView.hemStyle = LSTHemStyleCenter;
+//       popView.adjustY = 10;
+//       popView.popDuration = 0.8;
+//       popView.dismissDuration = 0.8;
+//       popView.isClickFeedback = YES;
+//       popView.bgColor = UIColor.blackColor;
+//       //    popView.bgAlpha = 0.0;
+//       popView.isHideBg = YES;
+//       popView.showTime = 2.0;
+//       popView.bgClickBlock = ^{
+//           //        NSLog(@"点击了背景");
+//           [wk_popView dismiss];
+//       };
+//       [popView pop];
+
 }
 
 
@@ -131,6 +168,16 @@ UITableViewDelegate
             cell.textLabel.text = @"窗口优先级调试";
         }
             break;
+        case 9:
+        {
+            cell.textLabel.text = @"生命周期调试(多代理)";
+        }
+            break;
+        case 10:
+        {
+            cell.textLabel.text = @"横竖屏调试";
+        }
+            break;
         default:
             break;
     }
@@ -181,6 +228,18 @@ UITableViewDelegate
      
     }
     
+    if (indexPath.row == 9) {
+        LSTPopViewLifeCycleTestVC *vc = [[LSTPopViewLifeCycleTestVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+    
+    if (indexPath.row == 10) {
+        LSTPopViewRotationTestVC *vc = [[LSTPopViewRotationTestVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+    
 }
 
 
@@ -202,21 +261,20 @@ UITableViewDelegate
     popView.bgColor = UIColor.blackColor;
     popView.isHideBg = NO;
     popView.showTime = 2.0;
+    popView.isObserverScreenRotation = YES;
     popView.bgClickBlock = ^{
 //        NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
     view.closeBlock = ^{
-        [wk_popView dismissWithDismissStyle:LSTDismissStyleSmoothToTop duration:1.0];
+        [wk_popView dismissWithStyle:LSTDismissStyleSmoothToTop duration:1.0];
     };
     
     [popView pop];
 }
 
 - (void)xibView {
-    
-
-    
+        
     UINib *nib = [UINib nibWithNibName:@"LSTPopViewXibView" bundle:nil];
     LSTPopViewXibView *view = [nib instantiateWithOwner:nil options:nil].firstObject;
     view.layer.cornerRadius = 10;
@@ -227,16 +285,12 @@ UITableViewDelegate
     LSTPopViewWK(popView)
     popView.bgClickBlock = ^{
         [wk_popView dismiss];
-//        NSLog(@"点击了背景");
     };
+//    popView.isHideBg = YES;
     view.clickBlock = ^{
         [wk_popView dismiss];
     };
     [popView pop];
-    
-    [self two];
-    
-    
 }
 
 - (void)two {

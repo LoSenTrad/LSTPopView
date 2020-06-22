@@ -72,6 +72,17 @@
                     <rect key="frame" x="172" y="269" width="94" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </stepper>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkR-pN-THH">
+                    <rect key="frame" x="5" y="5" width="30" height="30"/>
+                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="FgD-Nh-THZ"/>
+                        <constraint firstAttribute="height" constant="30" id="n76-6C-0Kk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                    <color key="textColor" red="0.96862745100000003" green="0.23137254900000001" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -79,17 +90,20 @@
                 <constraint firstItem="ZSG-JJ-Ajy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CKn-39-tdk"/>
                 <constraint firstItem="pzB-3x-s2r" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="KI8-D5-PXC"/>
                 <constraint firstItem="ZSG-JJ-Ajy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MWr-Vz-L1B"/>
+                <constraint firstItem="OkR-pN-THH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="XOh-Cx-jTj"/>
                 <constraint firstAttribute="trailing" secondItem="pzB-3x-s2r" secondAttribute="trailing" constant="5" id="ilK-VK-BQC"/>
                 <constraint firstAttribute="trailing" secondItem="ZSG-JJ-Ajy" secondAttribute="trailing" id="pk0-6Z-7Xc"/>
+                <constraint firstItem="OkR-pN-THH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="sue-Xq-2Co"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="timeLab" destination="OkR-pN-THH" id="Xca-U8-Qje"/>
                 <outlet property="xLab" destination="aO8-vu-Omp" id="Zbm-fA-eNx"/>
                 <outlet property="xStepper" destination="cT7-MM-qPh" id="9Qu-ho-ZHK"/>
                 <outlet property="yLab" destination="tfS-b5-TBk" id="d1z-M5-qBk"/>
                 <outlet property="yStepper" destination="qnc-er-xpn" id="Lwk-sL-5kp"/>
             </connections>
-            <point key="canvasLocation" x="-222.46376811594206" y="-71.316964285714278"/>
+            <point key="canvasLocation" x="-246" y="-167"/>
         </view>
     </objects>
     <resources>

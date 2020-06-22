@@ -29,7 +29,7 @@
             <connections>
                 <outlet property="titleLab" destination="zpe-oA-grd" id="bmI-nY-OXM"/>
             </connections>
-            <point key="canvasLocation" x="-708" y="-69"/>
+            <point key="canvasLocation" x="-107" y="-149"/>
         </view>
     </objects>
 </document>
