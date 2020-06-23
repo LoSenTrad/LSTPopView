@@ -7,8 +7,6 @@
 - 欢迎coder们发现问题或者提供更好的idea,一起努力完善
 
 ## 博客地址
-- github: https://github.com/LoSenTrad/LSTPopView
-- 简书: https://www.jianshu.com/p/8023a85dc2a2
 - github: [https://github.com/LoSenTrad/LSTPopView](https://github.com/LoSenTrad/LSTPopView)
 - CSDN: [https://blog.csdn.net/u012400600/article/details/106279654](https://blog.csdn.net/u012400600/article/details/106279654)
 - 简书: [https://www.jianshu.com/p/8023a85dc2a2](https://www.jianshu.com/p/8023a85dc2a2)
