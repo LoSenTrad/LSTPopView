@@ -2,6 +2,8 @@
 
 [![Platform](https://img.shields.io/badge/platform-iOS-red.svg)](https://developer.apple.com/iphone/index.action) [![Language](http://img.shields.io/badge/language-OC-yellow.svg?style=flat )](https://en.wikipedia.org/wiki/Objective-C) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://mit-license.org) [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/LSTPopView.svg)](https://img.shields.io/cocoapods/v/LSTPopView.svg)
 
+## 如果觉得好用,请给我一个小星星吧!
+
 ## 前言
 - 在每个项目中,弹框的需求都有,而且各种各样,花里胡哨, 很是烦恼. LSTPopView的出现,可以让我们更专注弹框页面的布局.省心省力! 提高开发效率!
 - 欢迎coder们发现问题或者提供更好的idea,一起努力完善
