@@ -8,6 +8,13 @@
 
 #import "LSTPopViewXibView.h"
 
+
+@interface LSTPopViewXibView ()
+
+@property (weak, nonatomic) IBOutlet UIView *myView;
+
+@end
+
 @implementation LSTPopViewXibView
 
 
@@ -17,6 +24,15 @@
     
     self.bgBtn.adjustsImageWhenHighlighted = NO;
     self.bgBtn.adjustsImageWhenDisabled = NO;
+    
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(popViewBgViewTap)];
+    [self.myView addGestureRecognizer:tap];
+    
+}
+
+- (void)popViewBgViewTap {
+    
 }
 
 - (IBAction)clickAction:(UIButton *)sender {
@@ -27,5 +43,8 @@
     
 }
 
+- (IBAction)btnAction:(UIButton *)sender {
+    
+}
 
 @end

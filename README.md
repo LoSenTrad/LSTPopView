@@ -37,7 +37,11 @@
   pod 'LSTPopView'
   ```  
 - Carthage安装:(暂时未适配)
-    
+
+
+## 版本更新历史[点我](https://github.com/LoSenTrad/LSTPopView/blob/master/UPDATE_HISTORY.md)
+
+
 ## 效果演示(gif图比较大,请耐心等待~)
 
 - 应用市场常用的示例场景

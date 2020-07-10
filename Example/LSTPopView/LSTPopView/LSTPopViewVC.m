@@ -20,6 +20,8 @@
 #import "LSTPopViewPriorityVC.h"
 #import "LSTPopViewLifeCycleTestVC.h"
 #import "LSTPopViewRotationTestVC.h"
+#import "LSTPopViewTimerTestVC.h"
+#import "LSTPopViewListView.h"
 
 
 @interface LSTPopViewVC ()
@@ -78,7 +80,30 @@ UITableViewDelegate
 //           [wk_popView dismiss];
 //       };
 //       [popView pop];
+    
+    UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"调试" style:UIBarButtonItemStylePlain target:self action:@selector(test)];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
 
+}
+
+- (void)test {
+    LSTPopViewListView *view = [[LSTPopViewListView alloc] init];
+    view.layer.cornerRadius = 10;
+    view.layer.masksToBounds = YES;
+    
+    view.frame = CGRectMake(0, 0, 300, 500);
+    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleSmoothToBottom];
+    LSTPopViewWK(popView)
+    popView.hemStyle = LSTHemStyleCenter;
+    popView.popDuration = 0.8;
+    popView.dismissDuration = 0.8;
+    popView.bgColor = UIColor.blackColor;
+    popView.isObserverScreenRotation = YES;
+    popView.bgClickBlock = ^{
+        //        NSLog(@"点击了背景");
+        [wk_popView dismiss];
+    };
+    [popView pop];
 }
 
 
@@ -107,7 +132,7 @@ UITableViewDelegate
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return 12;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -175,7 +200,7 @@ UITableViewDelegate
             break;
         case 10:
         {
-            cell.textLabel.text = @"横竖屏调试";
+            cell.textLabel.text = @"定时器调试";
         }
             break;
         default:
@@ -235,7 +260,7 @@ UITableViewDelegate
     }
     
     if (indexPath.row == 10) {
-        LSTPopViewRotationTestVC *vc = [[LSTPopViewRotationTestVC alloc] init];
+        LSTPopViewTimerTestVC *vc = [[LSTPopViewTimerTestVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
         
     }

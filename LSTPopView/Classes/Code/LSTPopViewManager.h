@@ -103,6 +103,9 @@ LSTPopViewManager *LSTPopViewM(void);
                           forUnit:(NSTimeInterval)unit
                            handle:(LSTPopViewManagerTimerBlock)handle;
 
+
+
+
 /** 通过标识获取定时器的 计时间隔 */
 + (NSTimeInterval)getTimeIntervalForIdentifier:(NSString *)identifier;
 

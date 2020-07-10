@@ -18,7 +18,7 @@
 // 角度转弧度
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 
-@interface LSTPopViewBgView : UIView
+@interface LSTPopViewBgView : UIButton
 
 /** 是否隐藏背景 默认NO */
 @property (nonatomic, assign) BOOL isHideBg;
@@ -138,15 +138,18 @@
     
     
     //背景添加手势
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:popView action:@selector(popViewBgViewTap:)];
-    [popView.backgroundView addGestureRecognizer:tap];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:popView action:@selector(popViewBgViewTap:)];
+//    tap.delegate = popView;
+//    [popView.backgroundView addGestureRecognizer:tap];
+    
+    [popView.backgroundView addTarget:popView action:@selector(popViewBgViewTap:) forControlEvents:UIControlEventTouchUpInside];;
     
     
-    UILongPressGestureRecognizer *customViewLP = [[UILongPressGestureRecognizer alloc] initWithTarget:popView action:@selector(bgLongPressEvent:)];
-    [popView.backgroundView addGestureRecognizer:customViewLP];
+//    UILongPressGestureRecognizer *customViewLP = [[UILongPressGestureRecognizer alloc] initWithTarget:popView action:@selector(bgLongPressEvent:)];
+//    [popView.backgroundView addGestureRecognizer:customViewLP];
     
-    UITapGestureRecognizer *customViewTap = [[UITapGestureRecognizer alloc] initWithTarget:popView action:@selector(customViewClickEvent:)];
-    [popView.customView addGestureRecognizer:customViewTap];
+//    UITapGestureRecognizer *customViewTap = [[UITapGestureRecognizer alloc] initWithTarget:popView action:@selector(customViewClickEvent:)];
+//    [popView.customView addGestureRecognizer:customViewTap];
     
     //键盘将要显示
     [[NSNotificationCenter defaultCenter] addObserver:popView selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -298,8 +301,9 @@
     [self popWithStyle:self.popStyle duration:self.popDuration];
 }
 
-- (void)popWithPopStyle:(LSTPopStyle)popStyle {
+- (void)popWithStyle:(LSTPopStyle)popStyle {
     [self popWithStyle:popStyle duration:self.popDuration];
+
 }
 
 - (void)popWithDuration:(NSTimeInterval)duration {
@@ -447,7 +451,7 @@
     [self dismissWithStyle:self.dismissStyle duration:self.dismissDuration];
 }
 
-- (void)dismissWithDismissStyle:(LSTDismissStyle)dismissStyle {
+- (void)dismissWithStyle:(LSTDismissStyle)dismissStyle {
     [self dismissWithStyle:dismissStyle duration:self.dismissDuration];
 }
 
@@ -490,7 +494,6 @@
         if (isRemove && [LSTPopViewManager getAllPopViewForPopView:self].count>=2) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(resDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 //  popView出栈
-                
                 if (!self.isStack) {
                     NSArray *popViewArr = [LSTPopViewManager getAllPopViewForPopView:self];
                     id obj = popViewArr[popViewArr.count-2];
@@ -693,7 +696,7 @@
 
 
 
-- (void)popViewBgViewTap:(UITapGestureRecognizer *)tap {
+- (void)popViewBgViewTap:(UIButton *)tap {
     
     //    [self.delegateMarr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
     //
@@ -953,7 +956,7 @@
 - (void)startTimer {
     if (self.showTime>0) {
         __weak typeof(self) ws = self;
-        NSString *idStr = [NSString stringWithFormat:@"LSTPopView_%p",&self];
+        NSString *idStr = [NSString stringWithFormat:@"LSTPopView_%p",self];
         [LSTPopViewManager addTimerForIdentifier:idStr forCountdown:self.showTime handle:^(NSTimeInterval interval) {
             
             if (ws.popViewCountDownBlock) {

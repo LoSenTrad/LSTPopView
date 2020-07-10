@@ -24,6 +24,9 @@
 		313902A724528A3E004648F2 /* LSTPopViewLoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313902A524528A3E004648F2 /* LSTPopViewLoadingCell.xib */; };
 		313902AA245293E8004648F2 /* LSTPopViewloadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 313902A9245293E8004648F2 /* LSTPopViewloadingView.m */; };
 		313902AC245293F6004648F2 /* LSTPopViewloadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313902AB245293F6004648F2 /* LSTPopViewloadingView.xib */; };
+		31419BD124B7FFDC00AA25DB /* LSTPopViewTimerTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31419BD024B7FFDC00AA25DB /* LSTPopViewTimerTestVC.m */; };
+		31419BD424B800F400AA25DB /* LSTPopViewTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31419BD324B800F400AA25DB /* LSTPopViewTimerView.m */; };
+		31419BD624B800FE00AA25DB /* LSTPopViewTimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31419BD524B800FE00AA25DB /* LSTPopViewTimerView.xib */; };
 		31438A012411694800387B4E /* LSTBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 314389FF2411694800387B4E /* LSTBaseVC.m */; };
 		31438A082411697000387B4E /* LSTPopViewTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A022411697000387B4E /* LSTPopViewTestView.m */; };
 		31438A092411697000387B4E /* LSTPopViewTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A032411697000387B4E /* LSTPopViewTestVC.m */; };
@@ -49,6 +52,10 @@
 		314CA8AD2455EDD800E56E7B /* LSTPopViewdoyinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 314CA8AC2455EDD800E56E7B /* LSTPopViewdoyinView.xib */; };
 		3150CEBE24339B9F00244B3A /* LSTMutiPopViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3150CEBD24339B9F00244B3A /* LSTMutiPopViewVC.m */; };
 		3150CEC124339EF100244B3A /* LSTMutiPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3150CEC024339EF100244B3A /* LSTMutiPopView.m */; };
+		317CDDA724B8470E00457FFD /* LSTPopViewListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 317CDDA624B8470E00457FFD /* LSTPopViewListView.m */; };
+		317CDDAB24B8495D00457FFD /* LSTPopViewListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 317CDDA924B8495D00457FFD /* LSTPopViewListCell.m */; };
+		317CDDAC24B8495D00457FFD /* LSTPopViewListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317CDDAA24B8495D00457FFD /* LSTPopViewListCell.xib */; };
+		317CDDAE24B85FC300457FFD /* UPDATE_HISTORY.md in Resources */ = {isa = PBXBuildFile; fileRef = 317CDDAD24B85FC300457FFD /* UPDATE_HISTORY.md */; };
 		319ECD592478258400F23A92 /* LSTPopViewPriorityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 319ECD572478258400F23A92 /* LSTPopViewPriorityVC.m */; };
 		319ECD5A2478258400F23A92 /* LSTPopViewPriorityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319ECD582478258400F23A92 /* LSTPopViewPriorityVC.xib */; };
 		319ECD5D2478289600F23A92 /* LSTPriorityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 319ECD5C2478289600F23A92 /* LSTPriorityView.m */; };
@@ -124,6 +131,11 @@
 		313902A8245293E8004648F2 /* LSTPopViewloadingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewloadingView.h; sourceTree = "<group>"; };
 		313902A9245293E8004648F2 /* LSTPopViewloadingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewloadingView.m; sourceTree = "<group>"; };
 		313902AB245293F6004648F2 /* LSTPopViewloadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewloadingView.xib; sourceTree = "<group>"; };
+		31419BCF24B7FFDC00AA25DB /* LSTPopViewTimerTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewTimerTestVC.h; sourceTree = "<group>"; };
+		31419BD024B7FFDC00AA25DB /* LSTPopViewTimerTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewTimerTestVC.m; sourceTree = "<group>"; };
+		31419BD224B800F400AA25DB /* LSTPopViewTimerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewTimerView.h; sourceTree = "<group>"; };
+		31419BD324B800F400AA25DB /* LSTPopViewTimerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewTimerView.m; sourceTree = "<group>"; };
+		31419BD524B800FE00AA25DB /* LSTPopViewTimerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewTimerView.xib; sourceTree = "<group>"; };
 		314389FF2411694800387B4E /* LSTBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTBaseVC.m; sourceTree = "<group>"; };
 		31438A002411694800387B4E /* LSTBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTBaseVC.h; sourceTree = "<group>"; };
 		31438A022411697000387B4E /* LSTPopViewTestView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewTestView.m; sourceTree = "<group>"; };
@@ -165,6 +177,12 @@
 		3150CEBD24339B9F00244B3A /* LSTMutiPopViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTMutiPopViewVC.m; sourceTree = "<group>"; };
 		3150CEBF24339EF100244B3A /* LSTMutiPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTMutiPopView.h; sourceTree = "<group>"; };
 		3150CEC024339EF100244B3A /* LSTMutiPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTMutiPopView.m; sourceTree = "<group>"; };
+		317CDDA524B8470E00457FFD /* LSTPopViewListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewListView.h; sourceTree = "<group>"; };
+		317CDDA624B8470E00457FFD /* LSTPopViewListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewListView.m; sourceTree = "<group>"; };
+		317CDDA824B8495D00457FFD /* LSTPopViewListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewListCell.h; sourceTree = "<group>"; };
+		317CDDA924B8495D00457FFD /* LSTPopViewListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewListCell.m; sourceTree = "<group>"; };
+		317CDDAA24B8495D00457FFD /* LSTPopViewListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewListCell.xib; sourceTree = "<group>"; };
+		317CDDAD24B85FC300457FFD /* UPDATE_HISTORY.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = UPDATE_HISTORY.md; sourceTree = "<group>"; };
 		319ECD562478258400F23A92 /* LSTPopViewPriorityVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewPriorityVC.h; sourceTree = "<group>"; };
 		319ECD572478258400F23A92 /* LSTPopViewPriorityVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewPriorityVC.m; sourceTree = "<group>"; };
 		319ECD582478258400F23A92 /* LSTPopViewPriorityVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewPriorityVC.xib; sourceTree = "<group>"; };
@@ -346,6 +364,18 @@
 			path = "加载指示器";
 			sourceTree = "<group>";
 		};
+		31419BCE24B7FE8F00AA25DB /* 定时器调试 */ = {
+			isa = PBXGroup;
+			children = (
+				31419BCF24B7FFDC00AA25DB /* LSTPopViewTimerTestVC.h */,
+				31419BD024B7FFDC00AA25DB /* LSTPopViewTimerTestVC.m */,
+				31419BD224B800F400AA25DB /* LSTPopViewTimerView.h */,
+				31419BD324B800F400AA25DB /* LSTPopViewTimerView.m */,
+				31419BD524B800FE00AA25DB /* LSTPopViewTimerView.xib */,
+			);
+			path = "定时器调试";
+			sourceTree = "<group>";
+		};
 		314389F6241168B700387B4E /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,9 +388,11 @@
 		314389F7241168CD00387B4E /* LSTPopView */ = {
 			isa = PBXGroup;
 			children = (
-				3147C61F249C9147001C2EFA /* 横竖屏 */,
+				317CDDA324B8466800457FFD /* New Group */,
 				31438A2724116A5000387B4E /* LSTPopViewVC.h */,
 				31438A2624116A5000387B4E /* LSTPopViewVC.m */,
+				31419BCE24B7FE8F00AA25DB /* 定时器调试 */,
+				3147C61F249C9147001C2EFA /* 横竖屏 */,
 				31BAA5E4248A9B5A00BFCFC5 /* 生命周期(多代理) */,
 				319ECD522478242D00F23A92 /* 优先级 */,
 				31EAD617245E95A4007620E7 /* 窗口编队测试 */,
@@ -482,6 +514,25 @@
 			path = "多窗口测试";
 			sourceTree = "<group>";
 		};
+		317CDDA324B8466800457FFD /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		317CDDA424B8468200457FFD /* 列表类型展示 */ = {
+			isa = PBXGroup;
+			children = (
+				317CDDA524B8470E00457FFD /* LSTPopViewListView.h */,
+				317CDDA624B8470E00457FFD /* LSTPopViewListView.m */,
+				317CDDA824B8495D00457FFD /* LSTPopViewListCell.h */,
+				317CDDA924B8495D00457FFD /* LSTPopViewListCell.m */,
+				317CDDAA24B8495D00457FFD /* LSTPopViewListCell.xib */,
+			);
+			path = "列表类型展示";
+			sourceTree = "<group>";
+		};
 		319ECD522478242D00F23A92 /* 优先级 */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +561,7 @@
 			children = (
 				31CDCCF72451D8260037B813 /* LSTPopViewSceneVC.h */,
 				31CDCCF82451D8260037B813 /* LSTPopViewSceneVC.m */,
+				317CDDA424B8468200457FFD /* 列表类型展示 */,
 				314CA8A82455EC5600E56E7B /* 抖音 */,
 				313902A2245289F8004648F2 /* 加载指示器 */,
 				3139029724528335004648F2 /* 中间输入框 */,
@@ -661,6 +713,7 @@
 				A1A3B8DC8F645A2E3A4D3F55 /* LSTPopView.podspec */,
 				B2FC140E090D63A96953DBD3 /* README.md */,
 				038CEC63B34760C327FDAD98 /* LICENSE */,
+				317CDDAD24B85FC300457FFD /* UPDATE_HISTORY.md */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -749,10 +802,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				31419BD624B800FE00AA25DB /* LSTPopViewTimerView.xib in Resources */,
 				313902952452754F004648F2 /* LSTPopViewrLSidebarView.xib in Resources */,
 				31CDCD042451F04D0037B813 /* LSTPopViewQQView.xib in Resources */,
+				317CDDAE24B85FC300457FFD /* UPDATE_HISTORY.md in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				3144E1E92447585C003C5D11 /* LSTKeyboardXibView.xib in Resources */,
+				317CDDAC24B8495D00457FFD /* LSTPopViewListCell.xib in Resources */,
 				31438A102411697C00387B4E /* LSTPopViewXibView.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				31438A0A2411697000387B4E /* LSTPopViewTestVC.xib in Resources */,
@@ -845,6 +901,7 @@
 				31438A22241169AE00387B4E /* LSTAlertViewVC.m in Sources */,
 				31BAA5E7248A9EDA00BFCFC5 /* LSTPopViewLifeCycleTestVC.m in Sources */,
 				31438A092411697000387B4E /* LSTPopViewTestVC.m in Sources */,
+				317CDDAB24B8495D00457FFD /* LSTPopViewListCell.m in Sources */,
 				319ECD5D2478289600F23A92 /* LSTPriorityView.m in Sources */,
 				3144E1E72447573C003C5D11 /* LSTAutoKeyboardVC.m in Sources */,
 				3150CEBE24339B9F00244B3A /* LSTMutiPopViewVC.m in Sources */,
@@ -859,6 +916,7 @@
 				31077A3C246CE8E500474085 /* LSTModel.m in Sources */,
 				3144E1EC2447586A003C5D11 /* LSTKeyboardXibView.m in Sources */,
 				3139028B2452060D004648F2 /* LSTPopViewBaiDuView.m in Sources */,
+				317CDDA724B8470E00457FFD /* LSTPopViewListView.m in Sources */,
 				31438A082411697000387B4E /* LSTPopViewTestView.m in Sources */,
 				31CDCCF92451D8260037B813 /* LSTPopViewSceneVC.m in Sources */,
 				313902872452043A004648F2 /* LSTPopViewUCView.m in Sources */,
@@ -868,11 +926,13 @@
 				31438A2824116A5000387B4E /* LSTPopViewVC.m in Sources */,
 				31438A1B241169A000387B4E /* LSTActionViewEmoji.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				31419BD424B800F400AA25DB /* LSTPopViewTimerView.m in Sources */,
 				313902832452024C004648F2 /* LSTPopViewTranspondView.m in Sources */,
 				31EAD622245EB8A9007620E7 /* LSTPopViewGroupTestView.m in Sources */,
 				3150CEC124339EF100244B3A /* LSTMutiPopView.m in Sources */,
 				31438A0F2411697C00387B4E /* LSTPopViewXibView.m in Sources */,
 				31BAA5EA248B78E900BFCFC5 /* LSTLifeCycleView.m in Sources */,
+				31419BD124B7FFDC00AA25DB /* LSTPopViewTimerTestVC.m in Sources */,
 				3139027D2451FC66004648F2 /* LSTPopViewWeChatView.m in Sources */,
 				31EAD61E245EAE36007620E7 /* LSTPopViewGroupTestVC.m in Sources */,
 				3139029324527537004648F2 /* LSTPopViewrLSidebarView.m in Sources */,

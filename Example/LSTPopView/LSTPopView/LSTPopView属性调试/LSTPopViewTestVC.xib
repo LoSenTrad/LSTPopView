@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -145,7 +145,6 @@
                     <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="nWP-Ev-qEO" firstAttribute="centerY" secondItem="KF6-Ga-Ubr" secondAttribute="centerY" id="28T-cb-Unk"/>
-                        <constraint firstAttribute="height" constant="400" id="Mxg-P3-PU6"/>
                         <constraint firstItem="nWP-Ev-qEO" firstAttribute="centerX" secondItem="KF6-Ga-Ubr" secondAttribute="centerX" id="gZ9-YB-w19"/>
                     </constraints>
                 </view>
@@ -241,6 +240,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="a4J-7l-DgM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="06Y-c7-RPf"/>
+                <constraint firstItem="KF6-Ga-Ubr" firstAttribute="height" secondItem="a4J-7l-DgM" secondAttribute="height" multiplier="0.806452" id="94Y-PS-ktu"/>
                 <constraint firstAttribute="trailing" secondItem="tyl-Xd-1F3" secondAttribute="trailing" id="GlM-Vu-Mbq"/>
                 <constraint firstItem="KF6-Ga-Ubr" firstAttribute="top" secondItem="a4J-7l-DgM" secondAttribute="bottom" id="Gpj-nK-SXQ"/>
                 <constraint firstItem="KF6-Ga-Ubr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="N9o-3n-pcO"/>
@@ -252,7 +252,7 @@
                 <constraint firstAttribute="trailing" secondItem="a4J-7l-DgM" secondAttribute="trailing" id="uSJ-DG-uYh"/>
                 <constraint firstItem="KF6-Ga-Ubr" firstAttribute="top" secondItem="tyl-Xd-1F3" secondAttribute="bottom" id="xrH-HE-4ep"/>
             </constraints>
-            <point key="canvasLocation" x="-220" y="-4327"/>
+            <point key="canvasLocation" x="139" y="-4377"/>
         </view>
     </objects>
 </document>
