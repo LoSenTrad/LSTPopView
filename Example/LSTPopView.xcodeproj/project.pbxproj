@@ -55,10 +55,10 @@
 		317CDDA724B8470E00457FFD /* LSTPopViewListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 317CDDA624B8470E00457FFD /* LSTPopViewListView.m */; };
 		317CDDAB24B8495D00457FFD /* LSTPopViewListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 317CDDA924B8495D00457FFD /* LSTPopViewListCell.m */; };
 		317CDDAC24B8495D00457FFD /* LSTPopViewListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 317CDDAA24B8495D00457FFD /* LSTPopViewListCell.xib */; };
-		317CDDAE24B85FC300457FFD /* UPDATE_HISTORY.md in Resources */ = {isa = PBXBuildFile; fileRef = 317CDDAD24B85FC300457FFD /* UPDATE_HISTORY.md */; };
 		319ECD592478258400F23A92 /* LSTPopViewPriorityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 319ECD572478258400F23A92 /* LSTPopViewPriorityVC.m */; };
 		319ECD5A2478258400F23A92 /* LSTPopViewPriorityVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 319ECD582478258400F23A92 /* LSTPopViewPriorityVC.xib */; };
 		319ECD5D2478289600F23A92 /* LSTPriorityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 319ECD5C2478289600F23A92 /* LSTPriorityView.m */; };
+		31B1220524B86C1400ABE229 /* UPDATE_HISTORY.md in Resources */ = {isa = PBXBuildFile; fileRef = 31B1220424B86C1400ABE229 /* UPDATE_HISTORY.md */; };
 		31BAA5E7248A9EDA00BFCFC5 /* LSTPopViewLifeCycleTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BAA5E6248A9ED900BFCFC5 /* LSTPopViewLifeCycleTestVC.m */; };
 		31BAA5EA248B78E900BFCFC5 /* LSTLifeCycleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BAA5E9248B78E900BFCFC5 /* LSTLifeCycleView.m */; };
 		31CDCCF92451D8260037B813 /* LSTPopViewSceneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CDCCF82451D8260037B813 /* LSTPopViewSceneVC.m */; };
@@ -182,12 +182,12 @@
 		317CDDA824B8495D00457FFD /* LSTPopViewListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewListCell.h; sourceTree = "<group>"; };
 		317CDDA924B8495D00457FFD /* LSTPopViewListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewListCell.m; sourceTree = "<group>"; };
 		317CDDAA24B8495D00457FFD /* LSTPopViewListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewListCell.xib; sourceTree = "<group>"; };
-		317CDDAD24B85FC300457FFD /* UPDATE_HISTORY.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = UPDATE_HISTORY.md; sourceTree = "<group>"; };
 		319ECD562478258400F23A92 /* LSTPopViewPriorityVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewPriorityVC.h; sourceTree = "<group>"; };
 		319ECD572478258400F23A92 /* LSTPopViewPriorityVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewPriorityVC.m; sourceTree = "<group>"; };
 		319ECD582478258400F23A92 /* LSTPopViewPriorityVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewPriorityVC.xib; sourceTree = "<group>"; };
 		319ECD5B2478289600F23A92 /* LSTPriorityView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPriorityView.h; sourceTree = "<group>"; };
 		319ECD5C2478289600F23A92 /* LSTPriorityView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPriorityView.m; sourceTree = "<group>"; };
+		31B1220424B86C1400ABE229 /* UPDATE_HISTORY.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = UPDATE_HISTORY.md; path = ../UPDATE_HISTORY.md; sourceTree = "<group>"; };
 		31BAA5E5248A9ED900BFCFC5 /* LSTPopViewLifeCycleTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewLifeCycleTestVC.h; sourceTree = "<group>"; };
 		31BAA5E6248A9ED900BFCFC5 /* LSTPopViewLifeCycleTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewLifeCycleTestVC.m; sourceTree = "<group>"; };
 		31BAA5E8248B78E900BFCFC5 /* LSTLifeCycleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTLifeCycleView.h; sourceTree = "<group>"; };
@@ -713,7 +713,7 @@
 				A1A3B8DC8F645A2E3A4D3F55 /* LSTPopView.podspec */,
 				B2FC140E090D63A96953DBD3 /* README.md */,
 				038CEC63B34760C327FDAD98 /* LICENSE */,
-				317CDDAD24B85FC300457FFD /* UPDATE_HISTORY.md */,
+				31B1220424B86C1400ABE229 /* UPDATE_HISTORY.md */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -805,7 +805,7 @@
 				31419BD624B800FE00AA25DB /* LSTPopViewTimerView.xib in Resources */,
 				313902952452754F004648F2 /* LSTPopViewrLSidebarView.xib in Resources */,
 				31CDCD042451F04D0037B813 /* LSTPopViewQQView.xib in Resources */,
-				317CDDAE24B85FC300457FFD /* UPDATE_HISTORY.md in Resources */,
+				31B1220524B86C1400ABE229 /* UPDATE_HISTORY.md in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				3144E1E92447585C003C5D11 /* LSTKeyboardXibView.xib in Resources */,
 				317CDDAC24B8495D00457FFD /* LSTPopViewListCell.xib in Resources */,

@@ -9,6 +9,7 @@
 #import "UIView+LSTView.h"
 #import "UIColor+LSTColor.h"
 #import "LSTPopViewManager.h"
+#import "LSTTimer.h"
 #import <objc/runtime.h>
 
 
@@ -957,28 +958,29 @@
     if (self.showTime>0) {
         __weak typeof(self) ws = self;
         NSString *idStr = [NSString stringWithFormat:@"LSTPopView_%p",self];
-        [LSTPopViewManager addTimerForIdentifier:idStr forCountdown:self.showTime handle:^(NSTimeInterval interval) {
+        [LSTTimer addMinuteTimerForTime:self.showTime identifier:idStr handle:^(NSString * _Nonnull day, NSString * _Nonnull hour, NSString * _Nonnull minute, NSString * _Nonnull second, NSString * _Nonnull ms) {
             
             if (ws.popViewCountDownBlock) {
-                ws.popViewCountDownBlock(ws, interval);
+                ws.popViewCountDownBlock(ws, [second doubleValue]);
             }
             [self.delegateMarr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if ([obj respondsToSelector:@selector(lst_PopViewCountDownForPopView:forCountDown:)]) {
-                    [obj lst_PopViewCountDownForPopView:self forCountDown:interval];
+                    [obj lst_PopViewCountDownForPopView:self forCountDown:[second doubleValue]];
                 }
             }];
-            
-            if (interval<=0) {
-                [self.delegateMarr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    if ([obj respondsToSelector:@selector(lst_PopViewCountDownFinishForPopView:)]) {
-                        [obj lst_PopViewCountDownFinishForPopView:ws];
-                    }
-                    
-                }];
+        } finish:^(NSString * _Nonnull identifier) {
+            [self.delegateMarr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj respondsToSelector:@selector(lst_PopViewCountDownFinishForPopView:)]) {
+                    [obj lst_PopViewCountDownFinishForPopView:ws];
+                }
                 
-                [self dismiss];
-            }
+            }];
+            [self dismiss];
+            
+        } pause:^(NSString * _Nonnull identifier) {
+            
         }];
+        
     }
 }
 

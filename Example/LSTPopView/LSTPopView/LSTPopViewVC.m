@@ -22,6 +22,7 @@
 #import "LSTPopViewRotationTestVC.h"
 #import "LSTPopViewTimerTestVC.h"
 #import "LSTPopViewListView.h"
+#import <LSTPopViewManager.h>
 
 
 @interface LSTPopViewVC ()
@@ -33,6 +34,8 @@ UITableViewDelegate
 
 /** 表 */
 @property (nonatomic,strong) UITableView *tableView;
+/** <#.....#> */
+@property (nonatomic,weak) LSTPopView *popView;
 
 
 @end
@@ -104,6 +107,10 @@ UITableViewDelegate
         [wk_popView dismiss];
     };
     [popView pop];
+   
+    self.popView = popView;
+    
+    
 }
 
 
