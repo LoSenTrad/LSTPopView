@@ -23,6 +23,7 @@
 #import "LSTPopViewTimerTestVC.h"
 #import "LSTPopViewListView.h"
 #import <LSTPopViewManager.h>
+#import "LSTPopViewTVView.h"
 
 
 @interface LSTPopViewVC ()
@@ -90,25 +91,39 @@ UITableViewDelegate
 }
 
 - (void)test {
-    LSTPopViewListView *view = [[LSTPopViewListView alloc] init];
-    view.layer.cornerRadius = 10;
-    view.layer.masksToBounds = YES;
     
-    view.frame = CGRectMake(0, 0, 300, 500);
-    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleSmoothToBottom];
-    LSTPopViewWK(popView)
+    
+    
+//    LSTPopViewListView *view = [[LSTPopViewListView alloc] init];
+//    view.layer.cornerRadius = 10;
+//    view.layer.masksToBounds = YES;
+//
+//    view.frame = CGRectMake(0, 0, 300, 500);
+//    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleSmoothToBottom];
+//    LSTPopViewWK(popView)
+//    popView.hemStyle = LSTHemStyleCenter;
+//    popView.popDuration = 0.8;
+//    popView.dismissDuration = 0.8;
+//    popView.bgColor = UIColor.blackColor;
+//    popView.isObserverScreenRotation = YES;
+//    popView.bgClickBlock = ^{
+//        //        NSLog(@"点击了背景");
+//        [wk_popView dismiss];
+//    };
+//    [popView pop];
+   
+//    self.popView = popView;
+    
+    LSTPopViewTVView *view = [[LSTPopViewTVView alloc] initWithFrame:CGRectMake(0, 0, 300, 600)];
+    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleScale dismissStyle:LSTDismissStyleNO];
     popView.hemStyle = LSTHemStyleCenter;
-    popView.popDuration = 0.8;
-    popView.dismissDuration = 0.8;
-    popView.bgColor = UIColor.blackColor;
-    popView.isObserverScreenRotation = YES;
+    LSTPopViewWK(popView)
     popView.bgClickBlock = ^{
-        //        NSLog(@"点击了背景");
         [wk_popView dismiss];
     };
+    popView.popDuration = 0.5;
+    popView.dismissDuration = 0.8;
     [popView pop];
-   
-    self.popView = popView;
     
     
 }

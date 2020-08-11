@@ -173,6 +173,17 @@
     return popView;
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    //判断如果点击的是tableView的cell，就把手势给关闭了
+    NSLog(@"%@",[touch.view.superview isKindOfClass:[UICollectionViewCell class]]?@"YES":@"NO");
+    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
+        return NO;//关闭手势
+    }//否则手势存在
+    
+    
+    return YES;
+}
+
 - (void)dealloc {
     
     [self.customView removeObserver:self forKeyPath:@"frame"];

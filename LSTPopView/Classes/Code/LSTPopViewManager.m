@@ -180,11 +180,16 @@ LSTPopViewManager *LSTPopViewM() {
     if (!popView) { return;}
     NSArray *arr = LSTPopViewM().popViewMarr;
     
-    
-    for (NSValue *v in arr) {
-        LSTPopView *tPopView = v.nonretainedObjectValue;
+    for (id obj in arr) {
+        LSTPopView *tPopView;
+        if ([obj isKindOfClass:[NSValue class]]) {
+            NSValue *resObj = (NSValue *)obj;
+            tPopView  = resObj.nonretainedObjectValue;
+        }else {
+            tPopView  = (LSTPopView *)obj;
+        }
         if ([tPopView isEqual:popView]) {
-            [LSTPopViewM().popViewMarr removeObject:v];
+            [LSTPopViewM().popViewMarr removeObject:obj];
             break;
             return;
         }
@@ -193,11 +198,30 @@ LSTPopViewManager *LSTPopViewM() {
 
 /** 移除popView */
 + (void)removePopViewForKey:(NSString *)key {
+    if (key.length<=0) { return;}
+    NSArray *arr = LSTPopViewM().popViewMarr;
     
+    for (id obj in arr) {
+        LSTPopView *tPopView;
+        if ([obj isKindOfClass:[NSValue class]]) {
+            NSValue *resObj = (NSValue *)obj;
+            tPopView  = resObj.nonretainedObjectValue;
+        }else {
+            tPopView  = (LSTPopView *)obj;
+        }
+        if ([tPopView.identifier isEqualToString:key]) {
+            [LSTPopViewM().popViewMarr removeObject:obj];
+            break;
+            return;
+        }
+    }
 }
 /** 移除所有popView */
 + (void)removeAllPopView {
+    NSMutableArray *arr = LSTPopViewM().popViewMarr;
     
+    if (arr.count<=0) {return;}
+    [arr removeAllObjects];
 }
 
 - (NSMutableArray *)popViewMarr {

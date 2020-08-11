@@ -86,6 +86,7 @@ UICollectionViewDataSource
     _collectionView.dataSource = self;
     [_collectionView registerNib:[UINib nibWithNibName:@"LSTPopViewListCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
     _collectionView.backgroundColor = UIColor.whiteColor;
+//    _collectionView.delaysContentTouches
 //    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(popViewBgViewTap)];
 //    [_collectionView addGestureRecognizer:tap];
     return _collectionView;

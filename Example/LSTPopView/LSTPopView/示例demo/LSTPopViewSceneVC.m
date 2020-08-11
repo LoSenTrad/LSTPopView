@@ -25,6 +25,7 @@
 #import <UIColor+LSTColor.h>
 #import "LSTPopViewdoyinView.h"
 #import "LSTPopViewListView.h"
+#import "LSTPopViewTVView.h"
 
 @interface LSTPopViewSceneVC ()
 <
@@ -144,7 +145,12 @@ UITableViewDataSource
             break;
         case 12:
         {
-            cell.textLabel.text = @"列表展示";
+            cell.textLabel.text = @"collectionView展示";
+        }
+            break;
+        case 13:
+        {
+            cell.textLabel.text = @"tableView展示";
         }
             break;
         default:
@@ -222,6 +228,11 @@ UITableViewDataSource
         case 12:
         {
             [self test12];
+        }
+            break;
+        case 13:
+        {
+            [self test13];
         }
             break;
         default:
@@ -520,6 +531,27 @@ UITableViewDataSource
 
 - (void)test12 {
     LSTPopViewListView *view = [[LSTPopViewListView alloc] init];
+    view.layer.cornerRadius = 10;
+    view.layer.masksToBounds = YES;
+    
+    view.frame = CGRectMake(0, 0, 300, 500);
+    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleSmoothFromTop dismissStyle:LSTDismissStyleSmoothToBottom];
+    LSTPopViewWK(popView)
+    popView.hemStyle = LSTHemStyleCenter;
+    popView.popDuration = 0.8;
+    popView.dismissDuration = 0.8;
+    popView.bgColor = UIColor.blackColor;
+    popView.isObserverScreenRotation = YES;
+    popView.bgClickBlock = ^{
+        //        NSLog(@"点击了背景");
+        [wk_popView dismiss];
+    };
+    [popView pop];
+
+}
+
+- (void)test13 {
+    LSTPopViewTVView *view = [[LSTPopViewTVView alloc] init];
     view.layer.cornerRadius = 10;
     view.layer.masksToBounds = YES;
     
