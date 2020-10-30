@@ -19,7 +19,7 @@
 // 角度转弧度
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 
-@interface LSTPopViewBgView : UIButton
+@interface LSTPopViewBgView : UIView
 
 /** 是否隐藏背景 默认NO */
 @property (nonatomic, assign) BOOL isHideBg;
@@ -54,6 +54,13 @@
 @property (nonatomic,strong) NSMutableArray<id<LSTPopViewProtocol>> *delegateMarr;
 /** 记录自定义view原始Y值 */
 @property (nonatomic, assign) CGFloat customViewOriginY;
+
+@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
+@property (nonatomic, strong) UIPanGestureRecognizer *panGesture;
+//当前正在拖拽的是否是tableView
+@property (nonatomic, assign) BOOL isDragScrollView;
+@property (nonatomic, weak) UIScrollView *scrollerView;
+@property (nonatomic, assign) CGRect originFrame;
 
 
 @end
@@ -92,6 +99,15 @@
     _priority = 0;
     _isHideBg = NO;
     _isShowKeyboard = NO;
+    
+    //拖拽相关属性初始化
+    _dragStyle = LSTDragStyleNO;
+    _dragDismissStyle = LSTDismissStyleNO;
+    _xDragDistance = 0.0f;
+    _yDragDistance = 0.0f;
+    _dragReboundTime = 0.25;
+    _isSwipeDismiss = NO;
+    _swipeVelocity = 1000.0f;
 }
 
 + (nullable instancetype)initWithCustomView:(UIView *_Nonnull)customView {
@@ -139,11 +155,18 @@
     
     
     //背景添加手势
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:popView action:@selector(popViewBgViewTap:)];
-//    tap.delegate = popView;
-//    [popView.backgroundView addGestureRecognizer:tap];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:popView action:@selector(popViewBgViewTap:)];
+    tap.delegate = popView;
+    popView.tapGesture = tap;
+    [popView.backgroundView addGestureRecognizer:tap];
     
-    [popView.backgroundView addTarget:popView action:@selector(popViewBgViewTap:) forControlEvents:UIControlEventTouchUpInside];;
+    //添加拖拽手势
+    popView.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:popView action:@selector(pan:)];
+    popView.panGesture.delegate = popView;
+    [popView.customView addGestureRecognizer:popView.panGesture];
+
+    
+//    [popView.backgroundView addTarget:popView action:@selector(popViewBgViewTap:) forControlEvents:UIControlEventTouchUpInside];;
     
     
 //    UILongPressGestureRecognizer *customViewLP = [[UILongPressGestureRecognizer alloc] initWithTarget:popView action:@selector(bgLongPressEvent:)];
@@ -171,17 +194,6 @@
     [popView.customView addObserver:popView forKeyPath:@"frame" options:NSKeyValueObservingOptionOld context:NULL];
     
     return popView;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    //判断如果点击的是tableView的cell，就把手势给关闭了
-    NSLog(@"%@",[touch.view.superview isKindOfClass:[UICollectionViewCell class]]?@"YES":@"NO");
-    if ([NSStringFromClass([touch.view class]) isEqualToString:@"UITableViewCellContentView"]) {
-        return NO;//关闭手势
-    }//否则手势存在
-    
-    
-    return YES;
 }
 
 - (void)dealloc {
@@ -329,6 +341,8 @@
 - (void)popWithPopStyle:(LSTPopStyle)popStyle duration:(NSTimeInterval)duration isOutStack:(BOOL)isOutStack {
     
     [self setCustomViewFrame];
+    
+    self.originFrame = self.customView.frame;
     
     self.customViewOriginY = self.customView.y;
     
@@ -555,7 +569,7 @@
 #pragma mark - ***** 键盘弹出/收回 *****
 
 - (void)keyboardWillShow:(NSNotification *)notification{
-    
+    NSLog(@"keyboardWillShow");
     _isShowKeyboard = YES;
     
     if (self.keyboardWillShowBlock) {
@@ -571,7 +585,7 @@
     CGFloat keyboardMaxY = keyboardEedFrame.origin.y;
     self.isAvoidKeyboard = YES;
     self.avoidKeyboardOffset = customViewMaxY - keyboardMaxY;
-    if (keyboardMaxY<customViewMaxY) {//键盘遮挡到弹框
+    if ((keyboardMaxY<customViewMaxY)||(self.customViewOriginY<keyboardMaxY)) {//键盘遮挡到弹框
         //执行动画
         [UIView animateWithDuration:duration animations:^{
             self.customView.y = self.customView.y - self.avoidKeyboardOffset;
@@ -611,6 +625,7 @@
 }
 
 - (void)keyboardWillChangeFrame:(NSNotification *)notification{
+    NSLog(@"键盘frame将要改变");
     if (self.keyboardFrameWillChangeBlock) {
         CGRect keyboardBeginFrame = [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
         CGRect keyboardEedFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
@@ -621,6 +636,7 @@
 }
 
 - (void)keyboardDidChangeFrame:(NSNotification *)notification{
+    NSLog(@"键盘frame已经改变");;
     if (self.keyboardFrameDidChangeBlock) {
         CGRect keyboardBeginFrame = [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
         CGRect keyboardEedFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
@@ -628,6 +644,169 @@
         self.keyboardFrameDidChangeBlock(keyboardBeginFrame,keyboardEedFrame,duration);
     }
     
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+//1
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+
+    if(gestureRecognizer == self.panGesture) {
+        UIView *touchView = touch.view;
+        while (touchView != nil) {
+            if([touchView isKindOfClass:[UIScrollView class]]) {
+                self.isDragScrollView = YES;
+                self.scrollerView = touchView;
+                break;
+            } else if(touchView == self.customView) {
+                self.isDragScrollView = NO;
+                break;
+            }
+            touchView = [touchView nextResponder];
+        }
+    }
+    return YES;
+}
+
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    if(gestureRecognizer == self.tapGesture) {
+        //如果是点击手势
+        CGPoint point = [gestureRecognizer locationInView:self.customView];
+        BOOL iscontain = [self.customView.layer containsPoint:point];
+        
+        if(iscontain) {
+            return NO;
+        }
+    }
+    else if(gestureRecognizer == self.panGesture){
+        //如果是自己加的拖拽手势
+        NSLog(@"gestureRecognizerShouldBegin");
+    }
+    return YES;
+}
+
+//3. 是否与其他手势共存，一般使用默认值(默认返回NO：不与任何手势共存)
+- (BOOL)gestureRecognizer:(UIPanGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    if(gestureRecognizer == self.panGesture) {
+        if ([otherGestureRecognizer isKindOfClass:NSClassFromString(@"UIScrollViewPanGestureRecognizer")] || [otherGestureRecognizer isKindOfClass:NSClassFromString(@"UIPanGestureRecognizer")] ) {
+            if([otherGestureRecognizer.view isKindOfClass:[UIScrollView class]] ) {
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
+//拖拽手势
+- (void)pan:(UIPanGestureRecognizer *)panGestureRecognizer {
+    
+    if (self.dragStyle & LSTDragStyleNO) { return; }
+    // 获取手指的偏移量
+    CGPoint transP = [panGestureRecognizer translationInView:self.customView];
+    CGPoint velocity = [panGestureRecognizer velocityInView:[UIApplication sharedApplication].keyWindow];
+    if(self.isDragScrollView) {
+        //如果当前拖拽的是tableView
+        if(self.scrollerView.contentOffset.y <= 0) {
+            //如果tableView置于顶端
+            if(transP.y > 0) {
+                //如果向下拖拽
+                self.scrollerView.contentOffset = CGPointMake(0, 0 );
+                self.scrollerView.panGestureRecognizer.enabled = NO;
+                self.scrollerView.panGestureRecognizer.enabled = YES;
+                self.isDragScrollView = NO;
+                //向下拖
+                self.customView.frame = CGRectMake(self.customView.frame.origin.x, self.customView.frame.origin.y + transP.y, self.customView.frame.size.width, self.customView.frame.size.height);
+            } else {
+                //如果向上拖拽
+            }
+        }
+    }else {
+        
+        CGFloat customViewX = self.customView.frame.origin.x;
+        CGFloat customViewY = self.customView.frame.origin.y;
+        
+        if ((self.dragStyle & LSTDragStyleX_Positive) && (customViewX>=self.originFrame.origin.x)) {
+            
+            if (transP.x > 0) {
+                customViewX = customViewX + transP.x;
+            }else if(transP.x < 0 && customViewX>self.originFrame.origin.x ){
+                customViewX = (customViewX + transP.x)>self.originFrame.origin.x?(customViewX + transP.x):(self.originFrame.origin.x);
+            }
+        }
+        if ((self.dragStyle & LSTDragStyleX_Negative)&&(customViewX <= self.originFrame.origin.x)) {
+            if (transP.x < 0) {
+                customViewX = customViewX + transP.x;
+            }else if(transP.x > 0 && customViewX<self.originFrame.origin.x ){
+                customViewX = (customViewX + transP.x)<self.originFrame.origin.x?(customViewX + transP.x):(self.originFrame.origin.x);
+            }
+        }
+        if (self.dragStyle & LSTDragStyleY_Positive&&(customViewY>=self.originFrame.origin.y)) {
+            if (transP.y > 0) {
+                customViewY = customViewY + transP.y;
+            }else if(transP.y < 0 && customViewY>self.originFrame.origin.y ){
+                customViewY = (customViewY + transP.y)>self.originFrame.origin.y?(customViewY + transP.y):(self.originFrame.origin.y);
+            }
+        }
+        if (self.dragStyle & LSTDragStyleY_Negative&&(customViewY <= self.originFrame.origin.y)) {
+            if (transP.y < 0) {
+                customViewY = customViewY + transP.y;
+            }else if(transP.y > 0 && customViewY < self.originFrame.origin.y){
+                customViewY = (customViewY + transP.y)<self.originFrame.origin.y?(customViewY + transP.y):(self.originFrame.origin.y);
+            }
+        }
+        
+        self.customView.frame = CGRectMake(customViewX, customViewY, self.customView.frame.size.width, self.customView.frame.size.height);
+        
+    }
+    
+    [panGestureRecognizer setTranslation:CGPointZero inView:self.customView];
+    
+    if(panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        
+        LSTPopViewWK(self)
+        //拖拽松开回位
+        void (^dragReboundBlock)(void) = ^ {
+            [UIView animateWithDuration:wk_self.dragReboundTime
+                                  delay:0.1f
+                                options:UIViewAnimationOptionCurveEaseOut
+                             animations:^{
+                CGRect frame = wk_self.customView.frame;
+                frame.origin.y = wk_self.frame.size.height - wk_self.customView.frame.size.height;
+                wk_self.customView.frame = wk_self.originFrame;
+            } completion:^(BOOL finished) {}];
+            
+        };
+        
+        if(sqrt(pow(velocity.x, 2) + pow(velocity.y, 2)) < self.swipeVelocity) {//普通拖拽
+            BOOL isCanDismiss = NO;
+            if ((self.dragStyle & LSTDragStyleX) || (self.dragStyle & LSTDragStyleY)) {
+                
+                if (fabs(self.customView.frame.origin.x - self.originFrame.origin.x)>=self.xDragDistance && self.xDragDistance!=0) {
+                    isCanDismiss = YES;
+                }
+                if (fabs(self.customView.frame.origin.y - self.originFrame.origin.y)>=self.yDragDistance && self.yDragDistance!=0) {
+                    isCanDismiss = YES;
+                }
+                if (isCanDismiss) {
+                    [self dismissWithStyle:LSTDismissStyleScale];
+                }else {
+                    dragReboundBlock();
+                }
+            }else {
+                dragReboundBlock();
+            }
+        } else {//轻扫
+            if (self.isSwipeDismiss) {
+                // 移除，以手势速度飞出
+                [UIView animateWithDuration:0.5 animations:^{
+                    self.customView.center = velocity;
+                } completion:^(BOOL finished) {}];
+                [self dismissWithStyle:LSTDismissStyleNO duration:0.5];
+            }else {
+                dragReboundBlock();
+            }
+        }
+    }
 }
 
 #pragma mark - ***** other 其他 *****

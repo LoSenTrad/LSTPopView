@@ -89,30 +89,7 @@
 //
 //        NSLog(@"%lf",interval);
 //    }];
-    
-//    LSTModel *model = [[LSTModel alloc] init];
-//    model.handleBlock = ^{
-////        NSLog(@"我是被持久化的block");
-//    };
-//    model.isPause = YES;
-//    model.isDisk = YES;
-//    model.timeInterval = 999;
-//    model.increase = NO;
-//    model.unit = 1;
-//    model.identifier = @"123456";
-//    //不能直接存取NSObject，需要先归档转成NSData
-//    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-//    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:model];
-//    [defaults setObject:data forKey:@"LSTModel"];
-//    [defaults synchronize];
-//
-//
-//
-//    NSData * data1 = [[NSUserDefaults standardUserDefaults]objectForKey:@"LSTModel"];
-//    // 解档
-//    LSTModel *userModel = [NSKeyedUnarchiver unarchiveObjectWithData:data1];
-//
-//    NSLog(@"%@",userModel);
+
     
 }
 

@@ -1,8 +1,8 @@
 //
-//  LSTPopViewRotationTestVC.h
+//  LSTPopViewGesturesVC.h
 //  LSTPopView_Example
 //
-//  Created by LoSenTrad on 2020/6/19.
+//  Created by LoSenTrad on 2020/9/16.
 //  Copyright © 2020 490790096@qq.com. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LSTPopViewRotationTestVC : UIViewController
+@interface LSTPopViewGesturesVC : UIViewController
 
 @end
 

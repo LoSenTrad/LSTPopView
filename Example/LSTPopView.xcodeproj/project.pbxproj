@@ -47,7 +47,6 @@
 		3144E1E72447573C003C5D11 /* LSTAutoKeyboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144E1E62447573C003C5D11 /* LSTAutoKeyboardVC.m */; };
 		3144E1E92447585C003C5D11 /* LSTKeyboardXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3144E1E82447585C003C5D11 /* LSTKeyboardXibView.xib */; };
 		3144E1EC2447586A003C5D11 /* LSTKeyboardXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144E1EB2447586A003C5D11 /* LSTKeyboardXibView.m */; };
-		3147C622249C922E001C2EFA /* LSTPopViewRotationTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3147C621249C922E001C2EFA /* LSTPopViewRotationTestVC.m */; };
 		314CA8AB2455EDCE00E56E7B /* LSTPopViewdoyinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 314CA8AA2455EDCE00E56E7B /* LSTPopViewdoyinView.m */; };
 		314CA8AD2455EDD800E56E7B /* LSTPopViewdoyinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 314CA8AC2455EDD800E56E7B /* LSTPopViewdoyinView.xib */; };
 		3150CEBE24339B9F00244B3A /* LSTMutiPopViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3150CEBD24339B9F00244B3A /* LSTMutiPopViewVC.m */; };
@@ -87,6 +86,8 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
+		7CDAE70725123AEB00A85EBE /* LSTPopViewGesturesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAE70525123AEB00A85EBE /* LSTPopViewGesturesVC.m */; };
+		7CDAE70825123AEB00A85EBE /* LSTPopViewGesturesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAE70625123AEB00A85EBE /* LSTPopViewGesturesVC.xib */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		D35BE7DC0B5EB2623922B004 /* libPods-LSTPopView_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5865DF78541A9FA0B2DEA4 /* libPods-LSTPopView_Tests.a */; };
 /* End PBXBuildFile section */
@@ -169,8 +170,6 @@
 		3144E1E82447585C003C5D11 /* LSTKeyboardXibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTKeyboardXibView.xib; sourceTree = "<group>"; };
 		3144E1EA2447586A003C5D11 /* LSTKeyboardXibView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTKeyboardXibView.h; sourceTree = "<group>"; };
 		3144E1EB2447586A003C5D11 /* LSTKeyboardXibView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTKeyboardXibView.m; sourceTree = "<group>"; };
-		3147C620249C922E001C2EFA /* LSTPopViewRotationTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewRotationTestVC.h; sourceTree = "<group>"; };
-		3147C621249C922E001C2EFA /* LSTPopViewRotationTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewRotationTestVC.m; sourceTree = "<group>"; };
 		314CA8A92455EDCE00E56E7B /* LSTPopViewdoyinView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewdoyinView.h; sourceTree = "<group>"; };
 		314CA8AA2455EDCE00E56E7B /* LSTPopViewdoyinView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewdoyinView.m; sourceTree = "<group>"; };
 		314CA8AC2455EDD800E56E7B /* LSTPopViewdoyinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewdoyinView.xib; sourceTree = "<group>"; };
@@ -232,6 +231,9 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		65F401D6F088DFE0F3C22CAE /* libPods-LSTPopView_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LSTPopView_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7CDAE70425123AEB00A85EBE /* LSTPopViewGesturesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewGesturesVC.h; sourceTree = "<group>"; };
+		7CDAE70525123AEB00A85EBE /* LSTPopViewGesturesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewGesturesVC.m; sourceTree = "<group>"; };
+		7CDAE70625123AEB00A85EBE /* LSTPopViewGesturesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewGesturesVC.xib; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9187EEEF2ED2937C7B19795A /* Pods-LSTPopView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LSTPopView_Example.release.xcconfig"; path = "Target Support Files/Pods-LSTPopView_Example/Pods-LSTPopView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		9C5865DF78541A9FA0B2DEA4 /* libPods-LSTPopView_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LSTPopView_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -391,27 +393,25 @@
 		314389F7241168CD00387B4E /* LSTPopView */ = {
 			isa = PBXGroup;
 			children = (
-				31B66C0C24D9D03E00C361BA /* 自定义view包含表控件调试 */,
-				317CDDA324B8466800457FFD /* Other */,
 				31438A2724116A5000387B4E /* LSTPopViewVC.h */,
 				31438A2624116A5000387B4E /* LSTPopViewVC.m */,
-				31419BCE24B7FE8F00AA25DB /* 定时器调试 */,
-				3147C61F249C9147001C2EFA /* 横竖屏 */,
-				31BAA5E4248A9B5A00BFCFC5 /* 生命周期(多代理) */,
-				319ECD522478242D00F23A92 /* 优先级 */,
-				31EAD617245E95A4007620E7 /* 窗口编队测试 */,
-				31CDCCF62451D7690037B813 /* 示例demo */,
-				31D85537244E19FE00BFC8E8 /* popView内存管理调试 */,
-				3144E1E4244756D4003C5D11 /* 规避键盘测试 */,
-				3150CEBB24339B7300244B3A /* 多窗口测试 */,
-				314389FA241168FF00387B4E /* 纯代码自定义view */,
+				314389F8241168DD00387B4E /* 常用属性调试 */,
+				7CDAE70325122D9E00A85EBE /* 手势交互调试(点击,长按,拖拽,横扫) */,
+				31CDCCF62451D7690037B813 /* 常用示例demo */,
 				314389F9241168EF00387B4E /* XIB自定义View */,
-				314389F8241168DD00387B4E /* LSTPopView属性调试 */,
+				314389FA241168FF00387B4E /* 纯代码自定义view */,
+				3150CEBB24339B7300244B3A /* 多窗口测试 */,
+				3144E1E4244756D4003C5D11 /* 规避键盘测试 */,
+				31D85537244E19FE00BFC8E8 /* popView内存管理调试 */,
+				31EAD617245E95A4007620E7 /* 窗口编队测试 */,
+				319ECD522478242D00F23A92 /* 窗口优先级 */,
+				31BAA5E4248A9B5A00BFCFC5 /* 生命周期(多代理) */,
+				31419BCE24B7FE8F00AA25DB /* 定时器调试 */,
 			);
 			path = LSTPopView;
 			sourceTree = "<group>";
 		};
-		314389F8241168DD00387B4E /* LSTPopView属性调试 */ = {
+		314389F8241168DD00387B4E /* 常用属性调试 */ = {
 			isa = PBXGroup;
 			children = (
 				31438A042411697000387B4E /* LSTPopViewTestVC.h */,
@@ -421,7 +421,7 @@
 				31438A022411697000387B4E /* LSTPopViewTestView.m */,
 				31438A072411697000387B4E /* LSTPopViewTestView.xib */,
 			);
-			path = "LSTPopView属性调试";
+			path = "常用属性调试";
 			sourceTree = "<group>";
 		};
 		314389F9241168EF00387B4E /* XIB自定义View */ = {
@@ -488,15 +488,6 @@
 			path = "规避键盘测试";
 			sourceTree = "<group>";
 		};
-		3147C61F249C9147001C2EFA /* 横竖屏 */ = {
-			isa = PBXGroup;
-			children = (
-				3147C620249C922E001C2EFA /* LSTPopViewRotationTestVC.h */,
-				3147C621249C922E001C2EFA /* LSTPopViewRotationTestVC.m */,
-			);
-			path = "横竖屏";
-			sourceTree = "<group>";
-		};
 		314CA8A82455EC5600E56E7B /* 抖音 */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,13 +509,6 @@
 			path = "多窗口测试";
 			sourceTree = "<group>";
 		};
-		317CDDA324B8466800457FFD /* Other */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Other;
-			sourceTree = "<group>";
-		};
 		317CDDA424B8468200457FFD /* 列表类型展示 */ = {
 			isa = PBXGroup;
 			children = (
@@ -539,7 +523,7 @@
 			path = "列表类型展示";
 			sourceTree = "<group>";
 		};
-		319ECD522478242D00F23A92 /* 优先级 */ = {
+		319ECD522478242D00F23A92 /* 窗口优先级 */ = {
 			isa = PBXGroup;
 			children = (
 				319ECD562478258400F23A92 /* LSTPopViewPriorityVC.h */,
@@ -548,14 +532,7 @@
 				319ECD5B2478289600F23A92 /* LSTPriorityView.h */,
 				319ECD5C2478289600F23A92 /* LSTPriorityView.m */,
 			);
-			path = "优先级";
-			sourceTree = "<group>";
-		};
-		31B66C0C24D9D03E00C361BA /* 自定义view包含表控件调试 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "自定义view包含表控件调试";
+			path = "窗口优先级";
 			sourceTree = "<group>";
 		};
 		31BAA5E4248A9B5A00BFCFC5 /* 生命周期(多代理) */ = {
@@ -569,7 +546,7 @@
 			path = "生命周期(多代理)";
 			sourceTree = "<group>";
 		};
-		31CDCCF62451D7690037B813 /* 示例demo */ = {
+		31CDCCF62451D7690037B813 /* 常用示例demo */ = {
 			isa = PBXGroup;
 			children = (
 				31CDCCF72451D8260037B813 /* LSTPopViewSceneVC.h */,
@@ -588,7 +565,7 @@
 				31CDCCFF2451F01E0037B813 /* QQ音乐顶部 */,
 				31CDCCFA2451EDE90037B813 /* QQ顶部 */,
 			);
-			path = "示例demo";
+			path = "常用示例demo";
 			sourceTree = "<group>";
 		};
 		31CDCCFA2451EDE90037B813 /* QQ顶部 */ = {
@@ -731,6 +708,16 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		7CDAE70325122D9E00A85EBE /* 手势交互调试(点击,长按,拖拽,横扫) */ = {
+			isa = PBXGroup;
+			children = (
+				7CDAE70425123AEB00A85EBE /* LSTPopViewGesturesVC.h */,
+				7CDAE70525123AEB00A85EBE /* LSTPopViewGesturesVC.m */,
+				7CDAE70625123AEB00A85EBE /* LSTPopViewGesturesVC.xib */,
+			);
+			path = "手势交互调试(点击,长按,拖拽,横扫)";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -815,6 +802,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				7CDAE70825123AEB00A85EBE /* LSTPopViewGesturesVC.xib in Resources */,
 				31419BD624B800FE00AA25DB /* LSTPopViewTimerView.xib in Resources */,
 				313902952452754F004648F2 /* LSTPopViewrLSidebarView.xib in Resources */,
 				31CDCD042451F04D0037B813 /* LSTPopViewQQView.xib in Resources */,
@@ -918,7 +906,7 @@
 				319ECD5D2478289600F23A92 /* LSTPriorityView.m in Sources */,
 				3144E1E72447573C003C5D11 /* LSTAutoKeyboardVC.m in Sources */,
 				3150CEBE24339B9F00244B3A /* LSTMutiPopViewVC.m in Sources */,
-				3147C622249C922E001C2EFA /* LSTPopViewRotationTestVC.m in Sources */,
+				7CDAE70725123AEB00A85EBE /* LSTPopViewGesturesVC.m in Sources */,
 				31438A1D241169A000387B4E /* LSTActionViewImage.m in Sources */,
 				3139029D24528472004648F2 /* LSTPopViewBottomInputView.m in Sources */,
 				31CDCD022451F0460037B813 /* LSTPopViewQQView.m in Sources */,

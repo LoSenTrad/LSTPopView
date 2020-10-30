@@ -51,7 +51,7 @@ typedef NS_ENUM(NSInteger, LSTActivityStyle) {
     LSTActivityStyleScale,                /// 缩放
     LSTActivityStyleShake,                /// 抖动
 };
-/**弹框位置 */
+/** 弹框位置 */
 typedef NS_ENUM(NSInteger, LSTHemStyle) {
     LSTHemStyleCenter = 0,
     LSTHemStyleTop,    //贴顶
@@ -59,6 +59,36 @@ typedef NS_ENUM(NSInteger, LSTHemStyle) {
     LSTHemStyleBottom, //贴底
     LSTHemStyleRight,  //贴右
 };
+/** 拖拽方向 */
+typedef NS_ENUM(NSInteger, LSTDragStyle) {
+    LSTDragStyleNO = 0,  //默认 不能拖拽窗口
+    LSTDragStyleX_Positive = 1<<0,   //X轴正方向拖拽
+    LSTDragStyleX_Negative = 1<<1,   //X轴负方向拖拽
+    LSTDragStyleY_Positive = 1<<2,   //Y轴正方向拖拽
+    LSTDragStyleY_Negative = 1<<3,   //Y轴负方向拖拽
+    LSTDragStyleX = (LSTDragStyleX_Positive|LSTDragStyleX_Negative),   //Y轴方向拖拽
+    LSTDragStyleY = (LSTDragStyleY_Positive|LSTDragStyleY_Negative)    //Y轴方向拖拽
+};
+///** 可拖拽消失的方向 */
+//typedef NS_ENUM(NSInteger, LSTDragStyle) {
+//    LSTDragStyleNO = 0,  //默认 不能拖拽窗口
+//    LSTDragStyleX_Positive = 1<<0,   //X轴正方向拖拽
+//    LSTDragStyleX_Negative = 1<<1,   //X轴负方向拖拽
+//    LSTDragStyleY_Positive = 1<<2,   //Y轴正方向拖拽
+//    LSTDragStyleY_Negative = 1<<3,   //Y轴负方向拖拽
+//    LSTDragStyleX = (LSTDragStyleX_Positive|LSTDragStyleX_Negative),   //Y轴方向拖拽
+//    LSTDragStyleY = (LSTDragStyleY_Positive|LSTDragStyleY_Negative)    //Y轴方向拖拽
+//};
+///** 轻扫消失类型 */
+//typedef NS_ENUM(NSInteger, LSTDragStyle) {
+//    LSTDragStyleNO = 0,  //默认 不能拖拽窗口
+//    LSTDragStyleX_Positive = 1<<0,   //X轴正方向拖拽
+//    LSTDragStyleX_Negative = 1<<1,   //X轴负方向拖拽
+//    LSTDragStyleY_Positive = 1<<2,   //Y轴正方向拖拽
+//    LSTDragStyleY_Negative = 1<<3,   //Y轴负方向拖拽
+//    LSTDragStyleX = (LSTDragStyleX_Positive|LSTDragStyleX_Negative),   //Y轴方向拖拽
+//    LSTDragStyleY = (LSTDragStyleY_Positive|LSTDragStyleY_Negative)    //Y轴方向拖拽
+//};
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -113,6 +143,31 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isSingle;
 /** 优先级 范围0~1000 (默认0,遵循先进先出) isStack和isSingle为NO的时候生效 */
 @property (nonatomic, assign) CGFloat priority;
+//****************************************
+
+//************ 拖拽手势相关属性 ****************
+/** 拖拽方向 默认 不可拖拽  */
+@property (nonatomic, assign) LSTDragStyle dragStyle;
+/** X轴拖拽移除临界距离 范围(0 ~ +∞) 默认0 不拖拽移除   */
+@property (nonatomic, assign) CGFloat xDragDistance;
+/** Y轴拖拽移除临界距离 范围(0 ~ +∞) 默认0 不拖拽移除   */
+@property (nonatomic, assign) CGFloat yDragDistance;
+/** 拖拽移除动画类型 默认同dismissStyle  */
+@property (nonatomic, assign) LSTDismissStyle dragDismissStyle;
+/** 拖拽消失动画时间 默认同 dismissDuration  */
+@property (nonatomic, assign) BOOL dragDismissDuration;
+/** 拖拽复原动画时间 默认0.25s */
+@property (nonatomic, assign) NSTimeInterval dragReboundTime;
+/** 是否打开轻扫移除 默认NO  */
+@property (nonatomic, assign) BOOL isSwipeDismiss;
+/** 轻扫速率 控制轻扫移除 默认1000  */
+@property (nonatomic, assign) CGFloat swipeVelocity;
+
+//@property (nonatomic, strong) NSArray *xDragDistances;//计划中
+//@property (nonatomic, strong) NSArray *yDragDistances;计划中
+
+
+
 //****************************************
 
 /** 点击背景 */
