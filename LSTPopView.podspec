@@ -48,6 +48,6 @@ Pod::Spec.new do |s|
   s.dependency 'LSTCategory/UIView+LSTView'
   s.dependency 'LSTCategory/LSTGestureEvents'
   s.dependency 'LSTCategory/LSTControlEvents'
- 
+  s.static_framework = true
 
 end
