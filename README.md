@@ -60,7 +60,7 @@
 
     ```swift
     //自定义view
-    LSTPopViewTVView *customView = [[LSTPopViewTVView alloc]       initWithFrame:CGRectMake(0, 0, 300,400)];
+    LSTPopViewTVView *customView = [[LSTPopViewTVView alloc] initWithFrame:CGRectMake(0, 0, 300,400)];
    //创建弹窗PopViiew 指定父容器self.view, 不指定默认是app window
    LSTPopView *popView = [LSTPopView initWithCustomView:customView
                                               parentView:self.view
@@ -69,36 +69,36 @@
    //弹窗位置: 居中 贴顶 贴左 贴底 贴右 
    popView.hemStyle = LSTHemStyleBottom;
    LSTPopViewWK(popView)
-  //点击背景触发
-  popView.bgClickBlock = ^{ [wk_popView dismiss]; };
-  //弹窗显示
- [popView pop];
- ```
+   //点击背景触发
+   popView.bgClickBlock = ^{ [wk_popView dismiss]; };
+   //弹窗显示
+  [popView pop];
+  ```
 
 ## 使用注意事项(一定用weak修饰) 
 - 解析: LSTPopView对每个弹窗都有自动内存销毁机制, 外部对弹窗的强引用对打破这种自动内存销毁机制, 比如成员变量用strong修饰,否则弹窗不能自动销毁,导致内存回收不了.
 - 类成员变量使用规范:
 
   ```swift
-    //成员变量用weak修饰, 不可以用strong修饰
-    @property (nonatomic,weak) LSTPopView *popView;
+  //成员变量用weak修饰, 不可以用strong修饰
+  @property (nonatomic,weak) LSTPopView *popView;
   ```
 - 成员变量的创建
- ```swift
-LSTPopViewTVView *customView = [[LSTPopViewTVView alloc] initWithFrame:CGRectMake(0, 0, 300,400)];
-//弹窗实例创建
-LSTPopView *popView = [LSTPopView initWithCustomView:customView
+  ```swift
+  LSTPopViewTVView *customView = [[LSTPopViewTVView alloc] initWithFrame:CGRectMake(0, 0, 300,400)];
+  //弹窗实例创建
+  LSTPopView *popView = [LSTPopView initWithCustomView:customView
                                                 popStyle:LSTPopStyleSmoothFromBottom
                                             dismissStyle:LSTDismissStyleSmoothToBottom];
-//这里赋值给成员变量self.popView
-self.popView = popView;
-[popView pop];
+  //这里赋值给成员变量self.popView
+  self.popView = popView;
+  [popView pop];
   ```
   
 - 错误使用: 
- ```swift
- //直接赋值给成员变量 导致成员变量为空, 请参考以上使用规范
-self.popView = [LSTPopView initWithCustomView:customView
+  ```swift
+  //直接赋值给成员变量 导致成员变量为空, 请参考以上使用规范
+  self.popView = [LSTPopView initWithCustomView:customView
                                                 popStyle:LSTPopStyleSmoothFromBottom
                                             dismissStyle:LSTDismissStyleSmoothToBottom];
   ```
