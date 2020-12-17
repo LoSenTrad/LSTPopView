@@ -36,6 +36,7 @@
       ```ruby
      pod 'LSTPopView'
       ```  
+      
     - Carthage安装:(暂时未适配)
 - Swift版本安装
     - (计划开发中)
