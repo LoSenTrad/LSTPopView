@@ -33,7 +33,7 @@
 - OC版本安装 
     - CocoaPods安装: 在podfile文件中添加以下描述,然后 `pod install` 或者 `pod update`
 
-      ```ruby
+      ```
      pod 'LSTPopView'
       ```  
       
