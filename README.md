@@ -1,23 +1,35 @@
 # LSTPopView iOS万能弹窗
 
+#### iOS万能弹窗，功能强大，易于拓展，性能优化和内存控制让其运行更加的流畅和稳健。LSTPopView的出现,可以让我们更专注弹窗页面的布局.省心省力! 提高开发效率!
+
 [![Platform](https://img.shields.io/badge/platform-iOS-red.svg)](https://developer.apple.com/iphone/index.action) [![Language](http://img.shields.io/badge/language-OC-yellow.svg?style=flat )](https://en.wikipedia.org/wiki/Objective-C) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://mit-license.org) [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/LSTPopView.svg)](https://img.shields.io/cocoapods/v/LSTPopView.svg)
 
+
+
 ## 前言
-- 在每个项目中,弹框的需求都有,而且各种各样,花里胡哨, 很是烦恼. LSTPopView的出现,可以让我们更专注弹框页面的布局.省心省力! 提高开发效率!
-- 欢迎coder们发现问题或者提供更好的idea,一起努力完善
+- 考虑到笔者的精力问题,遇到问题请先查看 API、效仿Demo、阅读README、搜索 Issues。如果是BUG 或 Feature,最好是提Issue
+- 联系方式: LoSenTrad@163.com, QQ群:1045568246, 微信:a_LSTKit
 
 ## 博客地址
 - github: [https://github.com/LoSenTrad/LSTPopView](https://github.com/LoSenTrad/LSTPopView)
 - CSDN: [https://blog.csdn.net/u012400600/article/details/106279654](https://blog.csdn.net/u012400600/article/details/106279654)
 - 简书: [https://www.jianshu.com/p/8023a85dc2a2](https://www.jianshu.com/p/8023a85dc2a2)
 
+## 目录
+* [特性](#特性)   
+* [版本更新历史](#版本更新历史)  
+* [安装](#安装)  
+* [基本使用](#基本使用)  
+* [使用注意事项](#使用注意事项)  
+* [演示效果](#演示效果)  
+* [作者](#作者)  
+* [版权](#版权)  
 
 ## 特性
-
-- 提供丰富的api,高度自定义弹框,简单入手使用
+- 提供丰富的api,高度自定义弹窗,简单入手使用
 - 支持弹出动画,消失动画,主动动画等多重动画搭配
-- 支持多弹框管理:编队,堆叠,优先级等
-- 支持指定弹框父类,eg: UIWindow,self.view等
+- 支持多弹窗管理:编队,堆叠,优先级等
+- 支持指定弹窗父类,eg: UIWindow,self.view等
 - 安全且内存占用小,弹窗内存自动回收
 - 提供生命周期api,自定义动画控制
 - 自动规避键盘,防止被键盘遮挡
@@ -43,7 +55,7 @@
 - 手动导入集成
     - 1.拖动LSTPopView文件下5个文件到项目中
     
-     ```objc
+     ```objective-c
      LSTPopView.h
      LSTPopView.m
      UIView+LSTPV.h
@@ -58,11 +70,11 @@
 ## 基本使用
 - 代码示例
 
-    ```swift
+    ```objective-c
     //自定义view
     LSTPopViewTVView *customView = [[LSTPopViewTVView alloc] initWithFrame:CGRectMake(0, 0, 300,400)];
    //创建弹窗PopViiew 指定父容器self.view, 不指定默认是app window
-   LSTPopView *popView = [LSTPopView initWithCustomView:customView
+    LSTPopView *popView = [LSTPopView initWithCustomView:customView
                                               parentView:self.view
                                                 popStyle:LSTPopStyleSmoothFromBottom
                                             dismissStyle:LSTDismissStyleSmoothToBottom];
@@ -76,15 +88,16 @@
   ```
 
 ## 使用注意事项(一定用weak修饰) 
+
 - 解析: LSTPopView对每个弹窗都有自动内存销毁机制, 外部对弹窗的强引用对打破这种自动内存销毁机制, 比如成员变量用strong修饰,否则弹窗不能自动销毁,导致内存回收不了.
 - 类成员变量使用规范:
 
-  ```swift
+  ```objective-c
   //成员变量用weak修饰, 不可以用strong修饰
   @property (nonatomic,weak) LSTPopView *popView;
   ```
 - 成员变量的创建
-  ```swift
+  ```objective-c
   LSTPopViewTVView *customView = [[LSTPopViewTVView alloc] initWithFrame:CGRectMake(0, 0, 300,400)];
   //弹窗实例创建
   LSTPopView *popView = [LSTPopView initWithCustomView:customView
@@ -96,15 +109,15 @@
   ```
   
 - 错误使用: 
-  ```swift
+  ```objective-c
   //直接赋值给成员变量 导致成员变量为空, 请参考以上使用规范
   self.popView = [LSTPopView initWithCustomView:customView
-                                                popStyle:LSTPopStyleSmoothFromBottom
-                                            dismissStyle:LSTDismissStyleSmoothToBottom];
+                                         popStyle:LSTPopStyleSmoothFromBottom
+                                     dismissStyle:LSTDismissStyleSmoothToBottom];
   ```
 
     
-## 效果演示(gif图比较大,请耐心等待~)
+## 演示效果
 
 - 应用市场常用的示例场景
 
@@ -116,14 +129,14 @@
 |弹出动画,中间,自上,自左,自下,自左<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E5%BC%B9%E5%87%BA%E5%8A%A8%E7%94%BB.gif" width = "200" height = "424" alt="图片名称" align=center />|移除动画,中间,至上,至左,至下,至左<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E7%A7%BB%E9%99%A4%E5%8A%A8%E7%94%BB.gif" width = "200" height = "424" alt="图片名称" align=center /> |
 |---|---|
 
-- 弹框位置
+- 弹窗位置
 
-|弹框位置,中间,贴顶,贴左,贴底,贴右<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E5%BC%B9%E6%A1%86%E4%BD%8D%E7%BD%AE.gif" width = "200" height = "424" alt="图片名称" align=center />|移除X轴Y轴校准<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/X_Y%E6%A0%A1%E5%87%86.gif" width = "200" height = "424" alt="图片名称" align=center /> |
+|弹窗位置,中间,贴顶,贴左,贴底,贴右<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E5%BC%B9%E6%A1%86%E4%BD%8D%E7%BD%AE.gif" width = "200" height = "424" alt="图片名称" align=center />|移除X轴Y轴校准<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/X_Y%E6%A0%A1%E5%87%86.gif" width = "200" height = "424" alt="图片名称" align=center /> |
 |---|---|
 
 - 自动规避键盘遮挡,指定容器,定时器
 
-|自动规避键盘遮挡<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E8%87%AA%E5%8A%A8%E8%A7%84%E9%81%BF%E9%94%AE%E7%9B%98.gif" width = "200" height = "424" alt="图片名称" align=center />|指定容器弹出<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E6%8C%87%E5%AE%9A%E5%AE%B9%E5%99%A8.gif" width = "200" height = "424" alt="图片名称" align=center />|弹框计时<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E8%AE%A1%E6%97%B6%E5%99%A8.gif" width = "200" height = "424" alt="图片名称" align=center />|
+|自动规避键盘遮挡<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E8%87%AA%E5%8A%A8%E8%A7%84%E9%81%BF%E9%94%AE%E7%9B%98.gif" width = "200" height = "424" alt="图片名称" align=center />|指定容器弹出<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E6%8C%87%E5%AE%9A%E5%AE%B9%E5%99%A8.gif" width = "200" height = "424" alt="图片名称" align=center />|弹窗计时<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E8%AE%A1%E6%97%B6%E5%99%A8.gif" width = "200" height = "424" alt="图片名称" align=center />|
 |---|---|---|
      
 - 多窗口管理(优先级,编队)
@@ -145,9 +158,4 @@ LoSenTrad@163.com, QQ群:1045568246, 微信:a_LSTKit
 ## 版权
 
  尊重劳动成果, 人人有责.
-     
-
-
-
-        
     
