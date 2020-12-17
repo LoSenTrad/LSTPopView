@@ -33,10 +33,9 @@
 - OC版本安装 
     - CocoaPods安装: 在podfile文件中添加以下描述,然后 `pod install` 或者 `pod update`
 
-      ```ruby
+      ```
       pod 'LSTPopView'
       ```  
-      
     - Carthage安装:(暂时未适配)
 - Swift版本安装
     - (计划开发中)
@@ -50,31 +49,31 @@
      UIView+LSTPV.h
      UIView+LSTPV.m
      LSTPopViewProtocol.h
-      ```  
+     ```  
     - 2.在项目中podfile添加依赖库LSTTimer: https://github.com/LoSenTrad/LSTTimer
      ```ruby
      pod 'LSTTimer'
-      ```  
+     ```  
       
 ## 基本使用
 - 代码示例
 
     ```swift
-//自定义view
-LSTPopViewTVView *customView = [[LSTPopViewTVView alloc] initWithFrame:CGRectMake(0, 0, 300,400)];
-//创建弹窗PopViiew 指定父容器self.view, 不指定默认是app window
-LSTPopView *popView = [LSTPopView initWithCustomView:customView
+    //自定义view
+    LSTPopViewTVView *customView = [[LSTPopViewTVView alloc]       initWithFrame:CGRectMake(0, 0, 300,400)];
+   //创建弹窗PopViiew 指定父容器self.view, 不指定默认是app window
+   LSTPopView *popView = [LSTPopView initWithCustomView:customView
                                               parentView:self.view
                                                 popStyle:LSTPopStyleSmoothFromBottom
                                             dismissStyle:LSTDismissStyleSmoothToBottom];
-//弹窗位置: 居中 贴顶 贴左 贴底 贴右 
-popView.hemStyle = LSTHemStyleBottom;
-LSTPopViewWK(popView)
-//点击背景触发
-popView.bgClickBlock = ^{ [wk_popView dismiss]; };
-//弹窗显示
-[popView pop];
-    ```
+   //弹窗位置: 居中 贴顶 贴左 贴底 贴右 
+   popView.hemStyle = LSTHemStyleBottom;
+   LSTPopViewWK(popView)
+  //点击背景触发
+  popView.bgClickBlock = ^{ [wk_popView dismiss]; };
+  //弹窗显示
+ [popView pop];
+ ```
 
 ## 使用注意事项(一定用weak修饰) 
 - 解析: LSTPopView对每个弹窗都有自动内存销毁机制, 外部对弹窗的强引用对打破这种自动内存销毁机制, 比如成员变量用strong修饰,否则弹窗不能自动销毁,导致内存回收不了.
