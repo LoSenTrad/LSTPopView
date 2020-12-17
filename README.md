@@ -1,10 +1,8 @@
 # LSTPopView iOS万能弹窗
 
-#### iOS万能弹窗，功能强大，易于拓展，性能优化和内存控制让其运行更加的流畅和稳健。LSTPopView的出现,可以让我们更专注弹窗页面的布局.省心省力! 提高开发效率!
-
 [![Platform](https://img.shields.io/badge/platform-iOS-red.svg)](https://developer.apple.com/iphone/index.action) [![Language](http://img.shields.io/badge/language-OC-yellow.svg?style=flat )](https://en.wikipedia.org/wiki/Objective-C) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://mit-license.org) [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/LSTPopView.svg)](https://img.shields.io/cocoapods/v/LSTPopView.svg)
 
-
+#### iOS万能弹窗，功能强大，易于拓展，性能优化和内存控制让其运行更加的流畅和稳健。LSTPopView的出现,可以让我们更专注弹窗页面的布局.省心省力! 提高开发效率!
 
 ## 前言
 - 考虑到笔者的精力问题,遇到问题请先查看 API、效仿Demo、阅读README、搜索 Issues。如果是BUG 或 Feature,最好是提Issue
