@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LSTPopViewTestView : UIView
 @property (weak, nonatomic) IBOutlet UIStepper *xStepper;
+@property (weak, nonatomic) IBOutlet UIStepper *heightStepper;
 @property (weak, nonatomic) IBOutlet UIStepper *yStepper;
 @property (weak, nonatomic) IBOutlet UILabel *xLab;
 @property (weak, nonatomic) IBOutlet UILabel *yLab;

@@ -1,102 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="LSTPopViewrLSidebarView">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="761"/>
+            <rect key="frame" x="0.0" y="0.0" width="447" height="839"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headbg" translatesAutoresizingMaskIntoConstraints="NO" id="Rl8-HN-Tfg">
-                    <rect key="frame" x="0.0" y="0.0" width="300" height="761"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_view" translatesAutoresizingMaskIntoConstraints="NO" id="Rl8-HN-Tfg">
+                    <rect key="frame" x="0.0" y="0.0" width="447" height="839"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我是花里胡哨的侧边栏" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AD6-fk-Mzr">
-                    <rect key="frame" x="28" y="144" width="23" height="358"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head" translatesAutoresizingMaskIntoConstraints="NO" id="SwC-Bo-AIn">
-                    <rect key="frame" x="110" y="100" width="80" height="80"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="80" id="4Mb-w7-ShJ"/>
-                        <constraint firstAttribute="width" constant="80" id="e9C-8b-Lpu"/>
-                    </constraints>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjZ-EG-CKA">
-                    <rect key="frame" x="15" y="711" width="75" height="30"/>
-                    <state key="normal" title="&lt; 退出登录">
-                        <color key="titleColor" red="0.16580539289999999" green="0.87044578790000005" blue="0.56847392880000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </state>
-                </button>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H0U-3l-PXh">
-                    <rect key="frame" x="100" y="505" width="49" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </switch>
-                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oHX-mX-RWZ">
-                    <rect key="frame" x="62" y="620" width="150" height="2"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </progressView>
-                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="eSf-Bh-pTH">
-                    <rect key="frame" x="90" y="565" width="94" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </stepper>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="侧边栏标题1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4o-zP-QL6">
-                    <rect key="frame" x="146" y="288" width="122" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="侧边栏标题2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezO-RL-bge">
-                    <rect key="frame" x="146" y="327" width="122" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="侧边栏标题3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygp-CI-qR9">
-                    <rect key="frame" x="146" y="369" width="122" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="侧边栏标题4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HS-Tp-TQz">
-                    <rect key="frame" x="146" y="412" width="122" height="24"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <color key="backgroundColor" red="0.32156862745098036" green="0.71372549019607845" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Rl8-HN-Tfg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7rL-Qx-qD8"/>
-                <constraint firstItem="SwC-Bo-AIn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9lS-XC-bK3"/>
                 <constraint firstAttribute="bottom" secondItem="Rl8-HN-Tfg" secondAttribute="bottom" id="A0X-6r-i9n"/>
-                <constraint firstItem="SwC-Bo-AIn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="100" id="GLI-k3-VZB"/>
                 <constraint firstItem="Rl8-HN-Tfg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="MKU-ph-Xak"/>
                 <constraint firstAttribute="trailing" secondItem="Rl8-HN-Tfg" secondAttribute="trailing" id="ie2-CJ-TzE"/>
-                <constraint firstItem="NjZ-EG-CKA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="up7-HT-7Su"/>
-                <constraint firstAttribute="bottom" secondItem="NjZ-EG-CKA" secondAttribute="bottom" constant="20" id="w3U-uM-1jd"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="imgView" destination="SwC-Bo-AIn" id="LT2-69-S6d"/>
-            </connections>
-            <point key="canvasLocation" x="-159.42028985507247" y="-76.004464285714278"/>
+            <point key="canvasLocation" x="-173" y="-306"/>
         </view>
     </objects>
     <resources>
-        <image name="head" width="886" height="836"/>
-        <image name="headbg" width="442" height="720"/>
+        <image name="left_view" width="796" height="1658"/>
     </resources>
 </document>

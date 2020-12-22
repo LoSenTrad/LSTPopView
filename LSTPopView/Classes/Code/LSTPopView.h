@@ -5,9 +5,13 @@
 //  Created by LoSenTrad on 2020/2/22.
 //
 
-/** 博客地址 如果觉得好用 伸出你的小指头 点Star 点赞 点收藏! 就是给予我最大的支持!
-    github: https://github.com/LoSenTrad/LSTPopView
-    简书: https://www.jianshu.com/p/8023a85dc2a2
+/**
+ 联系方式--->  QQ群: 1045568246 微信: a_LSTKit , 邮箱: losentrad@163.com 欢迎反馈建议和问题
+ 
+ 博客地址 如果觉得好用 伸出你的小指头 点Star 点赞 点收藏! 就是给予我最大的支持!
+ github: https://github.com/LoSenTrad/LSTPopView
+ 简书: https://www.jianshu.com/p/8023a85dc2a2
+ cocoachina: http://www.cocoachina.com/articles/899060
  */
 
 #import <UIKit/UIKit.h>
@@ -18,110 +22,38 @@
 #define LSTPopViewSS(object)  __strong typeof(object) object = weak##object;
 
 
-/** 显示动画样式 */
-typedef NS_ENUM(NSInteger, LSTPopStyle) {
-    LSTPopStyleNO = 0,                 // 默认 无动画
-    LSTPopStyleScale,                  // 缩放 先放大 后恢复至原大小
-    LSTPopStyleSmoothFromTop,          // 顶部 平滑淡入动画
-    LSTPopStyleSmoothFromLeft,         // 左侧 平滑淡入动画
-    LSTPopStyleSmoothFromBottom,       // 底部 平滑淡入动画
-    LSTPopStyleSmoothFromRight,        // 右侧 平滑淡入动画
-    LSTPopStyleSpringFromTop,          // 顶部 平滑淡入动画 带弹簧
-    LSTPopStyleSpringFromLeft,         // 左侧 平滑淡入动画 带弹簧
-    LSTPopStyleSpringFromBottom,       // 底部 平滑淡入动画 带弹簧
-    LSTPopStyleSpringFromRight,        // 右侧 平滑淡入动画 带弹簧
-    LSTPopStyleCardDropFromLeft,       // 顶部左侧 掉落动画
-    LSTPopStyleCardDropFromRight,      // 顶部右侧 掉落动画
-};
-/** 消失动画样式 */
-typedef NS_ENUM(NSInteger, LSTDismissStyle) {
-    LSTDismissStyleNO = 0,               // 默认 无动画
-    LSTDismissStyleScale,                // 缩放
-    LSTDismissStyleSmoothToTop,          // 顶部 平滑淡出动画
-    LSTDismissStyleSmoothToLeft,         // 左侧 平滑淡出动画
-    LSTDismissStyleSmoothToBottom,       // 底部 平滑淡出动画
-    LSTDismissStyleSmoothToRight,        // 右侧 平滑淡出动画
-    LSTDismissStyleCardDropToLeft,       // 卡片从中间往左侧掉落
-    LSTDismissStyleCardDropToRight,      // 卡片从中间往右侧掉落
-    LSTDismissStyleCardDropToTop,        // 卡片从中间往顶部移动消失
-};
-/** 主动动画样式(开发中) */
-typedef NS_ENUM(NSInteger, LSTActivityStyle) {
-    LSTActivityStyleNO = 0,               /// 无动画
-    LSTActivityStyleScale,                /// 缩放
-    LSTActivityStyleShake,                /// 抖动
-};
-/** 弹框位置 */
-typedef NS_ENUM(NSInteger, LSTHemStyle) {
-    LSTHemStyleCenter = 0,
-    LSTHemStyleTop,    //贴顶
-    LSTHemStyleLeft,   //贴左
-    LSTHemStyleBottom, //贴底
-    LSTHemStyleRight,  //贴右
-};
-/** 拖拽方向 */
-typedef NS_ENUM(NSInteger, LSTDragStyle) {
-    LSTDragStyleNO = 0,  //默认 不能拖拽窗口
-    LSTDragStyleX_Positive = 1<<0,   //X轴正方向拖拽
-    LSTDragStyleX_Negative = 1<<1,   //X轴负方向拖拽
-    LSTDragStyleY_Positive = 1<<2,   //Y轴正方向拖拽
-    LSTDragStyleY_Negative = 1<<3,   //Y轴负方向拖拽
-    LSTDragStyleX = (LSTDragStyleX_Positive|LSTDragStyleX_Negative),   //Y轴方向拖拽
-    LSTDragStyleY = (LSTDragStyleY_Positive|LSTDragStyleY_Negative)    //Y轴方向拖拽
-};
-///** 可拖拽消失的方向 */
-//typedef NS_ENUM(NSInteger, LSTDragStyle) {
-//    LSTDragStyleNO = 0,  //默认 不能拖拽窗口
-//    LSTDragStyleX_Positive = 1<<0,   //X轴正方向拖拽
-//    LSTDragStyleX_Negative = 1<<1,   //X轴负方向拖拽
-//    LSTDragStyleY_Positive = 1<<2,   //Y轴正方向拖拽
-//    LSTDragStyleY_Negative = 1<<3,   //Y轴负方向拖拽
-//    LSTDragStyleX = (LSTDragStyleX_Positive|LSTDragStyleX_Negative),   //Y轴方向拖拽
-//    LSTDragStyleY = (LSTDragStyleY_Positive|LSTDragStyleY_Negative)    //Y轴方向拖拽
-//};
-///** 轻扫消失类型 */
-//typedef NS_ENUM(NSInteger, LSTDragStyle) {
-//    LSTDragStyleNO = 0,  //默认 不能拖拽窗口
-//    LSTDragStyleX_Positive = 1<<0,   //X轴正方向拖拽
-//    LSTDragStyleX_Negative = 1<<1,   //X轴负方向拖拽
-//    LSTDragStyleY_Positive = 1<<2,   //Y轴正方向拖拽
-//    LSTDragStyleY_Negative = 1<<3,   //Y轴负方向拖拽
-//    LSTDragStyleX = (LSTDragStyleX_Positive|LSTDragStyleX_Negative),   //Y轴方向拖拽
-//    LSTDragStyleY = (LSTDragStyleY_Positive|LSTDragStyleY_Negative)    //Y轴方向拖拽
-//};
-
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LSTPopView : UIView
 
+
 /** 代理 支持多代理 */
 @property (nonatomic, weak) id<LSTPopViewProtocol> _Nullable delegate;
 /** 标识 默认为空 */
-@property (nonatomic,copy) NSString *_Nullable identifier;
-/** 弹框容器 默认是app UIWindow 可指定view作为容器 */
-@property (nonatomic,weak) UIView * _Nullable parentView;
-/** 弹框位置 默认LSTHemStyleCenter */
+@property (nonatomic, copy) NSString *_Nullable identifier;
+/** 弹窗容器 */
+@property (nonatomic, readonly) UIView *parentView;
+/** 弹窗位置 默认LSTHemStyleCenter */
 @property (nonatomic, assign) LSTHemStyle hemStyle;
-/** 显示时动画弹框样式 默认LSTPopStyleNO */
-@property (nonatomic) LSTPopStyle popStyle;
-/** 移除时动画弹框样式 默认LSTDismissStyleNO */
-@property (nonatomic) LSTDismissStyle dismissStyle;
-/** 显示时动画时长，>= 0。不设置则使用默认的动画时长 */
+/** 显示时动画弹窗样式 默认LSTPopStyleNO */
+@property (nonatomic, assign) LSTPopStyle popStyle;
+/** 移除时动画弹窗样式 默认LSTDismissStyleNO */
+@property (nonatomic, assign) LSTDismissStyle dismissStyle;
+/** 显示时动画时长，> 0。不设置则使用默认的动画时长 设置成LSTPopStyleNO, 该属性无效 */
 @property (nonatomic, assign) NSTimeInterval popDuration;
-/** 隐藏时动画时长，>= 0。不设置则使用默认的动画时长 */
+/** 隐藏时动画时长，>0。不设置则使用默认的动画时长  设置成LSTDismissStyleNO, 该属性无效 */
 @property (nonatomic, assign) NSTimeInterval dismissDuration;
 /** 弹窗水平方向(X)偏移量校准 默认0 */
 @property (nonatomic, assign) CGFloat adjustX;
 /** 弹窗垂直方向(Y)偏移量校准 默认0 */
 @property (nonatomic, assign) CGFloat adjustY;
 /** 背景颜色 默认rgb(0,0,0) 透明度0.3 */
-@property (nonatomic,strong) UIColor * _Nullable bgColor;
+@property (nullable,nonatomic,strong) UIColor *bgColor;
 /** 显示时背景的透明度，取值(0.0~1.0)，默认为0.3 */
 @property (nonatomic, assign) CGFloat bgAlpha;
 /** 是否隐藏背景 默认NO */
 @property (nonatomic, assign) BOOL isHideBg;
-/** 显示时点击背景是否移除弹框，默认为NO。 */
+/** 显示时点击背景是否移除弹窗，默认为NO。 */
 @property (nonatomic, assign) BOOL isClickBgDismiss;
 /** 是否监听屏幕旋转，默认为YES */
 @property (nonatomic, assign) BOOL isObserverScreenRotation;
@@ -129,14 +61,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isClickFeedback;
 /** 是否规避键盘 默认YES */
 @property (nonatomic, assign) BOOL isAvoidKeyboard;
-/** 弹框和键盘的距离 默认10 */
+/** 弹窗和键盘的距离 默认10 */
 @property (nonatomic, assign) CGFloat avoidKeyboardSpace;
 /** 显示多长时间 默认0 不会消失 */
 @property (nonatomic, assign) NSTimeInterval showTime;
 
 //************ 群组相关属性 ****************
-/** 群组标识 统一给弹框编队 方便独立管理 默认为nil,统一全局处理 */
-@property (nonatomic,strong) NSString * _Nullable groupId;
+/** 群组标识 统一给弹窗编队 方便独立管理 默认为nil,统一全局处理 */
+@property (nullable,nonatomic,strong) NSString *groupId;
 /** 是否堆叠 默认NO  如果是YES  priority优先级不生效*/
 @property (nonatomic,assign) BOOL isStack;
 /** 单显示 默认NO  只会显示优先级最高的popView   */
@@ -148,25 +80,24 @@ NS_ASSUME_NONNULL_BEGIN
 //************ 拖拽手势相关属性 ****************
 /** 拖拽方向 默认 不可拖拽  */
 @property (nonatomic, assign) LSTDragStyle dragStyle;
-/** X轴拖拽移除临界距离 范围(0 ~ +∞) 默认0 不拖拽移除   */
-@property (nonatomic, assign) CGFloat xDragDistance;
-/** Y轴拖拽移除临界距离 范围(0 ~ +∞) 默认0 不拖拽移除   */
-@property (nonatomic, assign) CGFloat yDragDistance;
+/** X轴或者Y轴拖拽移除临界距离 范围(0 ~ +∞)  默认0 不拖拽移除  基使用于dragStyle  */
+@property (nonatomic, assign) CGFloat dragDistance;
 /** 拖拽移除动画类型 默认同dismissStyle  */
 @property (nonatomic, assign) LSTDismissStyle dragDismissStyle;
 /** 拖拽消失动画时间 默认同 dismissDuration  */
-@property (nonatomic, assign) BOOL dragDismissDuration;
+@property (nonatomic, assign) NSTimeInterval dragDismissDuration;
 /** 拖拽复原动画时间 默认0.25s */
 @property (nonatomic, assign) NSTimeInterval dragReboundTime;
-/** 是否打开轻扫移除 默认NO  */
-@property (nonatomic, assign) BOOL isSwipeDismiss;
-/** 轻扫速率 控制轻扫移除 默认1000  */
+
+/** 轻扫方向 默认 不可轻扫  前提开启dragStyle */
+@property (nonatomic, assign) LSTSweepStyle sweepStyle;
+/** 轻扫速率 控制轻扫移除 默认1000  基于使用sweepStyle */
 @property (nonatomic, assign) CGFloat swipeVelocity;
+/** 轻扫移除的动画 默认LSTSweepDismissStyleVelocity  */
+@property (nonatomic, assign) LSTSweepDismissStyle sweepDismissStyle;
 
-//@property (nonatomic, strong) NSArray *xDragDistances;//计划中
-//@property (nonatomic, strong) NSArray *yDragDistances;计划中
-
-
+//@property (nonatomic, strong) NSArray *xDragDistances;//待计划
+//@property (nonatomic, strong) NSArray *yDragDistances;//待计划
 
 //****************************************
 
@@ -175,8 +106,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** 长按背景 */
 @property (nullable, nonatomic, copy) void(^bgLongPressBlock)(void);
 
-//以下键盘弹出/收起 第三方键盘会多次回调(百度,搜狗测试得出), 原生键盘回调一次
+/** 弹窗pan手势偏移量  */
+@property (nullable, nonatomic, copy) void(^panOffsetBlock)(CGPoint offset);
 
+
+//以下键盘弹出/收起 第三方键盘会多次回调(百度,搜狗测试得出), 原生键盘回调一次
 /** 键盘将要弹出 */
 @property (nullable, nonatomic, copy) void(^keyboardWillShowBlock)(void);
 /** 键盘弹出完毕 */
@@ -205,11 +139,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /*
-   以下是构建方法
-   customView: 已定义view
-   popStyle: 弹出动画
-   dismissStyle: 移除动画
-   parentView: 弹框父容器
+ 以下是构建方法
+ customView: 已定义view
+ popStyle: 弹出动画
+ dismissStyle: 移除动画
+ parentView: 弹窗父容器
  */
 + (nullable instancetype)initWithCustomView:(UIView *_Nonnull)customView;
 
@@ -220,8 +154,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable instancetype)initWithCustomView:(UIView *)customView
                                  parentView:(UIView *_Nullable)parentView
                                    popStyle:(LSTPopStyle)popStyle
-
-
                                dismissStyle:(LSTDismissStyle)dismissStyle;
 /*
   以下是弹出方法
@@ -250,7 +182,40 @@ NS_ASSUME_NONNULL_BEGIN
 /** 删除代理池 删除所有代理 */
 - (void)removeAllDelegate;
 
+
+
+#pragma mark - ***** 以下是 窗口管理api *****
+
+/** 获取全局(整个app内)所有popView */
++ (NSArray *)getAllPopView;
+/** 获取当前页面所有popView */
++ (NSArray *)getAllPopViewForParentView:(UIView *)parentView;
+/** 获取当前页面指定编队的所有popView */
++ (NSArray *)getAllPopViewForPopView:(UIView *)popView;
+/**
+    读取popView (有可能会跨编队读取弹窗)
+    建议使用getPopViewForGroupId:forkey: 方法进行精确读取
+ */
++ (LSTPopView *)getPopViewForKey:(NSString *)key;
+
+/** 移除popView */
++ (void)removePopView:(LSTPopView *)popView;
+/**
+   移除popView 通过唯一key (有可能会跨编队误删弹窗)
+   建议使用removePopViewForGroupId:forkey: 方法进行精确删除
+*/
++ (void)removePopViewForKey:(NSString *)key;
+/** 移除所有popView */
++ (void)removeAllPopView;
+
+
+/** 开启调试view  建议设置成 线上隐藏 测试打开 */
++ (void)setLogStyle:(LSTPopViewLogStyle)logStyle;
+
+
 @end
+
+
 
 
 NS_ASSUME_NONNULL_END

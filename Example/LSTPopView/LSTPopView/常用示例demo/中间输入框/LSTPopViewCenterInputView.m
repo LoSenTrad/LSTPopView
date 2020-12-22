@@ -8,14 +8,20 @@
 
 #import "LSTPopViewCenterInputView.h"
 
+@interface LSTPopViewCenterInputView ()
+
+
+
+@end
+
 @implementation LSTPopViewCenterInputView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.layer.cornerRadius = 5;
+    self.layer.masksToBounds = YES;
+    
 }
-*/
 
 @end

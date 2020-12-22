@@ -18,12 +18,20 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *popStyleSC;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *dismissStyleSC;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *hemStyleSC;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *dragSC;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *sweepSC;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *sweepDismissSC;
+
+
 @property (weak, nonatomic) IBOutlet UITextField *popBGAlpha;
 @property (weak, nonatomic) IBOutlet UITextField *popTime;
 @property (weak, nonatomic) IBOutlet UITextField *dismissTime;
 @property (weak, nonatomic) IBOutlet UITextField *adjustX;
 @property (weak, nonatomic) IBOutlet UITextField *adjustY;
 @property (weak, nonatomic) IBOutlet UITextField *showTimeTF;
+@property (weak, nonatomic) IBOutlet UITextField *dragTF;
+
+
 @property (weak, nonatomic) IBOutlet UISwitch *bgDismissSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *screenSwith;
 @property (weak, nonatomic) IBOutlet UISwitch *parentSwitch;
@@ -43,8 +51,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-   
 
     
     self.yellowResView.hidden = YES;
@@ -72,17 +78,10 @@
     
     
     if (self.parentSwitch.isOn) {
-        
-        [self yellowPopView];
-        
+                
+        [self vcViewPopView];
+       
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self bulePopView];
-        });
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self vcViewPopView];
-        });
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self windowPopView];
         });
         
@@ -131,7 +130,7 @@
         case 1:
         {
             popView.hemStyle = LSTHemStyleTop;
-            popView.adjustY = lst_IsIphoneX_ALL()?LSTNavBarHeight()*0.5:0;
+            popView.adjustY = LSTNavBarHeight();
         }
             break;
         case 2:
@@ -211,6 +210,83 @@
         }
             break;
     }
+    switch (self.dragSC.selectedSegmentIndex) {
+        case 1:
+        {
+            popView.dragStyle = LSTDragStyleY|LSTDragStyleX;
+        }
+            break;
+        case 2:
+        {
+            popView.dragStyle = LSTDragStyleY_Negative;
+        }
+            break;
+        case 3:
+        {
+            popView.dragStyle = LSTDragStyleX_Negative;
+        }
+            break;
+        case 4:
+        {
+            popView.dragStyle = LSTDragStyleY_Positive;
+        }
+            break;
+        case 5:
+        {
+            popView.dragStyle = LSTDragStyleX_Positive;
+        }
+            break;
+        default:
+        {
+            popView.dragStyle = LSTDragStyleNO;
+        }
+            break;
+    }
+    
+    switch (self.sweepSC.selectedSegmentIndex) {
+        case 1:
+        {
+            popView.sweepStyle = LSTSweepStyleY|LSTSweepStyleX;
+        }
+            break;
+        case 2:
+        {
+            popView.sweepStyle = LSTSweepStyleY_Negative;
+        }
+            break;
+        case 3:
+        {
+            popView.sweepStyle = LSTSweepStyleX_Negative;
+        }
+            break;
+        case 4:
+        {
+            popView.sweepStyle = LSTSweepStyleY_Positive;
+        }
+            break;
+        case 5:
+        {
+            popView.sweepStyle = LSTSweepStyleX_Positive;
+        }
+            break;
+        default:
+        {
+            popView.sweepStyle = LSTSweepStyleNO;
+        }
+            break;
+    }
+    switch (self.sweepDismissSC.selectedSegmentIndex) {
+        case 1:
+        {
+            popView.sweepDismissStyle = LSTSweepDismissStyleSmooth;
+        }
+            break;
+        default:
+        {
+            popView.sweepDismissStyle = LSTSweepDismissStyleVelocity;
+        }
+            break;
+    }
     
     LSTPopViewWK(popView);
     LSTPopViewWK(self);
@@ -219,8 +295,7 @@
     popView.dismissDuration = [self.dismissTime.text floatValue];
     popView.showTime = [self.showTimeTF.text floatValue];
     popView.isHideBg = self.isHideBgSW.on;
-    
-    
+    popView.dragDistance = [self.dragTF.text floatValue];
     popView.isClickBgDismiss = self.bgDismissSwitch.on?YES:NO;
     
     //    view.clickBlock = ^{
@@ -373,7 +448,8 @@
     popView.bgAlpha = [self.popBGAlpha.text floatValue];
     popView.popDuration  = [self.popTime.text floatValue];
     popView.dismissDuration = [self.dismissTime.text floatValue];
-    
+    popView.hemStyle = LSTHemStyleBottom;
+    popView.adjustY = -LSTTabBarBottomMargin();
     popView.isClickBgDismiss = self.bgDismissSwitch.on?YES:NO;
     
     //    view.clickBlock = ^{
@@ -417,9 +493,10 @@
     popView.bgAlpha = [self.popBGAlpha.text floatValue];
     popView.popDuration  = [self.popTime.text floatValue];
     popView.dismissDuration = [self.dismissTime.text floatValue];
-    
+    popView.hemStyle = LSTHemStyleTop;
     popView.isClickBgDismiss = self.bgDismissSwitch.on?YES:NO;
-    
+    popView.adjustY = LSTNavBarHeight();
+
     //    view.clickBlock = ^{
     //        [wk_popView dismiss];
     //    };

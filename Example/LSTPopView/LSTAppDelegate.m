@@ -8,21 +8,44 @@
 
 #import "LSTAppDelegate.h"
 #import "LSTPopViewVC.h"
+#import <LSTPopView.h>
+#import "LSTLaunchMutiPopViewVC.h"
 
 @implementation LSTAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
-    NSString *homePath = NSHomeDirectory();
-     NSLog(@"home根目录:%@", homePath);
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+#ifdef DEBUG
+    //测试开启调试log
+    [LSTPopView setLogStyle:LSTPopViewLogStyleALL];
+#else
+    //正式关闭调试log
+    [LSTPopView setLogStyle:LSTPopViewLogStyleNO];
+#endif
+
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     LSTPopViewVC *vc = [[LSTPopViewVC alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
+    
+    
+    
+    //以下是通过优先级机制 进行了弹窗的排序 逐个展示
+    
+    //打开闪屏ad
+    [LSTLaunchMutiPopViewVC appFlashAdPopView];
+    //打开app新版本更新(模拟网络请求延时)
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [LSTLaunchMutiPopViewVC appUpdatePopView];
+    });
+    //打开app首页广告弹窗//打开app新版本更新(模拟网络请求延时)
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [LSTLaunchMutiPopViewVC appIndexAdPopView];
+    });
+    //打开推送弹窗
+    [LSTLaunchMutiPopViewVC appPushPopView];
     return YES;
 }
 
