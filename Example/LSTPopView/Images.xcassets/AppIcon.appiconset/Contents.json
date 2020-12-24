@@ -1,49 +1,49 @@
 {
   "images" : [
     {
-      "filename" : "lst_logoiPhoneNotification_20pt@2x.png",
+      "filename" : "lstiPhoneNotification_20pt@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "lst_logoiPhoneNotification_20pt@3x.png",
+      "filename" : "lstiPhoneNotification_20pt@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "lst_logoiPhoneSpootlight5_29pt@2x.png",
+      "filename" : "lstiPhoneSpootlight5_29pt@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "lst_logoiPhoneSpootlight5_29pt@3x.png",
+      "filename" : "lstiPhoneSpootlight5_29pt@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "lst_logoiPhoneSpootlight7_40pt@2x.png",
+      "filename" : "lstiPhoneSpootlight7_40pt@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "lst_logoiPhoneSpootlight7_40pt@3x.png",
+      "filename" : "lstiPhoneSpootlight7_40pt@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "lst_logoiPhoneApp_60pt@2x.png",
+      "filename" : "lstiPhoneApp_60pt@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "lst_logoiPhoneApp_60pt@3x.png",
+      "filename" : "lstiPhoneApp_60pt@3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"

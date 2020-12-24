@@ -7,11 +7,30 @@
 //
 
 #import "LSTPopViewTestView.h"
+#import <UIView+LSTPV.h>
+
+@interface LSTPopViewTestView ()
+
+/** <#...#> */
+@property (nonatomic, assign) double wValue;
+
+/** <#...#> */
+@property (nonatomic, assign) double sValue;
+/** <#...#> */
+@property (nonatomic, assign) double xValue;
+/** <#...#> */
+@property (nonatomic, assign) double yValue;
+
+@end
 
 @implementation LSTPopViewTestView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.sValue = 0;
+    self.xValue = 0;
+    self.yValue = 0;
+    self.wValue = 0;
     
     self.timeLab.layer.cornerRadius = 15;
     self.timeLab.layer.masksToBounds = YES;
@@ -24,6 +43,10 @@
     self.yStepper.minimumValue = -100;
     self.yStepper.maximumValue = 100;
     self.yStepper.stepValue = 5.0;
+    
+    self.heightStepper.minimumValue = -100;
+    self.heightStepper.maximumValue = 100;
+    self.heightStepper.stepValue = 5.0;
     
     [self.xStepper addTarget:self action:@selector(xValueChanged:) forControlEvents:(UIControlEventValueChanged)];
     [self.yStepper addTarget:self action:@selector(yValueChanged:) forControlEvents:(UIControlEventValueChanged)];
@@ -43,6 +66,23 @@
     if (self.yStepperBlock) {
         self.yStepperBlock(sender.value);
     }
+}
+- (IBAction)height:(UIStepper *)sender {
+    
+    if (sender.value>self.sValue) {
+        self.height = self.height+10;
+    }else{
+        self.height = self.height-10;
+    }
+    self.sValue = sender.value;
+}
+- (IBAction)width:(UIStepper *)sender {
+    if (sender.value>self.wValue) {
+        self.width = self.width+10;
+    }else{
+        self.width = self.width-10;
+    }
+    self.wValue = sender.value;
 }
 
 - (IBAction)closePopView:(UIButton *)sender {

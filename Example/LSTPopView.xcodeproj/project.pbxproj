@@ -35,13 +35,6 @@
 		31438A0F2411697C00387B4E /* LSTPopViewXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A0C2411697C00387B4E /* LSTPopViewXibView.m */; };
 		31438A102411697C00387B4E /* LSTPopViewXibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31438A0E2411697C00387B4E /* LSTPopViewXibView.xib */; };
 		31438A132411698B00387B4E /* LSTPopViewCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A112411698B00387B4E /* LSTPopViewCodeView.m */; };
-		31438A1B241169A000387B4E /* LSTActionViewEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A142411699F00387B4E /* LSTActionViewEmoji.m */; };
-		31438A1C241169A000387B4E /* LSTActionViewEmoji.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31438A152411699F00387B4E /* LSTActionViewEmoji.xib */; };
-		31438A1D241169A000387B4E /* LSTActionViewImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A16241169A000387B4E /* LSTActionViewImage.m */; };
-		31438A1E241169A000387B4E /* LSTActionViewImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31438A17241169A000387B4E /* LSTActionViewImage.xib */; };
-		31438A1F241169A000387B4E /* actionViewImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 31438A18241169A000387B4E /* actionViewImage.jpg */; };
-		31438A22241169AE00387B4E /* LSTAlertViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A21241169AE00387B4E /* LSTAlertViewVC.m */; };
-		31438A25241169BA00387B4E /* LSTSheetAlertViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A23241169BA00387B4E /* LSTSheetAlertViewVC.m */; };
 		31438A2824116A5000387B4E /* LSTPopViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 31438A2624116A5000387B4E /* LSTPopViewVC.m */; };
 		31438A2C2411774B00387B4E /* lst_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 31438A2B2411774B00387B4E /* lst_logo.png */; };
 		3144E1E72447573C003C5D11 /* LSTAutoKeyboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3144E1E62447573C003C5D11 /* LSTAutoKeyboardVC.m */; };
@@ -78,7 +71,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* LSTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* LSTAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* LSTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* LSTViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -86,8 +78,25 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
-		7CDAE70725123AEB00A85EBE /* LSTPopViewGesturesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAE70525123AEB00A85EBE /* LSTPopViewGesturesVC.m */; };
-		7CDAE70825123AEB00A85EBE /* LSTPopViewGesturesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAE70625123AEB00A85EBE /* LSTPopViewGesturesVC.xib */; };
+		7C0A662A2580A0F200EF6660 /* LSTAppUpdateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A66292580A0F200EF6660 /* LSTAppUpdateView.xib */; };
+		7C0A662D2580A10300EF6660 /* LSTAppUpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A662C2580A10300EF6660 /* LSTAppUpdateView.m */; };
+		7C0A66312580A2AE00EF6660 /* LSTLaunchMutiPopViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A662F2580A2AE00EF6660 /* LSTLaunchMutiPopViewVC.m */; };
+		7C0A66322580A2AE00EF6660 /* LSTLaunchMutiPopViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A66302580A2AE00EF6660 /* LSTLaunchMutiPopViewVC.xib */; };
+		7C0A66362580A51100EF6660 /* LSTAppFlashAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A66352580A51100EF6660 /* LSTAppFlashAdView.m */; };
+		7C0A66382580A51B00EF6660 /* LSTAppFlashAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A66372580A51B00EF6660 /* LSTAppFlashAdView.xib */; };
+		7C0A663C2580A89A00EF6660 /* LSTAppPrivacyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A663B2580A89A00EF6660 /* LSTAppPrivacyView.m */; };
+		7C0A663E2580A8A100EF6660 /* LSTAppPrivacyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A663D2580A8A100EF6660 /* LSTAppPrivacyView.xib */; };
+		7C0A66422580AA4700EF6660 /* LSTIndexAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A66412580AA4700EF6660 /* LSTIndexAdView.m */; };
+		7C0A66442580AA4D00EF6660 /* LSTIndexAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A66432580AA4D00EF6660 /* LSTIndexAdView.xib */; };
+		7C0A66482580AB9D00EF6660 /* LSTOpenPushView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A66472580AB9D00EF6660 /* LSTOpenPushView.m */; };
+		7C0A664A2580ABA400EF6660 /* LSTOpenPushView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A66492580ABA400EF6660 /* LSTOpenPushView.xib */; };
+		7C57627B2566AADA00576294 /* LSTTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C57627A2566AADA00576294 /* LSTTestView.m */; };
+		7CAEFCF02589CF840035F7E1 /* LSTPopViewTVCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CAEFCEF2589CF840035F7E1 /* LSTPopViewTVCellView.xib */; };
+		7CAEFCF32589CF8F0035F7E1 /* LSTPopViewTVCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAEFCF22589CF8F0035F7E1 /* LSTPopViewTVCellView.m */; };
+		7CC956D7258FA82D0059A614 /* LSTPopViewListBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC956D6258FA82D0059A614 /* LSTPopViewListBuyView.m */; };
+		7CC956D9258FAC510059A614 /* LSTPopViewListBuyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CC956D8258FAC510059A614 /* LSTPopViewListBuyView.xib */; };
+		7CE7F0C82589A76800CE2206 /* LSTPopViewTVViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CE7F0C62589A76800CE2206 /* LSTPopViewTVViewCell.m */; };
+		7CE7F0C92589A76800CE2206 /* LSTPopViewTVViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE7F0C72589A76800CE2206 /* LSTPopViewTVViewCell.xib */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		D35BE7DC0B5EB2623922B004 /* libPods-LSTPopView_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5865DF78541A9FA0B2DEA4 /* libPods-LSTPopView_Tests.a */; };
 /* End PBXBuildFile section */
@@ -151,17 +160,6 @@
 		31438A0E2411697C00387B4E /* LSTPopViewXibView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSTPopViewXibView.xib; sourceTree = "<group>"; };
 		31438A112411698B00387B4E /* LSTPopViewCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewCodeView.m; sourceTree = "<group>"; };
 		31438A122411698B00387B4E /* LSTPopViewCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopViewCodeView.h; sourceTree = "<group>"; };
-		31438A142411699F00387B4E /* LSTActionViewEmoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTActionViewEmoji.m; sourceTree = "<group>"; };
-		31438A152411699F00387B4E /* LSTActionViewEmoji.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSTActionViewEmoji.xib; sourceTree = "<group>"; };
-		31438A16241169A000387B4E /* LSTActionViewImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTActionViewImage.m; sourceTree = "<group>"; };
-		31438A17241169A000387B4E /* LSTActionViewImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSTActionViewImage.xib; sourceTree = "<group>"; };
-		31438A18241169A000387B4E /* actionViewImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = actionViewImage.jpg; sourceTree = "<group>"; };
-		31438A19241169A000387B4E /* LSTActionViewEmoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTActionViewEmoji.h; sourceTree = "<group>"; };
-		31438A1A241169A000387B4E /* LSTActionViewImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTActionViewImage.h; sourceTree = "<group>"; };
-		31438A20241169AE00387B4E /* LSTAlertViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTAlertViewVC.h; sourceTree = "<group>"; };
-		31438A21241169AE00387B4E /* LSTAlertViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTAlertViewVC.m; sourceTree = "<group>"; };
-		31438A23241169BA00387B4E /* LSTSheetAlertViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTSheetAlertViewVC.m; sourceTree = "<group>"; };
-		31438A24241169BA00387B4E /* LSTSheetAlertViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTSheetAlertViewVC.h; sourceTree = "<group>"; };
 		31438A2624116A5000387B4E /* LSTPopViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewVC.m; sourceTree = "<group>"; };
 		31438A2724116A5000387B4E /* LSTPopViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSTPopViewVC.h; sourceTree = "<group>"; };
 		31438A2B2411774B00387B4E /* lst_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lst_logo.png; sourceTree = "<group>"; };
@@ -220,8 +218,6 @@
 		6003F59B195388D20070C39A /* LSTPopView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LSTPopView-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* LSTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* LSTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* LSTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* LSTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* LSTPopView_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LSTPopView_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -231,9 +227,35 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		65F401D6F088DFE0F3C22CAE /* libPods-LSTPopView_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LSTPopView_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7CDAE70425123AEB00A85EBE /* LSTPopViewGesturesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewGesturesVC.h; sourceTree = "<group>"; };
-		7CDAE70525123AEB00A85EBE /* LSTPopViewGesturesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewGesturesVC.m; sourceTree = "<group>"; };
-		7CDAE70625123AEB00A85EBE /* LSTPopViewGesturesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewGesturesVC.xib; sourceTree = "<group>"; };
+		7C0A66292580A0F200EF6660 /* LSTAppUpdateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTAppUpdateView.xib; sourceTree = "<group>"; };
+		7C0A662B2580A10300EF6660 /* LSTAppUpdateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTAppUpdateView.h; sourceTree = "<group>"; };
+		7C0A662C2580A10300EF6660 /* LSTAppUpdateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTAppUpdateView.m; sourceTree = "<group>"; };
+		7C0A662E2580A2AE00EF6660 /* LSTLaunchMutiPopViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTLaunchMutiPopViewVC.h; sourceTree = "<group>"; };
+		7C0A662F2580A2AE00EF6660 /* LSTLaunchMutiPopViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTLaunchMutiPopViewVC.m; sourceTree = "<group>"; };
+		7C0A66302580A2AE00EF6660 /* LSTLaunchMutiPopViewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTLaunchMutiPopViewVC.xib; sourceTree = "<group>"; };
+		7C0A66342580A51100EF6660 /* LSTAppFlashAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTAppFlashAdView.h; sourceTree = "<group>"; };
+		7C0A66352580A51100EF6660 /* LSTAppFlashAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTAppFlashAdView.m; sourceTree = "<group>"; };
+		7C0A66372580A51B00EF6660 /* LSTAppFlashAdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTAppFlashAdView.xib; sourceTree = "<group>"; };
+		7C0A663A2580A89A00EF6660 /* LSTAppPrivacyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTAppPrivacyView.h; sourceTree = "<group>"; };
+		7C0A663B2580A89A00EF6660 /* LSTAppPrivacyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTAppPrivacyView.m; sourceTree = "<group>"; };
+		7C0A663D2580A8A100EF6660 /* LSTAppPrivacyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTAppPrivacyView.xib; sourceTree = "<group>"; };
+		7C0A66402580AA4700EF6660 /* LSTIndexAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTIndexAdView.h; sourceTree = "<group>"; };
+		7C0A66412580AA4700EF6660 /* LSTIndexAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTIndexAdView.m; sourceTree = "<group>"; };
+		7C0A66432580AA4D00EF6660 /* LSTIndexAdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTIndexAdView.xib; sourceTree = "<group>"; };
+		7C0A66462580AB9D00EF6660 /* LSTOpenPushView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTOpenPushView.h; sourceTree = "<group>"; };
+		7C0A66472580AB9D00EF6660 /* LSTOpenPushView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTOpenPushView.m; sourceTree = "<group>"; };
+		7C0A66492580ABA400EF6660 /* LSTOpenPushView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTOpenPushView.xib; sourceTree = "<group>"; };
+		7C5762792566AADA00576294 /* LSTTestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTTestView.h; sourceTree = "<group>"; };
+		7C57627A2566AADA00576294 /* LSTTestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTTestView.m; sourceTree = "<group>"; };
+		7CAEFCEF2589CF840035F7E1 /* LSTPopViewTVCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewTVCellView.xib; sourceTree = "<group>"; };
+		7CAEFCF12589CF8F0035F7E1 /* LSTPopViewTVCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewTVCellView.h; sourceTree = "<group>"; };
+		7CAEFCF22589CF8F0035F7E1 /* LSTPopViewTVCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewTVCellView.m; sourceTree = "<group>"; };
+		7CC956D5258FA82D0059A614 /* LSTPopViewListBuyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewListBuyView.h; sourceTree = "<group>"; };
+		7CC956D6258FA82D0059A614 /* LSTPopViewListBuyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewListBuyView.m; sourceTree = "<group>"; };
+		7CC956D8258FAC510059A614 /* LSTPopViewListBuyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewListBuyView.xib; sourceTree = "<group>"; };
+		7CE7F0C52589A76800CE2206 /* LSTPopViewTVViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewTVViewCell.h; sourceTree = "<group>"; };
+		7CE7F0C62589A76800CE2206 /* LSTPopViewTVViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewTVViewCell.m; sourceTree = "<group>"; };
+		7CE7F0C72589A76800CE2206 /* LSTPopViewTVViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewTVViewCell.xib; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9187EEEF2ED2937C7B19795A /* Pods-LSTPopView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LSTPopView_Example.release.xcconfig"; path = "Target Support Files/Pods-LSTPopView_Example/Pods-LSTPopView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		9C5865DF78541A9FA0B2DEA4 /* libPods-LSTPopView_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LSTPopView_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -395,8 +417,12 @@
 			children = (
 				31438A2724116A5000387B4E /* LSTPopViewVC.h */,
 				31438A2624116A5000387B4E /* LSTPopViewVC.m */,
+				31077A3A246CE8E400474085 /* LSTModel.h */,
+				31077A3B246CE8E400474085 /* LSTModel.m */,
+				7C5762792566AADA00576294 /* LSTTestView.h */,
+				7C57627A2566AADA00576294 /* LSTTestView.m */,
 				314389F8241168DD00387B4E /* 常用属性调试 */,
-				7CDAE70325122D9E00A85EBE /* 手势交互调试(点击,长按,拖拽,横扫) */,
+				7CDAE70325122D9E00A85EBE /* app启动多窗口实例 */,
 				31CDCCF62451D7690037B813 /* 常用示例demo */,
 				314389F9241168EF00387B4E /* XIB自定义View */,
 				314389FA241168FF00387B4E /* 纯代码自定义view */,
@@ -443,39 +469,6 @@
 			path = "纯代码自定义view";
 			sourceTree = "<group>";
 		};
-		314389FC2411691300387B4E /* LSTAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				31438A20241169AE00387B4E /* LSTAlertViewVC.h */,
-				31438A21241169AE00387B4E /* LSTAlertViewVC.m */,
-				314389FE2411692B00387B4E /* 自定义actionView */,
-			);
-			path = LSTAlertView;
-			sourceTree = "<group>";
-		};
-		314389FD2411691B00387B4E /* LSTSheetAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				31438A24241169BA00387B4E /* LSTSheetAlertViewVC.h */,
-				31438A23241169BA00387B4E /* LSTSheetAlertViewVC.m */,
-			);
-			path = LSTSheetAlertView;
-			sourceTree = "<group>";
-		};
-		314389FE2411692B00387B4E /* 自定义actionView */ = {
-			isa = PBXGroup;
-			children = (
-				31438A18241169A000387B4E /* actionViewImage.jpg */,
-				31438A19241169A000387B4E /* LSTActionViewEmoji.h */,
-				31438A142411699F00387B4E /* LSTActionViewEmoji.m */,
-				31438A152411699F00387B4E /* LSTActionViewEmoji.xib */,
-				31438A1A241169A000387B4E /* LSTActionViewImage.h */,
-				31438A16241169A000387B4E /* LSTActionViewImage.m */,
-				31438A17241169A000387B4E /* LSTActionViewImage.xib */,
-			);
-			path = "自定义actionView";
-			sourceTree = "<group>";
-		};
 		3144E1E4244756D4003C5D11 /* 规避键盘测试 */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,13 +505,8 @@
 		317CDDA424B8468200457FFD /* 列表类型展示 */ = {
 			isa = PBXGroup;
 			children = (
-				31B66C0924D9CD0600C361BA /* LSTPopViewTVView.h */,
-				31B66C0A24D9CD0600C361BA /* LSTPopViewTVView.m */,
-				317CDDA524B8470E00457FFD /* LSTPopViewListView.h */,
-				317CDDA624B8470E00457FFD /* LSTPopViewListView.m */,
-				317CDDA824B8495D00457FFD /* LSTPopViewListCell.h */,
-				317CDDA924B8495D00457FFD /* LSTPopViewListCell.m */,
-				317CDDAA24B8495D00457FFD /* LSTPopViewListCell.xib */,
+				7CE7F0C42589A31D00CE2206 /* CollectionView */,
+				7CE7F0C32589A30200CE2206 /* TableView */,
 			);
 			path = "列表类型展示";
 			sourceTree = "<group>";
@@ -650,18 +638,12 @@
 				31438A2B2411774B00387B4E /* lst_logo.png */,
 				314389F6241168B700387B4E /* Main */,
 				314389F7241168CD00387B4E /* LSTPopView */,
-				314389FC2411691300387B4E /* LSTAlertView */,
-				314389FD2411691B00387B4E /* LSTSheetAlertView */,
 				6003F59C195388D20070C39A /* LSTAppDelegate.h */,
 				6003F59D195388D20070C39A /* LSTAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* LSTViewController.h */,
-				6003F5A6195388D20070C39A /* LSTViewController.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
-				31077A3A246CE8E400474085 /* LSTModel.h */,
-				31077A3B246CE8E400474085 /* LSTModel.m */,
 			);
 			name = "Example for LSTPopView";
 			path = LSTPopView;
@@ -708,14 +690,99 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		7CDAE70325122D9E00A85EBE /* 手势交互调试(点击,长按,拖拽,横扫) */ = {
+		7C0A66272580907100EF6660 /* app更新 */ = {
 			isa = PBXGroup;
 			children = (
-				7CDAE70425123AEB00A85EBE /* LSTPopViewGesturesVC.h */,
-				7CDAE70525123AEB00A85EBE /* LSTPopViewGesturesVC.m */,
-				7CDAE70625123AEB00A85EBE /* LSTPopViewGesturesVC.xib */,
+				7C0A662B2580A10300EF6660 /* LSTAppUpdateView.h */,
+				7C0A662C2580A10300EF6660 /* LSTAppUpdateView.m */,
+				7C0A66292580A0F200EF6660 /* LSTAppUpdateView.xib */,
 			);
-			path = "手势交互调试(点击,长按,拖拽,横扫)";
+			path = "app更新";
+			sourceTree = "<group>";
+		};
+		7C0A66332580A4EC00EF6660 /* 闪屏广告 */ = {
+			isa = PBXGroup;
+			children = (
+				7C0A66342580A51100EF6660 /* LSTAppFlashAdView.h */,
+				7C0A66352580A51100EF6660 /* LSTAppFlashAdView.m */,
+				7C0A66372580A51B00EF6660 /* LSTAppFlashAdView.xib */,
+			);
+			path = "闪屏广告";
+			sourceTree = "<group>";
+		};
+		7C0A66392580A87E00EF6660 /* 用户隐私 */ = {
+			isa = PBXGroup;
+			children = (
+				7C0A663A2580A89A00EF6660 /* LSTAppPrivacyView.h */,
+				7C0A663B2580A89A00EF6660 /* LSTAppPrivacyView.m */,
+				7C0A663D2580A8A100EF6660 /* LSTAppPrivacyView.xib */,
+			);
+			path = "用户隐私";
+			sourceTree = "<group>";
+		};
+		7C0A663F2580AA2100EF6660 /* 首页广告 */ = {
+			isa = PBXGroup;
+			children = (
+				7C0A66402580AA4700EF6660 /* LSTIndexAdView.h */,
+				7C0A66412580AA4700EF6660 /* LSTIndexAdView.m */,
+				7C0A66432580AA4D00EF6660 /* LSTIndexAdView.xib */,
+			);
+			path = "首页广告";
+			sourceTree = "<group>";
+		};
+		7C0A66452580AB8200EF6660 /* 打开推送 */ = {
+			isa = PBXGroup;
+			children = (
+				7C0A66462580AB9D00EF6660 /* LSTOpenPushView.h */,
+				7C0A66472580AB9D00EF6660 /* LSTOpenPushView.m */,
+				7C0A66492580ABA400EF6660 /* LSTOpenPushView.xib */,
+			);
+			path = "打开推送";
+			sourceTree = "<group>";
+		};
+		7CDAE70325122D9E00A85EBE /* app启动多窗口实例 */ = {
+			isa = PBXGroup;
+			children = (
+				7C0A66452580AB8200EF6660 /* 打开推送 */,
+				7C0A663F2580AA2100EF6660 /* 首页广告 */,
+				7C0A66392580A87E00EF6660 /* 用户隐私 */,
+				7C0A66332580A4EC00EF6660 /* 闪屏广告 */,
+				7C0A66272580907100EF6660 /* app更新 */,
+				7C0A662E2580A2AE00EF6660 /* LSTLaunchMutiPopViewVC.h */,
+				7C0A662F2580A2AE00EF6660 /* LSTLaunchMutiPopViewVC.m */,
+				7C0A66302580A2AE00EF6660 /* LSTLaunchMutiPopViewVC.xib */,
+			);
+			path = "app启动多窗口实例";
+			sourceTree = "<group>";
+		};
+		7CE7F0C32589A30200CE2206 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				31B66C0924D9CD0600C361BA /* LSTPopViewTVView.h */,
+				31B66C0A24D9CD0600C361BA /* LSTPopViewTVView.m */,
+				7CE7F0C52589A76800CE2206 /* LSTPopViewTVViewCell.h */,
+				7CE7F0C62589A76800CE2206 /* LSTPopViewTVViewCell.m */,
+				7CE7F0C72589A76800CE2206 /* LSTPopViewTVViewCell.xib */,
+				7CAEFCF12589CF8F0035F7E1 /* LSTPopViewTVCellView.h */,
+				7CAEFCF22589CF8F0035F7E1 /* LSTPopViewTVCellView.m */,
+				7CAEFCEF2589CF840035F7E1 /* LSTPopViewTVCellView.xib */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		7CE7F0C42589A31D00CE2206 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				317CDDA524B8470E00457FFD /* LSTPopViewListView.h */,
+				317CDDA624B8470E00457FFD /* LSTPopViewListView.m */,
+				317CDDA824B8495D00457FFD /* LSTPopViewListCell.h */,
+				317CDDA924B8495D00457FFD /* LSTPopViewListCell.m */,
+				317CDDAA24B8495D00457FFD /* LSTPopViewListCell.xib */,
+				7CC956D5258FA82D0059A614 /* LSTPopViewListBuyView.h */,
+				7CC956D6258FA82D0059A614 /* LSTPopViewListBuyView.m */,
+				7CC956D8258FAC510059A614 /* LSTPopViewListBuyView.xib */,
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -802,29 +869,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
-				7CDAE70825123AEB00A85EBE /* LSTPopViewGesturesVC.xib in Resources */,
 				31419BD624B800FE00AA25DB /* LSTPopViewTimerView.xib in Resources */,
 				313902952452754F004648F2 /* LSTPopViewrLSidebarView.xib in Resources */,
+				7C0A66322580A2AE00EF6660 /* LSTLaunchMutiPopViewVC.xib in Resources */,
 				31CDCD042451F04D0037B813 /* LSTPopViewQQView.xib in Resources */,
 				31B1220524B86C1400ABE229 /* UPDATE_HISTORY.md in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				3144E1E92447585C003C5D11 /* LSTKeyboardXibView.xib in Resources */,
+				7C0A662A2580A0F200EF6660 /* LSTAppUpdateView.xib in Resources */,
+				7CC956D9258FAC510059A614 /* LSTPopViewListBuyView.xib in Resources */,
 				317CDDAC24B8495D00457FFD /* LSTPopViewListCell.xib in Resources */,
 				31438A102411697C00387B4E /* LSTPopViewXibView.xib in Resources */,
+				7CAEFCF02589CF840035F7E1 /* LSTPopViewTVCellView.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				7C0A664A2580ABA400EF6660 /* LSTOpenPushView.xib in Resources */,
 				31438A0A2411697000387B4E /* LSTPopViewTestVC.xib in Resources */,
 				319ECD5A2478258400F23A92 /* LSTPopViewPriorityVC.xib in Resources */,
+				7C0A66382580A51B00EF6660 /* LSTAppFlashAdView.xib in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				31438A2C2411774B00387B4E /* lst_logo.png in Resources */,
 				313902A124528735004648F2 /* LSTPopViewCenterInputView.xib in Resources */,
 				313902AC245293F6004648F2 /* LSTPopViewloadingView.xib in Resources */,
-				31438A1F241169A000387B4E /* actionViewImage.jpg in Resources */,
+				7C0A663E2580A8A100EF6660 /* LSTAppPrivacyView.xib in Resources */,
 				314CA8AD2455EDD800E56E7B /* LSTPopViewdoyinView.xib in Resources */,
 				31438A0B2411697000387B4E /* LSTPopViewTestView.xib in Resources */,
-				31438A1E241169A000387B4E /* LSTActionViewImage.xib in Resources */,
 				31EAD624245EB98E007620E7 /* LSTPopViewGroupTestView.xib in Resources */,
+				7CE7F0C92589A76800CE2206 /* LSTPopViewTVViewCell.xib in Resources */,
+				7C0A66442580AA4D00EF6660 /* LSTIndexAdView.xib in Resources */,
 				3139029F245284AA004648F2 /* LSTPopViewBottomInputView.xib in Resources */,
-				31438A1C241169A000387B4E /* LSTActionViewEmoji.xib in Resources */,
 				313902A724528A3E004648F2 /* LSTPopViewLoadingCell.xib in Resources */,
 				31EAD61F245EAE36007620E7 /* LSTPopViewGroupTestVC.xib in Resources */,
 				3139027F2451FC79004648F2 /* LSTPopViewWeChatView.xib in Resources */,
@@ -894,44 +966,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31438A25241169BA00387B4E /* LSTSheetAlertViewVC.m in Sources */,
 				319ECD592478258400F23A92 /* LSTPopViewPriorityVC.m in Sources */,
 				6003F59E195388D20070C39A /* LSTAppDelegate.m in Sources */,
 				313902902452750F004648F2 /* LSTPopViewrRSidebarView.m in Sources */,
+				7CAEFCF32589CF8F0035F7E1 /* LSTPopViewTVCellView.m in Sources */,
 				31D8553A244E1A5B00BFC8E8 /* LSTPopViewRAMVC.m in Sources */,
-				31438A22241169AE00387B4E /* LSTAlertViewVC.m in Sources */,
 				31BAA5E7248A9EDA00BFCFC5 /* LSTPopViewLifeCycleTestVC.m in Sources */,
 				31438A092411697000387B4E /* LSTPopViewTestVC.m in Sources */,
 				317CDDAB24B8495D00457FFD /* LSTPopViewListCell.m in Sources */,
+				7C0A662D2580A10300EF6660 /* LSTAppUpdateView.m in Sources */,
 				319ECD5D2478289600F23A92 /* LSTPriorityView.m in Sources */,
 				3144E1E72447573C003C5D11 /* LSTAutoKeyboardVC.m in Sources */,
 				3150CEBE24339B9F00244B3A /* LSTMutiPopViewVC.m in Sources */,
-				7CDAE70725123AEB00A85EBE /* LSTPopViewGesturesVC.m in Sources */,
-				31438A1D241169A000387B4E /* LSTActionViewImage.m in Sources */,
 				3139029D24528472004648F2 /* LSTPopViewBottomInputView.m in Sources */,
 				31CDCD022451F0460037B813 /* LSTPopViewQQView.m in Sources */,
 				314CA8AB2455EDCE00E56E7B /* LSTPopViewdoyinView.m in Sources */,
 				313902A624528A3E004648F2 /* LSTPopViewLoadingCell.m in Sources */,
 				31438A132411698B00387B4E /* LSTPopViewCodeView.m in Sources */,
+				7C0A66362580A51100EF6660 /* LSTAppFlashAdView.m in Sources */,
+				7CE7F0C82589A76800CE2206 /* LSTPopViewTVViewCell.m in Sources */,
 				3139029A24528431004648F2 /* LSTPopViewCenterInputView.m in Sources */,
 				31077A3C246CE8E500474085 /* LSTModel.m in Sources */,
 				3144E1EC2447586A003C5D11 /* LSTKeyboardXibView.m in Sources */,
 				3139028B2452060D004648F2 /* LSTPopViewBaiDuView.m in Sources */,
 				317CDDA724B8470E00457FFD /* LSTPopViewListView.m in Sources */,
 				31438A082411697000387B4E /* LSTPopViewTestView.m in Sources */,
+				7C0A663C2580A89A00EF6660 /* LSTAppPrivacyView.m in Sources */,
 				31CDCCF92451D8260037B813 /* LSTPopViewSceneVC.m in Sources */,
 				313902872452043A004648F2 /* LSTPopViewUCView.m in Sources */,
 				31CDCD072451F7460037B813 /* LSTPopViewqqtopView.m in Sources */,
 				31B66C0B24D9CD0600C361BA /* LSTPopViewTVView.m in Sources */,
 				31438A012411694800387B4E /* LSTBaseVC.m in Sources */,
-				6003F5A7195388D20070C39A /* LSTViewController.m in Sources */,
 				31438A2824116A5000387B4E /* LSTPopViewVC.m in Sources */,
-				31438A1B241169A000387B4E /* LSTActionViewEmoji.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				31419BD424B800F400AA25DB /* LSTPopViewTimerView.m in Sources */,
 				313902832452024C004648F2 /* LSTPopViewTranspondView.m in Sources */,
+				7C0A66422580AA4700EF6660 /* LSTIndexAdView.m in Sources */,
+				7C0A66482580AB9D00EF6660 /* LSTOpenPushView.m in Sources */,
+				7C0A66312580A2AE00EF6660 /* LSTLaunchMutiPopViewVC.m in Sources */,
 				31EAD622245EB8A9007620E7 /* LSTPopViewGroupTestView.m in Sources */,
 				3150CEC124339EF100244B3A /* LSTMutiPopView.m in Sources */,
+				7C57627B2566AADA00576294 /* LSTTestView.m in Sources */,
 				31438A0F2411697C00387B4E /* LSTPopViewXibView.m in Sources */,
 				31BAA5EA248B78E900BFCFC5 /* LSTLifeCycleView.m in Sources */,
 				31419BD124B7FFDC00AA25DB /* LSTPopViewTimerTestVC.m in Sources */,
@@ -939,6 +1014,7 @@
 				31EAD61E245EAE36007620E7 /* LSTPopViewGroupTestVC.m in Sources */,
 				3139029324527537004648F2 /* LSTPopViewrLSidebarView.m in Sources */,
 				313902AA245293E8004648F2 /* LSTPopViewloadingView.m in Sources */,
+				7CC956D7258FA82D0059A614 /* LSTPopViewListBuyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@
 //
 
 #import "LSTLifeCycleView.h"
-#import <UIView+LSTView.h>
+#import <UIView+LSTPV.h>
 #import <Masonry.h>
 
 @interface LSTLifeCycleView ()
@@ -62,14 +62,14 @@
 
 
 #pragma mark - ***** LSTPopViewProtocol *****
-/** 点击弹框 回调 */
+/** 点击弹窗 回调 */
 - (void)lst_PopViewBgClick {
-    NSLog(@"点了弹框");
+    NSLog(@"点了弹窗");
     
 }
-/** 长按弹框 回调 */
+/** 长按弹窗 回调 */
 - (void)lst_PopViewBgLongPress {
-     NSLog(@"长按弹框");
+     NSLog(@"长按弹窗");
 }
 
 

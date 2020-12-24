@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LSTPopViewTVCellView">
+            <rect key="frame" x="0.0" y="0.0" width="208" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3T-Vi-Vqr">
+                    <rect key="frame" x="104" y="0.0" width="104" height="80"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="love" translatesAutoresizingMaskIntoConstraints="NO" id="kFX-ST-N1r">
+                            <rect key="frame" x="27" y="15" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="GKJ-ak-KNb"/>
+                                <constraint firstAttribute="height" constant="50" id="eAy-qt-Jv9"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemTealColor"/>
+                    <constraints>
+                        <constraint firstItem="kFX-ST-N1r" firstAttribute="centerX" secondItem="V3T-Vi-Vqr" secondAttribute="centerX" id="G4g-F2-2r7"/>
+                        <constraint firstAttribute="height" constant="80" id="cnO-4D-x9x"/>
+                        <constraint firstItem="kFX-ST-N1r" firstAttribute="centerY" secondItem="V3T-Vi-Vqr" secondAttribute="centerY" id="kep-qH-Y10"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXt-HX-Oj8">
+                    <rect key="frame" x="0.0" y="0.0" width="104" height="80"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="BL3-wM-ysX">
+                            <rect key="frame" x="27" y="15" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="J1Y-gt-xMy"/>
+                                <constraint firstAttribute="height" constant="50" id="siK-2S-Beq"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                    <constraints>
+                        <constraint firstItem="BL3-wM-ysX" firstAttribute="centerY" secondItem="JXt-HX-Oj8" secondAttribute="centerY" id="01T-DO-97G"/>
+                        <constraint firstItem="BL3-wM-ysX" firstAttribute="centerX" secondItem="JXt-HX-Oj8" secondAttribute="centerX" id="UdN-of-cTe"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="V3T-Vi-Vqr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="60p-48-K2u"/>
+                <constraint firstItem="JXt-HX-Oj8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="MiA-FL-mD0"/>
+                <constraint firstItem="V3T-Vi-Vqr" firstAttribute="leading" secondItem="JXt-HX-Oj8" secondAttribute="trailing" id="Prb-oM-Iad"/>
+                <constraint firstItem="JXt-HX-Oj8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Xy5-yZ-hMo"/>
+                <constraint firstAttribute="trailing" secondItem="V3T-Vi-Vqr" secondAttribute="trailing" id="Z7v-Cg-7l7"/>
+                <constraint firstAttribute="bottom" secondItem="V3T-Vi-Vqr" secondAttribute="bottom" id="giW-4w-YOC"/>
+                <constraint firstItem="V3T-Vi-Vqr" firstAttribute="width" secondItem="JXt-HX-Oj8" secondAttribute="width" id="pfM-At-0Us"/>
+                <constraint firstAttribute="bottom" secondItem="JXt-HX-Oj8" secondAttribute="bottom" id="q5f-hf-gci"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-404" y="76"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="love" width="128" height="128"/>
+        <image name="phone" width="128" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

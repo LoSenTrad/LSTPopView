@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LSTAppUpdateView">
+            <rect key="frame" x="0.0" y="0.0" width="344" height="510"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appUpate" translatesAutoresizingMaskIntoConstraints="NO" id="Ko3-pU-xPI">
+                    <rect key="frame" x="0.0" y="0.0" width="344" height="510"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Ko3-pU-xPI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="04H-RW-9gw"/>
+                <constraint firstAttribute="bottom" secondItem="Ko3-pU-xPI" secondAttribute="bottom" id="35Q-gU-wuM"/>
+                <constraint firstItem="Ko3-pU-xPI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LRt-d7-O4D"/>
+                <constraint firstAttribute="trailing" secondItem="Ko3-pU-xPI" secondAttribute="trailing" id="sIE-Es-9fq"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="131.8840579710145" y="-26.116071428571427"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="appUpate" width="698" height="1042"/>
+    </resources>
+</document>

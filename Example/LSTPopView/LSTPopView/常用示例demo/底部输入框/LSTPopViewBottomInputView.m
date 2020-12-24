@@ -7,15 +7,24 @@
 //
 
 #import "LSTPopViewBottomInputView.h"
+#import <UIView+LSTPV.h>
 
 @implementation LSTPopViewBottomInputView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    
+    
 }
-*/
+- (IBAction)dadad:(UIButton *)sender {
+    
+}
+
+
+- (IBAction)sureBtnAction:(UIButton *)sender {
+    self.height = self.height+10;
+}
+
 
 @end
