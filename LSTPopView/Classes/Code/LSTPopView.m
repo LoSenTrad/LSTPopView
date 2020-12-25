@@ -169,7 +169,8 @@ LSTPopViewManager *LSTPopViewM() {
             tPopView = (LSTPopView *)obj;
         }
         if ([tPopView isEqual:popView]) {
-            [LSTPopViewM().popViewMarr removeObject:obj];
+//            [LSTPopViewM().popViewMarr removeObject:obj];
+            [tPopView dismissWithStyle:LSTDismissStyleNO];
             break;
         }
     }
@@ -195,7 +196,8 @@ LSTPopViewManager *LSTPopViewM() {
             tPopView = (LSTPopView *)obj;
         }
         if ([tPopView.identifier isEqualToString:key]) {
-            [LSTPopViewM().popViewMarr removeObject:obj];
+//            [LSTPopViewM().popViewMarr removeObject:obj];
+            [tPopView dismissWithStyle:LSTDismissStyleNO];
             break;
         }
     }
@@ -210,7 +212,76 @@ LSTPopViewManager *LSTPopViewM() {
 + (void)removeAllPopView {
     NSMutableArray *arr = LSTPopViewM().popViewMarr;
     if (arr.count<=0) { return;  }
-    [arr removeAllObjects];
+//    [arr removeAllObjects];
+//    for (id obj in arr) {
+//        LSTPopView *tPopView;
+//        if ([obj isKindOfClass:[NSValue class]]) {
+//            NSValue *resObj = (NSValue *)obj;
+//            tPopView = resObj.nonretainedObjectValue;
+//        }else {
+//            tPopView = (LSTPopView *)obj;
+//        }
+//        //把当前popView转移到待移除队列 避免线程安全问题
+//        [LSTPopViewManager transferredToRemoveQueueWithPopView:tPopView];
+//        [tPopView dismissWithStyle:LSTDismissStyleNO];
+//    }
+    
+//    for (id obj in arr) {
+//        LSTPopView *tPopView;
+//        if ([obj isKindOfClass:[NSValue class]]) {
+//            NSValue *resObj = (NSValue *)obj;
+//            tPopView = resObj.nonretainedObjectValue;
+//        }else {
+//            tPopView = (LSTPopView *)obj;
+//        }
+//        [LSTPopViewM().removeMarr addObject:obj];
+//        [LSTPopViewM().popViewMarr removeObject:obj];
+//
+//    }
+  
+//    [LSTPopViewM().popViewMarr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        LSTPopView *tPopView;
+//        if ([obj isKindOfClass:[NSValue class]]) {
+//            NSValue *resObj = (NSValue *)obj;
+//            tPopView = resObj.nonretainedObjectValue;
+//        }else {
+//            tPopView = (LSTPopView *)obj;
+//        }
+//        [LSTPopViewM().removeMarr addObject:obj];
+//        [LSTPopViewM().popViewMarr removeObject:obj];
+//
+//    }];
+//
+//    for (id obj in LSTPopViewM().removeMarr) {
+//        LSTPopView *tPopView;
+//        if ([obj isKindOfClass:[NSValue class]]) {
+//            NSValue *resObj = (NSValue *)obj;
+//            tPopView = resObj.nonretainedObjectValue;
+//        }else {
+//            tPopView = (LSTPopView *)obj;
+//        }
+//        [tPopView dismissWithStyle:LSTDismissStyleNO];
+//    }
+//
+//    NSLog(@"%@",LSTPopViewM().removeMarr);
+//
+    
+    [LSTPopViewM().popViewMarr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        LSTPopView *tPopView;
+        if ([obj isKindOfClass:[NSValue class]]) {
+            NSValue *resObj = (NSValue *)obj;
+            tPopView = resObj.nonretainedObjectValue;
+//            [LSTPopViewM().popViewMarr removeObject:obj];
+//            [LSTPopViewM().removeMarr addObject:obj];
+//            [tPopView dismissWithStyle:LSTDismissStyleNO];
+        }else {
+            tPopView = (LSTPopView *)obj;
+//            [tPopView removeFromSuperview];
+//            [LSTPopViewM().removeMarr addObject:obj];
+        }
+        [tPopView dismissWithStyle:LSTDismissStyleNO];
+    }];
+    
     if (_logStyle &  LSTPopViewLogStyleWindow) {
         [self setInfoData];
     }
@@ -412,7 +483,7 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     _isObserverScreenRotation = YES;
     _bgAlpha = 0.25;
     _popStyle = LSTPopStyleFade;
-    _dismissStyle = LSTDismissStyleNO;
+    _dismissStyle = LSTDismissStyleFade;
     _popDuration = LSTPopViewDefaultDuration;
     _dismissDuration = LSTPopViewDefaultDuration;
     _hemStyle = LSTHemStyleCenter;

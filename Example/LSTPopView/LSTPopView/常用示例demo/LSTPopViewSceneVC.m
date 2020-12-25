@@ -577,24 +577,39 @@ UITableViewDataSource
 }
 
 - (void)test13 {
-    LSTPopViewTVView *view = [[LSTPopViewTVView alloc] init];
-    view.layer.cornerRadius = 8;
-    view.layer.masksToBounds = YES;
-    
-    view.frame = CGRectMake(0, 0, LSTScreenWidth()-40, LSTScreenHeight()*(2/3.0));
-    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleFade dismissStyle:LSTDismissStyleFade];
-    LSTPopViewWK(popView)
-    popView.hemStyle = LSTHemStyleCenter;
-    popView.popDuration = 0.8;
-    popView.dismissDuration = 0.8;
-    popView.bgColor = UIColor.blackColor;
-    popView.isObserverScreenRotation = YES;
-    popView.bgClickBlock = ^{
-        //        NSLog(@"点击了背景");
-        [wk_popView dismiss];
-    };
-    [popView pop];
+//    LSTPopViewTVView *view = [[LSTPopViewTVView alloc] init];
+//    view.layer.cornerRadius = 8;
+//    view.layer.masksToBounds = YES;
+//
+//    view.frame = CGRectMake(0, 0, LSTScreenWidth()-40, LSTScreenHeight()*(2/3.0));
+//    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleFade dismissStyle:LSTDismissStyleFade];
+//    LSTPopViewWK(popView)
+//    popView.hemStyle = LSTHemStyleCenter;
+//    popView.popDuration = 0.8;
+//    popView.dismissDuration = 0.8;
+//    popView.bgColor = UIColor.blackColor;
+//    popView.isObserverScreenRotation = YES;
+//    popView.bgClickBlock = ^{
+//        //        NSLog(@"点击了背景");
+//        [wk_popView dismiss];
+//    };
+//    [popView pop];
+    LSTPopViewTVView *customView = [[LSTPopViewTVView alloc] initWithFrame:CGRectMake(0, 0, LSTScreenWidth(), LSTScreenHeight()*(0.8))];
+    LSTPopView *popView = [LSTPopView initWithCustomView:customView
+                                              parentView:self.view
+                                                popStyle:LSTPopStyleSmoothFromBottom
+                                            dismissStyle:LSTDismissStyleSmoothToBottom];
+//    self.popView = popView;
+    popView.priority = 1000;
+    popView.hemStyle = LSTHemStyleBottom;
+    popView.dragStyle = LSTDragStyleY_Positive;
+    popView.dragDistance =  customView.height*0.5;
+    popView.sweepStyle = LSTSweepStyleY_Positive;
+    popView.swipeVelocity = 1600;
+    popView.sweepDismissStyle = LSTSweepDismissStyleSmooth;
 
+    
+    [popView pop];
 }
 
 - (void)test14 {

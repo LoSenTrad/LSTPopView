@@ -130,6 +130,11 @@
     [popView pop];
 }
 
+- (IBAction)removeAction:(UIButton *)sender {
+    
+    [LSTPopView removeAllPopView];
+    
+}
 
 #pragma mark - ***** Lazy Loading 懒加载 *****
 

@@ -35,17 +35,17 @@
     //以下是通过优先级机制 进行了弹窗的排序 逐个展示
     
     //打开闪屏ad
-    [LSTLaunchMutiPopViewVC appFlashAdPopView];
-    //打开app新版本更新(模拟网络请求延时)
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [LSTLaunchMutiPopViewVC appUpdatePopView];
-    });
-    //打开app首页广告弹窗//打开app新版本更新(模拟网络请求延时)
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [LSTLaunchMutiPopViewVC appIndexAdPopView];
-    });
-    //打开推送弹窗
-    [LSTLaunchMutiPopViewVC appPushPopView];
+//    [LSTLaunchMutiPopViewVC appFlashAdPopView];
+//    //打开app新版本更新(模拟网络请求延时)
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [LSTLaunchMutiPopViewVC appUpdatePopView];
+//    });
+//    //打开app首页广告弹窗//打开app新版本更新(模拟网络请求延时)
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [LSTLaunchMutiPopViewVC appIndexAdPopView];
+//    });
+//    //打开推送弹窗
+//    [LSTLaunchMutiPopViewVC appPushPopView];
     return YES;
 }
 

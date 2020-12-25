@@ -26,6 +26,7 @@
 #import "LSTLaunchMutiPopViewVC.h"
 #import "LSTModel.h"
 #import "LSTTestView.h"
+#import <UIKit/UIFeedbackGenerator.h>
 
 
 
@@ -94,6 +95,8 @@ LSTPopViewProtocol
 
 - (void)test {
     
+    UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+    [feedBackGenertor impactOccurred];
 
     //    LSTPopViewListView *view = [[LSTPopViewListView alloc] init];
     //    view.layer.cornerRadius = 10;
