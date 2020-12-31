@@ -43,13 +43,13 @@ LSTPopViewManager *LSTPopViewM(void);
 
 static LSTPopViewManager *_instance;
 
-LSTPopViewManager *LSTPopViewM()
-{
+LSTPopViewManager *LSTPopViewM() {
+
     return [LSTPopViewManager sharedInstance];
 }
 
-+ (instancetype)sharedInstance
-{
++ (instancetype)sharedInstance {
+
     if (!_instance) {
         
         static dispatch_once_t onceToken;
@@ -63,14 +63,14 @@ LSTPopViewManager *LSTPopViewM()
     return _instance;
 }
 
-+ (NSArray *)getAllPopView
-{
++ (NSArray *)getAllPopView {
+
     return LSTPopViewM().popViewMarr;
 }
 
 /** 获取当前页面所有popView */
-+ (NSArray *)getAllPopViewForParentView:(UIView *)parentView
-{
++ (NSArray *)getAllPopViewForParentView:(UIView *)parentView {
+
     NSMutableArray *mArr = LSTPopViewM().popViewMarr;
     
     NSMutableArray *resMarr = [NSMutableArray array];
@@ -89,8 +89,8 @@ LSTPopViewManager *LSTPopViewM()
 }
 
 /** 获取当前页面指定编队的所有popView */
-+ (NSArray *)getAllPopViewForPopView:(LSTPopView *)popView
-{
++ (NSArray *)getAllPopViewForPopView:(LSTPopView *)popView {
+
     NSArray *mArr = [self getAllPopViewForParentView:popView.parentView];
     
     NSMutableArray *resMarr = [NSMutableArray array];
@@ -117,8 +117,8 @@ LSTPopViewManager *LSTPopViewM()
 }
 
 /** 读取popView */
-+ (LSTPopView *)getPopViewForKey:(NSString *)key
-{
++ (LSTPopView *)getPopViewForKey:(NSString *)key {
+
     if (key.length <= 0) {
         
         return nil;
@@ -138,8 +138,8 @@ LSTPopViewManager *LSTPopViewM()
     return nil;
 }
 
-+ (void)savePopView:(LSTPopView *)popView
-{
++ (void)savePopView:(LSTPopView *)popView {
+
     [LSTPopViewM().popViewMarr addObject:popView];
     
     //优先级排序
@@ -157,8 +157,8 @@ LSTPopViewManager *LSTPopViewM()
 }
 
 /** 移除popView */
-+ (void)removePopView:(LSTPopView *)popView
-{
++ (void)removePopView:(LSTPopView *)popView {
+
     if (!popView) return;
     
     
@@ -188,8 +188,8 @@ LSTPopViewManager *LSTPopViewM()
 }
 
 /** 移除popView */
-+ (void)removePopViewForKey:(NSString *)key
-{
++ (void)removePopViewForKey:(NSString *)key {
+
     if (key.length <= 0) return;
     
     
@@ -219,8 +219,8 @@ LSTPopViewManager *LSTPopViewM()
 }
 
 /** 移除所有popView */
-+ (void)removeAllPopView
-{
++ (void)removeAllPopView {
+
     NSMutableArray *arr = LSTPopViewM().popViewMarr;
     
     if (arr.count<=0) return;
@@ -245,8 +245,8 @@ LSTPopViewManager *LSTPopViewM()
     }
 }
 
-+ (void)removeLastPopView
-{
++ (void)removeLastPopView {
+
     NSPointerArray *showList =  LSTPopViewM().showList;
     
     for (NSInteger i = showList.count - 1; i >= 0; i --) {
@@ -268,21 +268,24 @@ LSTPopViewManager *LSTPopViewM()
 
 #pragma mark - ***** Other 其他 *****
 
-+ (void)setInfoData
-{
++ (void)setInfoData {
+
     NSArray *removeList = LSTPopViewM().removeList.allObjects;
     NSArray *popViewMarr = LSTPopViewM().popViewMarr;
     LSTPopViewM().infoView.text = [NSString stringWithFormat:@"S:%zd R:%zd", popViewMarr.count, removeList.count];
 }
 
-+ (void)setConsoleLog
-{
-    LSTPVLog(@"%@ S:%zd个 R:%zd个 show:%zd个",LSTPopViewLogTitle,LSTPopViewM().popViewMarr.count,LSTPopViewM().removeList.count, LSTPopViewM().showList.count);
++ (void)setConsoleLog {
+
+    NSArray *removeList = LSTPopViewM().removeList.allObjects;
+    NSArray *popViewMarr = LSTPopViewM().popViewMarr;
+    NSArray *showList = LSTPopViewM().showList.allObjects;
+    LSTPVLog(@"%@ S:%zd个 R:%zd个 show:%zd个",LSTPopViewLogTitle, popViewMarr.count, removeList.count, showList.count);
 }
 
 //冒泡排序
-+ (void)sortingArr
-{
++ (void)sortingArr {
+
     NSMutableArray *arr = LSTPopViewM().popViewMarr;
     
     for (int i = 0; i < arr.count; i++) {
@@ -302,8 +305,8 @@ LSTPopViewManager *LSTPopViewM()
 }
 
 /** 转移popView到待移除队列 */
-+ (void)transferredToRemoveQueueWithPopView:(LSTPopView *)popView
-{
++ (void)transferredToRemoveQueueWithPopView:(LSTPopView *)popView {
+
     NSArray *popViewMarr = LSTPopViewM().popViewMarr;
     
     [popViewMarr enumerateObjectsUsingBlock:^(id  obj, NSUInteger idx, BOOL * stop) {
@@ -319,8 +322,8 @@ LSTPopViewManager *LSTPopViewM()
     }];
 }
 
-+ (void)destroyInRemoveQueue:(LSTPopView *)popView
-{
++ (void)destroyInRemoveQueue:(LSTPopView *)popView {
+
     if (LSTPopViewM().removeList.count <= 0) {
         
         [self transferredToRemoveQueueWithPopView:popView];
@@ -343,8 +346,8 @@ LSTPopViewManager *LSTPopViewM()
 
 #pragma mark - ***** 懒加载 *****
 
-- (UILabel *)infoView
-{
+- (UILabel *)infoView {
+
     if (_infoView) return _infoView;
     
     _infoView = [[UILabel alloc] init];
@@ -377,8 +380,8 @@ LSTPopViewManager *LSTPopViewM()
     return _popViewMarr;
 }
 
-- (NSHashTable<LSTPopView *> *)removeList
-{
+- (NSHashTable<LSTPopView *> *)removeList {
+
     if (_removeList) return _removeList;
     
     _removeList = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
@@ -386,8 +389,8 @@ LSTPopViewManager *LSTPopViewM()
     return _removeList;
 }
 
-- (NSPointerArray *)showList
-{
+- (NSPointerArray *)showList {
+
     if (_showList) return _showList;
     
     _showList = [NSPointerArray pointerArrayWithOptions:(NSPointerFunctionsWeakMemory)];
@@ -411,8 +414,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 
 @implementation LSTPopViewBgView
 
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
-{
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+
     UIView *hitView = [super hitTest:point withEvent:event];
     
     if (hitView == self && self.isHideBg) {
@@ -460,8 +463,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 
 #pragma mark - ***** 初始化 *****
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
+
     if (self = [super initWithFrame:frame]) {
         
         [self initSubViews];
@@ -470,8 +473,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     return self;
 }
 
-- (void)initSubViews
-{
+- (void)initSubViews {
+
     //初始化配置
     _isClickBgDismiss = NO;
     
@@ -531,19 +534,19 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     _isDragDismissStyle = NO;
 }
 
-+ (instancetype)initWithCustomView:(UIView *)customView
-{
++ (instancetype)initWithCustomView:(UIView *)customView {
+
     return [self initWithCustomView:customView popStyle:LSTPopStyleNO dismissStyle:LSTDismissStyleNO];
 }
 
 
-+ (instancetype)initWithCustomView:(UIView *)customView popStyle:(LSTPopStyle)popStyle dismissStyle:(LSTDismissStyle)dismissStyle
-{
++ (instancetype)initWithCustomView:(UIView *)customView popStyle:(LSTPopStyle)popStyle dismissStyle:(LSTDismissStyle)dismissStyle {
+
     return [self initWithCustomView:customView parentView:nil popStyle:popStyle dismissStyle:dismissStyle];
 }
 
-+ (instancetype)initWithCustomView:(UIView *)customView parentView:(UIView *)parentView popStyle:(LSTPopStyle)popStyle dismissStyle:(LSTDismissStyle)dismissStyle
-{
++ (instancetype)initWithCustomView:(UIView *)customView parentView:(UIView *)parentView popStyle:(LSTPopStyle)popStyle dismissStyle:(LSTDismissStyle)dismissStyle {
+
     // 检测自定义视图是否存在(check customView is exist)
     if (!customView) return nil;
     
@@ -632,8 +635,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     return popView;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
+
     [self.customView removeObserver:self forKeyPath:@"frame"];
     
     [NSNotificationCenter.defaultCenter removeObserver:self];
@@ -646,15 +649,15 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     self.popViewDidDismissBlock ? self.popViewDidDismissBlock() : nil;
 }
 
-- (void)removeFromSuperview
-{
+- (void)removeFromSuperview {
+
     [super removeFromSuperview];
     
     [LSTPopViewManager transferredToRemoveQueueWithPopView:self];
 }
 
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
-{
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+
     UIView *hitView = [super hitTest:point withEvent:event];
     
     if (hitView != self.customView) {
@@ -667,8 +670,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 }
 
 #pragma mark - ***** 转发代理 *****
-- (void)lst_PopViewBgClickForPopView:(LSTPopView *)popView
-{
+- (void)lst_PopViewBgClickForPopView:(LSTPopView *)popView {
+
     for (id<LSTPopViewProtocol> delegate in _delegates.copy) {
         
         if ([delegate respondsToSelector:_cmd]) {
@@ -678,8 +681,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     }
 }
 
-- (void)lst_PopViewBgLongPressForPopView:(LSTPopView *)popView
-{
+- (void)lst_PopViewBgLongPressForPopView:(LSTPopView *)popView {
+
     for (id<LSTPopViewProtocol> delegate in _delegates.copy) {
         
         if ([delegate respondsToSelector:_cmd]) {
@@ -689,8 +692,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     }
 }
 
-- (void)lst_PopViewWillPopForPopView:(LSTPopView *)popView
-{
+- (void)lst_PopViewWillPopForPopView:(LSTPopView *)popView {
+
     for (id<LSTPopViewProtocol> delegate in _delegates.copy) {
         
         if ([delegate respondsToSelector:_cmd]) {
@@ -700,8 +703,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     }
 }
 
-- (void)lst_PopViewDidPopForPopView:(LSTPopView *)popView
-{
+- (void)lst_PopViewDidPopForPopView:(LSTPopView *)popView {
+
     for (id<LSTPopViewProtocol> delegate in _delegates.copy) {
         
         if ([delegate respondsToSelector:_cmd]) {
@@ -711,8 +714,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     }
 }
 
-- (void)lst_PopViewCountDownForPopView:(LSTPopView *)popView forCountDown:(NSTimeInterval)timeInterval
-{
+- (void)lst_PopViewCountDownForPopView:(LSTPopView *)popView forCountDown:(NSTimeInterval)timeInterval {
+
     for (id<LSTPopViewProtocol> delegate in _delegates.copy) {
         
         if ([delegate respondsToSelector:_cmd]) {
@@ -722,8 +725,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     }
 }
 
-- (void)lst_PopViewCountDownFinishForPopView:(LSTPopView *)popView
-{
+- (void)lst_PopViewCountDownFinishForPopView:(LSTPopView *)popView {
+
     for (id<LSTPopViewProtocol> delegate in _delegates.copy) {
         
         if ([delegate respondsToSelector:_cmd]) {
@@ -733,8 +736,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     }
 }
 
-- (void)lst_PopViewWillDismissForPopView:(LSTPopView *)popView
-{
+- (void)lst_PopViewWillDismissForPopView:(LSTPopView *)popView {
+
     for (id<LSTPopViewProtocol> delegate in _delegates.copy) {
         
         if ([delegate respondsToSelector:_cmd]) {
@@ -744,8 +747,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     }
 }
 
-- (void)lst_PopViewDidDismissForPopView:(LSTPopView *)popView
-{
+- (void)lst_PopViewDidDismissForPopView:(LSTPopView *)popView {
+
     for (id<LSTPopViewProtocol> delegate in _delegates.copy) {
         
         if ([delegate respondsToSelector:_cmd]) {
@@ -757,8 +760,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 
 #pragma mark - ***** 界面布局 *****
 
-- (void)setCustomViewFrameWithHeight:(CGFloat)height
-{
+- (void)setCustomViewFrameWithHeight:(CGFloat)height {
+
     CGFloat changeY = 0;
     
     switch (self.hemStyle) {
@@ -837,66 +840,66 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 
 #pragma mark - ***** setter 设置器/数据处理 *****
 
-- (void)setPopDuration:(NSTimeInterval)popDuration
-{
+- (void)setPopDuration:(NSTimeInterval)popDuration {
+
     if (popDuration <= 0.0) return;
     
     
     _popDuration = popDuration;
 }
 
-- (void)setDismissDuration:(NSTimeInterval)dismissDuration
-{
+- (void)setDismissDuration:(NSTimeInterval)dismissDuration {
+
     if (dismissDuration <= 0.0) return;
     
     
     _dismissDuration = dismissDuration;
 }
 
-- (void)setDragDismissDuration:(NSTimeInterval)dragDismissDuration
-{
+- (void)setDragDismissDuration:(NSTimeInterval)dragDismissDuration {
+
     if (dragDismissDuration <= 0.0) return;
     
     
     _dragDismissDuration = dragDismissDuration;
 }
 
-- (void)setHemStyle:(LSTHemStyle)hemStyle
-{
+- (void)setHemStyle:(LSTHemStyle)hemStyle {
+
     _hemStyle = hemStyle;
 }
 
-- (void)setAdjustX:(CGFloat)adjustX
-{
+- (void)setAdjustX:(CGFloat)adjustX {
+
     _adjustX = adjustX;
     
     [self setCustomViewFrameWithHeight:0];
 }
 
-- (void)setAdjustY:(CGFloat)adjustY
-{
+- (void)setAdjustY:(CGFloat)adjustY {
+
     _adjustY = adjustY;
     
     [self setCustomViewFrameWithHeight:0];
 }
 
-- (void)setIsObserverScreenRotation:(BOOL)isObserverScreenRotation
-{
+- (void)setIsObserverScreenRotation:(BOOL)isObserverScreenRotation {
+
     _isObserverScreenRotation = isObserverScreenRotation;
 }
 
-- (void)setBgAlpha:(CGFloat)bgAlpha
-{
+- (void)setBgAlpha:(CGFloat)bgAlpha {
+
     _bgAlpha = (bgAlpha <= 0.0f) ? 0.0f : ((bgAlpha > 1.0) ? 1.0 : bgAlpha);
 }
 
-- (void)setIsClickFeedback:(BOOL)isClickFeedback
-{
+- (void)setIsClickFeedback:(BOOL)isClickFeedback {
+
     _isClickFeedback = isClickFeedback;
 }
 
-- (void)setIsHideBg:(BOOL)isHideBg
-{
+- (void)setIsHideBg:(BOOL)isHideBg {
+
     _isHideBg = isHideBg;
     
     self.backgroundView.isHideBg = isHideBg;
@@ -904,13 +907,13 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     self.backgroundView.backgroundColor = [self getNewColorWith:self.bgColor alpha:0.0];
 }
 
-- (void)setShowTime:(NSTimeInterval)showTime
-{
+- (void)setShowTime:(NSTimeInterval)showTime {
+
     _showTime = showTime;
 }
 
-- (void)setDelegate:(id<LSTPopViewProtocol>)delegate
-{
+- (void)setDelegate:(id<LSTPopViewProtocol>)delegate {
+
     _delegate = delegate;
     
     if ([self.delegates containsObject:delegate]) return;
@@ -919,36 +922,36 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     [self.delegates addObject:delegate];
 }
 
-- (void)setDragDismissStyle:(LSTDismissStyle)dragDismissStyle
-{
+- (void)setDragDismissStyle:(LSTDismissStyle)dragDismissStyle {
+
     _dragDismissStyle = dragDismissStyle;
     
     self.isDragDismissStyle = YES;
 }
 
 #pragma mark - ***** pop 弹出 *****
-- (void)pop
-{
+- (void)pop {
+
     [self popWithStyle:self.popStyle duration:self.popDuration];
 }
 
-- (void)popWithStyle:(LSTPopStyle)popStyle
-{
+- (void)popWithStyle:(LSTPopStyle)popStyle {
+
     [self popWithStyle:popStyle duration:self.popDuration];
 }
 
-- (void)popWithDuration:(NSTimeInterval)duration
-{
+- (void)popWithDuration:(NSTimeInterval)duration {
+
     [self popWithStyle:self.popStyle duration:duration];
 }
 
-- (void)popWithStyle:(LSTPopStyle)popStyle duration:(NSTimeInterval)duration
-{
+- (void)popWithStyle:(LSTPopStyle)popStyle duration:(NSTimeInterval)duration {
+
     [self popWithPopStyle:popStyle duration:duration isOutStack:NO];
 }
 
-- (void)popWithPopStyle:(LSTPopStyle)popStyle duration:(NSTimeInterval)duration isOutStack:(BOOL)isOutStack
-{
+- (void)popWithPopStyle:(LSTPopStyle)popStyle duration:(NSTimeInterval)duration isOutStack:(BOOL)isOutStack {
+
     NSTimeInterval resDuration = [self getPopDuration:duration];
     
     [self setCustomViewFrameWithHeight:0];
@@ -1051,8 +1054,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     if (!isOutStack) { [LSTPopViewManager savePopView:self]; }
 }
 
-- (void)popAnimationWithPopStyle:(LSTPopStyle)popStyle duration:(NSTimeInterval)duration
-{
+- (void)popAnimationWithPopStyle:(LSTPopStyle)popStyle duration:(NSTimeInterval)duration {
+
     if (popStyle == LSTPopStyleFade) {//渐变出现
         
         self.backgroundView.backgroundColor = [self getNewColorWith:self.bgColor alpha:0.0];
@@ -1090,8 +1093,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 }
 
 - (void)hanlePopAnimationWithDuration:(NSTimeInterval)duration
-                             popStyle:(LSTPopStyle)popStyle
-{
+                             popStyle:(LSTPopStyle)popStyle {
+
     
     self.alpha = 0;
     
@@ -1207,30 +1210,30 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 
 #pragma mark - ***** dismiss 移除 *****
 
-- (void)dismiss
-{
+- (void)dismiss {
+
     [self dismissWithStyle:self.dismissStyle duration:self.dismissDuration];
 }
 
-- (void)dismissWithStyle:(LSTDismissStyle)dismissStyle
-{
+- (void)dismissWithStyle:(LSTDismissStyle)dismissStyle {
+
     [self dismissWithStyle:dismissStyle duration:self.dismissDuration];
 }
 
-- (void)dismissWithDuration:(NSTimeInterval)duration
-{
+- (void)dismissWithDuration:(NSTimeInterval)duration {
+
     [self dismissWithStyle:self.dismissStyle duration:duration];
 }
 
-- (void)dismissWithStyle:(LSTDismissStyle)dismissStyle duration:(NSTimeInterval)duration
-{
+- (void)dismissWithStyle:(LSTDismissStyle)dismissStyle duration:(NSTimeInterval)duration {
+
     [self dismissWithDismissStyle:dismissStyle duration:duration isRemove:YES];
 }
 
 - (void)dismissWithDismissStyle:(LSTDismissStyle)dismissStyle
                        duration:(NSTimeInterval)duration
-                       isRemove:(BOOL)isRemove
-{
+                       isRemove:(BOOL)isRemove {
+
     
     NSTimeInterval resDuration = [self getDismissDuration:duration];
     
@@ -1280,8 +1283,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     }
 }
 
-- (void)dismissAnimationWithDismissStyle:(LSTDismissStyle)dismissStyle duration:(NSTimeInterval)duration
-{
+- (void)dismissAnimationWithDismissStyle:(LSTDismissStyle)dismissStyle duration:(NSTimeInterval)duration {
+
     if (dismissStyle == LSTPopStyleFade) {
         
         [UIView animateWithDuration:0.2 animations:^{
@@ -1307,8 +1310,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 }
 
 - (void)hanleDismissAnimationWithDuration:(NSTimeInterval)duration
-                         withDismissStyle:(LSTDismissStyle)dismissStyle
-{
+                         withDismissStyle:(LSTDismissStyle)dismissStyle {
+
     
     [UIView animateWithDuration:duration*0.8 animations:^{
        
@@ -1411,8 +1414,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 
 #pragma mark - ***** other 其他 *****
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+
     if ([keyPath isEqualToString:@"frame"]) {
         
         CGRect newFrame = CGRectNull;
@@ -1438,13 +1441,13 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 }
 
 //按钮的压下事件 按钮缩小
-- (void)bgLongPressEvent:(UIGestureRecognizer *)ges
-{
+- (void)bgLongPressEvent:(UIGestureRecognizer *)ges {
+
     self.bgLongPressBlock ? self.bgLongPressBlock() : nil;
 }
 
-- (void)customViewClickEvent:(UIGestureRecognizer *)ges
-{
+- (void)customViewClickEvent:(UIGestureRecognizer *)ges {
+
     if (self.isClickFeedback) {
         
         CGFloat scale = 0.95;
@@ -1465,8 +1468,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     }
 }
 
-- (void)popViewBgViewTap:(UIButton *)tap
-{
+- (void)popViewBgViewTap:(UIButton *)tap {
+
     if (self.bgClickBlock) {
         
         if (self.isShowKeyboard) {
@@ -1520,8 +1523,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
         return currDuration;
     }
 }
-- (NSTimeInterval)getDismissDuration:(NSTimeInterval)currDuration
-{
+- (NSTimeInterval)getDismissDuration:(NSTimeInterval)currDuration {
+
     if (_dismissStyle == LSTDismissStyleNO) return 0.0f;
     
     
@@ -1559,8 +1562,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
         return currDuration;
     }
 }
-- (NSTimeInterval)getDragDismissDuration
-{
+- (NSTimeInterval)getDragDismissDuration {
+
     if (self.dragDismissDuration ==  LSTPopViewDefaultDuration) {
         
         return [self getDismissDuration:self.dismissDuration];
@@ -1570,8 +1573,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     }
 }
 
-- (void)animationWithLayer:(CALayer *)layer duration:(CGFloat)duration values:(NSArray *)values
-{
+- (void)animationWithLayer:(CALayer *)layer duration:(CGFloat)duration values:(NSArray *)values {
+
     CAKeyframeAnimation *KFAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     
     KFAnimation.duration = duration;
@@ -1597,14 +1600,14 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     [layer addAnimation:KFAnimation forKey:nil];
 }
 
-- (UIColor *)lst_BlackWithAlpha:(CGFloat)alpha
-{
+- (UIColor *)lst_BlackWithAlpha:(CGFloat)alpha {
+
     return [UIColor colorWithRed:0 green:0 blue:0 alpha:alpha];
 }
 
 // 改变UIColor的Alpha
-- (UIColor *)getNewColorWith:(UIColor *)color alpha:(CGFloat)alpha
-{
+- (UIColor *)getNewColorWith:(UIColor *)color alpha:(CGFloat)alpha {
+
     if (self.isHideBg) {
         
         return UIColor.clearColor;
@@ -1630,8 +1633,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     return newColor;
 }
 
-- (void)startTimer
-{
+- (void)startTimer {
+
     if (self.showTime > 0) {
         
         LSTPopViewWK(self);;
@@ -1658,8 +1661,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 }
 
 /** 删除指定代理 */
-- (void)removeForDelegate:(id<LSTPopViewProtocol>)delegate
-{
+- (void)removeForDelegate:(id<LSTPopViewProtocol>)delegate {
+
     if (delegate) {
         
         if ([self.delegates containsObject:delegate]) {
@@ -1675,8 +1678,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 }
 
 /** 删除代理池 删除所有代理 */
-- (void)removeAllDelegate
-{
+- (void)removeAllDelegate {
+
     if (self.delegates.count > 0) {
         
         [self.delegates removeAllObjects];
@@ -1687,8 +1690,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 
 #pragma mark - ***** 横竖屏改变 *****
 
-- (void)statusBarOrientationChange:(NSNotification *)notification
-{
+- (void)statusBarOrientationChange:(NSNotification *)notification {
+
     if (self.isObserverScreenRotation) {
         
         CGRect originRect = self.customView.frame;
@@ -1705,8 +1708,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 
 #pragma mark - ***** 键盘弹出/收回 *****
 
-- (void)keyboardWillShow:(NSNotification *)notification
-{
+- (void)keyboardWillShow:(NSNotification *)notification {
+
     //    LSTPVLog(@"keyboardWillShow");
     _isShowKeyboard = YES;
   
@@ -1741,15 +1744,15 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     }
 }
 
-- (void)keyboardDidShow:(NSNotification *)notification
-{
+- (void)keyboardDidShow:(NSNotification *)notification {
+
     _isShowKeyboard = YES;
     
     self.keyboardDidShowBlock ? self.keyboardDidShowBlock() : nil;
 }
 
-- (void)keyboardWillHide:(NSNotification *)notification
-{
+- (void)keyboardWillHide:(NSNotification *)notification {
+
     _isShowKeyboard = NO;
     
     self.keyboardWillHideBlock ? self.keyboardWillHideBlock() : nil;
@@ -1765,15 +1768,15 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     }];
 }
 
-- (void)keyboardDidHide:(NSNotification *)notification
-{
+- (void)keyboardDidHide:(NSNotification *)notification {
+
     _isShowKeyboard = NO;
     
     self.keyboardDidHideBlock ? self.keyboardDidHideBlock() : nil;
 }
 
-- (void)keyboardWillChangeFrame:(NSNotification *)notification
-{
+- (void)keyboardWillChangeFrame:(NSNotification *)notification {
+
     //    LSTPVLog(@"键盘frame将要改变");
     if (self.keyboardFrameWillChangeBlock) {
         
@@ -1787,8 +1790,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     }
 }
 
-- (void)keyboardDidChangeFrame:(NSNotification *)notification
-{
+- (void)keyboardDidChangeFrame:(NSNotification *)notification {
+
     //    LSTPVLog(@"键盘frame已经改变");
     if (self.keyboardFrameDidChangeBlock) {
         
@@ -1805,8 +1808,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 
 #pragma mark - ***** UIGestureRecognizerDelegate *****
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+
     
     if (gestureRecognizer == self.panGesture) {
         
@@ -1835,8 +1838,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     return YES;
 }
 
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+
     if (gestureRecognizer == self.tapGesture) {
         //如果是点击手势
         CGPoint point = [gestureRecognizer locationInView:self.customView];
@@ -1855,8 +1858,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 }
 
 //3. 是否与其他手势共存，一般使用默认值(默认返回NO：不与任何手势共存)
-- (BOOL)gestureRecognizer:(UIPanGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-{
+- (BOOL)gestureRecognizer:(UIPanGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+
     if (gestureRecognizer == self.panGesture) {
         if ([otherGestureRecognizer isKindOfClass:NSClassFromString(@"UIScrollViewPanGestureRecognizer")] ||
             [otherGestureRecognizer isKindOfClass:NSClassFromString(@"UIPanGestureRecognizer")] ) {
@@ -1869,8 +1872,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 }
 
 //拖拽手势
-- (void)pan:(UIPanGestureRecognizer *)panGestureRecognizer
-{
+- (void)pan:(UIPanGestureRecognizer *)panGestureRecognizer {
+
     
     self.panOffsetBlock ? self.panOffsetBlock(CGPointMake(_customView.x-_originFrame.origin.x, _customView.y-_originFrame.origin.y)):nil;
     
@@ -2123,8 +2126,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 }
 
 #pragma mark - ***** 懒加载 *****
-- (NSHashTable<id<LSTPopViewProtocol>> *)delegates
-{
+- (NSHashTable<id<LSTPopViewProtocol>> *)delegates {
+
     if (_delegates) return _delegates;
     
     _delegates = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
@@ -2132,34 +2135,34 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     return _delegates;
 }
 
-- (UIView *)parentView
-{
+- (UIView *)parentView {
+
     return self.container;
 }
 
 #pragma mark - ***** 以下是 窗口管理api *****
 
 /** 保存popView */
-+ (void)savePopView:(LSTPopView *)popView
-{
++ (void)savePopView:(LSTPopView *)popView {
+
     [LSTPopViewManager savePopView:popView];
 }
 
 /** 获取全局(整个app内)所有popView */
-+ (NSArray *)getAllPopView
-{
++ (NSArray *)getAllPopView {
+
     return [LSTPopViewManager getAllPopView];
 }
 
 /** 获取当前页面所有popView */
-+ (NSArray *)getAllPopViewForParentView:(UIView *)parentView
-{
++ (NSArray *)getAllPopViewForParentView:(UIView *)parentView {
+
     return [LSTPopViewManager getAllPopViewForParentView:parentView];
 }
 
 /** 获取当前页面指定编队的所有popView */
-+ (NSArray *)getAllPopViewForPopView:(LSTPopView *)popView
-{
++ (NSArray *)getAllPopViewForPopView:(LSTPopView *)popView {
+
     return [LSTPopViewManager getAllPopViewForPopView:popView];
 }
 
@@ -2167,14 +2170,14 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
  读取popView (有可能会跨编队读取弹窗)
  建议使用getPopViewForGroupId:forkey: 方法进行精确读取
  */
-+ (LSTPopView *)getPopViewForKey:(NSString *)key
-{
++ (LSTPopView *)getPopViewForKey:(NSString *)key {
+
     return [LSTPopViewManager getPopViewForKey:key];
 }
 
 /** 移除popView */
-+ (void)removePopView:(LSTPopView *)popView
-{
++ (void)removePopView:(LSTPopView *)popView {
+
     [LSTPopViewManager removePopView:popView];
 }
 
@@ -2182,26 +2185,26 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
  移除popView 通过唯一key (有可能会跨编队误删弹窗)
  建议使用removePopViewForGroupId:forkey: 方法进行精确删除
  */
-+ (void)removePopViewForKey:(NSString *)key
-{
++ (void)removePopViewForKey:(NSString *)key {
+
     [LSTPopViewManager removePopViewForKey:key];
 }
 
 /** 移除所有popView */
-+ (void)removeAllPopView
-{
++ (void)removeAllPopView {
+
     [LSTPopViewManager removeAllPopView];
 }
 
 /** 移除 最后一个弹出的 popView */
-+ (void)removeLastPopView
-{
++ (void)removeLastPopView {
+
     return [LSTPopViewManager removeLastPopView];
 }
 
 /** 开启调试view  建议设置成 线上隐藏 测试打开 */
-+ (void)setLogStyle:(LSTPopViewLogStyle)logStyle
-{
++ (void)setLogStyle:(LSTPopViewLogStyle)logStyle {
+
     _logStyle = logStyle;
     
     if (logStyle == LSTPopViewLogStyleNO) {
