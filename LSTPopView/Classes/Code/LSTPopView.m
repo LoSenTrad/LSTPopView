@@ -28,6 +28,9 @@ LSTPopViewManager *LSTPopViewM(void);
 /** 储存已经展示popView */
 @property (nonatomic,strong) NSMutableArray *popViewMarr;
 
+/** 按顺序弹窗顺序存储已显示的 popview  */
+@property (nonatomic,strong) NSPointerArray *showList;
+
 /** 储存待移除的popView  */
 @property (nonatomic,strong) NSHashTable <LSTPopView *> *removeList;
 
@@ -242,6 +245,27 @@ LSTPopViewManager *LSTPopViewM()
     }
 }
 
++ (void)removeLastPopView
+{
+    NSPointerArray *showList =  LSTPopViewM().showList;
+    
+    for (NSInteger i = showList.count - 1; i >= 0; i --) {
+        
+        LSTPopView *popView = [showList pointerAtIndex:i];
+        
+        if (popView) {
+            
+            [self removePopView:popView];
+            
+            [showList addPointer:NULL];
+            
+            [showList compact];
+            
+            break;
+        }
+    }
+}
+
 #pragma mark - ***** Other 其他 *****
 
 + (void)setInfoData
@@ -253,7 +277,7 @@ LSTPopViewManager *LSTPopViewM()
 
 + (void)setConsoleLog
 {
-    LSTPVLog(@"%@ S:%zd个 R:%zd个",LSTPopViewLogTitle,LSTPopViewM().popViewMarr.count,LSTPopViewM().removeList.count);
+    LSTPVLog(@"%@ S:%zd个 R:%zd个 show:%zd个",LSTPopViewLogTitle,LSTPopViewM().popViewMarr.count,LSTPopViewM().removeList.count, LSTPopViewM().showList.count);
 }
 
 //冒泡排序
@@ -360,6 +384,15 @@ LSTPopViewManager *LSTPopViewM()
     _removeList = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
     
     return _removeList;
+}
+
+- (NSPointerArray *)showList
+{
+    if (_showList) return _showList;
+    
+    _showList = [NSPointerArray pointerArrayWithOptions:(NSPointerFunctionsWeakMemory)];
+    
+    return _showList;
 }
 
 @end
@@ -988,6 +1021,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     if (!self.superview) {
         
         [self.container addSubview:self];
+        
+        [LSTPopViewM().showList addPointer:(__bridge void * _Nullable)self];
     }
     
     if (!isOutStack) {
@@ -1224,7 +1259,12 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
                 
                 LSTPopView *tPopView = (LSTPopView *)obj;
                 
-                [tPopView.container addSubview:tPopView];
+                if (!tPopView.superview) {
+                    
+                    [tPopView.container addSubview:tPopView];
+                    
+                    [LSTPopViewM().showList addPointer:(__bridge void * _Nullable)tPopView];
+                }
                 
                 [tPopView popWithPopStyle:LSTPopStyleFade duration:0.25 isOutStack:YES];
             }
@@ -2151,6 +2191,12 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 + (void)removeAllPopView
 {
     [LSTPopViewManager removeAllPopView];
+}
+
+/** 移除 最后一个弹出的 popView */
++ (void)removeLastPopView
+{
+    return [LSTPopViewManager removeLastPopView];
 }
 
 /** 开启调试view  建议设置成 线上隐藏 测试打开 */
