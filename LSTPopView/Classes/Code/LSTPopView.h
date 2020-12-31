@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *_Nullable identifier;
 /** 弹窗容器 */
 @property (nonatomic, readonly) UIView *parentView;
+/** 自定义view */
+@property (nonatomic, readonly) UIView *currCustomView;
 /** 弹窗位置 默认LSTHemStyleCenter */
 @property (nonatomic, assign) LSTHemStyle hemStyle;
 /** 显示时动画弹窗样式 默认LSTPopStyleNO */

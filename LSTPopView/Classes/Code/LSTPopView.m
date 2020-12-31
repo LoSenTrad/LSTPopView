@@ -1726,6 +1726,10 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     return self.container;
 }
 
+- (UIView *)currCustomView {
+    return self.customView;
+}
+
 #pragma mark - ***** 以下是 窗口管理api *****
 
 /** 保存popView */

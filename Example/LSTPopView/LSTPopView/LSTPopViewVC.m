@@ -95,8 +95,8 @@ LSTPopViewProtocol
 
 - (void)test {
     
-    UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
-    [feedBackGenertor impactOccurred];
+        UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+        [feedBackGenertor impactOccurred];
 
     //    LSTPopViewListView *view = [[LSTPopViewListView alloc] init];
     //    view.layer.cornerRadius = 10;
