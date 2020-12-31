@@ -135,6 +135,9 @@
     [LSTPopView removeAllPopView];
     
 }
+- (IBAction)removeLastPopView:(id)sender {
+    [LSTPopView removeLastPopView];
+}
 
 #pragma mark - ***** Lazy Loading 懒加载 *****
 

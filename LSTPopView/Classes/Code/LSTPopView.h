@@ -197,7 +197,6 @@ NS_ASSUME_NONNULL_BEGIN
     建议使用getPopViewForGroupId:forkey: 方法进行精确读取
  */
 + (LSTPopView *)getPopViewForKey:(NSString *)key;
-
 /** 移除popView */
 + (void)removePopView:(LSTPopView *)popView;
 /**
@@ -207,6 +206,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)removePopViewForKey:(NSString *)key;
 /** 移除所有popView */
 + (void)removeAllPopView;
+/** 移除 最后一个弹出的 popView */
++ (void)removeLastPopView;
 
 
 /** 开启调试view  建议设置成 线上隐藏 测试打开 */
