@@ -25,6 +25,7 @@ LSTPopViewManager *LSTPopViewM(void);
 @end
 
 @interface LSTPopViewManager ()
+
 /** 储存已经展示popView */
 @property (nonatomic,strong) NSMutableArray *popViewMarr;
 /** 按顺序弹窗顺序存储已显示的 popview  */
@@ -381,7 +382,7 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 /** 背景层 */
 @property (nonatomic, strong) LSTPopViewBgView *backgroundView;
 /** 自定义视图 */
-@property (nonatomic, strong) UIView *customView;
+@property (nonatomic,strong) UIView *customView;
 /** 规避键盘偏移量 */
 @property (nonatomic, assign) CGFloat avoidKeyboardOffset;
 /** 代理池 */
