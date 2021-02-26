@@ -74,7 +74,7 @@
 + (void)appFlashAdPopView {
     UINib *nib = [UINib nibWithNibName:@"LSTAppFlashAdView" bundle:nil];
     LSTAppFlashAdView *view = [nib instantiateWithOwner:nil options:nil].firstObject;
-    view.size = CGSizeMake(pv_ScreenWidth(), pv_ScreenHeight());
+    view.pv_Size = CGSizeMake(pv_ScreenWidth(), pv_ScreenHeight());
     
     LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleNO dismissStyle:LSTDismissStyleFade];
     popView.popStyle = LSTPopStyleNO;
@@ -98,7 +98,7 @@
 + (void)appUpdatePopView {
     UINib *nib = [UINib nibWithNibName:@"LSTAppUpdateView" bundle:nil];
     LSTAppUpdateView *view = [nib instantiateWithOwner:nil options:nil].firstObject;
-    view.size = CGSizeMake(300, 450);
+    view.pv_Size = CGSizeMake(300, 450);
     
     LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleFade dismissStyle:LSTDismissStyleFade];
     popView.popStyle = LSTPopStyleNO;
@@ -114,7 +114,7 @@
 + (void)appPrivacyPopView {
     UINib *nib = [UINib nibWithNibName:@"LSTAppPrivacyView" bundle:nil];
     LSTAppPrivacyView *view = [nib instantiateWithOwner:nil options:nil].firstObject;
-    view.size = CGSizeMake(350, 450);
+    view.pv_Size = CGSizeMake(350, 450);
     view.layer.cornerRadius = 10;
     view.layer.masksToBounds = YES;
     
@@ -132,7 +132,7 @@
 + (void)appIndexAdPopView {
     UINib *nib = [UINib nibWithNibName:@"LSTIndexAdView" bundle:nil];
     LSTIndexAdView *view = [nib instantiateWithOwner:nil options:nil].firstObject;
-    view.size = CGSizeMake(350, 450);
+    view.pv_Size = CGSizeMake(350, 450);
     
     LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleFade dismissStyle:LSTDismissStyleFade];
     popView.popStyle = LSTPopStyleNO;
@@ -148,7 +148,7 @@
 + (void)appPushPopView {
     UINib *nib = [UINib nibWithNibName:@"LSTOpenPushView" bundle:nil];
     LSTOpenPushView *view = [nib instantiateWithOwner:nil options:nil].firstObject;
-    view.size = CGSizeMake(300, 300);
+    view.pv_Size = CGSizeMake(300, 300);
     view.layer.cornerRadius = 5;
     view.layer.masksToBounds = YES;
     

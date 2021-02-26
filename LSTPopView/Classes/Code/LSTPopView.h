@@ -16,6 +16,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LSTPopViewProtocol.h"
+#import "UIView+LSTPV.h"
 
 
 #define LSTPopViewWK(object)  __weak typeof(object) wk_##object = object;
@@ -67,6 +68,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat avoidKeyboardSpace;
 /** 显示多长时间 默认0 不会消失 */
 @property (nonatomic, assign) NSTimeInterval showTime;
+/** 自定view圆角方向设置  默认UIRectCornerAllCorners  当cornerRadius>0时生效*/
+@property (nonatomic, assign) UIRectCorner rectCorners;
+/** 自定义view圆角大小 */
+@property (nonatomic, assign) CGFloat cornerRadius;
+/** 弹出震动反馈 默认NO iOS10+ 系统才有此效果 */
+@property (nonatomic, assign) BOOL isImpactFeedback;
 
 //************ 群组相关属性 ****************
 /** 群组标识 统一给弹窗编队 方便独立管理 默认为nil,统一全局处理 */

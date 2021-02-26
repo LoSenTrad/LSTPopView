@@ -75,7 +75,7 @@
 #pragma mark - ***** Other 其他 *****
 
 - (IBAction)openBtnAction:(UIButton *)sender {
-    
+
     
     if (self.parentSwitch.isOn) {
                 
@@ -91,8 +91,8 @@
     
     UINib *nib = [UINib nibWithNibName:@"LSTPopViewTestView" bundle:nil];
     LSTPopViewTestView *view = [nib instantiateWithOwner:nil options:nil].firstObject;
-    view.layer.cornerRadius = 10;
-    view.layer.masksToBounds = YES;
+//    view.layer.cornerRadius = 10;
+//    view.layer.masksToBounds = YES;
     LSTPopView *popView;
     switch (self.parentViewSC.selectedSegmentIndex) {
         case 0:
@@ -146,6 +146,28 @@
         case 4:
         {
             popView.hemStyle = LSTHemStyleRight;
+        }
+            break;
+        case 5:
+        {
+            popView.hemStyle = LSTHemStyleTopLeft;
+            popView.adjustY = LSTNavBarHeight();
+        }
+            break;
+        case 6:
+        {
+            popView.hemStyle = LSTHemStyleBottomLeft;
+        }
+            break;
+        case 7:
+        {
+            popView.hemStyle = LSTHemStyleBottomRight;
+        }
+            break;
+        case 8:
+        {
+            popView.hemStyle = LSTHemStyleTopRight;
+            popView.adjustY = LSTNavBarHeight();
         }
             break;
         default:
@@ -297,6 +319,9 @@
     popView.isHideBg = self.isHideBgSW.on;
     popView.dragDistance = [self.dragTF.text floatValue];
     popView.isClickBgDismiss = self.bgDismissSwitch.on?YES:NO;
+    popView.cornerRadius = 10;
+    popView.rectCorners = UIRectCornerAllCorners;
+    popView.isImpactFeedback = YES;
     
     //    view.clickBlock = ^{
     //        [wk_popView dismiss];
@@ -330,7 +355,7 @@
         NSLog(@"%@",[NSString stringWithFormat:@"--%.0lf---",timeInterval]);
         view.timeLab.text = [NSString stringWithFormat:@"%.0lf",timeInterval];
     };
-    
+   
     [popView pop];
 }
 

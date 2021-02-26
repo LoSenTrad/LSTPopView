@@ -23,7 +23,7 @@
 
 
 - (IBAction)sureBtnAction:(UIButton *)sender {
-    self.height = self.height+10;
+    self.pv_Height = self.pv_Height+10;
 }
 
 

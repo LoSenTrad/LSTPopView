@@ -90,6 +90,9 @@
 		7C0A66442580AA4D00EF6660 /* LSTIndexAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A66432580AA4D00EF6660 /* LSTIndexAdView.xib */; };
 		7C0A66482580AB9D00EF6660 /* LSTOpenPushView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A66472580AB9D00EF6660 /* LSTOpenPushView.m */; };
 		7C0A664A2580ABA400EF6660 /* LSTOpenPushView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A66492580ABA400EF6660 /* LSTOpenPushView.xib */; };
+		7C2BD71E25E7A08C00E70325 /* LSTPopViewDragVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BD71D25E7A08C00E70325 /* LSTPopViewDragVC.m */; };
+		7C2BD72225E81DA200E70325 /* LSTPopViewHeightChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BD72125E81DA200E70325 /* LSTPopViewHeightChangeView.m */; };
+		7C2BD72425E81DAD00E70325 /* LSTPopViewHeightChangeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2BD72325E81DAD00E70325 /* LSTPopViewHeightChangeView.xib */; };
 		7C57627B2566AADA00576294 /* LSTTestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C57627A2566AADA00576294 /* LSTTestView.m */; };
 		7CAEFCF02589CF840035F7E1 /* LSTPopViewTVCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CAEFCEF2589CF840035F7E1 /* LSTPopViewTVCellView.xib */; };
 		7CAEFCF32589CF8F0035F7E1 /* LSTPopViewTVCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAEFCF22589CF8F0035F7E1 /* LSTPopViewTVCellView.m */; };
@@ -245,6 +248,11 @@
 		7C0A66462580AB9D00EF6660 /* LSTOpenPushView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTOpenPushView.h; sourceTree = "<group>"; };
 		7C0A66472580AB9D00EF6660 /* LSTOpenPushView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTOpenPushView.m; sourceTree = "<group>"; };
 		7C0A66492580ABA400EF6660 /* LSTOpenPushView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTOpenPushView.xib; sourceTree = "<group>"; };
+		7C2BD71C25E7A08C00E70325 /* LSTPopViewDragVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewDragVC.h; sourceTree = "<group>"; };
+		7C2BD71D25E7A08C00E70325 /* LSTPopViewDragVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewDragVC.m; sourceTree = "<group>"; };
+		7C2BD72025E81DA200E70325 /* LSTPopViewHeightChangeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTPopViewHeightChangeView.h; sourceTree = "<group>"; };
+		7C2BD72125E81DA200E70325 /* LSTPopViewHeightChangeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTPopViewHeightChangeView.m; sourceTree = "<group>"; };
+		7C2BD72325E81DAD00E70325 /* LSTPopViewHeightChangeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewHeightChangeView.xib; sourceTree = "<group>"; };
 		7C5762792566AADA00576294 /* LSTTestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSTTestView.h; sourceTree = "<group>"; };
 		7C57627A2566AADA00576294 /* LSTTestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSTTestView.m; sourceTree = "<group>"; };
 		7CAEFCEF2589CF840035F7E1 /* LSTPopViewTVCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSTPopViewTVCellView.xib; sourceTree = "<group>"; };
@@ -424,6 +432,7 @@
 				314389F8241168DD00387B4E /* 常用属性调试 */,
 				7CDAE70325122D9E00A85EBE /* app启动多窗口实例 */,
 				31CDCCF62451D7690037B813 /* 常用示例demo */,
+				7C2BD71B25E7A02700E70325 /* 拖拽轻扫手势示例 */,
 				314389F9241168EF00387B4E /* XIB自定义View */,
 				314389FA241168FF00387B4E /* 纯代码自定义view */,
 				3150CEBB24339B7300244B3A /* 多窗口测试 */,
@@ -552,6 +561,7 @@
 				3139027A2451FC3A004648F2 /* 类微信1微博底部弹框 */,
 				31CDCCFF2451F01E0037B813 /* QQ音乐顶部 */,
 				31CDCCFA2451EDE90037B813 /* QQ顶部 */,
+				7C2BD71F25E81D6600E70325 /* 动态高度变化 */,
 			);
 			path = "常用示例demo";
 			sourceTree = "<group>";
@@ -740,6 +750,25 @@
 			path = "打开推送";
 			sourceTree = "<group>";
 		};
+		7C2BD71B25E7A02700E70325 /* 拖拽轻扫手势示例 */ = {
+			isa = PBXGroup;
+			children = (
+				7C2BD71C25E7A08C00E70325 /* LSTPopViewDragVC.h */,
+				7C2BD71D25E7A08C00E70325 /* LSTPopViewDragVC.m */,
+			);
+			path = "拖拽轻扫手势示例";
+			sourceTree = "<group>";
+		};
+		7C2BD71F25E81D6600E70325 /* 动态高度变化 */ = {
+			isa = PBXGroup;
+			children = (
+				7C2BD72025E81DA200E70325 /* LSTPopViewHeightChangeView.h */,
+				7C2BD72125E81DA200E70325 /* LSTPopViewHeightChangeView.m */,
+				7C2BD72325E81DAD00E70325 /* LSTPopViewHeightChangeView.xib */,
+			);
+			path = "动态高度变化";
+			sourceTree = "<group>";
+		};
 		7CDAE70325122D9E00A85EBE /* app启动多窗口实例 */ = {
 			isa = PBXGroup;
 			children = (
@@ -870,6 +899,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				31419BD624B800FE00AA25DB /* LSTPopViewTimerView.xib in Resources */,
+				7C2BD72425E81DAD00E70325 /* LSTPopViewHeightChangeView.xib in Resources */,
 				313902952452754F004648F2 /* LSTPopViewrLSidebarView.xib in Resources */,
 				7C0A66322580A2AE00EF6660 /* LSTLaunchMutiPopViewVC.xib in Resources */,
 				31CDCD042451F04D0037B813 /* LSTPopViewQQView.xib in Resources */,
@@ -993,9 +1023,11 @@
 				31438A082411697000387B4E /* LSTPopViewTestView.m in Sources */,
 				7C0A663C2580A89A00EF6660 /* LSTAppPrivacyView.m in Sources */,
 				31CDCCF92451D8260037B813 /* LSTPopViewSceneVC.m in Sources */,
+				7C2BD71E25E7A08C00E70325 /* LSTPopViewDragVC.m in Sources */,
 				313902872452043A004648F2 /* LSTPopViewUCView.m in Sources */,
 				31CDCD072451F7460037B813 /* LSTPopViewqqtopView.m in Sources */,
 				31B66C0B24D9CD0600C361BA /* LSTPopViewTVView.m in Sources */,
+				7C2BD72225E81DA200E70325 /* LSTPopViewHeightChangeView.m in Sources */,
 				31438A012411694800387B4E /* LSTBaseVC.m in Sources */,
 				31438A2824116A5000387B4E /* LSTPopViewVC.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
@@ -1142,10 +1174,12 @@
 			baseConfigurationReference = B7DF4F9C390975AA25E2745C /* Pods-LSTPopView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 0.3.10;
 				DEVELOPMENT_TEAM = 9TV887Q275;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LSTPopView/LSTPopView-Prefix.pch";
 				INFOPLIST_FILE = "LSTPopView/LSTPopView-Info.plist";
+				MARKETING_VERSION = 0.3.10;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.LSTPopView.www;
 				PRODUCT_NAME = LSTPopView;
@@ -1159,10 +1193,12 @@
 			baseConfigurationReference = 9187EEEF2ED2937C7B19795A /* Pods-LSTPopView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 0.3.10;
 				DEVELOPMENT_TEAM = 9TV887Q275;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LSTPopView/LSTPopView-Prefix.pch";
 				INFOPLIST_FILE = "LSTPopView/LSTPopView-Info.plist";
+				MARKETING_VERSION = 0.3.10;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.LSTPopView.www;
 				PRODUCT_NAME = LSTPopView;

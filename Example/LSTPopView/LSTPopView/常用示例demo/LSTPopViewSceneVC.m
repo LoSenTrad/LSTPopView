@@ -26,6 +26,7 @@
 #import "LSTPopViewdoyinView.h"
 #import "LSTPopViewListView.h"
 #import "LSTPopViewTVView.h"
+#import "LSTPopViewHeightChangeView.h"
 
 @interface LSTPopViewSceneVC ()
 <
@@ -153,11 +154,11 @@ UITableViewDataSource
             cell.textLabel.text = @"tableView展示";
         }
             break;
-//        case 14:
-//        {
-//            cell.textLabel.text = @"QQ音乐播放页侧滑 垂直移除";
-//        }
-//            break;
+        case 14:
+        {
+            cell.textLabel.text = @"自定义view动态高度变化";
+        }
+            break;
         default:
             break;
     }
@@ -240,11 +241,11 @@ UITableViewDataSource
             [self test13];
         }
             break;
-//        case 14:
-//        {
-//            [self test14];
-//        }
-//            break;
+        case 14:
+        {
+            [self test14];
+        }
+            break;
         default:
             break;
     }
@@ -544,6 +545,10 @@ UITableViewDataSource
     popView.popDuration = 0.5;
     popView.dismissDuration = 0.5;
     popView.isClickFeedback = YES;
+    
+    popView.sweepStyle = LSTSweepStyleY_Positive;
+    popView.dragStyle = LSTDragStyleY_Positive;
+    popView.sweepDismissStyle = LSTSweepDismissStyleSmooth;
     popView.bgClickBlock = ^{
         NSLog(@"点击了背景");
         [wk_popView dismiss];
@@ -612,31 +617,49 @@ UITableViewDataSource
     [popView pop];
 }
 
+//- (void)test14 {
+//    UIView *view = [[UIView alloc] init];
+//    view.layer.cornerRadius = 8;
+//    view.layer.masksToBounds = YES;
+//    view.backgroundColor = UIColor.orangeColor;
+//
+//    view.frame = CGRectMake(0, 0, LSTScreenWidth(), LSTScreenHeight());
+//    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleFade dismissStyle:LSTDismissStyleFade];
+//    LSTPopViewWK(popView);
+//    LSTPopViewWK(view);
+//    popView.hemStyle = LSTHemStyleCenter;
+//    popView.popDuration = 0.8;
+//    popView.dismissDuration = 0.8;
+//    popView.bgColor = UIColor.blackColor;
+//
+//    popView.panOffsetBlock = ^(CGPoint offset) {
+//
+////        wk_view.y = wk_view.y+offset.y;
+//
+//        LSTPVLog(@"%@",NSStringFromCGPoint(offset));
+//
+//    };
+//
+//    [popView pop];
+//
+//}
+
 - (void)test14 {
-    UIView *view = [[UIView alloc] init];
-    view.layer.cornerRadius = 8;
-    view.layer.masksToBounds = YES;
-    view.backgroundColor = UIColor.orangeColor;
-    
-    view.frame = CGRectMake(0, 0, LSTScreenWidth(), LSTScreenHeight());
-    LSTPopView *popView = [LSTPopView initWithCustomView:view popStyle:LSTPopStyleFade dismissStyle:LSTDismissStyleFade];
-    LSTPopViewWK(popView);
-    LSTPopViewWK(view);
-    popView.hemStyle = LSTHemStyleCenter;
-    popView.popDuration = 0.8;
-    popView.dismissDuration = 0.8;
-    popView.bgColor = UIColor.blackColor;
-    
-    popView.panOffsetBlock = ^(CGPoint offset) {
-      
-//        wk_view.y = wk_view.y+offset.y;
-        
-        LSTPVLog(@"%@",NSStringFromCGPoint(offset));
-        
+    LSTPopViewHeightChangeView *view = [LSTPopViewHeightChangeView getNibView:@"LSTPopViewHeightChangeView"];
+    view.frame = CGRectMake(0, 0, 300, 170);
+    LSTPopView *popView = [LSTPopView initWithCustomView:view
+                                                popStyle:LSTPopStyleSmoothFromTop
+                                            dismissStyle:LSTDismissStyleSmoothToBottom];
+    LSTPopViewWK(popView)
+    popView.popDuration = 0.5;
+    popView.dismissDuration = 0.5;
+    popView.isClickFeedback = YES;
+    popView.cornerRadius = 8;
+    popView.bgClickBlock = ^{
+        NSLog(@"点击了背景");
+        [wk_popView dismiss];
     };
-
     [popView pop];
-
 }
 
 #pragma mark - ***** Lazy Loading 懒加载 *****

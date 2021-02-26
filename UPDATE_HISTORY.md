@@ -1,5 +1,18 @@
 ##LSTPopView 版本更新历史
 
+2021.02.26 v0.3.10
+---
+- 新增 弹窗位置LSTHemStyle 4种,详情请看api
+- 新增 向外提供获取自定view的api
+- 新增 圆角和方向设置rectCorners和cornerRadius
+- 新增 弹出时震动反馈isImpactFeedback
+- 新增 bugly的引入, 用于crash的收集和修复
+- 优化 内部内存管理机制 (感谢@Kchtin的意见)
+- 优化 代理池导致的内存泄露  (感谢@Kchtin的意见)
+- 优化 横竖屏自适应失效的问题
+- 优化 demo里面的一些示例
+
+
 2020.12.22 v0.2.122201
 ---
 - 增加 调试日志LSTPopViewLogStyle

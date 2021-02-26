@@ -9,117 +9,116 @@
 
 @implementation UIView (LSTPV)
 
-- (void)setX:(CGFloat)x {
+
+- (void)setPv_X:(CGFloat)pv_X {
     CGRect frame = self.frame;
-    frame.origin.x = x;
+    frame.origin.x = pv_X;
     self.frame = frame;
 }
 
-- (CGFloat)x {
+- (CGFloat)pv_X {
     return self.frame.origin.x;
 }
 
-- (void)setY:(CGFloat)y {
+- (void)setPv_Y:(CGFloat)pv_Y {
     CGRect frame = self.frame;
-    frame.origin.y = y;
+    frame.origin.y = pv_Y;
     self.frame = frame;
 }
 
-- (CGFloat)y {
+- (CGFloat)pv_Y {
     return self.frame.origin.y;
 }
 
-- (CGFloat)width {
+- (void)setPv_Width:(CGFloat)pv_Width {
+    CGRect frame = self.frame;
+    frame.size.width = pv_Width;
+    self.frame = frame;
+}
+
+- (CGFloat)pv_Width {
     return self.frame.size.width;
 }
 
-- (void)setWidth:(CGFloat)width {
+- (void)setPv_Height:(CGFloat)pv_Height {
     CGRect frame = self.frame;
-    frame.size.width = width;
+    frame.size.height = pv_Height;
     self.frame = frame;
 }
 
-
-- (CGFloat)height {
+- (CGFloat)pv_Height {
     return self.frame.size.height;
 }
 
-- (void)setHeight:(CGFloat)height {
+- (void)setPv_Size:(CGSize)pv_Size {
     CGRect frame = self.frame;
-    frame.size.height = height;
+    frame.size = pv_Size;
     self.frame = frame;
 }
 
-- (void)setSize:(CGSize)size {
-    
-    CGRect frame = self.frame;
-    frame.size = size;
-    self.frame = frame;
-}
-
-- (void)setCenterX:(CGFloat)centerX {
-    CGPoint center = self.center;
-    center.x = centerX;
-    self.center = center;
-}
-
-- (CGFloat)centerX {
-    return self.center.x;
-}
-
-- (void)setCenterY:(CGFloat)centerY {
-    CGPoint center = self.center;
-    center.y = centerY;
-    self.center = center;
-}
-
-- (CGFloat)centerY {
-    return self.center.y;
-}
-
-- (CGSize)size {
+- (CGSize)pv_Size {
     return self.frame.size;
 }
 
-- (CGFloat)top {
+- (void)setPv_CenterX:(CGFloat)pv_CenterX {
+    CGPoint center = self.center;
+    center.x = pv_CenterX;
+    self.center = center;
+}
+
+- (CGFloat)pv_CenterX {
+    return self.center.x;
+}
+
+- (void)setPv_CenterY:(CGFloat)pv_CenterY {
+    CGPoint center = self.center;
+    center.y = pv_CenterY;
+    self.center = center;
+}
+
+- (CGFloat)pv_CenterY {
+    return self.center.y;
+}
+
+- (void)setPv_Top:(CGFloat)pv_Top {
+    CGRect newframe = self.frame;
+    newframe.origin.y = pv_Top;
+    self.frame = newframe;
+}
+
+- (CGFloat)pv_Top {
     return self.frame.origin.y;
 }
 
-- (void)setTop:(CGFloat)newtop {
+- (void)setPv_Left:(CGFloat)pv_Left {
     CGRect newframe = self.frame;
-    newframe.origin.y = newtop;
+    newframe.origin.x = pv_Left;
     self.frame = newframe;
 }
 
-- (CGFloat)left {
+- (CGFloat)pv_Left {
     return self.frame.origin.x;
 }
 
-- (void)setLeft:(CGFloat)newleft {
+- (void)setPv_Bottom:(CGFloat)pv_Bottom {
     CGRect newframe = self.frame;
-    newframe.origin.x = newleft;
+    newframe.origin.y = pv_Bottom - self.frame.size.height;
     self.frame = newframe;
 }
 
-- (CGFloat)bottom {
+- (CGFloat)pv_Bottom {
     return self.frame.origin.y + self.frame.size.height;
 }
 
-- (void)setBottom:(CGFloat)newbottom {
-    CGRect newframe = self.frame;
-    newframe.origin.y = newbottom - self.frame.size.height;
-    self.frame = newframe;
-}
-
-- (CGFloat)right {
-    return self.frame.origin.x + self.frame.size.width;
-}
-
-- (void)setRight:(CGFloat)newright {
-    CGFloat delta = newright - (self.frame.origin.x + self.frame.size.width);
+- (void)setPv_Right:(CGFloat)pv_Right {
+    CGFloat delta = pv_Right - (self.frame.origin.x + self.frame.size.width);
     CGRect newframe = self.frame;
     newframe.origin.x += delta ;
     self.frame = newframe;
+}
+
+- (CGFloat)pv_Right {
+    return self.frame.origin.x + self.frame.size.width;
 }
 
 /** 是否是苹果X系列(刘海屏系列) */
@@ -132,44 +131,17 @@ BOOL pv_IsIphoneX_ALL(void) {
 }
 
 CGSize pv_ScreenSize(void) {
-    static CGSize size;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        size = [UIScreen mainScreen].bounds.size;
-        if (size.height <= size.width) {
-            CGFloat tmp = size.height;
-            size.height = size.width;
-            size.width = tmp;
-        }
-    });
+    CGSize size = [UIScreen mainScreen].bounds.size;
     return size;
 }
 
 CGFloat pv_ScreenWidth(void) {
-    static CGSize size;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        size = [UIScreen mainScreen].bounds.size;
-        if (size.height <= size.width) {
-            CGFloat tmp = size.height;
-            size.height = size.width;
-            size.width = tmp;
-        }
-    });
+    CGSize size = [UIScreen mainScreen].bounds.size;
     return size.width;
 }
 
 CGFloat pv_ScreenHeight(void) {
-    static CGSize size;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        size = [UIScreen mainScreen].bounds.size;
-        if (size.height <= size.width) {
-            CGFloat tmp = size.height;
-            size.height = size.width;
-            size.width = tmp;
-        }
-    });
+    CGSize size = [UIScreen mainScreen].bounds.size;
     return size.height;
 }
 

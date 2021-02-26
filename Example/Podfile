@@ -5,6 +5,8 @@ target 'LSTPopView_Example' do
   pod 'LSTPopView', :path => '../'
   pod 'LSTCategory'
   pod 'Masonry'
+  pod 'Bugly'
+
   
   target 'LSTPopView_Tests' do
     inherit! :search_paths

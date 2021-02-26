@@ -60,11 +60,15 @@ typedef NS_ENUM(NSInteger, LSTActivityStyle) {
 };
 /** 弹窗位置 */
 typedef NS_ENUM(NSInteger, LSTHemStyle) {
-    LSTHemStyleCenter = 0,
-    LSTHemStyleTop,    //贴顶
-    LSTHemStyleLeft,   //贴左
-    LSTHemStyleBottom, //贴底
-    LSTHemStyleRight,  //贴右
+    LSTHemStyleCenter = 0,   //居中
+    LSTHemStyleTop,          //贴顶
+    LSTHemStyleLeft,         //贴左
+    LSTHemStyleBottom,       //贴底
+    LSTHemStyleRight,        //贴右
+    LSTHemStyleTopLeft,      //贴顶和左
+    LSTHemStyleBottomLeft,   //贴底和左
+    LSTHemStyleBottomRight,  //贴底和右
+    LSTHemStyleTopRight      //贴顶和右
 };
 /** 拖拽方向 */
 typedef NS_ENUM(NSInteger, LSTDragStyle) {

@@ -144,7 +144,7 @@
                 <outlet property="yLab" destination="tfS-b5-TBk" id="d1z-M5-qBk"/>
                 <outlet property="yStepper" destination="qnc-er-xpn" id="Lwk-sL-5kp"/>
             </connections>
-            <point key="canvasLocation" x="-1198" y="-368"/>
+            <point key="canvasLocation" x="-818" y="-402"/>
         </view>
     </objects>
     <resources>

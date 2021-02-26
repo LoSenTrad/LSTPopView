@@ -70,17 +70,17 @@
 - (IBAction)height:(UIStepper *)sender {
     
     if (sender.value>self.sValue) {
-        self.height = self.height+10;
+        self.pv_Height = self.pv_Height+10;
     }else{
-        self.height = self.height-10;
+        self.pv_Height = self.pv_Height-10;
     }
     self.sValue = sender.value;
 }
 - (IBAction)width:(UIStepper *)sender {
     if (sender.value>self.wValue) {
-        self.width = self.width+10;
+        self.pv_Width = self.pv_Width+10;
     }else{
-        self.width = self.width-10;
+        self.pv_Width = self.pv_Width-10;
     }
     self.wValue = sender.value;
 }

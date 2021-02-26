@@ -27,6 +27,7 @@
 #import "LSTModel.h"
 #import "LSTTestView.h"
 #import <UIKit/UIFeedbackGenerator.h>
+#import "LSTPopViewDragVC.h"
 
 
 
@@ -63,7 +64,6 @@ LSTPopViewProtocol
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   
     
     [self layoutSubViewUI];
 
@@ -95,8 +95,7 @@ LSTPopViewProtocol
 
 - (void)test {
     
-        UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
-        [feedBackGenertor impactOccurred];
+     
 
     //    LSTPopViewListView *view = [[LSTPopViewListView alloc] init];
     //    view.layer.cornerRadius = 10;
@@ -188,6 +187,7 @@ LSTPopViewProtocol
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:17];
     switch (indexPath.row) {
         case 0:
         {
@@ -204,6 +204,11 @@ LSTPopViewProtocol
             cell.textLabel.text = @"常用示例场景";
         }
             break;
+//        case 3:
+//        {
+//            cell.textLabel.text = @"拖拽轻扫手势示例场景";
+//        }
+//            break;
         case 3:
         {
             cell.textLabel.text = @"纯代码自定义view";
@@ -268,8 +273,13 @@ LSTPopViewProtocol
     if (indexPath.row == 2) {
         LSTPopViewSceneVC *vc = [[LSTPopViewSceneVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
-        
     }
+    
+//    if (indexPath.row == 3) {
+//        LSTPopViewDragVC *vc = [[LSTPopViewDragVC alloc] init];
+//        [self.navigationController pushViewController:vc animated:YES];
+//
+//    }
     
     if (indexPath.row == 3) {
         [self codeView];
@@ -320,7 +330,7 @@ LSTPopViewProtocol
 - (void)codeView {
     
     LSTPopViewCodeView *view = [[LSTPopViewCodeView alloc] init];
-    view.layer.cornerRadius = 10;
+//    view.layer.cornerRadius = 10;
     view.layer.masksToBounds = YES;    
     view.frame = CGRectMake(0, 0, 300, 300);
     
@@ -328,7 +338,6 @@ LSTPopViewProtocol
     popView.priority = 800;
     self.popView = popView;
 
-    
     LSTPopViewWK(popView)
     popView.hemStyle = LSTHemStyleCenter;
 //    popView.adjustY = 10;
@@ -338,6 +347,8 @@ LSTPopViewProtocol
     popView.isHideBg = NO;
     popView.delegate = self;
     popView.isObserverScreenRotation = YES;
+    popView.cornerRadius = 10;
+    popView.rectCorners = UIRectCornerTopLeft|UIRectCornerBottomRight;
     popView.bgClickBlock = ^{
         //        NSLog(@"点击了背景");
         [wk_popView dismiss];
