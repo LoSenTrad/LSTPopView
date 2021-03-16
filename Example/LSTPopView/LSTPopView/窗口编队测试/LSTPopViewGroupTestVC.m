@@ -10,6 +10,7 @@
 #import "LSTPopViewGroupTestView.h"
 #import <UIView+LSTPV.h>
 #import <LSTPopView.h>
+#import <LSTAlert.h>
 #import <UIView+LSTView.h>
 #import <LSTGestureEvents.h>
 //#import <LSTPopViewManager.h>
@@ -113,30 +114,45 @@
     view.frame = CGRectMake(0, 0, 100, 100);
     view.titleLab.text = @"蓝色编队窗口";
     
-    LSTPopView *popView = [LSTPopView initWithCustomView:view parentView:_contentView popStyle:LSTPopStyleScale dismissStyle:LSTDismissStyleNO];
-    popView.adjustY = -rand()%300+25;
-    popView.adjustX = -rand()%150+25;
-    popView.groupId = @"blue";
-    LSTPopViewWK(popView);
+    LSTAlert *alert = LSTAlert.alert;
     
-    NSString *str = [NSString stringWithFormat:@"蓝色编队窗口(%lu)",[LSTPopView getAllPopViewForPopView:popView].count+1];
-    view.titleLab.text = str;
-    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
-        [wk_popView dismiss];
+    alert
+    .currCustomView(^UIView * _Nonnull{
+        return view;
+    })
+    .adjustX(-rand()%300+25)
+    .adjustY(-rand()%300+25)
+    .groupId(@"blue")
+    .isHideBg(YES)
+    .isStack(self.blueSW.isOn)
+    .popViewDidDismissBlock(^{
+        
+    })
+    .pop();
+    
+    [LSTAlert dismissAlertComplete:^{
+        
     }];
-    popView.isHideBg = YES;
-    popView.isStack = self.blueSW.isOn;
-
-    [popView pop];
+    
+    NSString *str = [NSString stringWithFormat:@"蓝色编队窗口(%lu)",[LSTPopView getAllPopViewForPopView:alert.popView].count];
+    view.titleLab.text = str;
+    LSTPopViewWK(alert);
+    [view addTapGestureEventHandle:^(id  _Nonnull sender, UITapGestureRecognizer * _Nonnull gestureRecognizer) {
+        [wk_alert.popView dismiss];
+    }];
 }
 
 - (IBAction)removeAction:(UIButton *)sender {
     
-    [LSTPopView removeAllPopView];
+    [LSTPopView removeAllPopViewComplete:^{
+        
+    }];
     
 }
 - (IBAction)removeLastPopView:(id)sender {
-    [LSTPopView removeLastPopView];
+    [LSTPopView removeLastPopViewComplete:^{
+        
+    }];
 }
 
 #pragma mark - ***** Lazy Loading 懒加载 *****
