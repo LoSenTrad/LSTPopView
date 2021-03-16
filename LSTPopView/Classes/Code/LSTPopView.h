@@ -111,39 +111,39 @@ NS_ASSUME_NONNULL_BEGIN
 //****************************************
 
 /** 点击背景 */
-@property (nullable, nonatomic, copy) void(^bgClickBlock)(void);
+@property (nullable, nonatomic, copy) Lst_Block_Void bgClickBlock;
 /** 长按背景 */
-@property (nullable, nonatomic, copy) void(^bgLongPressBlock)(void);
+@property (nullable, nonatomic, copy) Lst_Block_Void bgLongPressBlock;
 
 /** 弹窗pan手势偏移量  */
-@property (nullable, nonatomic, copy) void(^panOffsetBlock)(CGPoint offset);
+@property (nullable, nonatomic, copy) Lst_Block_Point panOffsetBlock;
 
 
 //以下键盘弹出/收起 第三方键盘会多次回调(百度,搜狗测试得出), 原生键盘回调一次
 /** 键盘将要弹出 */
-@property (nullable, nonatomic, copy) void(^keyboardWillShowBlock)(void);
+@property (nullable, nonatomic, copy) Lst_Block_Void keyboardWillShowBlock;
 /** 键盘弹出完毕 */
-@property (nullable, nonatomic, copy) void(^keyboardDidShowBlock)(void);
+@property (nullable, nonatomic, copy) Lst_Block_Void keyboardDidShowBlock;
 /** 键盘frame将要改变 */
-@property (nullable, nonatomic, copy) void(^keyboardFrameWillChangeBlock)(CGRect beginFrame,CGRect endFrame,CGFloat duration);
+@property (nullable, nonatomic, copy) Lst_Block_KeyBoardChange keyboardFrameWillChangeBlock;
 /** 键盘frame改变完毕 */
-@property (nullable, nonatomic, copy) void(^keyboardFrameDidChangeBlock)(CGRect beginFrame,CGRect endFrame,CGFloat duration);
+@property (nullable, nonatomic, copy) Lst_Block_KeyBoardChange keyboardFrameDidChangeBlock;
 /** 键盘将要收起 */
-@property (nullable, nonatomic, copy) void(^keyboardWillHideBlock)(void);
+@property (nullable, nonatomic, copy) Lst_Block_Void keyboardWillHideBlock;
 /** 键盘收起完毕 */
-@property (nullable, nonatomic, copy) void(^keyboardDidHideBlock)(void);
+@property (nullable, nonatomic, copy) Lst_Block_Void keyboardDidHideBlock;
 
 //************ 生命周期回调(Block) ************
 /** 将要显示 回调 */
-@property (nullable, nonatomic, copy) void(^popViewWillPopBlock)(void);
+@property (nullable, nonatomic, copy) Lst_Block_Void popViewWillPopBlock;
 /** 已经显示完毕 回调 */
-@property (nullable, nonatomic, copy) void(^popViewDidPopBlock)(void);
+@property (nullable, nonatomic, copy) Lst_Block_Void popViewDidPopBlock;
 /** 将要开始移除 回调 */
-@property (nullable, nonatomic, copy) void(^popViewWillDismissBlock)(void);
+@property (nullable, nonatomic, copy) Lst_Block_Void popViewWillDismissBlock;
 /** 已经移除完毕 回调 */
-@property (nullable, nonatomic, copy) void(^popViewDidDismissBlock)(void);
+@property (nullable, nonatomic, copy) Lst_Block_Void popViewDidDismissBlock;
 /** 倒计时 回调 */
-@property (nullable, nonatomic, copy) void(^popViewCountDownBlock)(LSTPopView *popView,NSTimeInterval timeInterval);
+@property (nullable, nonatomic, copy) Lst_Block_AlertCountDown popViewCountDownBlock;
 //********************************************
 
 
@@ -206,17 +206,25 @@ NS_ASSUME_NONNULL_BEGIN
     建议使用getPopViewForGroupId:forkey: 方法进行精确读取
  */
 + (LSTPopView *)getPopViewForKey:(NSString *)key;
+
 /** 移除popView */
 + (void)removePopView:(LSTPopView *)popView;
++ (void)removePopView:(LSTPopView *)popView complete:(Lst_Block_Void)complete;
 /**
    移除popView 通过唯一key (有可能会跨编队误删弹窗)
    建议使用removePopViewForGroupId:forkey: 方法进行精确删除
 */
 + (void)removePopViewForKey:(NSString *)key;
++ (void)removePopViewForKey:(NSString *)key complete:(Lst_Block_Void)complete;
 /** 移除所有popView */
 + (void)removeAllPopView;
++ (void)removeAllPopViewComplete:(Lst_Block_Void)complete;
 /** 移除 最后一个弹出的 popView */
 + (void)removeLastPopView;
++ (void)removeLastPopViewComplete:(Lst_Block_Void)complete;
+
+
+
 
 
 /** 开启调试view  建议设置成 线上隐藏 测试打开 */

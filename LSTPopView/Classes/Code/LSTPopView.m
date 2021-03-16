@@ -131,7 +131,6 @@ LSTPopViewManager *LSTPopViewM() {
         LSTPopView *tPopView = (LSTPopView *)obj;
         
         if ([tPopView isEqual:popView]) {
-//            [LSTPopViewM().popViewMarr removeObject:obj];
             [tPopView dismissWithStyle:LSTDismissStyleNO];
             break;
         }
@@ -146,18 +145,30 @@ LSTPopViewManager *LSTPopViewM() {
 }
 
 /** 移除popView */
-+ (void)removePopViewForKey:(NSString *)key {
-    if (key.length<=0) { return; }
++ (void)removePopViewForKey:(NSString *)key complete:(Lst_Block_Void)complete {
+    if (key.length<=0) {
+        complete ? complete() : nil;
+        return;
+    }
+    
     NSArray *arr = LSTPopViewM().popViewMarr;
+    LSTPopView *temp;
     for (id obj in arr) {
         LSTPopView *tPopView = (LSTPopView *)obj;
         
         if ([tPopView.identifier isEqualToString:key]) {
-//            [LSTPopViewM().popViewMarr removeObject:obj];
+            temp = tPopView;
+            tPopView.popViewDidDismissBlock = complete;
             [tPopView dismissWithStyle:LSTDismissStyleNO];
             break;
         }
     }
+    
+    /// 此 key 没有对应的 popview. 也应该回调
+    if (temp == nil) {
+        complete ? complete() : nil;
+    }
+    
     if (_logStyle & LSTPopViewLogStyleWindow) {
         [self setInfoData];
     }
@@ -165,15 +176,28 @@ LSTPopViewManager *LSTPopViewM() {
         [self setConsoleLog];
     }
 }
+
 /** 移除所有popView */
-+ (void)removeAllPopView {
++ (void)removeAllPopViewComplete:(Lst_Block_Void)complete {
     NSMutableArray *arr = LSTPopViewM().popViewMarr;
-    if (arr.count<=0) { return;  }
+    if (arr.count <= 0) {
+        complete ? complete() : nil;
+        return;
+    }
     
     NSArray *popViewMarr = [NSArray arrayWithArray:LSTPopViewM().popViewMarr];
     
-    [popViewMarr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    NSInteger index = popViewMarr.count;
+    [popViewMarr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * stop) {
         LSTPopView *tPopView = (LSTPopView *)obj;
+        
+        if (index == idx + 1) {
+            if (tPopView) {
+                tPopView.popViewDidDismissBlock = complete;
+            }else {
+                complete ? complete() : nil;
+            }
+        }
         
         [tPopView dismissWithStyle:LSTDismissStyleNO];
     }];
@@ -186,11 +210,17 @@ LSTPopViewManager *LSTPopViewM() {
     }
 }
 
-+ (void)removeLastPopView {
++ (void)removeLastPopViewComplete:(Lst_Block_Void)complete {
     NSPointerArray *showList =  LSTPopViewM().showList;
+    if (showList.allObjects.count == 0) {
+        complete ? complete() : nil;
+        return;
+    }
+    
     for (NSInteger i = showList.count - 1; i >= 0; i --) {
         LSTPopView *popView = [showList pointerAtIndex:i];
         if (popView) {
+            popView.popViewDidDismissBlock = complete;
             [self removePopView:popView];
             [showList addPointer:NULL];
             [showList compact];
@@ -229,7 +259,7 @@ LSTPopViewManager *LSTPopViewM() {
 + (void)transferredToRemoveQueueWithPopView:(LSTPopView *)popView {
     NSArray *popViewMarr = LSTPopViewM().popViewMarr;
     
-    [popViewMarr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [popViewMarr enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * stop) {
         LSTPopView *tPopView = (LSTPopView *)obj;
         
         if ([popView isEqual:tPopView]) {
@@ -342,6 +372,8 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 /** 弹出键盘的高度 */
 @property (nonatomic, assign) CGFloat keyboardY;
 
+/// 关闭完成回调集
+@property (nonatomic , strong) NSHashTable * popViewDidDismissBlocks;
 @end
 
 @implementation LSTPopView
@@ -510,7 +542,12 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     //从待移除队列中销毁
     [LSTPopViewManager destroyInRemoveQueue:self];
     [self lst_PopViewDidDismissForPopView:self];
-    self.popViewDidDismissBlock? self.popViewDidDismissBlock():nil;
+    
+    for (Lst_Block_Void block in _popViewDidDismissBlocks.copy) {
+        block ? block() : nil;
+    }
+    
+    [_popViewDidDismissBlocks removeAllObjects];
 }
 
 - (void)removeFromSuperview {
@@ -778,6 +815,13 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
 - (void)setDragDismissStyle:(LSTDismissStyle)dragDismissStyle {
     _dragDismissStyle = dragDismissStyle;
     self.isDragDismissStyle = YES;
+}
+
+- (void)setPopViewDidDismissBlock:(void (^)(void))popViewDidDismissBlock
+{
+    if (popViewDidDismissBlock) {
+        [self.popViewDidDismissBlocks addObject:popViewDidDismissBlock];
+    }
 }
 
 #pragma mark - ***** pop 弹出 *****
@@ -1351,16 +1395,16 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     if (self.showTime > 0) {
         LSTPopViewWK(self);;
         NSString *idStr = [NSString stringWithFormat:@"LSTPopView_%p",self];
-        [LSTTimer addMinuteTimerForTime:self.showTime identifier:idStr handle:^(NSString * _Nonnull day, NSString * _Nonnull hour, NSString * _Nonnull minute, NSString * _Nonnull second, NSString * _Nonnull ms) {
+        [LSTTimer addMinuteTimerForTime:self.showTime identifier:idStr handle:^(NSString * day, NSString * hour, NSString * minute, NSString * second, NSString * ms) {
             
             if (wk_self.popViewCountDownBlock) {
                 wk_self.popViewCountDownBlock(wk_self, [second doubleValue]);
             }
             [wk_self lst_PopViewCountDownForPopView:wk_self forCountDown:[second doubleValue]];
-        } finish:^(NSString * _Nonnull identifier) {
+        } finish:^(NSString * identifier) {
             [wk_self lst_PopViewCountDownFinishForPopView:wk_self];
             [self dismiss];
-        } pause:^(NSString * _Nonnull identifier) {}];
+        } pause:^(NSString * identifier) {}];
     }
 }
 
@@ -1706,6 +1750,15 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     return self.customView;
 }
 
+- (NSHashTable *)popViewDidDismissBlocks
+{
+    if (_popViewDidDismissBlocks) return _popViewDidDismissBlocks;
+    
+    _popViewDidDismissBlocks = [NSHashTable hashTableWithOptions:(NSPointerFunctionsWeakMemory)];
+    
+    return _popViewDidDismissBlocks;
+}
+
 #pragma mark - ***** 以下是 窗口管理api *****
 
 /** 保存popView */
@@ -1741,22 +1794,46 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     [LSTPopViewManager removePopView:popView];
 }
 
++ (void)removePopView:(LSTPopView *)popView complete:(Lst_Block_Void)complete
+{
+    if (popView == nil) {
+        complete ? complete() : nil;
+    }
+    popView.popViewDidDismissBlock = complete;
+    [LSTPopViewManager removePopView:popView];
+}
+
 /**
  移除popView 通过唯一key (有可能会跨编队误删弹窗)
  建议使用removePopViewForGroupId:forkey: 方法进行精确删除
  */
 + (void)removePopViewForKey:(NSString *)key {
-    [LSTPopViewManager removePopViewForKey:key];
+    [LSTPopViewManager removePopViewForKey:key complete:nil];
+}
+
++ (void)removePopViewForKey:(NSString *)key complete:(Lst_Block_Void)complete
+{
+    [LSTPopViewManager removePopViewForKey:key complete:complete];
 }
 
 /** 移除所有popView */
 + (void)removeAllPopView {
-    [LSTPopViewManager removeAllPopView];
+    [LSTPopViewManager removeAllPopViewComplete:nil];
+}
+
++ (void)removeAllPopViewComplete:(Lst_Block_Void)complete
+{
+    [LSTPopViewManager removeAllPopViewComplete:complete];
 }
 
 /** 移除 最后一个弹出的 popView */
 + (void)removeLastPopView {
-    return [LSTPopViewManager removeLastPopView];
+    [LSTPopViewManager removeLastPopViewComplete:nil];
+}
+
++ (void)removeLastPopViewComplete:(Lst_Block_Void)complete
+{
+    [LSTPopViewManager removeLastPopViewComplete:complete];
 }
 
 /** 开启调试view  建议设置成 线上隐藏 测试打开 */

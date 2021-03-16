@@ -15,6 +15,12 @@
 #define LSTPVLog(format, ...)
 #endif
 
+typedef void (^ _Nullable Lst_Block_Void)(void);
+typedef void (^ _Nullable Lst_Block_Point)(CGPoint point);
+typedef void (^ _Nullable Lst_Block_AlertCountDown)(LSTPopView * _Nonnull popView,NSTimeInterval timeInterval);
+typedef void (^ _Nullable Lst_Block_KeyBoardChange)(CGRect beginFrame,CGRect endFrame,CGFloat duration);
+typedef UIView * _Nonnull (^ _Nullable Lst_Block_View_Void)(void);
+
 /** 调试日志类型 */
 typedef NS_ENUM(NSInteger, LSTPopViewLogStyle) {
     LSTPopViewLogStyleNO = 0,          // 关闭调试信息(窗口和控制台日志输出)
