@@ -413,6 +413,9 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     _isImpactFeedback = NO;
     _rectCorners = UIRectCornerAllCorners;
     
+    _popScaleAnimationValues = @[@0.0, @1.2, @1.0];
+    _dismissScaleAnimationValues = @[@1.0, @0.66, @0.33, @0.01];
+    
     _isSingle = NO;
     
     //拖拽相关属性初始化
@@ -959,7 +962,7 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     switch (popStyle) {
         case LSTPopStyleScale:// < 缩放动画，先放大，后恢复至原大小
         {
-            [self animationWithLayer:_customView.layer duration:((0.3*duration)/0.7) values:@[@0.0, @1.2, @1.0]]; // 另外一组动画值(the other animation values) @[@0.0, @1.2, @0.9, @1.0]
+            [self animationWithLayer:_customView.layer duration:((0.3*duration)/0.7) values:self.popScaleAnimationValues]; // 另外一组动画值(the other animation values) @[@0.0, @1.2, @0.9, @1.0]
         }
             break;
         case LSTPopStyleSmoothFromTop:
@@ -1126,7 +1129,7 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     switch (dismissStyle) {
         case LSTDismissStyleScale:
         {
-            [self animationWithLayer:self.customView.layer duration:((0.2*duration)/0.8) values:@[@1.0, @0.66, @0.33, @0.01]];
+            [self animationWithLayer:self.customView.layer duration:((0.2*duration)/0.8) values:self.dismissScaleAnimationValues];
         }
             break;
         case LSTDismissStyleSmoothToTop:

@@ -74,6 +74,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat cornerRadius;
 /** 弹出震动反馈 默认NO iOS10+ 系统才有此效果 */
 @property (nonatomic, assign) BOOL isImpactFeedback;
+/** 当弹窗样式为LSTPopStyleScale时的自定义动画值，默认为@[@0.0, @1.2, @1.0] */
+@property (nonatomic, strong) NSArray *popScaleAnimationValues;
+/** 当弹窗样式为LSTDismissStyleScale时的自定义动画值，默认为@[@1.0, @0.66, @0.33, @0.01] */
+@property (nonatomic, strong) NSArray *dismissScaleAnimationValues;
 
 //************ 群组相关属性 ****************
 /** 群组标识 统一给弹窗编队 方便独立管理 默认为nil,统一全局处理 */

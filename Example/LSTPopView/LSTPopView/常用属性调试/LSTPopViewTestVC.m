@@ -228,7 +228,7 @@
             break;
         default:
         {
-            popView.dismissStyle = LSTPopStyleNO;
+            popView.dismissStyle = LSTDismissStyleNO;
         }
             break;
     }
