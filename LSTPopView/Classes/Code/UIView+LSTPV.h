@@ -44,6 +44,8 @@ CGFloat pv_ScreenWidth(void);
 /** 屏幕高度 */
 CGFloat pv_ScreenHeight(void);
 
+- (UIView *)findFirstResponder;
+
 @end
 
 NS_ASSUME_NONNULL_END
