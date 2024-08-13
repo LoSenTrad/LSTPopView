@@ -7,7 +7,7 @@
 ## 前言
 - 考虑到笔者的精力问题,遇到问题请先查看 API、效仿Demo、阅读README、搜索 Issues。如果是BUG 或 Feature,最好是提Issue
 - 联系方式: LoSenTrad@163.com, QQ群:1045568246, 微信:a_LSTKit
-- 开发环境: Xcode12.3, iOS13.5, iPhone XS Max
+- 开发环境: Xcode12.3, iOS13.5, iPhone XS Max~
 
 ## 博客地址
 - github: [https://github.com/LoSenTrad/LSTPopView](https://github.com/LoSenTrad/LSTPopView)
