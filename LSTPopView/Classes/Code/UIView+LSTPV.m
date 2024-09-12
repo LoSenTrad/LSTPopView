@@ -145,4 +145,23 @@ CGFloat pv_ScreenHeight(void) {
     return size.height;
 }
 
+- (UIView *)findFirstResponder {
+    NSMutableArray<UIView *> *stack = @[self].mutableCopy;
+    BOOL stop = NO;
+    UIView *view = nil;
+    while (stack.count != 0 && !stop) {
+        if ([stack.lastObject isFirstResponder]) {
+            stop = YES;
+            view = stack.lastObject;
+            break;;
+        }
+        if (stack.lastObject.subviews.count != 0) {
+            [stack insertObjects:stack.lastObject.subviews atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, stack.lastObject.subviews.count)]];
+        }
+        [stack removeLastObject];
+    }
+    return view;
+}
+
+
 @end

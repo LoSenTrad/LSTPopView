@@ -1454,15 +1454,16 @@ static const NSTimeInterval LSTPopViewDefaultDuration = -1.0f;
     self.keyboardWillShowBlock? self.keyboardWillShowBlock():nil;
     
     if (!self.isAvoidKeyboard) { return; }
-    CGFloat customViewMaxY = self.customView.pv_Bottom + self.avoidKeyboardSpace;
+    UIView *firstResponder = [self.customView findFirstResponder];
+    CGFloat firstResponderMaxY = CGRectGetMaxY([firstResponder convertRect:firstResponder.bounds toView:self]) + self.avoidKeyboardSpace;
     CGFloat duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue];
     CGRect keyboardEedFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGFloat keyboardMaxY = keyboardEedFrame.origin.y;
     self.isAvoidKeyboard = YES;
-    self.avoidKeyboardOffset = customViewMaxY - keyboardMaxY;
+    self.avoidKeyboardOffset = firstResponderMaxY - keyboardMaxY;
     self.keyboardY = keyboardEedFrame.origin.y;
     //键盘遮挡到弹窗
-    if ((keyboardMaxY<customViewMaxY) || ((_originFrame.origin.y + _customView.pv_Height) > keyboardMaxY)) {
+    if (keyboardMaxY<firstResponderMaxY) {
         //执行动画
         [UIView animateWithDuration:duration animations:^{
             self.customView.pv_Y = self.customView.pv_Y - self.avoidKeyboardOffset;
