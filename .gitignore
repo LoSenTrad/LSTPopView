@@ -36,3 +36,7 @@ Carthage/Build
 #
 # Pods/
 Example/Pods
+
+# Native Swift package build state; sources and tests live in Swift/.
+.build/
+.swiftpm/
