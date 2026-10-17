@@ -104,7 +104,7 @@ final class DemoCatalogViewController: UITableViewController {
         detail.textColor = .secondaryLabel
         detail.numberOfLines = 0
         let boundary = UILabel()
-        boundary.text = "iOS 15+ · Swift 6.2+ · 不修改原 Objective-C Demo"
+        boundary.text = "iOS 15+ · Swift 6.2+"
         boundary.font = .preferredFont(forTextStyle: .caption1)
         boundary.adjustsFontForContentSizeCategory = true
         boundary.textColor = .secondaryLabel

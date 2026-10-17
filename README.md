@@ -1,46 +1,147 @@
-# LSTPopView iOS万能弹窗
+# LSTPopView
 
-[![Platform](https://img.shields.io/badge/platform-iOS-red.svg)](https://developer.apple.com/iphone/index.action) [![Language](http://img.shields.io/badge/language-OC-yellow.svg?style=flat )](https://en.wikipedia.org/wiki/Objective-C) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://mit-license.org) [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/LSTPopView.svg)](https://img.shields.io/cocoapods/v/LSTPopView.svg)
+**简体中文** | [English](README_EN.md)
 
-### LSTPopView 万能弹窗,功能强大,易于拓展,性能优化和内存控制让其运行更加的流畅和稳健, LSTPopView的出现,可以让我们更专注弹窗页面的布局. 省心省力 ! 提高开发效率 !
+[![Platform](https://img.shields.io/badge/platform-iOS-blue.svg)](https://developer.apple.com/ios/) [![Languages](https://img.shields.io/badge/languages-Objective--C%20%7C%20Swift-orange.svg)](#选择版本) [![CocoaPods](https://img.shields.io/cocoapods/v/LSTPopView.svg)](https://cocoapods.org/pods/LSTPopView) [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-## 原生 Swift 版本（可选）
+LSTPopView 是一个 UIKit 自定义弹窗库，提供 **Objective-C** 和 **原生 Swift** 两套实现。业务负责内容和交互，库负责展示、动画、遮罩、队列及关闭流程，适用于确认框、底部面板、输入表单、选择列表、侧边栏等场景。
 
-本仓库同时维护原 Objective-C 实现和新的原生 Swift/UIKit 实现，按项目需要选择安装。
+- 自定义 `UIView` 内容，支持纯代码或 XIB；位置、偏移、圆角和背景可配置。
+- 弹入与退出动画可分别选择，支持拖拽、轻扫、回弹和点击背景关闭。
+- 支持分组、优先级、堆叠、单显示模式，以及按容器查询和管理弹窗。
+- 提供生命周期回调、多代理、键盘避让和倒计时接口。
+- 原生 Swift 版使用 `@MainActor` 隔离界面状态，支持多 Scene 上下文失效、减少动态效果和可访问性焦点恢复。
 
-| | Objective-C 版 | 原生 Swift 版 |
+## 目录
+
+- [选择版本](#选择版本)
+- [先运行 Demo](#先运行-demo)
+- [安装](#安装)
+- [快速使用](#快速使用)
+- [常用配置](#常用配置)
+- [生命周期与接入规则](#生命周期与接入规则)
+- [OC 与 Swift 共存](#oc-与-swift-共存)
+- [Swift 场景示例](#swift-场景示例)
+- [验证与开发](#验证与开发)
+- [OC 动画预览](#oc-动画预览)
+- [更新记录与反馈](#更新记录与反馈)
+- [许可证](#许可证)
+
+## 选择版本
+
+| 项目 | Objective-C | 原生 Swift |
 |---|---|---|
 | 模块 / Pod | `LSTPopView` | `LSTPopViewSwift` |
-| 源码 | `LSTPopView/Classes/Code/` | `Swift/Sources/LSTPopViewSwift/` |
-| 安装 | 原有 CocoaPods 入口保持不变 | Swift Package Manager、独立 CocoaPod 或手动集成 |
-| 系统下限 | 原 podspec 的 iOS 8.0 保持不变 | iOS 15.0+ |
-| Swift 工具链 | 不新增要求 | Swift 6.2+ / Xcode 26+，Swift 6 语言模式 |
-| 第三方依赖 | 原有 `LSTTimer` 保持不变 | 无；仅使用系统框架 |
+| 实现 | Objective-C / UIKit | Swift / UIKit，独立实现 |
+| 部署下限 | podspec 声明 iOS 8.0 | iOS 15.0 |
+| Swift 工具链 | 无新增要求 | Swift 6.2+，Xcode 26+，Swift 6 语言模式 |
+| 第三方依赖 | `LSTTimer` | 无，仅系统框架 |
+| 安装方式 | CocoaPods、手动集成 | Swift Package Manager、独立 CocoaPod、手动集成 |
+| 源码 | [OC 源码](LSTPopView/Classes/Code) | [Swift 源码](Swift/Sources/LSTPopViewSwift) |
 
-旧用户继续使用 `pod 'LSTPopView'`，无需迁移。原 OC 源码、头文件、podspec、默认 subspec 和旧示例保持原样；新增 Swift 文件不在原 OC 的 source glob 内。Swift 的系统和工具链要求只影响主动安装新模块的用户。
+已有 OC 项目继续使用 `pod 'LSTPopView'` 即可，无需迁移。两个模块可以独立安装，也可以在同一个满足 Swift 版要求的 App 内共存。Swift 版的系统和编译器要求不会传递给只安装 OC Pod 的项目。
 
-### Swift Package Manager
+表中的系统下限来自各自的包配置，不代表全部历史系统和设备都完成过运行验证。
 
-在 Xcode 的 **File → Add Package Dependencies** 中添加：
+## 先运行 Demo
+
+| 入口 | 用途 | 运行方式 |
+|---|---|---|
+| [Objective-C Demo](Example) | OC 原有场景与 API 用法 | 在 `Example/` 执行 `pod install`，再打开 `LSTPopView.xcworkspace` |
+| [原生 Swift Demo](Swift/Examples/NativeDemo/README.md) | 16 个独立场景，包含详细中文注释和事件日志 | 直接打开 [NativeSwiftDemo.xcodeproj](Swift/Examples/NativeDemo/NativeSwiftDemo.xcodeproj)，选择 `NativeSwiftDemo` Scheme；无需 Pods |
+| [OC + Swift 共存示例](Swift/Examples/Coexistence/README.md) | 同一个 App 链接两版，检查类名、展示和队列隔离 | 按该目录说明准备依赖并运行；此测试宿主要求 iOS 16+ |
+
+Swift Demo 使用仓库本地 Package。真机运行时，在 Xcode 中选择自己的签名团队。
+
+## 安装
+
+### Objective-C · CocoaPods
+
+在应用 target 的 `Podfile` 中添加：
+
+```ruby
+pod 'LSTPopView'
+```
+
+执行 `pod install`，通过生成的 `.xcworkspace` 打开工程。CocoaPods 会安装 OC 版需要的 `LSTTimer`。
+
+### Swift · Swift Package Manager
+
+在 Xcode 的 **File → Add Package Dependencies** 中添加仓库地址：
 
 ```text
 https://github.com/LoSenTrad/LSTPopView.git
 ```
 
-选择 **Branch: `master`**，并添加产品 **`LSTPopViewSwift`**。已有 `0.3.10` 及更早标签属于 OC 历史版本，不包含 Swift Package；需要固定版本时，可使用合并后的提交 revision。Swift 独立发版前，暂不使用这些 OC 标签选择 Swift 版本。
+选择 **Branch: `master`**，将产品 **`LSTPopViewSwift`** 添加到应用 target。
 
-### Swift CocoaPods
+当前 Swift 集成入口是仓库分支；需要锁定源码时，选择已验证提交的 **Revision**。`0.3.10` 及更早标签属于 OC 历史版本，不包含 Swift Package，不能用于安装原生 Swift 产品。
 
-新模块使用独立名称和源码范围。Swift Pod 尚未发布到 CocoaPods Trunk 时，使用仓库分支安装：
+### Swift · CocoaPods
+
+Swift Pod 使用独立名称。尚未发布到 CocoaPods Trunk 时，按 Git 分支集成：
 
 ```ruby
 platform :ios, '15.0'
-pod 'LSTPopViewSwift', :git => 'https://github.com/LoSenTrad/LSTPopView.git', :branch => 'master'
+
+target 'YourApp' do
+  pod 'LSTPopViewSwift', :git => 'https://github.com/LoSenTrad/LSTPopView.git', :branch => 'master'
+end
 ```
 
-原 OC 用户的 `pod 'LSTPopView'` 写法保持不变。两种名称也可出现在同一个兼容 iOS 15+ 的应用中；Swift 版不依赖、替换或自动安装 OC 版。
+执行 `pod install`。Swift 6.2+ 的编译器要求同样适用于 CocoaPods 安装；podspec 的 `swift_version = '6.0'` 表示语言模式，不代表 Swift 6.0 编译器能够编译这些源码。
 
-### Swift 基本使用
+同一个应用 target 选择一种 Swift 安装方式即可，避免同时通过 SPM、Pods 或手动源码重复链接相同实现。
+
+### 手动集成
+
+- **OC**：添加 [Code 目录](LSTPopView/Classes/Code)中的 `LSTPopView.h/.m`、`UIView+LSTPV.h/.m`、`LSTPopViewProtocol.h`，同时安装 [LSTTimer](https://github.com/LoSenTrad/LSTTimer)。需要额外的 `LSTAlert` 封装时，一并添加 `LSTAlert.h/.m`。
+- **Swift**：把 [Swift/Sources/LSTPopViewSwift](Swift/Sources/LSTPopViewSwift) 中全部五个 `.swift` 文件加入同一个应用或框架 target，并使用 iOS 15+、Swift 6 语言模式及 Swift 6.2+ 编译器。
+
+手动把 OC 文件加入应用 target 时，使用 `#import "LSTPopView.h"`；下文的 `<LSTPopView/LSTPopView.h>` 写法用于 CocoaPods 模块。手动把 Swift 文件加入应用 target 时，不再 `import LSTPopViewSwift`，也无需模块名前缀；类型属于你自己的 target。两套源码均需保留对应 MIT 版权和许可声明。Carthage 暂未提供适配入口。
+
+## 快速使用
+
+先确定内容尺寸，再创建弹窗、配置属性并调用 `pop`。示例使用 `UILabel`，可以直接换成业务的自定义 `UIView`。
+
+### Objective-C
+
+```objective-c
+#import <LSTPopView/LSTPopView.h>
+
+// 在 UIViewController 的主线程界面方法中调用。
+- (void)showPopup {
+    UILabel *content = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 280, 160)];
+    content.text = @"自定义弹窗内容";
+    content.textAlignment = NSTextAlignmentCenter;
+    content.backgroundColor = [UIColor whiteColor];
+    content.textColor = [UIColor blackColor];
+
+    LSTPopView *popup = [LSTPopView initWithCustomView:content
+                                         parentView:self.view
+                                           popStyle:LSTPopStyleSmoothFromBottom
+                                       dismissStyle:LSTDismissStyleSmoothToBottom];
+    if (!popup) { return; }
+
+    popup.hemStyle = LSTHemStyleBottom;
+    popup.cornerRadius = 16;
+    popup.isClickBgDismiss = YES;
+    [popup pop];
+}
+```
+
+需要在按钮或背景回调里主动关闭时，弱引用弹窗，避免 `popup → block → popup` 循环：
+
+```objective-c
+__weak LSTPopView *weakPopup = popup;
+popup.bgClickBlock = ^{
+    [weakPopup dismiss];
+};
+```
+
+上面的回调片段在 `popup` 创建后、`[popup pop]` 前设置；它可以代替 `isClickBgDismiss = YES`。
+
+### Swift
 
 ```swift
 import UIKit
@@ -49,7 +150,7 @@ import LSTPopViewSwift
 @MainActor
 func showPopup(in parent: UIView) {
     let content = UILabel(frame: CGRect(x: 0, y: 0, width: 280, height: 160))
-    content.text = "Native Swift popup"
+    content.text = "自定义弹窗内容"
     content.textAlignment = .center
     content.backgroundColor = .systemBackground
 
@@ -63,202 +164,147 @@ func showPopup(in parent: UIView) {
     popup.hemStyle = .bottom
     popup.cornerRadius = 16
     popup.isClickBgDismiss = true
-    popup.popViewDidDismissBlock = { print("Native popup removed") }
+    popup.popViewDidDismissBlock = { print("弹窗已移除") }
     popup.pop()
 }
 ```
 
-显式传入 `parentView` 最明确；省略时，工厂只在前台宿主能够唯一确定时推断窗口。需要多个 scene 时分别指定各自父容器。显示和排队期间，内部 Session 持有弹窗；移除后解除持有。内容视图引用弹窗、闭包引用业务控制器时请使用 `weak`，避免引用环。
+普通页面调用 `showPopup(in: view)`。如果通过闭包持有业务控制器或反向引用弹窗，使用 `[weak self]` 或 `[weak popup]`。
 
-### 新旧版并存及行为边界
+## 常用配置
 
-- 两版模块独立，管理队列和清场接口互不影响。Swift 类型通过 `LSTPopViewSwift.LSTPopView` 显式限定；两版同文件出现同名类型时也应使用模块限定或类型别名。
-- 原生 Swift 类没有注册为 OC 的全局 `LSTPopView` 类名；不需要也不要添加 `@objc(LSTPopView)`。内部 `UIView.pv_*` 辅助扩展不导出，避免与原 OC 分类产生消费方 API 歧义。
-- Swift 公开 API 受 `@MainActor` 隔离；队列使用不可变的每轮 Session、事务和代际校验处理回调重入。Swift 6.2 的隔离析构保证计时器、观察者清理遵守相同隔离；键盘通知先转成 `Sendable` 值快照再交给界面状态机。
-- Swift 的 `popViewDidDismissBlock` 在实际移除完成时调用；原 OC 的回调时机继续遵循原实现（包含析构通知语义），不会被新模块改写。不能依赖两版完全相同的内部生命周期。
-- Swift 支持原有弹窗样式、位置、手势、分组、优先级、弱多代理、键盘避让和倒计时接口；不包含 OC 的独立 `LSTAlert` 封装，也不提供 Objective-C 到原生 Swift 的自动替换层。
-- Swift 的 `removeAllPopView()` 是普通清场，清场结束后可明确重新展示；`invalidateAllScopes()` 用于退出账号或切换根界面前撤销旧上下文；`invalidatePopViews(in: scene)` 用于 scene 断开。Swift 的清场不会关闭原 OC 队列。
-- 原生 Swift 使用系统单调时钟，并支持减少动态效果、模态可访问性和关闭后的焦点恢复；这些策略的单元测试采用注入环境，不等同于真实设备 VoiceOver 人工验证。
+两版保留了相近的 API 命名；枚举拼写按语言区分。完整接口见 [OC 头文件](LSTPopView/Classes/Code/LSTPopView.h)、[OC 类型定义](LSTPopView/Classes/Code/LSTPopViewProtocol.h)、[Swift 公开实现](Swift/Sources/LSTPopViewSwift/LSTPopView.swift)和 [Swift 类型定义](Swift/Sources/LSTPopViewSwift/LSTPopViewTypes.swift)。
 
-### 测试与共存示例
-
-面向使用和学习的 [原生 Swift 场景 Demo](Swift/Examples/NativeDemo/README.md) 独立提供 16 个中文场景页，覆盖确认框、分享面板、键盘输入、列表选择、侧边栏、优先级、堆叠、动画、拖拽、倒计时、动态高度和生命周期。直接打开 `Swift/Examples/NativeDemo/NativeSwiftDemo.xcodeproj` 即可通过本地 Swift Package 运行，无需 Pods。原 OC Demo 保留在 `Example/`。
-
-`Swift/Tests/LSTPopViewSwiftTests/` 保存独立库行为测试；`Swift/Tests/PublicAPIConsumer/Consumer.swift` 使用普通 import 检查公开 API。库测试需要已经建立真实 `UIWindowScene` 的 UIKit 宿主，不能把普通 macOS 的 `swift test` 当成 iOS 验证。
-
-可运行的 [新旧版共存示例及验证说明](Swift/Examples/Coexistence/README.md) 使用原 OC podspec 和真实 `LSTTimer`，在同一个 iOS App 中链接原 OC 与原生 Swift，并验证运行时类名、各自展示/关闭及队列隔离。示例和测试宿主要求 iOS 16+，不改变库的 iOS 15 下限。
-
-`./Swift/Scripts/verify-public-api.sh` 会实际编译、链接 Swift 6 严格并发模块，再从模块外检查公开接口。仓库现有两个独立 podspec，校验时请显式选择：`pod lib lint LSTPopView.podspec` 或 `pod lib lint LSTPopViewSwift.podspec`。原 Travis 的 OC 校验也显式指定原 spec，避免自动选择时产生歧义。
-
-## 前言
-- 考虑到笔者的精力问题,遇到问题请先查看 API、效仿Demo、阅读README、搜索 Issues。如果是BUG 或 Feature,最好是提Issue
-- 联系方式: LoSenTrad@163.com, QQ群:1045568246, 微信:a_LSTKit
-- 开发环境: Xcode12.3, iOS13.5, iPhone XS Max~
-
-## 博客地址
-- github: [https://github.com/LoSenTrad/LSTPopView](https://github.com/LoSenTrad/LSTPopView)
-- CSDN: [https://blog.csdn.net/u012400600/article/details/106279654](https://blog.csdn.net/u012400600/article/details/106279654)
-- 简书: [https://www.jianshu.com/p/8023a85dc2a2](https://www.jianshu.com/p/8023a85dc2a2)
-
-## 目录
-* [特性](#特性)   
-* [版本更新历史](#版本更新历史)  
-* [安装](#安装)  
-* [基本使用](#基本使用)  
-* [使用注意事项](#使用注意事项)  
-* [演示效果](#演示效果)  
-* [作者](#作者)  
-* [版权](#版权)  
-
-## 特性
-- 提供丰富的api,高度自定义弹窗,简单入手使用
-- 支持弹出动画,消失动画,主动动画等多重动画搭配
-- 支持点击,长按,拖拽,横扫手势交互
-- 支持多弹窗管理:编队,堆叠,优先级等
-- 支持指定弹窗父类,eg: UIWindow,self.view等
-- 安全且内存占用小,弹窗内存自动回收
-- 提供生命周期api,自定义动画控制
-- 自动规避键盘,防止被键盘遮挡
-- 支持定时器,多定时器机制
-- 支持纯代码/xib页面
-- 支持横竖屏切换
-- 支持多代理机制
-- 支持二次封装,比如组件LSTHUD,LSTAlertView等
-
-## 版本更新历史
-- [点我查看](https://github.com/LoSenTrad/LSTPopView/blob/master/UPDATE_HISTORY.md)
-
-## 安装
-- OC版本安装 
-    - CocoaPods安装: 在podfile文件中添加以下描述,然后 `pod install` 或者 `pod update`
-
-      ```
-      pod 'LSTPopView'
-      ```  
-    - Carthage安装:(暂时未适配)
-- Swift版本安装
-    - 原生 Swift 模块已在本仓库提供，见上方“原生 Swift 版本（可选）”。
-
-- 手动导入集成
-    - 1.拖动LSTPopView文件下5个文件到项目中
-    
-     ```objective-c
-     LSTPopView.h
-     LSTPopView.m
-     UIView+LSTPV.h
-     UIView+LSTPV.m
-     LSTPopViewProtocol.h
-     ```  
-    - 2.在项目中podfile添加依赖库LSTTimer: https://github.com/LoSenTrad/LSTTimer
-     ```ruby
-     pod 'LSTTimer'
-     ```  
-      
-## 基本使用
-- 代码示例
-
-    ```objective-c
-    //自定义view
-    LSTPopViewTVView *customView = [[LSTPopViewTVView alloc] initWithFrame:CGRectMake(0, 0, 300,400)];
-   //创建弹窗PopViiew 指定父容器self.view, 不指定默认是app window
-    LSTPopView *popView = [LSTPopView initWithCustomView:customView
-                                              parentView:self.view
-                                                popStyle:LSTPopStyleSmoothFromBottom
-                                            dismissStyle:LSTDismissStyleSmoothToBottom];
-   //弹窗位置: 居中 贴顶 贴左 贴底 贴右 
-   popView.hemStyle = LSTHemStyleBottom;
-   LSTPopViewWK(popView)
-   //点击背景触发
-   popView.bgClickBlock = ^{ [wk_popView dismiss]; };
-   //弹窗显示
-  [popView pop];
-  ```
-  
-- 调试日志 
-  ```objective-c
-  /** 调试日志类型 */
-  typedef NS_ENUM(NSInteger, LSTPopViewLogStyle) {
-  LSTPopViewLogStyleNO = 0,          // 关闭调试信息(窗口和控制台日志输出)
-  LSTPopViewLogStyleWindow,          // 开启左上角小窗
-  LSTPopViewLogStyleConsole,         // 开启控制台日志输出
-  LSTPopViewLogStyleALL              // 开启小窗和控制台日志
-  };
-  ```
-    - 调试小窗: S表示当前已经显示的弹窗数, R表示在移除队列的弹窗, S+R是表示当前所有的弹窗数
-  
-  
-
-  
-
-## 使用注意事项 
-#### (一定用weak修饰)
-- 解析: LSTPopView对每个弹窗都有自动内存销毁机制, 外部对弹窗的强引用对打破这种自动内存销毁机制, 比如成员变量用strong修饰,否则弹窗不能自动销毁,导致内存回收不了.
-- 类成员变量使用规范:
-
-  ```objective-c
-  //成员变量用weak修饰, 不可以用strong修饰
-  @property (nonatomic,weak) LSTPopView *popView;
-  ```
-- 成员变量的创建
-  ```objective-c
-  LSTPopViewTVView *customView = [[LSTPopViewTVView alloc] initWithFrame:CGRectMake(0, 0, 300,400)];
-  //弹窗实例创建
-  LSTPopView *popView = [LSTPopView initWithCustomView:customView
-                                                popStyle:LSTPopStyleSmoothFromBottom
-                                            dismissStyle:LSTDismissStyleSmoothToBottom];
-  //这里赋值给成员变量self.popView
-  self.popView = popView;
-  [popView pop];
-  ```
-  
-- 错误使用: 
-  ```objective-c
-  //直接赋值给成员变量 导致成员变量为空, 请参考以上使用规范
-  self.popView = [LSTPopView initWithCustomView:customView
-                                         popStyle:LSTPopStyleSmoothFromBottom
-                                     dismissStyle:LSTDismissStyleSmoothToBottom];
-  ```
-
-    
-## 演示效果
-
-- 应用市场常用的示例场景
-
-|QQ,微信,UC,微博,抖音<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/base_demo.gif" width = "200" height = "424" alt="图片名称" align=center />|拖拽移除,横扫移除<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/drag_sweep.gif" width = "200" height = "424" alt="图片名称" align=center /> |
-|---|---|
-
-- 丰富的出入场动画, 拖拽, 横扫动画
-
-|弹出动画,中间,自上,自左,自下,自左<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/pop.gif" width = "200" height = "424" alt="图片名称" align=center />|移除动画,中间,至上,至左,至下,至左<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/dismiss.gif" width = "200" height = "424" alt="图片名称" align=center /> |拖拽,横扫动画<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/dragSweep.gif" width = "200" height = "424" alt="图片名称" align=center /> |
+| 用途 | OC 示例 | Swift 示例 |
 |---|---|---|
+| 底部定位 | `popup.hemStyle = LSTHemStyleBottom;` | `popup.hemStyle = .bottom` |
+| 横向 / 纵向偏移 | `popup.adjustX = 12; popup.adjustY = -20;` | `popup.adjustX = 12; popup.adjustY = -20` |
+| 点击遮罩关闭 | `popup.isClickBgDismiss = YES;` | `popup.isClickBgDismiss = true` |
+| 隐藏遮罩并穿透背景 | `popup.isHideBg = YES;` | `popup.isHideBg = true` |
+| 圆角 | `popup.cornerRadius = 16;` | `popup.cornerRadius = 16` |
+| 键盘避让 / 间距 | `popup.isAvoidKeyboard = YES; popup.avoidKeyboardSpace = 10;` | `popup.isAvoidKeyboard = true; popup.avoidKeyboardSpace = 10` |
+| 业务分组 | `popup.groupId = @"checkout";` | `popup.groupId = "checkout"` |
+| 优先级（0…1000） | `popup.priority = 900;` | `popup.priority = 900` |
+| 堆叠 | `popup.isStack = YES;` | `popup.isStack = true` |
+| 单显示模式 | `popup.isSingle = YES;` | `popup.isSingle = true` |
+| 3 秒后自动关闭 | `popup.showTime = 3;` | `popup.showTime = 3` |
+| 允许向下拖拽 / 轻扫 | `popup.dragStyle = LSTDragStyleY_Positive; popup.sweepStyle = LSTSweepStyleY_Positive;` | `popup.dragStyle = .y_Positive; popup.sweepStyle = .y_Positive` |
+| 关闭当前弹窗 | `[popup dismiss];` | `popup.dismiss()` |
+| 控制台调试日志 | `[LSTPopView setLogStyle:LSTPopViewLogStyleConsole];` | `LSTPopViewSwift.LSTPopView.setLogStyle(.console)` |
 
-- 弹窗位置
+位置与动画独立配置。堆叠、单显示和普通优先级队列应按业务选择，避免同时开启冲突意图。Swift 完整默认值、拖拽阈值和场景配置差异见 [Demo 参数速查](Swift/Examples/NativeDemo/README.md#常用参数速查)，不要假定两版所有默认值完全相同。
 
-|弹窗位置,中间,贴顶,贴左,贴底,贴右<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/hem_Style.gif" width = "200" height = "424" alt="图片名称" align=center />|X轴,Y轴调教,宽度和高度调教<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/x_y_w_h.gif" width = "200" height = "424" alt="图片名称" align=center /> |
+## 生命周期与接入规则
+
+### 内容尺寸与父容器
+
+库负责摆放内容，不替业务决定宽高。使用 Auto Layout 时，可以先通过 `systemLayoutSizeFitting` 测量内容，再设置 `frame`。内容尺寸变化、横竖屏切换和键盘交互请结合真实宿主测试。
+
+建议显式传入 `parentView`：页面级传 `view`，窗口级传所属 `UIWindow`。Swift 的无父容器工厂仅在前台窗口能够唯一确定时推断宿主，无法确定则返回 `nil`；多 Scene 项目应明确选择对应容器。
+
+### 所有权与回调
+
+- 创建后先用局部强引用完成配置，再调用 `pop`。不要把尚未入队的对象直接赋给唯一的弱属性，否则它可能立即释放。
+- 显示或排队期间，库持有弹窗；业务只需要查找它时，可使用弱属性。外部强引用会延长对象生命，但并非任何强引用都会产生泄漏；闭包或内容视图反向强持有才可能形成引用环。
+- 两版代理均采用弱引用，业务侧需要自己维护代理对象的生命期。
+- **OC 的 `popViewDidDismissBlock` 在 `dealloc` 中触发**，且该回调保存在弱集合中；需要可靠接收时，由消费方 `copy` / 强持有回调本身，并避免回调强捕获弹窗。其他普通 `copy` Block 属性不应一概当作弱存储处理。
+- **Swift 的 `popViewDidDismissBlock` 在实际移除完成时触发**，不需要等待对象析构。不能把这一时序直接套用于 OC。
+
+### 主线程与 Swift 并发
+
+OC 的 UIKit 调用应放在主线程。Swift 的公开弹窗 API 使用 `@MainActor`，管理队列与展示状态通过同一 Actor 串行访问；从其他异步上下文调用时，需要遵守 Actor 隔离。
+
+不要在主 Actor 内执行同步网络、图片解码或大量计算。`@MainActor` 也不意味着整个含 `await` 的流程不可重入；Swift 版通过每轮 Session 快照、事务和代际校验处理回调重入与旧上下文操作。
+
+### Swift 清理接口
+
+| 接口 | 使用时机 |
 |---|---|
+| `popup.dismiss()` | 正常关闭当前弹窗 |
+| `LSTPopViewSwift.LSTPopView.removeAllPopView()` | 普通全局清场；完成后可以明确重新展示旧对象 |
+| `LSTPopViewSwift.LSTPopView.invalidateAllScopes()` | 退出账号或切换根界面前撤销旧上下文；后续创建新弹窗 |
+| `LSTPopViewSwift.LSTPopView.invalidatePopViews(in: scene)` | Scene 断开时撤销该 Scene 的旧上下文 |
 
-- 自动规避键盘遮挡,指定容器,定时器
+页面返回时优先清理属于该页容器的弹窗，避免把局部操作变成整个应用的清场。
 
-|自动规避键盘遮挡<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/keyboard.gif" width = "200" height = "424" alt="图片名称" align=center />|指定容器弹出<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E6%8C%87%E5%AE%9A%E5%AE%B9%E5%99%A8.gif" width = "200" height = "424" alt="图片名称" align=center />|弹窗计时<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E8%AE%A1%E6%97%B6%E5%99%A8.gif" width = "200" height = "424" alt="图片名称" align=center />|
+## OC 与 Swift 共存
+
+两版拥有独立的类型身份、管理器和队列，不会跨实现统一优先级或互相清理。Swift 类型可以写全名 `LSTPopViewSwift.LSTPopView`；混合项目也可像[共存示例](Swift/Examples/Coexistence)一样，用一个薄 OC adapter 包装原 OC 入口。
+
+原生 Swift 类没有注册为全局 OC 类名 `LSTPopView`，不要添加 `@objc(LSTPopView)`。内部几何辅助扩展不作为 Swift 公共 API 导出。Swift 版提供弹窗核心能力，不包含 OC 的独立 `LSTAlert` 封装，也不提供自动替换 OC 类的兼容层。
+
+## Swift 场景示例
+
+[完整指南与源码入口](Swift/Examples/NativeDemo/README.md)包含 16 个独立中文页面。每页提供场景说明、操作按钮、知识点、事件日志和详细源码注释。
+
+| 分组 | 场景 |
+|---|---|
+| 基础用法（6） | 确认框与短提示、底部分享面板、输入表单与键盘、单选与多选列表、可滚动底部内容、左右侧边栏 |
+| 进阶场景（10） | 优先级队列、堆叠与单例替换、九宫格定位、动画对照、拖拽/轻扫/滚动、倒计时暂停恢复、动态内容与圆角、生命周期与弱多代理、宿主释放与失效、背景穿透与辅助功能 |
+
+以下截图来自实际模拟器运行。分享、提交和保存使用本地演示回调。
+
+| 场景目录 | 底部分享面板 | 输入表单 |
 |---|---|---|
-     
-- 多弹窗管理(优先级,编队)
+| <img src="Swift/Examples/NativeDemo/Screenshots/catalog.png" width="220" alt="Swift 场景目录" /> | <img src="Swift/Examples/NativeDemo/Screenshots/share.png" width="220" alt="底部分享面板" /> | <img src="Swift/Examples/NativeDemo/Screenshots/form.png" width="220" alt="输入表单" /> |
 
-|app启动多弹窗优先级显示<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/launch.gif" width = "200" height = "424" alt="图片名称" align=center />|多窗口编队使用<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E7%AA%97%E5%8F%A3%E7%BC%96%E9%98%9F%E7%9A%84%E4%BD%BF%E7%94%A8.gif" width = "200" height = "424" alt="图片名称" align=center />|
+## 验证与开发
+
+在仓库根目录构建 Swift Demo：
+
+```bash
+xcodebuild build \
+  -project Swift/Examples/NativeDemo/NativeSwiftDemo.xcodeproj \
+  -scheme NativeSwiftDemo \
+  -destination 'generic/platform=iOS Simulator' \
+  CODE_SIGNING_ALLOWED=NO
+```
+
+检查 Swift 6 严格并发编译、链接和模块外公开 API：
+
+```bash
+./Swift/Scripts/verify-public-api.sh
+```
+
+[Swift 行为测试](Swift/Tests/LSTPopViewSwiftTests)需要提供真实 `UIWindowScene` 的 UIKit 宿主；运行方法见[共存验证说明](Swift/Examples/Coexistence/README.md)。普通 macOS `swift test` 不能替代 iOS 验证。可访问性策略的单元测试也不等于真机 VoiceOver 人工检查。
+
+仓库有两个独立 podspec，校验时明确选择目标：
+
+```bash
+pod lib lint LSTPopView.podspec
+pod lib lint LSTPopViewSwift.podspec
+```
+
+构建、单元测试、场景交互和真机验证应分别记录，以实际执行结果为准。
+
+## OC 动画预览
+
+以下为原 OC Demo 的历史演示，更多交互可运行 `Example/` 查看。
+
+<details>
+<summary>展开动画、拖拽、位置和键盘演示</summary>
+
+| 常用业务场景 | 拖拽与轻扫 |
 |---|---|
-     
- - 支持横竖屏
- 
-|屏幕旋转<br><img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/LSTPopView/%E5%B1%8F%E5%B9%95%E6%97%8B%E8%BD%AC.gif" width = "500" height = "500" alt="图片名称" align=center />|
-|---|
+| <img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/base_demo.gif" width="220" alt="OC 常用业务场景" /> | <img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/drag_sweep.gif" width="220" alt="OC 拖拽与轻扫" /> |
 
-       
+| 弹入动画 | 退出动画 | 定位与偏移 |
+|---|---|---|
+| <img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/pop.gif" width="200" alt="OC 弹入动画" /> | <img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/dismiss.gif" width="200" alt="OC 退出动画" /> | <img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/hem_Style.gif" width="200" alt="OC 弹窗位置" /> |
 
-## 作者
+| 键盘避让 | 启动弹窗优先级 |
+|---|---|
+| <img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/keyboard.gif" width="220" alt="OC 键盘避让" /> | <img src="https://raw.githubusercontent.com/5208171/LSTBlog/master/uPic/launch.gif" width="220" alt="OC 优先级队列" /> |
 
-LoSenTrad@163.com, QQ群:1045568246, 微信:a_LSTKit
+</details>
 
-## 版权
+## 更新记录与反馈
 
- 尊重劳动成果, 人人有责.
-    
+- [版本更新历史](UPDATE_HISTORY.md)。
+- 遇到问题时，先查看对应版本 API、Demo 和已有 [Issues](https://github.com/LoSenTrad/LSTPopView/issues)。提交问题请注明 OC / Swift、依赖方式、Xcode / iOS 版本、复现步骤和最小示例。
+- 作者：LoSenTrad；邮箱：LoSenTrad@163.com；QQ群：1045568246；微信：a_LSTKit。
+- 历史介绍：[CSDN](https://blog.csdn.net/u012400600/article/details/106279654)、[简书](https://www.jianshu.com/p/8023a85dc2a2)。文章可能早于当前 Swift 实现，接口以仓库为准。
+
+## 许可证
+
+两版均使用 MIT 许可证，见根目录 [LICENSE](LICENSE) 和 [Swift/LICENSE](Swift/LICENSE)。分发源码或衍生作品时，请保留版权与许可声明。
