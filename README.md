@@ -82,6 +82,8 @@ func showPopup(in parent: UIView) {
 
 ### 测试与共存示例
 
+面向使用和学习的 [原生 Swift 场景 Demo](Swift/Examples/NativeDemo/README.md) 独立提供 16 个中文场景页，覆盖确认框、分享面板、键盘输入、列表选择、侧边栏、优先级、堆叠、动画、拖拽、倒计时、动态高度和生命周期。直接打开 `Swift/Examples/NativeDemo/NativeSwiftDemo.xcodeproj` 即可通过本地 Swift Package 运行，无需 Pods。原 OC Demo 保留在 `Example/`。
+
 `Swift/Tests/LSTPopViewSwiftTests/` 保存独立库行为测试；`Swift/Tests/PublicAPIConsumer/Consumer.swift` 使用普通 import 检查公开 API。库测试需要已经建立真实 `UIWindowScene` 的 UIKit 宿主，不能把普通 macOS 的 `swift test` 当成 iOS 验证。
 
 可运行的 [新旧版共存示例及验证说明](Swift/Examples/Coexistence/README.md) 使用原 OC podspec 和真实 `LSTTimer`，在同一个 iOS App 中链接原 OC 与原生 Swift，并验证运行时类名、各自展示/关闭及队列隔离。示例和测试宿主要求 iOS 16+，不改变库的 iOS 15 下限。
