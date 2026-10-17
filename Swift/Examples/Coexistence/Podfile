@@ -1,0 +1,26 @@
+platform :ios, '16.0'
+project 'CoexistenceApp.xcodeproj'
+
+target 'CoexistenceApp' do
+  # The unchanged original podspec selects LSTPopView/Classes/Code and resolves
+  # its real LSTTimer dependency. No mock, copied source or modified OC library.
+  pod 'LSTPopView', :path => '../../..'
+
+  # Pin the legacy dependency for a reproducible consumer verification. This
+  # affects this fixture only; the original podspec's dependency stays intact.
+  pod 'LSTTimer', '0.2.10'
+
+  target 'CoexistenceTests' do
+    inherit! :search_paths
+  end
+end
+
+post_install do |installer|
+  # Original pods support iOS 8. Modern Xcode warns for that deployment target.
+  # The fixture itself runs on iOS 16+, without editing either pod's sources.
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '16.0'
+    end
+  end
+end

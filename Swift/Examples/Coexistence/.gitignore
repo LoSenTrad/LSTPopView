@@ -1,0 +1,8 @@
+/.bundle/
+/vendor/
+/Pods/
+/DerivedData/
+/TestResults/
+/CoexistenceApp.xcodeproj/
+/CoexistenceApp.xcworkspace/
+*.xcuserstate
